@@ -3,3 +3,6 @@ zsh_history
 
 # NeoVim config which lives in seperate repo
 nvim/
+
+# github cli hosts file
+hosts.yml

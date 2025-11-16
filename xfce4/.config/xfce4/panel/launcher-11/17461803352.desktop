@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=regedit
+Comment=
+Exec=wine-stable regedit
+Icon=text-x-ms-regedit
+Path=
+Terminal=false
+StartupNotify=false

@@ -1,0 +1,7 @@
+[user]
+	email = amid.muradov111@gmail.com
+	name = Xeks4237
+[credential]
+	helper = store
+[init]
+	defaultBranch = main

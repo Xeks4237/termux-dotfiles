@@ -1,0 +1,36 @@
+theme {
+  name ultracompact
+  title "Very compact theme"
+  heart   ♥
+  spade   ♠
+  diamond ♦
+  club    ♣
+  width 3
+  height 1
+  x_spacing 0
+  y_spacing 0
+  rank 10 T
+  empty {
+    top    --
+    fg green
+    bg black
+    left_padding 0
+  }
+  back {
+    top    []
+    fg blue
+    bg black
+  }
+  red {
+    top   "   "
+    fg red
+    bg black
+    left_padding 0
+  }
+  black {
+    top   "   "
+    fg white
+    bg black
+    left_padding 0
+  }
+}

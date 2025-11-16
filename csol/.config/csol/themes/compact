@@ -1,0 +1,30 @@
+theme {
+  name compact
+  title "A compact theme"
+  heart   ♥
+  spade   ♠
+  diamond ♦
+  club    ♣
+  width 5
+  height 1
+  empty {
+    top    -----
+    fg green
+    bg black
+  }
+  back {
+    top    [===]
+    fg blue
+    bg black
+  }
+  red {
+    top    [   ]
+    fg red
+    bg black
+  }
+  black {
+    top    [   ]
+    fg white
+    bg black
+  }
+}

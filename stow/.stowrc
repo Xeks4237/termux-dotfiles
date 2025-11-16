@@ -1,0 +1,4 @@
+--verbose=2
+--adopt
+--dir=$HOME/.dotfiles/
+--target=$HOME

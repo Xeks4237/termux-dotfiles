@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-taskmanager" version="1.0">
+  <property name="columns" type="empty">
+    <property name="sort-type" type="uint" value="1"/>
+    <property name="sort-id" type="uint" value="9"/>
+    <property name="column-pid" type="bool" value="false"/>
+    <property name="column-group-rss" type="bool" value="false"/>
+    <property name="column-rss" type="bool" value="false"/>
+    <property name="column-group-cpu" type="bool" value="false"/>
+    <property name="column-uid" type="bool" value="true"/>
+    <property name="column-vsz" type="bool" value="false"/>
+    <property name="column-group-vsz" type="bool" value="false"/>
+    <property name="positions" type="string" value="0;2;3;4;5;6;7;8;9;1;10;11;"/>
+    <property name="column-priority" type="bool" value="false"/>
+  </property>
+  <property name="interface" type="empty">
+    <property name="show-all-processes" type="bool" value="true"/>
+    <property name="process-tree" type="bool" value="true"/>
+    <property name="more-precision" type="bool" value="false"/>
+    <property name="refresh-rate" type="uint" value="500"/>
+    <property name="handle-position" type="int" value="99"/>
+    <property name="full-command-line" type="bool" value="false"/>
+  </property>
+  <property name="window-maximized" type="bool" value="true"/>
+  <property name="show-status-icon" type="bool" value="false"/>
+</channel>

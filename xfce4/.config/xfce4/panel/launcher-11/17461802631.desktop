@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=winecfg
+Comment=
+Exec=wine-stable winecfg
+Icon=winecfg
+Path=
+Terminal=false
+StartupNotify=false

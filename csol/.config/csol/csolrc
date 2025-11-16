@@ -1,0 +1,11 @@
+theme_dir themes
+game_dir games
+default_theme default-xl-emoji
+default_game klondike
+scores 1
+stats 1
+show_score 1
+smart_cursor 1
+keep_vertical_position 0
+alt_cursor 1
+show_menu 1

@@ -1,0 +1,13 @@
+# GIMP gimp-vector-tool options
+
+(foreground
+    (color "R'G'B'A double" 32 "\0\0\0\340\66\36\276\77\0\0\0\340\66\36\276\77\0\0\0\200\43\27\307\77\0\0\0\0\0\0\360\77" 0))
+(background
+    (color "R'G'B'A float" 16 "\1\0\200\77\1\0\200\77\1\0\200\77\0\0\200\77" 0))
+(brush "2. Hardness 050")
+(dynamics "Pressure Size")
+(pattern "Starfield")
+(gradient "Skyline")
+(palette "Standard")
+
+# end of gimp-vector-tool options

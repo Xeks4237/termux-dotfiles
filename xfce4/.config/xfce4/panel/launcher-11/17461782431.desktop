@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=wine explorer
+Comment=
+Exec=wine-stable explorer
+Icon=winefile
+Path=
+Terminal=false
+StartupNotify=false

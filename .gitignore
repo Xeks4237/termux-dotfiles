@@ -1,0 +1,5 @@
+# zsh history file
+zsh_history
+
+# NeoVim config which lives in seperate repo
+nvim/

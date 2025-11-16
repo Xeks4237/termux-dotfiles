@@ -1,0 +1,11 @@
+# Git Related files and directories
+\.git
+\.gitignore
+\.gitmodules
+
+# README and LICENSE files
+^/README.*
+^/LICENSE.*
+
+# directorie with My Neovim config (it's lives in seperate repo)
+nvim

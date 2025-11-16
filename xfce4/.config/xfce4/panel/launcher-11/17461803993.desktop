@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=mobox taskgmr
+Comment=
+Exec=wine-stable taskmgr
+Icon=SysMonTask
+Path=
+Terminal=false
+StartupNotify=false

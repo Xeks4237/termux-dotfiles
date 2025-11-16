@@ -1,0 +1,38 @@
+theme {
+  name default-xl
+  title "Default theme with bigger cards"
+  heart   ♥
+  spade   ♠
+  diamond ♦
+  club    ♣
+  width 8
+  height 6
+  empty {
+    top    ┌──────┐
+    middle │      │
+    bottom └──────┘
+    fg white
+    bg black
+  }
+  back {
+    top    ┌──────┐
+    middle │      │
+    bottom └──────┘
+    fg white
+    bg blue
+  }
+  red {
+    top    ┌──────┐
+    middle │      │
+    bottom └──────┘
+    fg red
+    bg white
+  }
+  black {
+    top    ┌──────┐
+    middle │      │
+    bottom └──────┘
+    fg black
+    bg white
+  }
+}

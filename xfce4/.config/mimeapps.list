@@ -1,0 +1,14 @@
+[Default Applications]
+application/vnd.microsoft.portable-executable=userapp-mobox.sh-ELUU72.desktop
+application/x-shellscript=code-oss.desktop
+application/vnd.efi.img=xarchiver.desktop
+x-scheme-handler/http=xfce4-web-browser.desktop
+x-scheme-handler/https=xfce4-web-browser.desktop
+
+[Added Associations]
+application/vnd.microsoft.portable-executable=userapp-mobox.sh-ELUU72.desktop;
+application/x-shellscript=code-oss.desktop;
+application/vnd.efi.img=xarchiver.desktop;
+x-scheme-handler/http=xfce4-web-browser.desktop;
+x-scheme-handler/https=xfce4-web-browser.desktop;
+image/png=vlc.desktop;

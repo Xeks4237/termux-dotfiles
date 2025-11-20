@@ -244,21 +244,21 @@ configs:
       width: 540
       height: 1163
   icons:
-    "/data/data/com.termux/files/home/Desktop/kernel.config":
+    "/data/data/com.termux/files/home/Desktop/Shutdown.desktop":
       row: 0
-      col: 0
+      col: 2
     "/data/data/com.termux/files/home/Desktop/termux":
       row: 0
       col: 1
     "/data/data/com.termux/files/home/Desktop/check-list.txt":
       row: 0
       col: 1
-    "/data/data/com.termux/files/home/Desktop/Shutdown.desktop":
+    "/data/data/com.termux/files/home/Desktop/kernel.config":
       row: 0
-      col: 2
-    "/data/data/com.termux/files/home/Desktop/Untitled.png":
-      row: 0
-      col: 1
+      col: 0
     "/home/Desktop/Shutdown.desktop":
       row: 0
       col: 0
+    "/data/data/com.termux/files/home/Desktop/Untitled.png":
+      row: 0
+      col: 1

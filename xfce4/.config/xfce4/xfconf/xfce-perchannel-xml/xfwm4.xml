@@ -60,7 +60,7 @@
     <property name="snap_width" type="int" value="64"/>
     <property name="vblank_mode" type="string" value="auto"/>
     <property name="theme" type="string" value="Catppuccin-Mocha-Standard-Blue-Dark-xhdpi"/>
-    <property name="tile_on_move" type="bool" value="true"/>
+    <property name="tile_on_move" type="bool" value="false"/>
     <property name="title_alignment" type="string" value="center"/>
     <property name="title_font" type="string" value="Segoe UI Bold 11"/>
     <property name="title_horizontal_offset" type="int" value="0"/>

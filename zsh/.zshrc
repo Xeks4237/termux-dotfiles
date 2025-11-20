@@ -4,7 +4,19 @@ PATH=$PATH:$HOME/.local/bin/:$HOME/scripts/ # PATH
 LANG=ru_RU.UTF-8 # Set language
 ZELLIJ_AUTO_EXIT=true # Auto exit Terminal after closing zellij
 ZELLIJ_AUTO_ATTACH=false # Auto attach to the zellij session if available, else create new session
-# Set the directory we want to store zinit plugin manager and plugins
+# fzf related options
+export FZF_DEFAULT_OPTS=" \
+--color='bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8' \
+--color='fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC' \
+--color='marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8' \
+--color='selected-bg:#45475A' \
+--color='border:#6C7086,label:#CDD6F4' \
+--style=full:rounded \
+--multi \
+--preview='cat -n {}' \
+--layout=reverse"
+
+# Set the directory where we want to store zinit plugin manager and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Auto start zellij and attach to it
@@ -73,16 +85,16 @@ zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 zstyle ":completion:*" menu no
 zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --color=always $realpath"
 zstyle ":fzf-tab:complete:__zoxide_z:*" fzf-preview "ls --color=always $realpath"
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
 # [ Aliases ]
 alias ls="ls --almost-all --color=always"
 alias la="ls --almost-all -l --human-readable --color=always"
-alias fzf='fzf --style=full:rounded --multi --preview="cat -n {}" --layout=reverse'
 alias cat="cat -n"
 alias wine="wine-stable"
 
 # [ Shell integrations ]
-eval "$(fzf --style=full:rounded --multi --preview="cat -n {}" --layout=reverse --zsh)" # fzf
+eval "$(fzf --zsh)" # fzf
 eval "$(gitleaks completion zsh --verbose)" # gitleaks
 
 # To customize prompt, run "p10k configure" or edit ~/.config/zsh/p10k.zsh.

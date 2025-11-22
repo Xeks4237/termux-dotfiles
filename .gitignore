@@ -4,5 +4,11 @@ zsh_history
 # NeoVim config which lives in seperate repo
 nvim/
 
+# github credentials file
+.git-credentials
+
 # github cli hosts file
 hosts.yml
+
+# termux-auth paasword's file
+.termux_authinfo

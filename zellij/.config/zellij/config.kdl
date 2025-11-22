@@ -15,7 +15,7 @@ keybinds clear-defaults=true {
         bind "k" { NewPane "down"; }
         bind "l" { NewPane "right"; }
         bind "r" { SwitchToMode "renamepane"; }
-        bind "i" { TogglePanePinned; SwitchToMode "locked"; }
+        bind "p" { TogglePanePinned; SwitchToMode "locked"; }
         bind "o" { TogglePaneFrames; SwitchToMode "locked"; }
         bind "tab" { SwitchFocus; }
     }
@@ -239,7 +239,7 @@ copy_on_select true
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
-scrollback_editor "$PREFIX/bin/nvim"
+// scrollback_editor "/data/data/com.termux/usr/bin/nvim"
  
 // A fixed name to always give the Zellij session.
 // Consider also setting `attach_to_session true,`

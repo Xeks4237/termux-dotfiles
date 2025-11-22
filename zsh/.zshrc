@@ -10,16 +10,9 @@ ZELLIJ_AUTO_EXIT=true
 # Auto attach to the zellij session if available, else create new session
 ZELLIJ_AUTO_ATTACH=false
 # "fzf default options" environment variable
-export FZF_DEFAULT_OPTS=" \
---color='bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8' \
---color='fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC' \
---color='marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8' \
---color='selected-bg:#45475A' \
---color='border:#6C7086,label:#CDD6F4' \
---style=full:rounded \
---multi \
---preview='cat -n {}' \
---layout=reverse"
+export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/fzf-options
+# Set default editor which gonna be used by other app
+EDITOR="nvim"
 
 # Set the directory where we want to store zinit plugin manager and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

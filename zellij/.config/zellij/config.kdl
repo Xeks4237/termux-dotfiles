@@ -59,6 +59,7 @@ keybinds clear-defaults=true {
         bind "L" { MovePane "left"; }
     }
     session {
+        bind "d" { Detach; }
         bind "a" {
             LaunchOrFocusPlugin "zellij:about" {
                 floating true

@@ -2,7 +2,7 @@
 # Configurations directory
 XDG_CONFIG_HOME="$HOME/.config"
 # PATH
-PATH=$PATH:$HOME/.local/bin/:$HOME/scripts/
+PATH=$PATH:$HOME/.local/bin/:$HOME/Scripts/
 # Language
 LANG=ru_RU.UTF-8
 # Auto exit Terminal after closing zellij
@@ -18,7 +18,7 @@ EDITOR="nvim"
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Auto start zellij and attach to it
-# eval "$(zellij setup --generate-auto-start zsh)"
+eval "$(zellij setup --generate-auto-start zsh)"
 
 # Enable Powerlevel10k instant prompt.
 # Initialization code that may require console input (password prompts, [y/n]

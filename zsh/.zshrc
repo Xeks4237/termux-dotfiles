@@ -95,7 +95,7 @@ zstyle ":fzf-tab:complete:__zoxide_z:*" fzf-preview "ls --color=always $realpath
 
 # [ Aliases ]
 alias ls="ls --classify --almost-all --human-readable --color=always"
-alias ls="echo 'nuh uh :³, use tree instead!'" # tmp keymap to force myself to use tree instead of ls
+alias ls="echo 'nuh uh >:3, use tree instead!'" # tmp keymap to force myself to use tree instead of ls
 alias cat="cat -n"
 alias wine="wine-stable"
 # ad -gu in case of file owners*

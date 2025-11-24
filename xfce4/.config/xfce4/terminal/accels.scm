@@ -2,11 +2,11 @@
 ; this file is an automated accelerator map dump
 ;
 ; (gtk_accel_path "<Actions>/terminal-window/copy-html" "")
-(gtk_accel_path "<Actions>/terminal-window/new-tab" "<Primary>k")
+(gtk_accel_path "<Actions>/terminal-window/new-tab" "<Primary><Shift>k")
 ; (gtk_accel_path "<Actions>/terminal-window/reset" "")
-(gtk_accel_path "<Actions>/terminal-window/next-tab" "<Primary>l")
+(gtk_accel_path "<Actions>/terminal-window/next-tab" "<Primary><Shift>l")
 ; (gtk_accel_path "<Actions>/terminal-window/search-prev" "")
-(gtk_accel_path "<Actions>/terminal-window/close-tab" "<Primary>j")
+(gtk_accel_path "<Actions>/terminal-window/close-tab" "<Primary><Shift>j")
 ; (gtk_accel_path "<Actions>/terminal-window/help-menu" "")
 ; (gtk_accel_path "<Actions>/terminal-window/tabs-menu" "")
 (gtk_accel_path "<Actions>/terminal-window/zoom-in-alt" "")
@@ -45,7 +45,7 @@
 (gtk_accel_path "<Actions>/terminal-window/search" "<Primary>f")
 (gtk_accel_path "<Actions>/terminal-window/goto-tab-6" "")
 ; (gtk_accel_path "<Actions>/terminal-window/preferences" "")
-(gtk_accel_path "<Actions>/terminal-window/prev-tab" "<Primary>h")
+(gtk_accel_path "<Actions>/terminal-window/prev-tab" "<Primary><Shift>h")
 (gtk_accel_path "<Actions>/terminal-window/set-title" "")
 ; (gtk_accel_path "<Actions>/terminal-window/terminal-menu" "")
 ; (gtk_accel_path "<Actions>/terminal-window/copy-input" "")

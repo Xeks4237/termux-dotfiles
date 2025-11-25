@@ -1,6 +1,9 @@
 # [ Environment Variables ]
 source ~/.config/zsh/environment.zsh
 
+# [ Auto attach to zellij session ]
+eval "$(zellij setup --generate-auto-start zsh)"
+
 # [ Zinit plugin manager ]
 source $XDG_CONFIG_HOME/zsh/zinit.zsh
 
@@ -13,9 +16,6 @@ fi
 
 # To customize Powerlevel10k prompt, run "p10k configure" or edit $XDG_CONFIG_HOME/zsh/p10k.zsh
 [[ ! -f $XDG_CONFIG_HOME/zsh/p10k.zsh ]] || source $XDG_CONFIG_HOME/zsh/p10k.zsh
-
-# [ Auto attach to zellij session ]
-eval "$(zellij setup --generate-auto-start zsh)"
 
 # [ Keymaps ]
 source $XDG_CONFIG_HOME/zsh/keymaps.zsh
@@ -65,3 +65,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# [ etc ]
+
+# Set theme for fast syntax highlyting plugin
+# fast-theme --quiet default

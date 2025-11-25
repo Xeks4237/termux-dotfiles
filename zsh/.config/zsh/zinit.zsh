@@ -9,17 +9,25 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in Powerlevel10k as plugin
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# [ Plugins ]
 
-# Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light zdharma-continuum/fast-syntax-highlighting
 
-# Add in snippets
+# [ Themes and Colorschemes ]
+
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# [ Snippets ]
+
+# Oh-My-Zsh Lib snippets
 zinit snippet OMZL::git.zsh
+# zinit snippet OMZL::clipboard.zsh
+# zinit snippet OMZL::termsupport.zsh
+
+#  Oh-My-Zsh Plugin snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found

@@ -6,8 +6,11 @@ LANG=ru_RU.UTF-8
 # XDG configurations directory
 XDG_CONFIG_HOME="$HOME/.config/"
 
-# XDG local data directory
-XDG_DATA_HOME="$HOME/.local/share"
+# XDG data directory
+XDG_DATA_HOME="$HOME/.local/share/"
+
+# XDG state directory
+XDG_STATE_HOME="$HOME/.local/state/"
 
 # XDG cache directory
 XDG_CACHE_HOME="$HOME/.cache/"
@@ -38,5 +41,9 @@ HISTFILE=$XDG_CONFIG_HOME/zsh/zsh-history
 SAVEHIST=$HISTSIZE
 
 # Set the directory where we want to store zinit plugin manager and plugins for zsh
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [[ -n "${XDG_DATA_HOME}" ]]; then
+    ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
+else
+    ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
+fi
 

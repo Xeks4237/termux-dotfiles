@@ -9,6 +9,9 @@ bindkey "^[[H" beginning-of-line
 # Sets End key to move cursor to the beginning of line
 bindkey "^[[F" end-of-line
 
+# Map down arrow key to open fzf history search
+bindkey "\e[B" fzf-history-widget
+
 # etc
 bindkey "^[w" kill-region
 bindkey "^[[3~" delete-char

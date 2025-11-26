@@ -32,8 +32,15 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::copybuffer
+zinit snippet OMZP::git/git.plugin.zsh
 
-# Load completions
+# [ Loading Section ]
+
+# Completions
 autoload -Uz compinit && compinit
 zinit cdreplay -q
+
+#
+zinit load 'zsh-users/zsh-history-substring-search'
+zinit ice wait atload'_history_substring_search_config'
 

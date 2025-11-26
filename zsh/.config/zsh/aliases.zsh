@@ -10,5 +10,5 @@ alias cat="cat -n"
 alias wine="wine-stable"
 
 # NOTE: Add -gu flag to tree in case to see file owners of files
-# and -D for date and etc
-alias tree="tree --opt-toggle -ahpCF -L1 --metafirst --dirsfirst --du"
+# and -D for date, -h for file size, and etc
+alias tree="tree --opt-toggle -apCF -L1 --metafirst --dirsfirst --du"

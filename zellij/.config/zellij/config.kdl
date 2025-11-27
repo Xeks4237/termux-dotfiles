@@ -57,6 +57,8 @@ keybinds clear-defaults=true {
         bind "J" { MovePane "up"; }
         bind "K" { MovePane "down"; }
         bind "L" { MovePane "left"; }
+        bind "left" { MovePane "left"; }
+        bind "right" { MovePane "right"; }
     }
     session {
         bind "d" { Detach; }

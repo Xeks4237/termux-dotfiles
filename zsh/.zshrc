@@ -43,10 +43,13 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 # Enables fzf-tab completions for cd command
 zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --almost-all --human-readable --color=always $realpath"
 
-# [ Shell integrations and etc ]
+# [ Shell integrations, completions and etc ]
 
 # fzf
 eval "$(fzf --zsh)"
+
+# gh (github cli)
+eval "$(gh completion --shell zsh)"
 
 # gitleaks
 eval "$(gitleaks completion zsh --verbose)"

@@ -4,34 +4,6 @@
 configs:
 - level: 0
   monitors:
-  - id: "81653554f8319caa7b7fb35fd358600d5b7f1ed9"
-    display_name: "builtin"
-    geometry:
-      x: 0
-      y: 0
-      width: 540
-      height: 1163
-  icons:
-    "/home/Desktop/Shutdown.desktop":
-      row: 0
-      col: 0
-    "/data/data/com.termux/files/home/Desktop/termux":
-      row: 0
-      col: 1
-    "/data/data/com.termux/files/home/Desktop/check-list.txt":
-      row: 0
-      col: 1
-    "/data/data/com.termux/files/home/Desktop/kernel.config":
-      row: 0
-      col: 0
-    "/data/data/com.termux/files/home/Desktop/Shutdown.desktop":
-      row: 0
-      col: 2
-    "/data/data/com.termux/files/home/Desktop/Untitled.png":
-      row: 0
-      col: 1
-- level: 0
-  monitors:
   - id: "06ded4c1942eeb82454c01c7bd52780b2fe51421"
     display_name: "Builtin Display"
     geometry:
@@ -196,9 +168,9 @@ configs:
     "/data/data/com.termux/files/home/Desktop/Material-Original-master":
       row: 0
       col: 0
-    "/data/data/com.termux/files/home/Desktop/scale-horz-marks-after-slider.png":
-      row: 1
-      col: 2
+    "/data/data/com.termux/files/home/Desktop/MakuOS 11 24H2 V6.torrent":
+      row: 0
+      col: 0
     "/data/data/com.termux/files/home/Desktop/gtk-dark.css":
       row: 0
       col: 3
@@ -211,12 +183,12 @@ configs:
     "/data/data/com.termux/files/home/Desktop/JetBrainsMono":
       row: 0
       col: 2
+    "/data/data/com.termux/files/home/Desktop/scale-horz-marks-after-slider.png":
+      row: 1
+      col: 2
     "/data/data/com.termux/files/home/Desktop/selectionmode-checkbox-checked-dark@2.png":
       row: 2
       col: 3
-    "/data/data/com.termux/files/home/Desktop/MakuOS 11 24H2 V6.torrent":
-      row: 0
-      col: 0
     "/data/data/com.termux/files/home/Desktop/selectionmode-checkbox-checked-dark.png":
       row: 3
       col: 3
@@ -262,3 +234,37 @@ configs:
     "/data/data/com.termux/files/home/Desktop/scale-vert-marks-after-slider-disabled@2.png":
       row: 4
       col: 4
+- level: 0
+  monitors:
+  - id: "81653554f8319caa7b7fb35fd358600d5b7f1ed9"
+    display_name: "builtin"
+    geometry:
+      x: 0
+      y: 0
+      width: 540
+      height: 1163
+  icons:
+    "/data/data/com.termux/files/home/Desktop/Shutdown.desktop":
+      row: 0
+      col: 2
+    "/data/data/com.termux/files/home/Desktop/termux":
+      row: 0
+      col: 1
+    "/data/data/com.termux/files/home/Desktop/check-list.txt":
+      row: 0
+      col: 1
+    "/home/Desktop/kernel.config":
+      row: 0
+      col: 0
+    "/data/data/com.termux/files/home/Desktop/kernel.config":
+      row: 0
+      col: 0
+    "/home/Desktop/check-list.txt":
+      row: 0
+      col: 1
+    "/home/Desktop/Shutdown.desktop":
+      row: 0
+      col: 2
+    "/data/data/com.termux/files/home/Desktop/Untitled.png":
+      row: 0
+      col: 1

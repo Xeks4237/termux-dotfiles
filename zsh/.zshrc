@@ -71,4 +71,4 @@ setopt hist_find_no_dups
 # [ etc ]
 
 # Set theme for fast syntax highlyting plugin
-# fast-theme --quiet default
+fast-theme --quiet default

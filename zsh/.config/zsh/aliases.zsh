@@ -1,6 +1,6 @@
 # [ Aliases ]
 
-# NOTE: I use eza instead of ls and tree, but I donmt erated aliases for them
+# NOTE: I use eza instead of ls and tree, but I don't erated aliases for them
 
 # Alias for ls
 alias ls="ls --almost-all --color=always --classify=always --group-directories-first --human-readable"
@@ -9,7 +9,7 @@ alias ls="ls --almost-all --color=always --classify=always --group-directories-f
 alias tree="tree --opt-toggle -aphCF -L1 --metafirst --dirsfirst --du"
 
 # Alias for eza
-alias eza="eza --across --almost-all --classify=always --color=always --context --extended --git --git-repos --grid --group-directories-first --header --icons=always --level=1 --long --no-filesize --no-time --sort=Name --time-style=long-iso --total-size --tree"
+alias eza="eza --across --almost-all --classify=always --color=always --context --extended --git --git-repos --grid --group-directories-first --header --icons=always --level=1 --long --no-time --sort=Name --time-style=long-iso --total-size"
 
 # Alias to make wine-stable package command more convenient
 alias wine="wine-stable"

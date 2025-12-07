@@ -5,11 +5,15 @@ zsh-history
 # NeoVim config which lives in seperate repo
 nvim/
 
-# github credentials file
+# Git/Github credentials file
 .git-credentials
 
-# github cli hosts file
+# Github cli hosts file
 hosts.yml
 
-# termux-auth paasword's file
+# Termux-auth paasword's file
 .termux_authinfo
+
+# Directory with tmux plugins
+tmux/.config/tmux/plugins
+

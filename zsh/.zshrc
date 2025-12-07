@@ -2,7 +2,7 @@
 source ~/.config/zsh/environment.zsh
 
 # [ Auto attach to zellij session ]
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
 
 # [ Zinit plugin manager ]
 source $XDG_CONFIG_HOME/zsh/zinit.zsh

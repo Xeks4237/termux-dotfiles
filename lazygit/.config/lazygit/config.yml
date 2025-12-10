@@ -74,7 +74,7 @@ gui:
   showDivergenceFromBaseBranch: none
   commandLogSize: 8
   splitDiff: auto
-  screenMode: normal
+  screenMode: half
   border: rounded
   animateExplosion: true
   portraitMode: auto
@@ -85,7 +85,7 @@ gui:
       - /
       - "-"
       - \
-    rate: 50
+    rate: 60
   statusPanelView: dashboard
   switchToFilesAfterStashPop: true
   switchToFilesAfterStashApply: true

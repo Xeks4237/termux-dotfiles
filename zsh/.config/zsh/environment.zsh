@@ -1,5 +1,4 @@
 # [ Environment Variables ]
-
 # Language
 LANG=ru_RU.UTF-8
 

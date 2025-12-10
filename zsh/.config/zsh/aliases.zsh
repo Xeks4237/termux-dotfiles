@@ -1,5 +1,4 @@
 # [ Aliases ]
-
 # NOTE: I use eza instead of ls and tree, but I don't erated aliases for them
 
 # Alias for ls

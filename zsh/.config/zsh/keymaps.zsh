@@ -1,5 +1,4 @@
 # [ Keybindings ]
-
 # Enable vi style keymaps
 bindkey -v
 

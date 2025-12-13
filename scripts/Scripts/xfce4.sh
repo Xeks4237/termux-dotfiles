@@ -26,8 +26,4 @@ export PULSE_SERVER=127.0.0.1
 # Run XFCE4 Desktop
 env DISPLAY=:0 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
 
-sleep 5
-
-xfconf-query -c thunar -p /last-splitview-separator-position -s 295
-
 exit 0

@@ -24,7 +24,7 @@ gui:
   enlargedSideViewLocation: left
   wrapLinesInStagingView: true
   useHunkModeInStagingView: true
-  language: auto
+  language: en
   timeFormat: 02 Jan 06
   shortTimeFormat: 3:04PM
   theme:

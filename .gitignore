@@ -18,4 +18,4 @@ hosts.yml
 tmux/.config/tmux/plugins/
 
 # Command history file of tmux
-tmux/.config/tmux/command-history
+command-history

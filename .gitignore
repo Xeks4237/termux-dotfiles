@@ -19,3 +19,5 @@ tmux/.config/tmux/plugins/
 
 # Command history file of tmux
 command-history
+command_history
+

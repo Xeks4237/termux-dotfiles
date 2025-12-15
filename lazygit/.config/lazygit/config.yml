@@ -26,8 +26,8 @@ gui:
   wrapLinesInStagingView: true
   useHunkModeInStagingView: true
   language: en
-  timeFormat: 02 Jan 06
-  shortTimeFormat: 3:04PM
+  timeFormat: "15:04:05 02.01.2006"
+  shortTimeFormat: "15:04"
   theme:
     activeBorderColor:
       - "#89b4fa"

@@ -157,6 +157,12 @@ set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|
 # Maximum width of the right side in the status line
 set -g status-right-length 100
 
+# Style of the right side of the status line
+set -g status-right-style "default"
+
+# Style of the status line, like background color for stuff doesn't specified it manually
+set -g status-style "bg=#{@thm_bg},fg=#{@thm_fg}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

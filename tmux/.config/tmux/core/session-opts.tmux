@@ -109,7 +109,7 @@ set -g status on
 # Number of seconds between status line updates
 set -g status-interval 1
 
-# Alighment/Position of the windows list in the status line
+# This option sets alighment/position of the windows list in the status line
 set -g status-justify left
 
 # Key set to use at the command prompt
@@ -163,6 +163,23 @@ set -g status-right-style "default"
 # Style of the status line, like background color of windows line and etc
 set -g status-style "bg=#{@thm_bg},fg=#{#thm_fg}"
 
+# How activity alerts should be shown: a message ("on"), a message and a bell ("both") or nothing ("off")
+set -g visual-activity both
+
+# How bell alerts should be shown: a message ("on"), a message and a bell ("both") or nothing ("off")
+set -g visual-bell on
+
+# How silence alerts should be shown: a message ("on"), a message and a bell ("both") or nothing ("off")
+set -g visual-silence on
+
+# Characters considered to separate words
+set -g word-separators "!\"#$%&'()*+,-./:;<=>?@[\]^`{|}~"
+
+# [ Window & Pane Options ]
+# When "window-size" is "smallest", whether the maximum size of a window is the smallest attached session where it is the current window ("on") or the smallest session it is linked to ("off")
+# NOTE: Super useful when using "grouped sessions" and multi-monitor setup
+set -g aggressive-resize on
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color
@@ -170,7 +187,4 @@ set -g terminal-overrides ",xterm-256color:RGB"
 
 # start indexing panes at 1 instead of 0
 set -g pane-base-index 1
-
-# Super useful when using "grouped sessions" and multi-monitor setup
-set -g aggressive-resize on
 

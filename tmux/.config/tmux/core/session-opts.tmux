@@ -116,10 +116,14 @@ set -g status-justify left
 set -g status-keys vi
 
 # Contents of the left side of the status line
+# NOTE: This option is used here multiple times for management purposes
+# First set status line to be empty
 set -g status-left ""
-set -g status-left-length 100
 set -ga status-left "#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_bg},bold]  #S },#{#[bg=#{@thm_bg},fg=#{@thm_green}]  #S }}"
 set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│"
+
+# Maximum width of the left side in the status line
+set -g status-left-length 100
 
 # Position of the status line
 set -g status-position top

@@ -193,6 +193,9 @@ set -g allow-set-title on
 # Whether applications are allowed to use the alternate screen
 set -g alternate-screen on
 
+# Whether windows are automatically renamed
+set -g automatic-rename on
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

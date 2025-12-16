@@ -75,7 +75,7 @@ set -g prefix C-Space
 # NOTE: in most cases one prefix key is enough
 set -g prefix2 none
 
-# Colour of the cursor when in the command prompt
+# Color of the cursor when in the command prompt
 set -g prompt-cursor-colour "#cdd6f4"
 
 # Style of the cursor when it's in the command prompt
@@ -197,7 +197,12 @@ set -g alternate-screen on
 set -g automatic-rename on
 
 # Format used to automatically rename windows
-set -g automatic-rename-format ""
+# NOTE: I not gonna use this option for while...
+# set -g automatic-rename-format ""
+
+# Color of the clock in clock mode
+set -g clock-mode-colour "#b4befe"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

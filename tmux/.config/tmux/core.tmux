@@ -48,6 +48,9 @@ set -g prompt-history-limit 100
 # Use system clipboard
 set -g set-clipboard on
 
+# If the Unicode VS16 codepoint should always be treated as a wide character
+set -g variation-selector-always-wide on
+
 # [ Session Options ]
 # Action to take on an activity alert
 set -g activity-action other

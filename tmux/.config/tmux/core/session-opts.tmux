@@ -196,6 +196,8 @@ set -g alternate-screen on
 # Whether windows are automatically renamed
 set -g automatic-rename on
 
+# Format used to automatically rename windows
+set -g automatic-rename-format ""
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

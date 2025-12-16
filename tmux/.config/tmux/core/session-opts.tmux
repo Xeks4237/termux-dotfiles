@@ -203,6 +203,9 @@ set -g automatic-rename on
 # Color of the clock in clock mode
 set -g clock-mode-colour "#b4befe"
 
+# Time format of the clock in clock mode
+set -g clock-mode-style "24-with-seconds"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

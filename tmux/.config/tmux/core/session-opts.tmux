@@ -190,6 +190,9 @@ set -g allow-rename on
 # Whether applications are allowed to use the escape sequence to set the pane title in tmux
 set -g allow-set-title on
 
+# Whether applications are allowed to use the alternate screen
+set -g alternate-screen on
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

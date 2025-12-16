@@ -120,30 +120,29 @@ set -g status-keys vi
 # And also there are used "-a" flag to ADD extra options instead of over writing
 # First set status line to be empty
 set -g status-left ""
-# Item for status-left which shows current session name and changes color when prefix key is pressed/active
+
+# Item for "status-left" which shows current session name
+# And changes color when prefix key is pressed/active
 set -ga status-left "#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_bg},bold]  #S },#{#[bg=#{@thm_bg},fg=#{@thm_green}]  #S }}"
-# Item for status-left which is used as seperator
+
+# Item for "status-left" which is used as seperator
 set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│"
 
 # Maximum width of the left side in the status line
 set -g status-left-length 100
 
+# Main style of the left side in the status line, like background color
+set -g status-left-style "default"
+
 # Position of the status line
 set -g status-position top
 # ==========================================================
-
-# Don't exit from tmux when closing a session
-set -g detach-on-destroy off
-
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color
 set -g terminal-overrides ",xterm-256color:RGB"
 
 # start indexing panes at 1 instead of 0
 set -g pane-base-index 1
-
-# Refresh "status-left" and "status-right" more often, from every 15s to 2s
-set -g status-interval 2
 
 # Super useful when using "grouped sessions" and multi-monitor setup
 set -g aggressive-resize on

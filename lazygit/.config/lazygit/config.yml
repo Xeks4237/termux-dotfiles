@@ -124,7 +124,7 @@ git:
   truncateCopiedCommitHashesTo: 12
 update:
   method: prompt
-  days: 14
+  days: 7
 refresher:
   refreshInterval: 10
   fetchInterval: 60

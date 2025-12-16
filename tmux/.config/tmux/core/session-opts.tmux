@@ -1,56 +1,3 @@
-# [ Server Options ]
-# The maximum number of automatic buffers
-set -g buffer-limit 100
-
-# Default command to run when tmux is run without a command
-set -g default-client-command "new-session"
-
-# Set default-terminal option using $TERM variable
-set -g default-terminal "${TERM}"
-
-# Set default editor to use for editing files
-set -g editor "$PREFIX/bin/nvim"
-
-# Time to wait before assuming a key is Escape
-set -g escape-time 0
-
-# Whether the server should exit if there are no sessions
-set -g exit-empty on
-
-# Whether the server should exit if there are no attached clients
-set -g exit-unattached off
-
-# Whether to request extended key sequences from terminals that support it
-set -g extended-keys on
-
-# The format of emitted extended key sequences
-set -g extended-keys-format "xterm"
-
-# Whether to send focus events to applications
-set -g focus-events on
-
-# Location of the command prompt history file
-# NOTE: If left empty then don't writes history file
-set -g history-file "~/.config/tmux/command-history"
-
-# Number of bytes accepted in a single input before dropping buffer
-set -g input-buffer-size 1048576 
-
-# Maximum number of server messages to keep.
-set -g message-limit 1000
-
-# The timeout for the prefix key if no subsequent key is pressed
-set -g prefix-timeout 0
-
-# Maximum number of commands to keep in history
-set -g prompt-history-limit 100
-
-# Use system clipboard
-set -g set-clipboard on
-
-# If the Unicode VS16 codepoint should always be treated as a wide character
-set -g variation-selector-always-wide on
-
 # [ Session Options ]
 # Action to take on an activity alert
 set -g activity-action other
@@ -125,6 +72,7 @@ set -g mouse on
 set -g prefix C-Space
 
 # The second prefix key
+# NOTE: in most cases one prefix key is enough
 set -g prefix2 none
 
 # Colour of the cursor when in the command prompt
@@ -152,14 +100,26 @@ set -g silence-action other
 # NOTE: "on" means 1 line
 set -g status on
 
+# WARN: This option is deprecated, use "status-style" instead
+# set -g status-bg "default"
+
+# WARN: This option is deprecated, use "status-style" instead
+# set -g status-fg "default"
+
 # Number of seconds between status line updates
 set -g status-interval 1
 
-# Position of the windows list in the status line
+# Alighment/Position of the windows list in the status line
 set -g status-justify left
 
 # Key set to use at the command prompt
 set -g status-keys vi
+
+# Contents of the left side of the status line
+set -g status-left ""
+set -g status-left-length 100
+set -ga status-left "#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_bg},bold]  #S },#{#[bg=#{@thm_bg},fg=#{@thm_green}]  #S }}"
+set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│"
 
 # Position of the status line
 set -g status-position top

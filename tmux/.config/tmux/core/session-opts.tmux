@@ -136,6 +136,27 @@ set -g status-left-style "default"
 
 # Position of the status line
 set -g status-position top
+
+# Contents of the right side of the status line
+# NOTE: This option is used here multiple times for management purposes
+# And also there are used "-a" flag to ADD extra options instead of over writing
+# First set status line to be empty
+set -g status-right ""
+
+# Item for "status-right" which appears only when some pane is zoomed/fullscreened and its used as seperator, 
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,│,}"
+
+# Item for "status-right" which appears only when some pane is zoomed/fullscreened
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,  zoom ,}"
+
+# Item for "status-right" which appears only when some pane is zoomed/fullscreened and its used as seperator, 
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,│,}"
+
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} "
+
+# Maximum width of the right side in the status line
+set -g status-right-length 100
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

@@ -117,9 +117,12 @@ set -g status-keys vi
 
 # Contents of the left side of the status line
 # NOTE: This option is used here multiple times for management purposes
+# And also there are used "-a" flag to ADD extra options instead of over writing
 # First set status line to be empty
 set -g status-left ""
+# Item for status-left which shows current session name and changes color when prefix key is pressed/active
 set -ga status-left "#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_bg},bold]  #S },#{#[bg=#{@thm_bg},fg=#{@thm_green}]  #S }}"
+# Item for status-left which is used as seperator
 set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│"
 
 # Maximum width of the left side in the status line

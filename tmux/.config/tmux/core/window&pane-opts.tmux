@@ -35,6 +35,9 @@ set -g copy-mode-current-match-style "bg=#{@thm_red},fg=#{@thm_crust}"
 # Style of the marked line in copy mode
 set -g copy-mode-mark-style "bg=#{@thm_red},fg=#{@thm_crust}"
 
+# Style of search matches in copy mode
+set -g copy-mode-match-style "bg=#{@thm_sky},fg=#{@thm_crust}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

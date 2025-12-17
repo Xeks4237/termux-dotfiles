@@ -38,6 +38,10 @@ set -g copy-mode-mark-style "bg=#{@thm_red},fg=#{@thm_crust}"
 # Style of search matches in copy mode
 set -g copy-mode-match-style "bg=#{@thm_sky},fg=#{@thm_crust}"
 
+# Format of the position indicator in copy mode
+# TODO: Gonna configure this option to have custom look with better info on it than default later...
+# set -g copy-mode-position-format ""
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

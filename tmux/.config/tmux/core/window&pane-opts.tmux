@@ -32,6 +32,9 @@ set -g clock-mode-style "24-with-seconds"
 # Style of the current search match in copy mode
 set -g copy-mode-current-match-style "bg=#{@thm_red},fg=#{@thm_crust}"
 
+# Style of the marked line in copy mode
+set -g copy-mode-mark-style "bg=#{@thm_red},fg=#{@thm_crust}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

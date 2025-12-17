@@ -1,0 +1,42 @@
+# [ Window & Pane Options ]
+# When "window-size" is "smallest", whether the maximum size of a window is the smallest attached session where it is the current window ("on") or the smallest session it is linked to ("off")
+# NOTE: Super useful when using "grouped sessions" and multi-monitor setup
+set -g aggressive-resize on
+
+# Whether applications are allowed to use the escape sequence to bypass tmux
+# Can be "off" (disallowed), "on" (allowed if the pane is visible), or "all" (allowed even if the pane is invisible)
+set -g allow-passthrough on
+
+# Whether applications are allowed to use the escape sequence to rename tmux windows
+set -g allow-rename on
+
+# Whether applications are allowed to use the escape sequence to set the pane title in tmux
+set -g allow-set-title on
+
+# Whether applications are allowed to use the alternate screen
+set -g alternate-screen on
+
+# Whether windows are automatically renamed
+set -g automatic-rename on
+
+# Format used to automatically rename windows
+# NOTE: I not gonna use this option for while...
+# set -g automatic-rename-format ""
+
+# Color of the clock in clock mode
+set -g clock-mode-colour "#b4befe"
+
+# Time format of the clock in clock mode
+set -g clock-mode-style "24-with-seconds"
+
+# Style of the current search match in copy mode
+set -g copy-mode-current-match-style "bg=#{@thm_red},fg=#{@thm_crust}"
+
+# ==========================================================
+# Enables truecolor for apps under tmux
+# by adding :RGB to $TERM if it's xterm-256color
+set -g terminal-overrides ",xterm-256color:RGB"
+
+# start indexing panes at 1 instead of 0
+set -g pane-base-index 1
+

@@ -155,6 +155,9 @@ set -g remain-on-exit-format "#{pane_current_command} in Pane #{pane_index} Fail
 # Whether the contents of the screen should be scrolled into history when clearing the whole screen
 set -g scroll-on-clear on
 
+# Style of the current session in the status line
+set -g session-status-current-style "bg=#{@thm_green},fg=#{@thm_crust}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

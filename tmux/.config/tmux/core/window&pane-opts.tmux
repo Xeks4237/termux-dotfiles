@@ -66,6 +66,9 @@ set -g main-pane-width 80
 # Type of characters used to draw menu border lines. Some of styles are only supported on terminals with UTF-8 support
 set -g menu-border-lines heavy
 
+# Default style of menu borders
+set -g menu-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

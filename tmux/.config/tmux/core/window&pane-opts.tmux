@@ -78,6 +78,9 @@ set -g menu-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 # Key set used in copy mode
 set -g mode-keys vi
 
+# Style of indicators and highlighting in modes
+set -g mode-style "bg=#f9e2af,fg=#11111b"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

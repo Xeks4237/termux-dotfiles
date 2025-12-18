@@ -1,5 +1,5 @@
 # [ Colorscheme Colors ]
-# NOTE: I used Catppuccin Mocha Colors
+# NOTE: I used Catppuccin Mocha Colors from https://github.com/catppuccin
 # Main colors
 set -ogq @thm_rosewater "#f5e0dc"
 set -ogq @thm_flamingo "#f2cdcd"

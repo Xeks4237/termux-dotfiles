@@ -15,10 +15,10 @@ set -g pane-border-status "top"
 set -g pane-border-format " Pane #{pane_index} "
 
 # set style of active pane border
-set -g pane-active-border-style "bg=#{@thm_bg},fg=#{@thm_lavender}"
+set -g pane-active-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
 
 # Set style of pane borders
-set -g pane-border-style "bg=#{@thm_bg},fg=#{@thm_surface_0}"
+set -g pane-border-style "bg=#{@thm_bg},fg=#{@thm_overlay_0}"
 
 # Choose style of border lines
 set -g pane-border-lines "heavy"
@@ -30,7 +30,7 @@ set -g automatic-rename on
 # set -g automatic-rename-format ""
 
 # Style of the command prompt when it's in command mode, if "mode-keys" is set to "vi"
-set -g message-command-style "bg=#{@thm_surface_0},fg=#{@thm_yellow}"
+set -g message-command-style "bg=#{@thm_overlay_0},fg=#{@thm_yellow}"
 
 # Set format of window status in status line
 set -g window-status-format " #{window_index}:#{window_icon} #{window_name} "

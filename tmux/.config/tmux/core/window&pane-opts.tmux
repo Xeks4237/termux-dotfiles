@@ -40,7 +40,10 @@ set -g copy-mode-match-style "bg=#{@thm_sky},fg=#{@thm_crust}"
 
 # Format of the position indicator in copy mode
 # TODO: Gonna configure this option to have custom look with better info on it than default later...
-# set -g copy-mode-position-format ""
+# set -g copy-mode-position-format "#[align=right]#{t/p:top_line_time}#{?#{e|>:#{top_line_time},0},,}[#{scroll_position}/#{history_size}]#{?search_timed_out, (timed out),#{?search_count, (#{search_count}#{?search_count_partial,+,}results),}}"
+
+# Style of position indicator in copy mode
+set -g copy-mode-position-style "bg=#{@thm_green},fg=#{@thm_crust}"
 
 # ==========================================================
 # Enables truecolor for apps under tmux

@@ -85,6 +85,9 @@ set -g mode-style "bg=#f9e2af,fg=#11111b"
 # NOTE: In some tools like top, fzf, and etc it gonna alert constantly if option is set to on
 set -g monitor-activity off
 
+# Whether an alert is triggered by a bell
+set -g monitor-bell off
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

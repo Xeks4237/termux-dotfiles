@@ -182,19 +182,22 @@ set -g window-status-activity-style "bg=#{@thm_red},fg=#{@thm_bg}"
 set -g window-status-bell-style "bg=#{@thm_red},fg=#{@thm_bg}"
 
 # Format of the current window in the status line
-set -g window-status-current-format " #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},} "
+set -g window-status-current-format "#[bg=#{@thm_bg},fg=#{@thm_green}]#[bg=#{@thm_green},fg=#{@thm_crust}] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=#{@thm_bg},fg=#{@thm_green}]█"
 
 # Style of the current window in the status line
-set -g window-status-current-style "bg=#{@thm_green},fg=#{@thm_bg},bold"
+set -g window-status-current-style "bold"
 
 # Format of windows in the status line, except the current window
-set -g window-status-format " #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},} "
+set -g window-status-format "#[bg=#{@thm_bg},fg=#{@thm_surface_1}]#[bg=#{@thm_surface_1},fg=#{@thm_green}] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=#{@thm_bg},fg=#{@thm_surface_1}]█"
 
 # Style of the last window in the status line
-set -g window-status-last-style "bg=#{@thm_surface_0},fg=#{@thm_green}"
+set -g window-status-last-style ""
 
 # Separator between windows in the status line
 set -g window-status-separator ""
+
+# Style of windows in the status line, except the current and last windows
+set -g window-status-style "bg=#{@thm_surface_0},fg=#{@thm_green}"
 
 # ==========================================================
 # Enables truecolor for apps under tmux

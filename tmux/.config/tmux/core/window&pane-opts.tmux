@@ -187,6 +187,9 @@ set -g window-status-current-format " #{window_index}: #{window_icon}#{window_na
 # Style of the current window in the status line
 set -g window-status-current-style "bg=#{@thm_green},fg=#{@thm_bg},bold"
 
+# Format of windows in the status line, except the current window
+set -g window-status-format " #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},} "
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

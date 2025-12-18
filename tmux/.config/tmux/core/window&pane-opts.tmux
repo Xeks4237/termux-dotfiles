@@ -121,6 +121,10 @@ set -g pane-border-status top
 # NOTE: This option changes style of non active border lines
 set -g pane-border-style "bg=#{@thm_bg},fg=#{@thm_overlay_0}"
 
+# Pane scrollbars state
+# NOTE: "modal" value makes scrollbars to appear only when needed
+set -g pane-scrollbars modal
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

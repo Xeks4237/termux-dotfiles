@@ -75,6 +75,9 @@ set -g menu-selected-style "bg=#{@thm_yellow},fg=#{@thm_crust}"
 # Default style of menu
 set -g menu-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
+# Key set used in copy mode
+set -g mode-keys vi
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

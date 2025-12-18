@@ -181,6 +181,9 @@ set -g window-status-activity-style "bg=#{@thm_red},fg=#{@thm_bg}"
 # Style of windows in the status line with a bell alert
 set -g window-status-bell-style "bg=#{@thm_red},fg=#{@thm_bg}"
 
+# Format of the current window in the status line
+set -g window-status-current-format " #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},} "
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

@@ -46,7 +46,7 @@ set -g copy-mode-match-style "bg=#{@thm_sky},fg=#{@thm_crust}"
 set -g copy-mode-position-style "bg=#{@thm_green},fg=#{@thm_crust}"
 
 # Style of selection in copy mode
-set -g copy-mode-selection-style "bg=#{@thm_green},fg=#{@thm_crust}"
+set -g copy-mode-selection-style "bg=#{@thm_yellow},fg=#{@thm_crust}"
 
 # Colour of the cursor
 set -g cursor-colour "#cdd6f4"
@@ -68,6 +68,9 @@ set -g menu-border-lines heavy
 
 # Default style of menu borders
 set -g menu-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
+
+# Default style of selected menu item
+set -g menu-selected-style "bg=#{@thm_yellow},fg=#{@thm_crust}"
 
 # ==========================================================
 # Enables truecolor for apps under tmux

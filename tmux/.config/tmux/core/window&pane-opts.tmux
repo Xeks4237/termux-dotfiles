@@ -48,7 +48,7 @@ set -g copy-mode-position-style "bg=#{@thm_green},fg=#{@thm_crust}"
 # Style of selection in copy mode
 set -g copy-mode-selection-style "bg=#{@thm_yellow},fg=#{@thm_crust}"
 
-# Colour of the cursor
+# Color of the cursor
 set -g cursor-colour "#cdd6f4"
 
 # Style of the cursor
@@ -107,7 +107,7 @@ set -g pane-base-index 1
 # Format of text in the pane status lines
 set -g pane-border-format "#{?pane_active, Pane #{pane_index} ,#{ Pane #{pane_index}: #{pane_current_command} }}"
 
-# Whether to indicate border of active pane by colouring or displaying arrow markers
+# Whether to indicate border of active pane by coloring or displaying arrow markers
 # NOTE: Is tmux devs are British? like why "colour" instead of "color"?
 set -g pane-border-indicators colour
 
@@ -198,6 +198,9 @@ set -g window-status-separator ""
 
 # Style of windows in the status line, except the current and last windows
 set -g window-status-style "bg=#{@thm_surface_0},fg=#{@thm_green}"
+
+# Default style of panes that aren't the active pane
+set -g window-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
 # ==========================================================
 # Enables truecolor for apps under tmux

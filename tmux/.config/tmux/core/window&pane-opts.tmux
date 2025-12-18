@@ -137,6 +137,9 @@ set -g pane-status-current-style "bg=#{@thm_bg},fg=#{@thm_green}"
 # Style of panes in the status line, except the current pane
 set -g pane-status-style "bg=#{@thm_bg},fg=#{@thm_overlay_0}"
 
+# Type of characters used to draw popup border lines. Some of these are only supported on terminals with UTF-8 support
+set -g popup-border-lines heavy
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

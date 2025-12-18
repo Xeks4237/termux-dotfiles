@@ -158,6 +158,9 @@ set -g scroll-on-clear on
 # Style of the current session in the status line
 set -g session-status-current-style "bg=#{@thm_green},fg=#{@thm_crust}"
 
+# Style of sessions in the status line, except the current session
+set -g session-status-style "bg=#{@thm_bg},fg=#{@thm_green}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

@@ -143,6 +143,9 @@ set -g popup-border-lines heavy
 # Default style of popup borders
 set -g popup-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
 
+# Default style of popups
+set -g popup-style "bg=#{@thm_bg},fg=#{@thm_fg}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

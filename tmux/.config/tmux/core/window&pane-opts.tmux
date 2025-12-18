@@ -202,6 +202,9 @@ set -g window-status-style "bg=#{@thm_surface_0},fg=#{@thm_green}"
 # Default style of panes that aren't the active pane
 set -g window-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
+# Whether searching in copy mode should wrap at the top or bottom
+set -g wrap-search on
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

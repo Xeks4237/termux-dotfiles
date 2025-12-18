@@ -88,6 +88,10 @@ set -g monitor-activity off
 # Whether an alert is triggered by a bell
 set -g monitor-bell off
 
+# Time after which an alert is triggered by silence. Zero means no alert
+# NOTE: it can be usefull to keep your device awake, but why? idk
+set -g monitor-silence 0
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

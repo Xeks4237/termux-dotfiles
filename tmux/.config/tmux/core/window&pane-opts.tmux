@@ -114,8 +114,12 @@ set -g pane-border-indicators colour
 # Type of characters used to draw pane border lines. Some of these are only supported on terminals with UTF-8 support
 set -g pane-border-lines heavy
 
-# Position of the pane title/status line
+# Position of the pane status lines
 set -g pane-border-status top
+
+# Style of the pane status line
+# NOTE: This option changes style of non active border lines
+set -g pane-border-style "bg=#{@thm_bg},fg=#{@thm_lavender}"
 
 # ==========================================================
 # Enables truecolor for apps under tmux

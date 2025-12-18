@@ -107,6 +107,10 @@ set -g pane-base-index 1
 # Format of text in the pane status lines
 set -g pane-border-format "#{?pane_active, Pane #{pane_index} ,#{ Pane #{pane_index}\: #{pane_current_command} }}"
 
+# Whether to indicate border of active pane by colouring or displaying arrow markers
+# NOTE: Is tmux devs are British? like why "colour" instead of "color"?
+set -g pane-border-indicators colour
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

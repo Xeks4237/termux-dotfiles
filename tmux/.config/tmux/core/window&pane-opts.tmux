@@ -45,6 +45,9 @@ set -g copy-mode-match-style "bg=#{@thm_sky},fg=#{@thm_crust}"
 # Style of position indicator in copy mode
 set -g copy-mode-position-style "bg=#{@thm_green},fg=#{@thm_crust}"
 
+# Style of selection in copy mode
+set -g copy-mode-selection-style "bg=#{@thm_green},fg=#{@thm_crust}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

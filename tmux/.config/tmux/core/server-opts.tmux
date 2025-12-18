@@ -48,6 +48,10 @@ set -g prompt-history-limit 100
 # Use system clipboard
 set -g set-clipboard on
 
+# NOTE: terminal-overrides is a List of terminal capabilities overrides
+# This one enables truecolor support for tmux by adding :RGB to $TERM if it's "xterm-256color"
+set -g terminal-overrides ",xterm-256color:RGB"
+
 # If the Unicode VS16 codepoint should always be treated as a wide character
 set -g variation-selector-always-wide on
 

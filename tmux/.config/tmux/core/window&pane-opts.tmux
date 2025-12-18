@@ -208,8 +208,3 @@ set -g wrap-search on
 # Whether xterm-style function key sequences should be sent. This option is no longer used but good to be set
 set -g xterm-keys on
 
-# ==========================================================
-# Enables truecolor for apps under tmux
-# by adding :RGB to $TERM if it's xterm-256color
-set -g terminal-overrides ",xterm-256color:RGB"
-

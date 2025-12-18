@@ -146,7 +146,7 @@ set -g popup-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
 # Default style of popups
 set -g popup-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
-# Whether panes should remain ('on') or be automatically killed ('off' or 'failed') when the program inside exits
+# Whether panes should remain ("on") or be automatically killed ("off" or "failed") when the program inside exits
 set -g remain-on-exit failed
 
 # ==========================================================

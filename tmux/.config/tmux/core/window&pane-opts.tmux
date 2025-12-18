@@ -128,6 +128,9 @@ set -g pane-scrollbars modal
 # Pane scrollbars position
 set -g pane-scrollbars-position right
 
+# Style of the pane scrollbar
+set -g pane-scrollbars-style "bg=#6c7086,fg=#cdd6f4,width=1,pad=0"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

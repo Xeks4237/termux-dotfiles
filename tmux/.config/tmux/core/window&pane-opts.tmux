@@ -205,6 +205,9 @@ set -g window-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 # Whether searching in copy mode should wrap at the top or bottom
 set -g wrap-search on
 
+# Whether xterm-style function key sequences should be sent. This option is no longer used but good to be set
+set -g xterm-keys on
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

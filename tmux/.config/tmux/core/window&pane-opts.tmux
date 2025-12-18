@@ -166,6 +166,9 @@ set -g session-status-style "bg=#{@thm_bg},fg=#{@thm_green}"
 # And here I setted up that they are turned of on STARTUP
 set -g synchronize-panes off
 
+# Maximum number of columns in the 'tiled' layout. A value of 0 means no limit
+set -g tiled-layout-max-columns 0
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

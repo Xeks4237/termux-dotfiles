@@ -48,6 +48,9 @@ set -g copy-mode-position-style "bg=#{@thm_green},fg=#{@thm_crust}"
 # Style of selection in copy mode
 set -g copy-mode-selection-style "bg=#{@thm_green},fg=#{@thm_crust}"
 
+# Colour of the cursor
+set -g cursor-colour "#cdd6f4"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

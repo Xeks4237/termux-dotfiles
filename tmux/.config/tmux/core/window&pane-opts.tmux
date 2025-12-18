@@ -111,6 +111,9 @@ set -g pane-border-format "#{?pane_active, Pane #{pane_index} ,#{ Pane #{pane_in
 # NOTE: Is tmux devs are British? like why "colour" instead of "color"?
 set -g pane-border-indicators colour
 
+# Type of characters used to draw pane border lines. Some of these are only supported on terminals with UTF-8 support
+set -g pane-border-lines heavy
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

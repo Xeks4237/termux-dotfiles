@@ -119,7 +119,7 @@ set -g pane-border-status top
 
 # Style of the pane status line
 # NOTE: This option changes style of non active border lines
-set -g pane-border-style "bg=#{@thm_bg},fg=#{@thm_lavender}"
+set -g pane-border-style "bg=#{@thm_bg},fg=#{@thm_overlay_0}"
 
 # ==========================================================
 # Enables truecolor for apps under tmux

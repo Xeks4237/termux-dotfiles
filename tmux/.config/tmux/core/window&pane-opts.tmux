@@ -51,6 +51,12 @@ set -g copy-mode-selection-style "bg=#{@thm_green},fg=#{@thm_crust}"
 # Colour of the cursor
 set -g cursor-colour "#cdd6f4"
 
+# Style of the cursor
+set -g cursor-style block
+
+# Character used to fill unused parts of window
+set -g fill-character ""
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

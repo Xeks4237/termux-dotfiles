@@ -67,7 +67,7 @@ set -g main-pane-width 80
 set -g menu-border-lines heavy
 
 # Default style of menu borders
-set -g menu-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
+set -g menu-border-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
 # Default style of selected menu item
 set -g menu-selected-style "bg=#{@thm_yellow},fg=#{@thm_crust}"
@@ -141,7 +141,7 @@ set -g pane-status-style "bg=#{@thm_bg},fg=#{@thm_overlay_0}"
 set -g popup-border-lines heavy
 
 # Default style of popup borders
-set -g popup-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
+set -g popup-border-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
 # Default style of popups
 set -g popup-style "bg=#{@thm_bg},fg=#{@thm_fg}"
@@ -168,6 +168,9 @@ set -g synchronize-panes off
 
 # Maximum number of columns in the 'tiled' layout. A value of 0 means no limit
 set -g tiled-layout-max-columns 0
+
+# Default style of the active pane
+set -g window-active-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
 # ==========================================================
 # Enables truecolor for apps under tmux

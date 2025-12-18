@@ -60,6 +60,9 @@ set -g fill-character ""
 # Height of the main pane in the "main-horizontal" layout. This may be a percentage, for example "10%"
 set -g main-pane-height 24
 
+# Width of the main pane in the "main-vertical" layout. This may be a percentage, for example "10%"
+set -g main-pane-width 80
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

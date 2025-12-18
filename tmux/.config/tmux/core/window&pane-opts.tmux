@@ -152,6 +152,9 @@ set -g remain-on-exit failed
 # Message shown after the program in a pane has exited, if remain-on-exit is enabled
 set -g remain-on-exit-format "#{pane_current_command} in Pane #{pane_index} Failed"
 
+# Whether the contents of the screen should be scrolled into history when clearing the whole screen
+set -g scroll-on-clear on
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

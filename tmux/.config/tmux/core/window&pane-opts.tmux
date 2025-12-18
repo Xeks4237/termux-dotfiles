@@ -72,6 +72,9 @@ set -g menu-border-style "bg=#{@thm_bg},fg=#{@thm_green}"
 # Default style of selected menu item
 set -g menu-selected-style "bg=#{@thm_yellow},fg=#{@thm_crust}"
 
+# Default style of menu
+set -g menu-style "bg=#{@thm_bg},fg=#{@thm_fg}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

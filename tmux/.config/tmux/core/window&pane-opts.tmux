@@ -175,6 +175,9 @@ set -g window-active-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 # How window size is calculated. "latest" uses the size of the most recently used client, "largest" the largest client, "smallest" the smallest client and "manual" a size set by the "resize-window" command
 set -g window-size latest
 
+# Style of windows in the status line with an activity alert
+set -g window-status-activity-style "bg=#{@thm_red},fg=#{@thm_bg}"
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

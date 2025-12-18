@@ -48,7 +48,7 @@ set -g window-status-activity-style "bg=#{@thm_red},fg=#{@thm_bg}"
 set -g window-status-bell-style "bg=#{@thm_red},fg=#{@thm_bg},bold"
 
 # Set look of separator between windows
-set -gF window-status-separator "#[bg=#{@thm_bg},fg=#{@thm_overlay_0}]│"
+set -gF window-status-separator "#[bg=#{@thm_bg},fg=#{@thm_overlay_0}]┃"
 
 # Set format of the current window in the status line
 set -g window-status-current-format " #{window_index}: #{window_icon}#{window_name} "
@@ -61,14 +61,14 @@ set -g status-left-length 100
 set -g status-left ""
 
 set -ga status-left "#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_bg},bold]  #S },#{#[bg=#{@thm_bg},fg=#{@thm_green}]  #S }}"
-set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│"
+set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]┃"
 
 # Status right look and feel
 set -g status-right-length 100
 set -g status-right ""
 
 set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,  zoom ,}"
-set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,│,}"
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,┃,}"
 # set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} "
-# set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0}, none]│"
+# set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0}, none]┃"
 

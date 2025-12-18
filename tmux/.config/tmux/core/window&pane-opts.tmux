@@ -63,6 +63,9 @@ set -g main-pane-height 24
 # Width of the main pane in the "main-vertical" layout. This may be a percentage, for example "10%"
 set -g main-pane-width 80
 
+# Type of characters used to draw menu border lines. Some of styles are only supported on terminals with UTF-8 support
+set -g menu-border-lines heavy
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

@@ -95,7 +95,7 @@ set -g monitor-silence 0
 # Height of the other panes in the "main-horizontal" layout. This may be a percentage, for example "10%"
 set -g other-pane-height 0
 
-# Height of the other panes in the 'main-vertical" layout. This may be a percentage, for example "10%"
+# Height of the other panes in the "main-vertical" layout. This may be a percentage, for example "10%"
 set -g other-pane-width 0
 
 # Style of the active pane border
@@ -166,11 +166,14 @@ set -g session-status-style "bg=#{@thm_bg},fg=#{@thm_green}"
 # And here I setted up that they are turned of on STARTUP
 set -g synchronize-panes off
 
-# Maximum number of columns in the 'tiled' layout. A value of 0 means no limit
+# Maximum number of columns in the "tiled" layout. A value of 0 means no limit
 set -g tiled-layout-max-columns 0
 
 # Default style of the active pane
 set -g window-active-style "bg=#{@thm_bg},fg=#{@thm_fg}"
+
+# How window size is calculated. "latest" uses the size of the most recently used client, "largest" the largest client, "smallest" the smallest client and "manual" a size set by the "resize-window" command
+set -g window-size latest
 
 # ==========================================================
 # Enables truecolor for apps under tmux

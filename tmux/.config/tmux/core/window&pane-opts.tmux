@@ -101,11 +101,11 @@ set -g other-pane-width 0
 # Style of the active pane border
 set -g pane-active-border-style "#{?pane_in_mode,fg=#{@thm_yellow},#{?synchronize-panes,fg=#{@thm_lavender},fg=#{@thm_green}}}"
 
+# Index of the first pane in each window
+set -g pane-base-index 1
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color
 set -g terminal-overrides ",xterm-256color:RGB"
-
-# start indexing panes at 1 instead of 0
-set -g pane-base-index 1
 

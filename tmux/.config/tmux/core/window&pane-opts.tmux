@@ -92,6 +92,9 @@ set -g monitor-bell off
 # NOTE: it can be usefull to keep your device awake, but why? idk
 set -g monitor-silence 0
 
+# Height of the other panes in the "main-horizontal" layout. This may be a percentage, for example "10%"
+set -g other-pane-height 0
+
 # ==========================================================
 # Enables truecolor for apps under tmux
 # by adding :RGB to $TERM if it's xterm-256color

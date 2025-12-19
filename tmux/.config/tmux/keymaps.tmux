@@ -3,7 +3,6 @@ unbind -a
 
 # Keybindings which are set to be work after prefix key
 bind-key -T prefix Tab next-window
-bind-key -T prefix Space next-layout
 bind-key -T prefix C-t break-pane
 bind-key -T prefix C-h split-window
 bind-key -T prefix \# list-buffers
@@ -26,14 +25,13 @@ bind-key -T prefix : command-prompt
 bind-key -T prefix C-p choose-buffer -Z
 bind-key -T prefix ? list-keys
 bind-key -T prefix C customize-mode -Z
+bind-key -T prefix s choose-tree -Zs
 bind-key -T prefix S choose-client -Z
-bind-key -T prefix E select-layout -E
 bind-key -T prefix I run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/install_plugins
-bind-key -T prefix L switch-client -l
-bind-key -T prefix M select-pane -M
 bind-key -T prefix U run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/update_plugins
-bind-key -T prefix v copy-mode
 bind-key -T prefix \\ run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tmux-menus/items/main.sh
+bind-key -T prefix M select-pane -M
+bind-key -T prefix v copy-mode
 bind-key -T prefix p paste-buffer -p
 bind-key -T prefix c new-window
 bind-key -T prefix d detach-client
@@ -44,7 +42,6 @@ bind-key -T prefix ] next-window
 bind-key -T prefix [ previous-window
 bind-key -T prefix q display-panes
 bind-key -T prefix r refresh-client
-bind-key -T prefix s choose-tree -Zs
 bind-key -T prefix t clock-mode
 bind-key -T prefix w choose-tree -Zw
 bind-key -T prefix x confirm-before -p "#[bg=#{@thm_bg},fg=#{@thm_sky}]Kill Pane #{pane_index}? (y/n)" kill-pane

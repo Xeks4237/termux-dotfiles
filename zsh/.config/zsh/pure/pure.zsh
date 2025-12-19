@@ -99,7 +99,7 @@ prompt_pure_preexec() {
 
     # Disallow Python virtualenv from updating the prompt. Set it to 12 if
     # untouched by the user to indicate that Pure modified it. Here we use
-    # the magic number 12, same as in `psvar`.
+    # the magic number 12, same as in "psvar".
     export VIRTUAL_ENV_DISABLE_PROMPT=${VIRTUAL_ENV_DISABLE_PROMPT:-12}
 }
 
@@ -262,7 +262,7 @@ prompt_pure_async_git_aliases() {
     for line in $gitalias; do
         parts=(${(@)=line})           # Split line on spaces.
         aliasname=${parts[1]#alias.}  # Grab the name (alias.[name]).
-        shift parts                   # Remove `aliasname`
+        shift parts                   # Remove "aliasname"
 
         # Check alias for pull or fetch. Must be exact match.
         if [[ $parts =~ ^(.*\ )?(pull|fetch)(\ .*)?$ ]]; then
@@ -276,11 +276,11 @@ prompt_pure_async_git_aliases() {
 prompt_pure_async_vcs_info() {
     setopt localoptions noshwordsplit
 
-    # Configure `vcs_info` inside an async task. This frees up `vcs_info`
+    # Configure "vcs_info" inside an async task. This frees up "vcs_info"
     # to be used or configured as the user pleases.
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' use-simple true
-    # Only export four message variables from `vcs_info`.
+    # Only export four message variables from "vcs_info".
     zstyle ':vcs_info:*' max-exports 3
     # Export branch (%b), Git toplevel (%R), action (rebase/cherry-pick) (%a)
     zstyle ':vcs_info:git*' formats '%b' '%R' '%a'
@@ -306,7 +306,7 @@ prompt_pure_async_git_dirty() {
         untracked_git_mode='normal'
     fi
 
-    # Prevent e.g. `git status` from refreshing the index as a side effect.
+    # Prevent e.g. "git status" from refreshing the index as a side effect.
     export GIT_OPTIONAL_LOCKS=0
 
     if [[ $untracked_dirty = 0 ]]; then
@@ -323,12 +323,12 @@ prompt_pure_async_git_fetch() {
 
     local only_upstream=${1:-0}
 
-    # Sets `GIT_TERMINAL_PROMPT=0` to disable authentication prompt for Git fetch (Git 2.3+).
+    # Sets "GIT_TERMINAL_PROMPT=0" to disable authentication prompt for Git fetch (Git 2.3+).
     export GIT_TERMINAL_PROMPT=0
-    # Set SSH `BachMode` to disable all interactive SSH password prompting.
+    # Set SSH "BachMode" to disable all interactive SSH password prompting.
     export GIT_SSH_COMMAND="${GIT_SSH_COMMAND:-"ssh"} -o BatchMode=yes"
 
-    # If gpg-agent is set to handle SSH keys for `git fetch`, make
+    # If gpg-agent is set to handle SSH keys for "git fetch", make
     # sure it doesn't corrupt the parent TTY.
     # Setting an empty GPG_TTY forces pinentry-curses to close immediately rather
     # than stall indefinitely waiting for user input.
@@ -383,7 +383,7 @@ prompt_pure_async_git_fetch() {
 
     unsetopt monitor
 
-    # Check arrow status after a successful `git fetch`.
+    # Check arrow status after a successful "git fetch".
     prompt_pure_async_git_arrows
 }
 
@@ -397,7 +397,7 @@ prompt_pure_async_git_stash() {
 }
 
 # Try to lower the priority of the worker so that disk heavy operations
-# like `git status` has less impact on the system responsivity.
+# like "git status" has less impact on the system responsivity.
 prompt_pure_async_renice() {
     setopt localoptions noshwordsplit
 
@@ -468,7 +468,7 @@ prompt_pure_async_refresh() {
 
     async_job "prompt_pure" prompt_pure_async_git_arrows
 
-    # Do not perform `git fetch` if it is disabled or in home folder.
+    # Do not perform "git fetch" if it is disabled or in home folder.
     if (( ${PURE_GIT_PULL:-1} )) && [[ $prompt_pure_vcs_info[top] != $HOME ]]; then
         zstyle -t :prompt:pure:git:fetch only_upstream
         local only_upstream=$((? == 0))
@@ -584,14 +584,14 @@ prompt_pure_async_callback() {
 
             [[ $prev_dirty != $prompt_pure_git_dirty ]] && do_render=1
 
-            # When `prompt_pure_git_last_dirty_check_timestamp` is set, the Git info is displayed
+            # When "prompt_pure_git_last_dirty_check_timestamp" is set, the Git info is displayed
             # in a different color. To distinguish between a "fresh" and a "cached" result, the
             # preprompt is rendered before setting this variable. Thus, only upon the next
             # rendering of the preprompt will the result appear in a different color.
             (( $exec_time > 5 )) && prompt_pure_git_last_dirty_check_timestamp=$EPOCHSECONDS
             ;;
         prompt_pure_async_git_fetch|prompt_pure_async_git_arrows)
-            # `prompt_pure_async_git_fetch` executes `prompt_pure_async_git_arrows`
+            # "prompt_pure_async_git_fetch" executes "prompt_pure_async_git_arrows"
             # after a successful fetch.
             case $code in
                 0)
@@ -613,7 +613,7 @@ prompt_pure_async_callback() {
                     # Git fetch failed.
                     ;;
                 *)
-                    # Non-zero exit status from `prompt_pure_async_git_arrows`,
+                    # Non-zero exit status from "prompt_pure_async_git_arrows",
                     # indicating that there is no upstream configured.
                     if [[ -n $prompt_pure_git_arrows ]]; then
                         unset prompt_pure_git_arrows
@@ -679,7 +679,7 @@ prompt_pure_state_setup() {
     local username hostname
     if [[ -z $ssh_connection ]] && (( $+commands[who] )); then
         # When changing user on a remote system, the $SSH_CONNECTION
-        # environment variable can be lost. Attempt detection via `who`.
+        # environment variable can be lost. Attempt detection via "who".
         local who_out
         who_out=$(who -m 2>/dev/null)
         if (( $? )); then
@@ -692,7 +692,7 @@ prompt_pure_state_setup() {
         local reIPv6='(([0-9a-fA-F]+:)|:){2,}[0-9a-fA-F]+'  # Simplified, only checks partial pattern.
         local reIPv4='([0-9]{1,3}\.){3}[0-9]+'   # Simplified, allows invalid ranges.
         # Here we assume two non-consecutive periods represents a
-        # hostname. This matches `foo.bar.baz`, but not `foo.bar`.
+        # hostname. This matches "foo.bar.baz", but not "foo.bar".
         local reHostname='([.][^. ]+){2}'
 
         # Usually the remote address is surrounded by parenthesis, but
@@ -710,13 +710,13 @@ prompt_pure_state_setup() {
     fi
 
     hostname='%F{$prompt_pure_colors[host]}@%m%f'
-    # Show `username@host` if logged in through SSH.
+    # Show "username@host" if logged in through SSH.
     [[ -n $ssh_connection ]] && username='%F{$prompt_pure_colors[user]}%n%f'"$hostname"
 
-    # Show `username@host` if inside a container and not in GitHub Codespaces.
+    # Show "username@host" if inside a container and not in GitHub Codespaces.
     [[ -z "${CODESPACES}" ]] && prompt_pure_is_inside_container && username='%F{$prompt_pure_colors[user]}%n%f'"$hostname"
 
-    # Show `username@host` if root, with username in default color.
+    # Show "username@host" if root, with username in default color.
     [[ $UID -eq 0 ]] && username='%F{$prompt_pure_colors[user:root]}%n%f'"$hostname"
 
     typeset -gA prompt_pure_state
@@ -767,14 +767,14 @@ prompt_pure_system_report() {
 
     print - "- Pure state:"
     for k v in "${(@kv)prompt_pure_state}"; do
-        print - "    - $k: \`${(q-)v}\`"
+        print - "    - $k: \"${(q-)v}\""
     done
-    print - "- zsh-async version: \`${ASYNC_VERSION}\`"
-    print - "- PROMPT: \`$(typeset -p PROMPT)\`"
-    print - "- Colors: \`$(typeset -p prompt_pure_colors)\`"
-    print - "- TERM: \`$(typeset -p TERM)\`"
-    print - "- Virtualenv: \`$(typeset -p VIRTUAL_ENV_DISABLE_PROMPT)\`"
-    print - "- Conda: \`$(typeset -p CONDA_CHANGEPS1)\`"
+    print - "- zsh-async version: \"${ASYNC_VERSION}\""
+    print - "- PROMPT: \"$(typeset -p PROMPT)\""
+    print - "- Colors: \"$(typeset -p prompt_pure_colors)\""
+    print - "- TERM: \"$(typeset -p TERM)\""
+    print - "- Virtualenv: \"$(typeset -p VIRTUAL_ENV_DISABLE_PROMPT)\""
+    print - "- Conda: \"$(typeset -p CONDA_CHANGEPS1)\""
 
     local ohmyzsh=0
     typeset -la frameworks
@@ -804,8 +804,8 @@ prompt_pure_setup() {
 
     prompt_opts=(subst percent)
 
-    # Borrowed from `promptinit`. Sets the prompt options in case Pure was not
-    # initialized via `promptinit`.
+    # Borrowed from "promptinit". Sets the prompt options in case Pure was not
+    # initialized via "promptinit".
     setopt noprompt{bang,cr,percent,subst} "prompt${^prompt_opts[@]}"
 
     if [[ -z $prompt_newline ]]; then
@@ -822,7 +822,7 @@ prompt_pure_setup() {
     autoload -Uz vcs_info
     autoload -Uz async && async
 
-    # The `add-zle-hook-widget` function is not guaranteed to be available.
+    # The "add-zle-hook-widget" function is not guaranteed to be available.
     # It was added in Zsh 5.3.
     autoload -Uz +X add-zle-hook-widget 2>/dev/null
 
@@ -888,10 +888,10 @@ prompt_pure_setup() {
         secondary '%F{blue}%N%f%F{242}:%i'
         prompt       '%F{242}>%f '
     )
-    # Combine the parts with conditional logic. First the `:+` operator is
-    # used to replace `compare` either with `main` or an ampty string. Then
-    # the `:-` operator is used so that if `compare` becomes an empty
-    # string, it is replaced with `secondary`.
+    # Combine the parts with conditional logic. First the ":+" operator is
+    # used to replace "compare" either with "main" or an ampty string. Then
+    # the ":-" operator is used so that if "compare" becomes an empty
+    # string, it is replaced with "secondary".
     local ps4_symbols='${${'${ps4_parts[compare]}':+"'${ps4_parts[main]}'"}:-"'${ps4_parts[secondary]}'"}'
 
     # Improve the debug prompt (PS4), show depth by repeating the +-sign and
@@ -907,3 +907,4 @@ prompt_pure_setup() {
 }
 
 prompt_pure_setup "$@"
+

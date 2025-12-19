@@ -152,7 +152,7 @@ set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag, �
 # Item for "status-right" which appears only when some pane is zoomed/fullscreened and its used as seperator, 
 set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,│,}"
 
-set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} "
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} "
 
 # Maximum width of the right side in the status line
 set -g status-right-length 200

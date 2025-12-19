@@ -13,7 +13,8 @@ source $XDG_CONFIG_HOME/zsh/keymaps.zsh
 # [ Aliases ]
 source $XDG_CONFIG_HOME/zsh/aliases.zsh
 
-# [ Custom Prompt ]
-autoload -U promptinit; promptinit
+# [ Custom Zsh Prompt based on https://github.com/sindresorhus/pure ]
 fpath+=($XDG_CONFIG_HOME/zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
 

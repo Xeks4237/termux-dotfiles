@@ -4,19 +4,14 @@ unbind -a
 # Keybindings which are set to be work after prefix key
 bind-key -T prefix Tab next-pane
 bind-key -T prefix Space next-layout
-bind-key -T prefix ! break-pane
+bind-key -T prefix T break-pane
 bind-key -T prefix \" split-window
 bind-key -T prefix \# list-buffers
 bind-key -T prefix \$ command-prompt -I "#S" { rename-session "%%" }
-bind-key -T prefix \% split-window -h
-bind-key -T prefix & confirm-before -p "kill-window #W? (y/n)" kill-window
-bind-key -T prefix \' command-prompt -T window-target -p index { select-window -t ":%%" }
+bind-key -T prefix h split-window -h
+bind-key -T prefix X confirm-before -p "#[bg=#{@thm_bg},fg=#{@thm_sky}]Kill Window #{window_index}: #{window_name} (y/n)" kill-window
 bind-key -T prefix \{ switch-client -p
 bind-key -T prefix \} switch-client -n
-bind-key -T prefix , command-prompt -I "#W" { rename-window "%%" }
-bind-key -T prefix - delete-buffer
-bind-key -T prefix . command-prompt -T target { move-window -t "%%" }
-bind-key -T prefix / command-prompt -k -p key { list-keys -1N "%%" }
 bind-key -T prefix 0 select-window -t :=10
 bind-key -T prefix 1 select-window -t :=1
 bind-key -T prefix 2 select-window -t :=2
@@ -52,7 +47,7 @@ bind-key -T prefix r refresh-client
 bind-key -T prefix s choose-tree -Zs
 bind-key -T prefix t clock-mode
 bind-key -T prefix w choose-tree -Zw
-bind-key -T prefix x confirm-before -p "kill-pane #P? (y/n)" kill-pane
+bind-key -T prefix x confirm-before -p "#[bg=#{@thm_bg},fg=#{@thm_sky}]Kill Pane #{pane_index}? (y/n)" kill-pane
 bind-key -T prefix z resize-pane -Z
 bind-key -T prefix \H swap-pane -U
 bind-key -T prefix \L swap-pane -D

@@ -143,14 +143,8 @@ set -g status-position top
 # First set status line to be empty
 set -g status-right ""
 
-# Item for "status-right" which appears only when some pane is zoomed/fullscreened and its used as seperator, 
-set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,│,}"
-
 # Item for "status-right" which appears only when some pane is zoomed/fullscreened
-set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,  zoom ,}"
-
-# Item for "status-right" which appears only when some pane is zoomed/fullscreened and its used as seperator, 
-set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed_flag,│,}"
+set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,#{#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_yellow}]  zoom #[bg=#{@thm_bg},fg=#{@thm_surface_0}]},}"
 
 set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} "
 

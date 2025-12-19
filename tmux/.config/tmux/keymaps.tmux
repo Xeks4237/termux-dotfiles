@@ -1,18 +1,3 @@
-# Vi keybindings in tmux command prompt ( Prefix + : )
-set -g status-keys vi
-
-# Vi keybindings as tmux mode keys
-set -g mode-keys vi
-
-# Allow extended keybindings on terminals with support for it
-set -g extended-keys on
-
-# Set style of extended keybindings if there are supported
-set -g extended-keys-format "xterm"
-
-# Set prefix key to Ctrl Space
-set -g prefix ^Space
-
 # Unbinds all default keymaps
 unbind -a
 

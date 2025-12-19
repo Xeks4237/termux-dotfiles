@@ -50,7 +50,6 @@ bind-key -T prefix \H swap-pane -U
 bind-key -T prefix \L swap-pane -D
 bind-key -T prefix \~ show-messages
 bind-key -r -T prefix DC refresh-client -c
-bind-key -T prefix PPage copy-mode -u
 bind-key -r -T prefix Up select-pane -U
 bind-key -r -T prefix Down select-pane -D
 bind-key -r -T prefix Left select-pane -L

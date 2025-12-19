@@ -5,10 +5,10 @@ unbind -a
 bind-key -T prefix Tab next-window
 bind-key -T prefix Space next-layout
 bind-key -T prefix C-t break-pane
-bind-key -T prefix C-v split-window
+bind-key -T prefix C-h split-window
 bind-key -T prefix \# list-buffers
 bind-key -T prefix \$ command-prompt -I "#S" { rename-session "%%" }
-bind-key -T prefix C-h split-window -h
+bind-key -T prefix C-v split-window -h
 bind-key -T prefix X confirm-before -p "#[bg=#{@thm_bg},fg=#{@thm_sky}]Kill Window #{window_index}: #{window_name} (y/n)" kill-window
 bind-key -T prefix \{ switch-client -p
 bind-key -T prefix \} switch-client -n

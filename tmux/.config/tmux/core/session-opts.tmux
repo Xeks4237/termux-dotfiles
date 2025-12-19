@@ -123,13 +123,13 @@ set -g status-left ""
 
 # Item for "status-left" which shows current session name
 # And changes color when prefix key is pressed/active
-set -ga status-left "#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_bg},bold]  #S },#{#[bg=#{@thm_bg},fg=#{@thm_green}]  #S }}"
+set -ga status-left "#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_crust},bold]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_red}]},#{#[bg=#{@thm_surface_0},fg=#{@thm_green}]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_surface_0}}]}"
 
 # Item for "status-left" which is used as seperator
-set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│"
+# set -ga status-left "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│"
 
 # Maximum width of the left side in the status line
-set -g status-left-length 100
+set -g status-left-length 200
 
 # Main style of the left side in the status line, like background color
 set -g status-left-style "default"
@@ -155,7 +155,7 @@ set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]#{?window_zoomed
 set -ga status-right "#[bg=#{@thm_bg},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} "
 
 # Maximum width of the right side in the status line
-set -g status-right-length 100
+set -g status-right-length 200
 
 # Style of the right side of the status line
 set -g status-right-style "default"

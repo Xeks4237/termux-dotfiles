@@ -15,7 +15,7 @@ zinit light Aloxaf/fzf-tab
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 # [ Themes and Colorschemes ]
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # [ Snippets ]
 # Oh-My-Zsh Lib snippets

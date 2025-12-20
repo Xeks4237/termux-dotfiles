@@ -14,8 +14,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light zdharma-continuum/fast-syntax-highlighting
 
-# [ Themes and Colorschemes ]
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
+# [ Themes, Colorschemes, and Prompts ]
+zinit light spaceship-prompt/spaceship-prompt
 
 # [ Snippets ]
 # Oh-My-Zsh Lib snippets

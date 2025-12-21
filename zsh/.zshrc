@@ -13,9 +13,6 @@ source $XDG_CONFIG_HOME/zsh/keymaps.zsh
 # [ Aliases ]
 source $XDG_CONFIG_HOME/zsh/aliases.zsh
 
-# git:
-# %b => current branch
-# %a => current action (rebase/merge)
 # prompt:
 # %F => color dict
 # %f => reset color
@@ -33,8 +30,8 @@ source $XDG_CONFIG_HOME/zsh/aliases.zsh
 # \e[2K => clear everything on the current line
 
 # Variable which sets elements of prompt's left side
-PROMPT="%~ %u"
+PROMPT="=> "
 
 # Variable which sets elements of prompt's right side
-RPROMPT=" %w"
+RPROMPT=" %~ %n@%m %w"
 

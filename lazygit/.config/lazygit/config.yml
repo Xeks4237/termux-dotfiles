@@ -143,11 +143,11 @@ promptToReturnFromSubprocess: true
 keybinding:
   universal:
     quit: q
-    quit-alt1: <c-c>
-    suspendApp: <c-z>
+    quit-alt1: <C-c>
+    suspendApp: <C-z>
     return: <esc>
     quitWithoutChangingDirectory: Q
-    togglePanel: <tab>
+    togglePanel: <Tab>
     prevItem: <up>
     nextItem: <down>
     prevItem-alt: k
@@ -167,8 +167,8 @@ keybinding:
     nextBlock: <right>
     prevBlock-alt: h
     nextBlock-alt: l
-    nextBlock-alt2: <tab>
-    prevBlock-alt2: <backtab>
+    nextBlock-alt2: <Tab>
+    prevBlock-alt2: <BackTab>
     jumpToBlock:
       - "1"
       - "2"
@@ -187,7 +187,7 @@ keybinding:
     confirmMenu: <enter>
     confirmSuggestion: <enter>
     confirmInEditor: <a-enter>
-    confirmInEditor-alt: <c-s>
+    confirmInEditor-alt: <C-s>
     remove: d
     new: "n"
     edit: e
@@ -196,14 +196,14 @@ keybinding:
     scrollDownMain: <pgdown>
     scrollUpMain-alt1: K
     scrollDownMain-alt1: J
-    scrollUpMain-alt2: <c-u>
-    scrollDownMain-alt2: <c-d>
+    scrollUpMain-alt2: <C-u>
+    scrollDownMain-alt2: <C-d>
     executeShellCommand: ":"
     createRebaseOptionsMenu: m
     pushFiles: P
     pullFiles: p
     refresh: R
-    createPatchOptionsMenu: <c-p>
+    createPatchOptionsMenu: <C-p>
     nextTab: "]"
     prevTab: "["
     nextScreenMode: +
@@ -211,19 +211,19 @@ keybinding:
     cyclePagers: "|"
     undo: z
     redo: Z
-    filteringMenu: <c-s>
+    filteringMenu: <C-s>
     diffingMenu: W
-    diffingMenu-alt: <c-e>
-    copyToClipboard: <c-o>
-    openRecentRepos: <c-r>
+    diffingMenu-alt: <C-e>
+    copyToClipboard: <C-o>
+    openRecentRepos: <C-r>
     submitEditorText: <enter>
     extrasMenu: "@"
-    toggleWhitespaceInDiffView: <c-w>
+    toggleWhitespaceInDiffView: <C-w>
     increaseContextInDiffView: "}"
     decreaseContextInDiffView: "{"
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
-    openDiffTool: <c-t>
+    openDiffTool: <C-t>
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -233,7 +233,7 @@ keybinding:
     commitChangesWithoutHook: w
     amendLastCommit: A
     commitChangesWithEditor: C
-    findBaseCommitForFixup: <c-f>
+    findBaseCommitForFixup: <C-f>
     confirmDiscard: x
     ignoreFile: i
     refreshFiles: r
@@ -244,14 +244,14 @@ keybinding:
     fetch: f
     toggleTreeView: "`"
     openMergeOptions: M
-    openStatusFilter: <c-b>
+    openStatusFilter: <C-b>
     copyFileInfoToClipboard: "y"
     collapseAll: "-"
     expandAll: =
   branches:
     createPullRequest: o
     viewPullRequestOptions: O
-    copyPullRequestURL: <c-y>
+    copyPullRequestURL: <C-y>
     checkoutBranchByName: c
     forceCheckoutBranch: F
     checkoutPreviousBranch: "-"
@@ -276,8 +276,8 @@ keybinding:
     markCommitAsFixup: f
     createFixupCommit: F
     squashAboveCommits: S
-    moveDownCommit: <c-j>
-    moveUpCommit: <c-k>
+    moveDownCommit: <C-j>
+    moveUpCommit: <C-k>
     amendToCommit: A
     resetCommitAuthor: a
     pickCommit: p
@@ -287,9 +287,9 @@ keybinding:
     markCommitAsBaseForRebase: B
     tagCommit: T
     checkoutCommit: <space>
-    resetCherryPick: <c-R>
+    resetCherryPick: <C-R>
     copyCommitAttributeToClipboard: "y"
-    openLogMenu: <c-l>
+    openLogMenu: <C-l>
     openInBrowser: o
     viewBisectOptions: b
     startInteractiveRebase: i
@@ -312,4 +312,4 @@ keybinding:
     update: u
     bulkMenu: b
   commitMessage:
-    commitMenu: <c-o>
+    commitMenu: <C-o>

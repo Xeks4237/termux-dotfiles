@@ -131,7 +131,12 @@ refresher:
 confirmOnQuit: false
 quitOnTopLevelReturn: false
 disableStartupPopups: false
-customCommands: []
+customCommands:
+  - key: "<C-P>"
+    context: "global"
+    description: "Push current branch to ALL remotes"
+    loadingText: "Pushing to all remotes..."
+    command: 'for remote in $(git remote); do git push "$remote" {{.CheckedOutBranch.Name}}; done'
 services: {}
 notARepository: prompt
 promptToReturnFromSubprocess: true

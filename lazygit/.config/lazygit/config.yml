@@ -134,7 +134,7 @@ disableStartupPopups: false
 customCommands:
   - key: "<C-P>"
     context: "global"
-    description: "Push current branch to ALL remotes"
+    description: "Push changes to current branch on all remotes"
     loadingText: "Pushing to all remotes..."
     command: 'for remote in $(git remote); do git push "$remote" {{.CheckedOutBranch.Name}}; done'
 services: {}

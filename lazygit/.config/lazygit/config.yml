@@ -132,11 +132,41 @@ confirmOnQuit: false
 quitOnTopLevelReturn: false
 disableStartupPopups: false
 customCommands:
-  - key: "<C-P>"
+  - key: "<C-y>"
     context: "global"
     description: "Push changes to current branch on all remotes"
-    loadingText: "Pushing to all remotes..."
     command: 'for remote in $(git remote); do git push "$remote" {{.CheckedOutBranch.Name}}; done'
+    loadingText: "Pushing to all remotes..."
+
+  - key: "<C-g>"
+    context: "global"
+    description: "Add new remote to local repo"
+    prompts:
+      - type: "input"
+        title: "Name of new remote:"
+        key: "Name"
+      - type: "input"
+        title: "URL for new remote (HTTPS or SSH):"
+        key: "Url"
+    command: "git remote add {{index .PromptResponses 0}} {{index .PromptResponses 1}}"
+    loadingText: "Adding remote..."
+
+  - key: "<C-e>"
+    description: "Remove one existing remote"
+    context: "global"
+    prompts:
+      - type: "menuFromCommand"
+        title: "Select remote to remove"
+        command: "git remote"
+        filter: "^(?P<remote_name>.*)$"
+        valueFormat: "{{ .remote_name }}"
+        labelFormat: "{{ .remote_name | bold }}"
+      - type: "confirm"
+        title: "Confirm removal"
+        body: 'Really remove remote "{{index .PromptResponses 0}}"?'
+    command: "git remote remove {{index .PromptResponses 0}}"
+    loadingText: "Removing remote..."
+
 services: {}
 notARepository: prompt
 promptToReturnFromSubprocess: true

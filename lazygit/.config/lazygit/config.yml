@@ -119,7 +119,7 @@ git:
     order: topo-order
     showGraph: always
     showWholeGraph: false
-  localBranchSortOrder: date
+  localBranchSortOrder: alphabetical
   remoteBranchSortOrder: date
   truncateCopiedCommitHashesTo: 12
 update:

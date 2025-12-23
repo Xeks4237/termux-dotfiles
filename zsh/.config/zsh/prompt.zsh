@@ -35,12 +35,15 @@ thm_crust="#11111b"
 thm_bg="#1e1e2e"
 # }
 
+# [ Functions ]
+
 # [ Final Prompt Scructure ]
 # %F{} => Colors everything after it
 # %f => Resets coloring after itself
 # %~ => Current path relative to $HOME directory
 # %n => Shows $USERNAME of the surrent user
 # %m => Shows hostname up to the first `.'
+# %# => Shows "#" if shell is privileged, if not "%", its same as "%(!,#,%%)"
 # %D{} => Shows customly formatted time, like soo "%H:%M:%S.%."
 # %(?..) => prompt condition for doing some logic, %(condition.true.false)
 
@@ -53,8 +56,8 @@ thm_bg="#1e1e2e"
 # \e[2K => clear everything on the current line
 
 # Variable which sets elements of prompt's left side
-PROMPT="%F{$thm_sky}%~%f %F{$thm_lavender}=>%f "
+PROMPT="%F{$thm_sky}%~%f %(!,%F{$thm_red}#%f,%F{$thm_sky}%%%f) %F{$thm_lavender}=>%f "
 
 # Variable which sets elements of prompt's right side
-RPROMPT=" %F{thm_yellow}%D{ %H:%M:%S.%.}%f %F{$thm_yellow}%n%f%F{$thm_sky}@%f%F{$thm_green}%m%f"
+RPROMPT=" %F{thm_yellow}%D{ %H:%M:%S}%f %F{$thm_yellow}%n%f%F{$thm_sky}@%f%F{$thm_green}%m%f"
 

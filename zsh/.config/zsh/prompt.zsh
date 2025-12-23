@@ -1,4 +1,8 @@
+# [ Loading Some Stuff ]
+autoload -Uz vcs_info
+
 # [ Colors ]
+# prompt_colors() {
 # NOTE: I used Catppuccin Mocha Colors from https://github.com/catppuccin
 # Main colors
 thm_rosewater="#f5e0dc"
@@ -29,16 +33,18 @@ thm_surface_0="#313244"
 thm_mantle="#181825"
 thm_crust="#11111b"
 thm_bg="#1e1e2e"
+# }
 
 # [ Final Prompt Scructure ]
-# %F => color dict
-# %f => reset color
-# %~ => current path
-# %* => time
-# %n => username
-# %m => shortname host
-# %(?..) => prompt conditional - %(condition.true.false)
-# terminal codes:
+# %F{} => Colors everything after it
+# %f => Resets coloring after itself
+# %~ => Current path relative to $HOME directory
+# %n => Shows $USERNAME of the surrent user
+# %m => Shows hostname up to the first `.'
+# %D{} => Shows customly formatted time, like soo "%H:%M:%S.%."
+# %(?..) => prompt condition for doing some logic, %(condition.true.false)
+
+# Terminal codes:
 # \e7   => save cursor position
 # \e[2A => move cursor 2 lines up
 # \e[1G => go to position 1 in terminal
@@ -47,8 +53,8 @@ thm_bg="#1e1e2e"
 # \e[2K => clear everything on the current line
 
 # Variable which sets elements of prompt's left side
-PROMPT="%F{$thm_blue}%~%f %F{$thm_lavender}=>%f "
+PROMPT="%F{$thm_sky}%~%f %F{$thm_lavender}=>%f "
 
 # Variable which sets elements of prompt's right side
-RPROMPT=" %F{$thm_yellow}%w%f %F{$thm_yellow}%n%f%F{$thm_sky}@%f%F{$thm_green}%m%f"
+RPROMPT=" %F{thm_yellow}%D{ %H:%M:%S.%.}%f %F{$thm_yellow}%n%f%F{$thm_sky}@%f%F{$thm_green}%m%f"
 

@@ -163,7 +163,7 @@ customCommands:
         labelFormat: "{{ .remote_name | bold }}"
       - type: "confirm"
         title: "Confirm removal"
-        body: 'Really remove remote "{{index .PromptResponses 0}}"?'
+        body: 'Press Enter to remove remote "{{index .PromptResponses 0}}" from local repo. (press ESC to cancel)'
     command: "git remote remove {{index .PromptResponses 0}}"
     loadingText: "Removing remote..."
 

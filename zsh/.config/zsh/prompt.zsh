@@ -1,8 +1,8 @@
+# [ Title with useful information ]
 # Zsh-God prompt
 # by Xeks4237: https://gitlab.com/Xeks4237
-# MIT License
+# Licensed under: MIT License
 
-# Some
 # Zsh substitutions:
 # %F{} => Colors everything after it
 # %f => Resets coloring after itself
@@ -22,6 +22,18 @@
 # \e[2K => clear everything on the current line
 
 # [ Configuration Variables ]
+COLOR1=${PROMPT_LEAN_COLOR1-"$thm_green"}
+COLOR2=${PROMPT_LEAN_COLOR2-"$thm_blue"}
+COLOR3=${PROMPT_LEAN_COLOR3-"$thm_yellow"}
+
+PROMPT_LEAN_TMUX=${PROMPT_LEAN_TMUX-"t "}
+PROMPT_LEAN_PATH_PERCENT=${PROMPT_LEAN_PATH_PERCENT-60}
+PROMPT_LEAN_NOTITLE=${PROMPT_LEAN_NOTITLE-0}
+PROMPT_LEAN_CMD_MAX_EXEC_TIME=5
+PROMPT_LEAN_ABBR_METHOD=${PROMPT_LEAN_ABBR_METHOD-"truncate"}
+PROMPT_LEAN_VCS=${PROMPT_LEAN_VCS-1}
+PROMPT_LEAN_PWD=${PROMPT_LEAN_PWD-1}
+
 # NOTE: I used Catppuccin Mocha Colors from https://github.com/catppuccin
 # Main colors
 thm_rosewater="#f5e0dc"
@@ -52,18 +64,6 @@ thm_surface_0="#313244"
 thm_mantle="#181825"
 thm_crust="#11111b"
 thm_bg="#1e1e2e"
-
-COLOR1=${PROMPT_LEAN_COLOR1-"$thm_green"}
-COLOR2=${PROMPT_LEAN_COLOR2-"$thm_blue"}
-COLOR3=${PROMPT_LEAN_COLOR3-"$thm_yellow"}
-
-PROMPT_LEAN_TMUX=${PROMPT_LEAN_TMUX-"t "}
-PROMPT_LEAN_PATH_PERCENT=${PROMPT_LEAN_PATH_PERCENT-60}
-PROMPT_LEAN_NOTITLE=${PROMPT_LEAN_NOTITLE-0}
-PROMPT_LEAN_CMD_MAX_EXEC_TIME=5
-PROMPT_LEAN_ABBR_METHOD=${PROMPT_LEAN_ABBR_METHOD-"truncate"}
-PROMPT_LEAN_VCS=${PROMPT_LEAN_VCS-1}
-PROMPT_LEAN_PWD=${PROMPT_LEAN_PWD-1}
 
 prompt_lean_help() {
     cat <<'EOF'

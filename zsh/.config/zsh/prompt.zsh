@@ -59,5 +59,5 @@ thm_bg="#1e1e2e"
 PROMPT="%F{$thm_sky}%~%f %(!,%F{$thm_red}#%f,%F{$thm_sky}%%%f) %F{$thm_lavender}=>%f "
 
 # Variable which sets elements of prompt's right side
-RPROMPT=" %F{thm_yellow}%D{ %H:%M:%S}%f %F{$thm_yellow}%n%f%F{$thm_sky}@%f%F{$thm_green}%m%f"
+RPROMPT=" %F{$thm_yellow}%D{ %H\h %M\m %S\s}%f %F{$thm_yellow}%n%f%F{$thm_sky}@%f%F{$thm_green}%m%f"
 

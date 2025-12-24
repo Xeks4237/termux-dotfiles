@@ -15,3 +15,4 @@ source $XDG_CONFIG_HOME/zsh/aliases.zsh
 
 # [ Prompt ]
 source $XDG_CONFIG_HOME/zsh/prompt.zsh
+

@@ -11,7 +11,7 @@
 # %m => Shows hostname up to the first `.' symbols
 # %# => Shows "#" if shell is privileged, if not "%", its same as "%(!,#,%%)"
 # %D{} => Shows customly formatted time, like soo "%H:%M:%S.%."
-# %(?..) => prompt condition for doing some logic, %(condition.true.false)
+# %(?,,) => prompt condition for doing some logic, %(condition,true,false)
 
 # Terminal codes:
 # \e7   => save cursor position
@@ -62,11 +62,11 @@ PROMPT_LEAN_VCS=${PROMPT_LEAN_VCS-1}
 PROMPT_LEAN_PWD=${PROMPT_LEAN_PWD-1}
 
 prompt_lean_help() {
-    cat <<'EOF'
+    cat <<"EOF"
 Lean is a one line prompt that tries to stay out of your face. It utilizes
 the right side prompt for most information, like the current working directory
 and version control system (only Git)info. The left side of the prompt is only
-a '%'. The only other information shown on the left are the jobs numbers of
+a "%". The only other information shown on the left are the jobs numbers of
 background jobs. When the exit code of a process isn't zero the prompt turns
 red. If a process takes more then 5 (default) seconds to run the total running
 time is shown in the next prompt.
@@ -92,7 +92,7 @@ PROMPT_LEAN_NOTITLE:
                     by default
 PROMPT_LEAN_ABBR_METHOD:
                     used to indicate the abbreviation method for directory
-                    paths. Set it either to 'truncate' (default) or 'shrink'
+                    paths. Set it either to "truncate" (default) or "shrink"
                     (fish-style working directory)
 EOF
 }
@@ -136,7 +136,7 @@ prompt_lean_set_title() {
     # prints: <cwd><space><optional machine if ssh - like rprompt><space><command>
     print -Pn "\e]0;"
     print -Pn "%1~"
-    [[ "$SSH_CONNECTION" != '' ]] && print -Pn " %m"
+    [[ "$SSH_CONNECTION" != "" ]] && print -Pn " %m"
     print -rn "     $1"
     print -Pn "\a"
 }
@@ -159,13 +159,13 @@ prompt_lean_pwd() {
 }
 
 prompt_lean_abbr_truncate() {
-    print -Pn '...%2/'
+    print -Pn "...%2/"
 }
 
 prompt_lean_abbr_shrink() {
     setopt local_options extendedglob histsubstpattern
 
-    local lean_path=$(print -Pn '%~')
+    local lean_path=$(print -Pn "%~")
     local maxlen=$((PROMPT_LEAN_PATH_PERCENT * COLUMNS / 100))
     local prevlen=0
 
@@ -186,7 +186,7 @@ prompt_lean_precmd() {
     local prompt_lean_jobs
     unset jobs
     for a (${(k)jobstates}) {
-        j=$jobstates[$a];i='${${(@s,:,)j}[2]}'
+        j=$jobstates[$a];i="${${(@s,:,)j}[2]}"
         jobs+=($a${i//[^+-]/})
     }
     # print with [ ] and comma separated
@@ -200,11 +200,11 @@ prompt_lean_precmd() {
     prompt_lean_vimode="${${KEYMAP/vicmd/$lean_vimode_indicator}/(main|viins)/}"
 
     setopt promptsubst
-    local vcs_info_str=''
-    [[ $PROMPT_LEAN_VCS == 1 ]] && vcs_info_str='$vcs_info_msg_0_' # avoid https://github.com/njhartwell/pw3nage
+    local vcs_info_str=""
+    [[ $PROMPT_LEAN_VCS == 1 ]] && vcs_info_str="$vcs_info_msg_0_" # avoid https://github.com/njhartwell/pw3nage
     PROMPT="$prompt_lean_jobs%F{$thm_green}${prompt_lean_tmux}%f$($PROMPT_LEAN_LEFT)%f%(?.%F{$thm_blue}.%B%F{203})%#%f%k%b "
 
-    local lean_pwd=''
+    local lean_pwd=""
     [[ $PROMPT_LEAN_PWD == 1 ]] && lean_pwd=$(prompt_lean_pwd)
     RPROMPT="%F{$thm_yellow}$(prompt_lean_cmd_exec_time)%f$prompt_lean_vimode%F{$thm_blue}$lean_pwd%F{$thm_green}$vcs_info_str$(prompt_lean_git_dirty)$prompt_lean_host%f$($PROMPT_LEAN_RIGHT)%f"
 
@@ -225,19 +225,19 @@ prompt_lean_setup() {
     autoload -Uz add-zsh-hook
     [[ $PROMPT_LEAN_VCS == 1 ]] && autoload -Uz vcs_info
 
-    [[ "$PROMPT_LEAN_VIMODE" != '' ]] && zle -N zle-keymap-select
+    [[ "$PROMPT_LEAN_VIMODE" != "" ]] && zle -N zle-keymap-select
 
     add-zsh-hook precmd prompt_lean_precmd
     add-zsh-hook preexec prompt_lean_preexec
 
     if [[ $PROMPT_LEAN_VCS == 1 ]]; then
-        zstyle ':vcs_info:*' enable git
-        zstyle ':vcs_info:git*' formats ' %25>...>%b%>>'
-        zstyle ':vcs_info:git*' actionformats ' %25>...>%b%>>|%a'
+        zstyle ":vcs_info:*" enable git
+        zstyle ":vcs_info:git*" formats " %25>...>%b%>>"
+        zstyle ":vcs_info:git*" actionformats " %25>...>%b%>>|%a"
     fi
 
-    [[ "$SSH_CONNECTION" != '' ]] && prompt_lean_host=" %F{"$thm_yellow"}%m%f"
-    [[ "$TMUX" != '' ]] && prompt_lean_tmux=$PROMPT_LEAN_TMUX
+    [[ "$SSH_CONNECTION" != "" ]] && prompt_lean_host=" %F{"$thm_yellow"}%m%f"
+    [[ "$TMUX" != "" ]] && prompt_lean_tmux=$PROMPT_LEAN_TMUX
 
     return 0
 }

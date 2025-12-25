@@ -4,7 +4,7 @@
 # Licensed under: MIT License
 
 # Zsh substitutions:
-# %F{} => Colors everything after it
+# %F{} => Colors everything after it, can use HEX, and mono RGB like #000000 and 000 values
 # %f => Resets coloring after itself
 # %~ => Current path relative to $HOME directory
 # %n => Shows $USERNAME of the surrent user
@@ -61,7 +61,7 @@ PROMPT_LEAN_ABBR_METHOD=${PROMPT_LEAN_ABBR_METHOD-"truncate"}
 PROMPT_LEAN_VCS=${PROMPT_LEAN_VCS-1}
 PROMPT_LEAN_PWD=${PROMPT_LEAN_PWD-1}
 
-prompt_lean_help() {
+prompt_zshgod_help() {
     cat <<"EOF"
 Lean is a one line prompt that tries to stay out of your face. It utilizes
 the right side prompt for most information, like the current working directory
@@ -97,8 +97,8 @@ PROMPT_LEAN_ABBR_METHOD:
 EOF
 }
 
-# turns seconds into human readable time, 165392 => 1d 21h 56m 32s
-prompt_lean_human_time() {
+# Turns seconds into human readable time, 165392 => 1d 21h 56m 32s
+prompt_zshgod_human_time() {
     local tmp=$1
     local days=$(( tmp / 60 / 60 / 24 ))
     local hours=$(( tmp / 60 / 60 % 24 ))
@@ -110,29 +110,29 @@ prompt_lean_human_time() {
     echo "${seconds}s "
 }
 
-# displays the exec time of the last command if set threshold was exceeded
-prompt_lean_cmd_exec_time() {
+# Displays the exec time of the last command if set threshold was exceeded
+prompt_zshgod_cmd_exec_time() {
     local stop=$EPOCHSECONDS
     local start=${cmd_timestamp:-$stop}
     integer elapsed=$stop-$start
-    (($elapsed > ${PROMPT_LEAN_CMD_MAX_EXEC_TIME})) && prompt_lean_human_time $elapsed
+    (($elapsed > ${PROMPT_LEAN_CMD_MAX_EXEC_TIME})) && prompt_zshgod_human_time $elapsed
 }
 
-# fastest possible way to check if repo is dirty
-prompt_lean_git_dirty() {
+# Fastest possible way to check if repo is dirty
+prompt_zshgod_git_dirty() {
     if [[ $PROMPT_LEAN_VCS != 1 ]]; then
         return
     fi
     # check if we're in a git repo
     command git rev-parse --is-inside-work-tree &>/dev/null || return
     # check if it's dirty
-    local umode="-uno" #|| local umode="-unormal"
+    local umode="-uno" # || local umode="-unormal"
     command test -n "$(git status --porcelain --ignore-submodules ${umode} 2>/dev/null | head -100)"
 
     (($? == 0)) && echo "*"
 }
 
-prompt_lean_set_title() {
+prompt_zshgod_set_title() {
     # prints: <cwd><space><optional machine if ssh - like rprompt><space><command>
     print -Pn "\e]0;"
     print -Pn "%1~"
@@ -141,28 +141,28 @@ prompt_lean_set_title() {
     print -Pn "\a"
 }
 
-prompt_lean_preexec() {
+prompt_zshgod_preexec() {
     typeset -g cmd_timestamp=$EPOCHSECONDS
-    (($PROMPT_LEAN_NOTITLE != 1)) && prompt_lean_set_title "$1"
+    (($PROMPT_LEAN_NOTITLE != 1)) && prompt_zshgod_set_title "$1"
 }
 
-prompt_lean_pwd() {
+prompt_zshgod_pwd() {
     local lean_path='$(print -Pn "%~")'
     if (($#lean_path / $COLUMNS.0 * 100 > ${PROMPT_LEAN_PATH_PERCENT:=60})); then
         case "$PROMPT_LEAN_ABBR_METHOD" in
-            "truncate") prompt_lean_abbr_truncate ;;
-            "shrink")   prompt_lean_abbr_shrink ;;
+            "truncate") prompt_zshgod_abbr_truncate ;;
+            "shrink")   prompt_zshgod_abbr_shrink ;;
         esac
         return
     fi
     print "$lean_path"
 }
 
-prompt_lean_abbr_truncate() {
+prompt_zshgod_abbr_truncate() {
     print -Pn "...%2/"
 }
 
-prompt_lean_abbr_shrink() {
+prompt_zshgod_abbr_shrink() {
     setopt local_options extendedglob histsubstpattern
 
     local lean_path=$(print -Pn "%~")
@@ -178,47 +178,47 @@ prompt_lean_abbr_shrink() {
     echo $lean_path
 }
 
-prompt_lean_precmd() {
+prompt_zshgod_precmd() {
     [[ $PROMPT_LEAN_VCS == 1 ]] && vcs_info 2>/dev/null
     rehash
 
     local jobs
-    local prompt_lean_jobs
+    local prompt_zshgod_jobs
     unset jobs
     for a (${(k)jobstates}) {
         j=$jobstates[$a];i="${${(@s,:,)j}[2]}"
         jobs+=($a${i//[^+-]/})
     }
-    # print with [ ] and comma separated
-    prompt_lean_jobs=""
-    [[ -n $jobs ]] && prompt_lean_jobs="%F{"$thm_green"}["${(j:,:)jobs}"] "
+    # Print with [ ] and comma separated
+    prompt_zshgod_jobs=""
+    [[ -n $jobs ]] && prompt_zshgod_jobs="%F{"$thm_green"}["${(j:,:)jobs}"] "
 
     local lean_vimode_default="%F{red}[NORMAL]%f"
-    #If LEAN_VIMODE is set, set lean_vimode_indicator to either PROMPT_LEAN_VIMOD_FORMAT or a default value
+    # If LEAN_VIMODE is set, set lean_vimode_indicator to either PROMPT_LEAN_VIMOD_FORMAT or a default value
     local lean_vimode_indicator="${PROMPT_LEAN_VIMODE:+${PROMPT_LEAN_VIMODE_FORMAT:-${lean_vimode_default}}}"
 
-    prompt_lean_vimode="${${KEYMAP/vicmd/$lean_vimode_indicator}/(main|viins)/}"
+    prompt_zshgod_vimode="${${KEYMAP/vicmd/$lean_vimode_indicator}/(main|viins)/}"
 
     setopt promptsubst
     local vcs_info_str=""
     [[ $PROMPT_LEAN_VCS == 1 ]] && vcs_info_str="$vcs_info_msg_0_" # avoid https://github.com/njhartwell/pw3nage
-    PROMPT="$prompt_lean_jobs%F{$thm_green}${prompt_lean_tmux}%f$($PROMPT_LEAN_LEFT)%f%(?.%F{$thm_blue}.%B%F{203})%#%f%k%b "
+    PROMPT="$prompt_zshgod_jobs%F{$thm_green}${prompt_zshgod_tmux}%f$($PROMPT_LEAN_LEFT)%f%(?.%F{$thm_blue}.%B%F{203})%#%f%k%b "
 
     local lean_pwd=""
-    [[ $PROMPT_LEAN_PWD == 1 ]] && lean_pwd=$(prompt_lean_pwd)
-    RPROMPT="%F{$thm_yellow}$(prompt_lean_cmd_exec_time)%f$prompt_lean_vimode%F{$thm_blue}$lean_pwd%F{$thm_green}$vcs_info_str$(prompt_lean_git_dirty)$prompt_lean_host%f$($PROMPT_LEAN_RIGHT)%f"
+    [[ $PROMPT_LEAN_PWD == 1 ]] && lean_pwd=$(prompt_zshgod_pwd)
+    RPROMPT="%F{$thm_yellow}$(prompt_zshgod_cmd_exec_time)%f$prompt_zshgod_vimode%F{$thm_blue}$lean_pwd%F{$thm_green}$vcs_info_str$(prompt_zshgod_git_dirty)$prompt_zshgod_host%f$($PROMPT_LEAN_RIGHT)%f"
 
-    (($PROMPT_LEAN_NOTITLE != 1)) && prompt_lean_set_title "$1"
+    (($PROMPT_LEAN_NOTITLE != 1)) && prompt_zshgod_set_title "$1"
 
-    unset cmd_timestamp # reset value since "preexec" isn't always triggered
+    unset cmd_timestamp # Reset value since "preexec" isn't always triggered
 }
 
 function zle-keymap-select {
-    prompt_lean_precmd
+    prompt_zshgod_precmd
     zle reset-prompt
 }
 
-prompt_lean_setup() {
+prompt_zshgod_setup() {
     prompt_opts=(cr percent sp subst)
 
     zmodload zsh/datetime
@@ -227,8 +227,8 @@ prompt_lean_setup() {
 
     [[ "$PROMPT_LEAN_VIMODE" != "" ]] && zle -N zle-keymap-select
 
-    add-zsh-hook precmd prompt_lean_precmd
-    add-zsh-hook preexec prompt_lean_preexec
+    add-zsh-hook precmd prompt_zshgod_precmd
+    add-zsh-hook preexec prompt_zshgod_preexec
 
     if [[ $PROMPT_LEAN_VCS == 1 ]]; then
         zstyle ":vcs_info:*" enable git
@@ -236,11 +236,11 @@ prompt_lean_setup() {
         zstyle ":vcs_info:git*" actionformats " %25>...>%b%>>|%a"
     fi
 
-    [[ "$SSH_CONNECTION" != "" ]] && prompt_lean_host=" %F{"$thm_yellow"}%m%f"
-    [[ "$TMUX" != "" ]] && prompt_lean_tmux=$PROMPT_LEAN_TMUX
+    [[ "$SSH_CONNECTION" != "" ]] && prompt_zshgod_host=" %F{"$thm_yellow"}%m%f"
+    [[ "$TMUX" != "" ]] && prompt_zshgod_tmux=$PROMPT_LEAN_TMUX
 
     return 0
 }
 
-prompt_lean_setup "$@"
+prompt_zshgod_setup "$@"
 

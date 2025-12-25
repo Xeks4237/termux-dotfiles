@@ -8,7 +8,7 @@
 # %f => Resets coloring after itself
 # %~ => Current path relative to $HOME directory
 # %n => Shows $USERNAME of the surrent user
-# %m => Shows hostname up to the first `.' symbols
+# %m => Shows hostname up to the first "." symbol
 # %# => Shows "#" if shell is privileged, if not "%", its same as "%(!,#,%%)"
 # %D{} => Shows customly formatted time, like soo "%H:%M:%S.%."
 # %(?..) => prompt condition for doing some logic, %(condition.true.false)
@@ -22,18 +22,6 @@
 # \e[2K => clear everything on the current line
 
 # [ Configuration Variables ]
-COLOR1=${PROMPT_LEAN_COLOR1-"$thm_green"}
-COLOR2=${PROMPT_LEAN_COLOR2-"$thm_blue"}
-COLOR3=${PROMPT_LEAN_COLOR3-"$thm_yellow"}
-
-PROMPT_LEAN_TMUX=${PROMPT_LEAN_TMUX-"t "}
-PROMPT_LEAN_PATH_PERCENT=${PROMPT_LEAN_PATH_PERCENT-60}
-PROMPT_LEAN_NOTITLE=${PROMPT_LEAN_NOTITLE-0}
-PROMPT_LEAN_CMD_MAX_EXEC_TIME=5
-PROMPT_LEAN_ABBR_METHOD=${PROMPT_LEAN_ABBR_METHOD-"truncate"}
-PROMPT_LEAN_VCS=${PROMPT_LEAN_VCS-1}
-PROMPT_LEAN_PWD=${PROMPT_LEAN_PWD-1}
-
 # NOTE: I used Catppuccin Mocha Colors from https://github.com/catppuccin
 # Main colors
 thm_rosewater="#f5e0dc"
@@ -65,12 +53,20 @@ thm_mantle="#181825"
 thm_crust="#11111b"
 thm_bg="#1e1e2e"
 
+PROMPT_LEAN_TMUX=${PROMPT_LEAN_TMUX-"t "}
+PROMPT_LEAN_PATH_PERCENT=${PROMPT_LEAN_PATH_PERCENT-60}
+PROMPT_LEAN_NOTITLE=${PROMPT_LEAN_NOTITLE-0}
+PROMPT_LEAN_CMD_MAX_EXEC_TIME=5
+PROMPT_LEAN_ABBR_METHOD=${PROMPT_LEAN_ABBR_METHOD-"truncate"}
+PROMPT_LEAN_VCS=${PROMPT_LEAN_VCS-1}
+PROMPT_LEAN_PWD=${PROMPT_LEAN_PWD-1}
+
 prompt_lean_help() {
-    cat <<'EOF'
+    cat <<"EOF"
 Lean is a one line prompt that tries to stay out of your face. It utilizes
 the right side prompt for most information, like the current working directory
 and version control system (only Git)info. The left side of the prompt is only
-a '%'. The only other information shown on the left are the jobs numbers of
+a "%". The only other information shown on the left are the jobs numbers of
 background jobs. When the exit code of a process isn't zero the prompt turns
 red. If a process takes more then 5 (default) seconds to run the total running
 time is shown in the next prompt.
@@ -84,9 +80,6 @@ Several aspects Lean can be configured:
 PROMPT_LEAN_TMUX:   used to indicate being in tmux, set to "t " by default
 PROMPT_LEAN_LEFT:   executed to allow custom information in the left side
 PROMPT_LEAN_RIGHT:  executed to allow custom information in the right side
-PROMPT_LEAN_COLOR1: jobs and VCS info indicator color
-PROMPT_LEAN_COLOR2: prompt character and directory color
-PROMPT_LEAN_COLOR3: elapsed time indicator color
 PROMPT_LEAN_VIMODE: used to determine whether or not to display indicator
 PROMPT_LEAN_PWD:    when set to 0, disables showing CWD in the prompt
 PROMPT_LEAN_VCS:    when set to 0, disables git details from the prompt, the
@@ -99,7 +92,7 @@ PROMPT_LEAN_NOTITLE:
                     by default
 PROMPT_LEAN_ABBR_METHOD:
                     used to indicate the abbreviation method for directory
-                    paths. Set it either to 'truncate' (default) or 'shrink'
+                    paths. Set it either to "truncate" (default) or "shrink"
                     (fish-style working directory)
 EOF
 }
@@ -117,6 +110,14 @@ prompt_lean_human_time() {
     echo "${seconds}s "
 }
 
+# displays the exec time of the last command if set threshold was exceeded
+prompt_lean_cmd_exec_time() {
+    local stop=$EPOCHSECONDS
+    local start=${cmd_timestamp:-$stop}
+    integer elapsed=$stop-$start
+    (($elapsed > ${PROMPT_LEAN_CMD_MAX_EXEC_TIME})) && prompt_lean_human_time $elapsed
+}
+
 # fastest possible way to check if repo is dirty
 prompt_lean_git_dirty() {
     if [[ $PROMPT_LEAN_VCS != 1 ]]; then
@@ -131,19 +132,11 @@ prompt_lean_git_dirty() {
     (($? == 0)) && echo "*"
 }
 
-# displays the exec time of the last command if set threshold was exceeded
-prompt_lean_cmd_exec_time() {
-    local stop=$EPOCHSECONDS
-    local start=${cmd_timestamp:-$stop}
-    integer elapsed=$stop-$start
-    (($elapsed > ${PROMPT_LEAN_CMD_MAX_EXEC_TIME})) && prompt_lean_human_time $elapsed
-}
-
 prompt_lean_set_title() {
     # prints: <cwd><space><optional machine if ssh - like rprompt><space><command>
     print -Pn "\e]0;"
     print -Pn "%1~"
-    [[ "$SSH_CONNECTION" != '' ]] && print -Pn " %m"
+    [[ "$SSH_CONNECTION" != "" ]] && print -Pn " %m"
     print -rn "     $1"
     print -Pn "\a"
 }
@@ -154,7 +147,7 @@ prompt_lean_preexec() {
 }
 
 prompt_lean_pwd() {
-    local lean_path="`print -Pn '%~'`"
+    local lean_path='`print -Pn "%~"`'
     if (($#lean_path / $COLUMNS.0 * 100 > ${PROMPT_LEAN_PATH_PERCENT:=60})); then
         case "$PROMPT_LEAN_ABBR_METHOD" in
             "truncate") prompt_lean_abbr_truncate ;;
@@ -166,13 +159,13 @@ prompt_lean_pwd() {
 }
 
 prompt_lean_abbr_truncate() {
-    print -Pn '...%2/'
+    print -Pn "...%2/"
 }
 
 prompt_lean_abbr_shrink() {
     setopt local_options extendedglob histsubstpattern
 
-    local lean_path=$(print -Pn '%~')
+    local lean_path=$(print -Pn "%~")
     local maxlen=$((PROMPT_LEAN_PATH_PERCENT * COLUMNS / 100))
     local prevlen=0
 
@@ -193,12 +186,12 @@ prompt_lean_precmd() {
     local prompt_lean_jobs
     unset jobs
     for a (${(k)jobstates}) {
-        j=$jobstates[$a];i='${${(@s,:,)j}[2]}'
+        j=$jobstates[$a];i="${${(@s,:,)j}[2]}"
         jobs+=($a${i//[^+-]/})
     }
     # print with [ ] and comma separated
     prompt_lean_jobs=""
-    [[ -n $jobs ]] && prompt_lean_jobs="%F{"$COLOR1"}["${(j:,:)jobs}"] "
+    [[ -n $jobs ]] && prompt_lean_jobs="%F{"$thm_green"}["${(j:,:)jobs}"] "
 
     local lean_vimode_default="%F{red}[NORMAL]%f"
     #If LEAN_VIMODE is set, set lean_vimode_indicator to either PROMPT_LEAN_VIMOD_FORMAT or a default value
@@ -207,13 +200,13 @@ prompt_lean_precmd() {
     prompt_lean_vimode="${${KEYMAP/vicmd/$lean_vimode_indicator}/(main|viins)/}"
 
     setopt promptsubst
-    local vcs_info_str=''
-    [[ $PROMPT_LEAN_VCS == 1 ]] && vcs_info_str='$vcs_info_msg_0_' # avoid https://github.com/njhartwell/pw3nage
-    PROMPT="$prompt_lean_jobs%F{"$COLOR3"}${prompt_lean_tmux}%f`$PROMPT_LEAN_LEFT`%f%(?.%F{"$COLOR2"}.%B%F{203})%#%f%k%b "
+    local vcs_info_str=""
+    [[ $PROMPT_LEAN_VCS == 1 ]] && vcs_info_str="$vcs_info_msg_0_" # avoid https://github.com/njhartwell/pw3nage
+    PROMPT="$prompt_lean_jobs%F{$thm_green}${prompt_lean_tmux}%f`$PROMPT_LEAN_LEFT`%f%(?.%F{$thm_blue}.%B%F{203})%#%f%k%b "
 
-    local lean_pwd=''
+    local lean_pwd=""
     [[ $PROMPT_LEAN_PWD == 1 ]] && lean_pwd=`prompt_lean_pwd`
-    RPROMPT="%F{"$COLOR3"}`prompt_lean_cmd_exec_time`%f$prompt_lean_vimode%F{"$COLOR2"}$lean_pwd%F{"$COLOR1"}$vcs_info_str`prompt_lean_git_dirty`$prompt_lean_host%f`$PROMPT_LEAN_RIGHT`%f"
+    RPROMPT="%F{$thm_yellow}`prompt_lean_cmd_exec_time`%f$prompt_lean_vimode%F{$thm_blue}$lean_pwd%F{$thm_green}$vcs_info_str`prompt_lean_git_dirty`$prompt_lean_host%f`$PROMPT_LEAN_RIGHT`%f"
 
     (($PROMPT_LEAN_NOTITLE != 1)) && prompt_lean_set_title "$1"
 
@@ -232,19 +225,19 @@ prompt_lean_setup() {
     autoload -Uz add-zsh-hook
     [[ $PROMPT_LEAN_VCS == 1 ]] && autoload -Uz vcs_info
 
-    [[ "$PROMPT_LEAN_VIMODE" != '' ]] && zle -N zle-keymap-select
+    [[ "$PROMPT_LEAN_VIMODE" != "" ]] && zle -N zle-keymap-select
 
     add-zsh-hook precmd prompt_lean_precmd
     add-zsh-hook preexec prompt_lean_preexec
 
     if [[ $PROMPT_LEAN_VCS == 1 ]]; then
-        zstyle ':vcs_info:*' enable git
-        zstyle ':vcs_info:git*' formats ' %25>...>%b%>>'
-        zstyle ':vcs_info:git*' actionformats ' %25>...>%b%>>|%a'
+        zstyle ":vcs_info:*" enable git
+        zstyle ":vcs_info:git*" formats " %25>...>%b%>>"
+        zstyle ":vcs_info:git*" actionformats " %25>...>%b%>>|%a"
     fi
 
-    [[ "$SSH_CONNECTION" != '' ]] && prompt_lean_host=" %F{"$COLOR3"}%m%f"
-    [[ "$TMUX" != '' ]] && prompt_lean_tmux=$PROMPT_LEAN_TMUX
+    [[ "$SSH_CONNECTION" != "" ]] && prompt_lean_host=" %F{"$thm_yellow"}%m%f"
+    [[ "$TMUX" != "" ]] && prompt_lean_tmux=$PROMPT_LEAN_TMUX
 
     return 0
 }

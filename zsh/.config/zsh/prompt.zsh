@@ -59,36 +59,6 @@ prompt_thm_crust="#11111b"
 prompt_thm_bg="#1e1e2e"
 
 # [ Functions ]
-# Turns given number of seconds into human readable time, like:
-# 165392 => 1d 21h 56m 32s
-# https://github.com/sindresorhus/pretty-time-zsh
-prompt_zshgod_human_time_to_var() {
-    local human total_seconds=$1 var=$2
-    local days=$(( total_seconds / 60 / 60 / 24 ))
-    local hours=$(( total_seconds / 60 / 60 % 24 ))
-    local minutes=$(( total_seconds / 60 % 60 ))
-    local seconds=$(( total_seconds % 60 ))
-    (( days > 0 )) && human+="${days}d "
-    (( hours > 0 )) && human+="${hours}h "
-    (( minutes > 0 )) && human+="${minutes}m "
-    human+="${seconds}s"
-
-    # Store human readable time in a variable as specified by the caller
-    typeset -g "${var}"="${human}"
-}
-
-# Function stores execution time of the last command if setted threshold was exceeded
-# Stores in to variable $prompt_zshgod_cmd_exec_time
-prompt_zshgod_cmd_exec_time() {
-    integer elapsed
-    (( elapsed = EPOCHSECONDS - ${prompt_zshgod_cmd_timestamp:-$EPOCHSECONDS} ))
-
-    typeset -g prompt_zshgod_cmd_exec_time=
-    (( elapsed > ${ZSHGOD_CMD_MAX_EXEC_TIME:-5} )) && {
-        prompt_zshgod_human_time_to_var $elapsed "prompt_zshgod_cmd_exec_time"
-    }
-}
-
 # Function for checking git repos if they are dirty
 prompt_git_dirty() {
     if [[ $PROMPT_ZSHGOD_GIT_INFO != true ]]; then
@@ -107,16 +77,12 @@ prompt_git_dirty() {
 
 # [ Prompt Scructure ]
 # preexec() function is called before executing every command
-preexec() {
-    typeset -g prompt_zshgod_cmd_timestamp=$EPOCHSECONDS
-}
+preexec() {}
 
 # precmd() function is called before every prompt
 precmd() {
-    prompt_zshgod_cmd_exec_time
+    PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}=>%f "
+
+    RPROMPT="%F{$prompt_thm_green}$(prompt_git_dirty)%f %F{$prompt_thm_blue}%~%f"
 }
-
-PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}=>%f "
-
-RPROMPT="$(prompt_zshgod_cmd_exec_time) %F{$prompt_thm_green}$(prompt_git_dirty)%f %F{$prompt_thm_blue}%~%f"
 

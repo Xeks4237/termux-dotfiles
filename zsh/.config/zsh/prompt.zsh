@@ -74,10 +74,26 @@ prompt_zshgod_git_dirty() {
     (($? == 0)) && echo "*"
 }
 
+# Function which outputs current branch when called
+prompt_zshgod_git_branch() {
+    if [[ $PROMPT_ZSHGOD_GIT_INFO != true ]]; then
+        return
+    fi
+
+    # Check if we're inside a git repository
+    command git rev-parse --is-inside-work-tree &>/dev/null || return
+
+    # Get the current branch name (fast and reliable)
+    local branch="$(command git branch --show-current 2>/dev/null)"
+
+    # Only output if we successfully got a branch name
+    [[ -n "$branch" ]] && echo "$branch"
+}
+
+# Function which returns exectime of commands after it's been called
 prompt_zshgod_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_MIN_EXECTIME )); then
-        # Simple version: just "12s"
-        echo "${PROMPT_ZSHGOD_CMD_DURATION}s "
+        echo "${PROMPT_ZSHGOD_CMD_DURATION}s"
     fi
 }
 
@@ -102,7 +118,7 @@ precmd() {
 prompt_zshgod_setup() {
     PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}=>%f "
 
-    RPROMPT=" $(prompt_zshgod_exectime) %F{$prompt_thm_green}$(prompt_zshgod_git_dirty)%f %F{$prompt_thm_blue}%~%f"
+    RPROMPT="%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%~%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]

@@ -23,8 +23,6 @@
 
 # [ Global Usage Variables ]
 PROMPT_ZSHGOD_GIT_INFO=true
-ZSHGOD_CMD_MAX_EXEC_TIME=5
-PROMPT_ZSHGOD_=""
 
 # INFO: I used Catppuccin Mocha Colors from:
 # https://github.com/catppuccin
@@ -60,7 +58,7 @@ prompt_thm_bg="#1e1e2e"
 
 # [ Functions ]
 # Function for checking git repos if they are dirty
-prompt_git_dirty() {
+prompt_zshgod_git_dirty() {
     if [[ $PROMPT_ZSHGOD_GIT_INFO != true ]]; then
         return
     fi
@@ -75,14 +73,21 @@ prompt_git_dirty() {
     (($? == 0)) && echo "*"
 }
 
-# [ Prompt Scructure ]
 # preexec() function is called before executing every command
-preexec() {}
+preexec() {
+}
 
-# precmd() function is called before every prompt
+# Function that runs just AFTER a command finishes (before the next prompt)
 precmd() {
+}
+
+# [ Prompt specific opts and Hooks for Functions ]
+add-zsh-hook precmd prompt_zshgod_setup
+
+# [ Prompt Scructure ]
+prompt_zshgod_setup() {
     PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}=>%f "
 
-    RPROMPT="%F{$prompt_thm_green}$(prompt_git_dirty)%f %F{$prompt_thm_blue}%~%f"
+    RPROMPT=" %F{$prompt_thm_green}$(prompt_zshgod_git_dirty)%f %F{$prompt_thm_blue}%~%f"
 }
 

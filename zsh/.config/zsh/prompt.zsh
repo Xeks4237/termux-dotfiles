@@ -22,7 +22,7 @@
 # \e[2K => clear everything on the current line
 
 # [ Global Usage Variables ]
-PROMPT_ZSHGOD_GIT_INFO=true
+# # Variable which sets amount of exectime after exectime is not hided
 PROMPT_ZSHGOD_MIN_EXECTIME=5
 
 # INFO: I used Catppuccin Mocha Colors from:
@@ -60,9 +60,6 @@ prompt_thm_bg="#1e1e2e"
 # [ Functions ]
 # Function for checking git repos if they are dirty
 prompt_zshgod_git_dirty() {
-    if [[ $PROMPT_ZSHGOD_GIT_INFO != true ]]; then
-        return
-    fi
     # Checks if we're in a git repo
     command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -76,10 +73,6 @@ prompt_zshgod_git_dirty() {
 
 # Function which outputs current branch when called
 prompt_zshgod_git_branch() {
-    if [[ $PROMPT_ZSHGOD_GIT_INFO != true ]]; then
-        return
-    fi
-
     # Check if we're inside a git repository
     command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -118,7 +111,7 @@ precmd() {
 prompt_zshgod_setup() {
     PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}=>%f "
 
-    RPROMPT="%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%~%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f"
+    RPROMPT="%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%~%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f %(!,%F{$prompt_thm_red}%n%f,%F{$prompt_thm_green}%n%f)%F{$prompt_thm_yellow}@%f%F{$prompt_thm_sky}%m%f"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]

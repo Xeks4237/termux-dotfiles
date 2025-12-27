@@ -23,6 +23,7 @@
 
 # [ Global Usage Variables ]
 PROMPT_ZSHGOD_GIT_INFO=true
+PROMPT_ZSHGOD_MIN_EXECTIME=5
 
 # INFO: I used Catppuccin Mocha Colors from:
 # https://github.com/catppuccin
@@ -73,21 +74,37 @@ prompt_zshgod_git_dirty() {
     (($? == 0)) && echo "*"
 }
 
+prompt_zshgod_exectime() {
+    if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_MIN_EXECTIME )); then
+        # Simple version: just "12s"
+        echo "${PROMPT_ZSHGOD_CMD_DURATION}s "
+    fi
+}
+
 # preexec() function is called before executing every command
 preexec() {
+    # Saves value of $EPOCHSECONDS before executing command to variable for function prompt_zshgod_exectime
+    PROMPT_ZSHGOD_CMD_START=$EPOCHSECONDS
 }
 
 # Function that runs just AFTER a command finishes (before the next prompt)
 precmd() {
+    # Piece of code which calculated exectime before
+    if (( ${+PROMPT_ZSHGOD_CMD_START} )); then
+        PROMPT_ZSHGOD_CMD_DURATION=$(( EPOCHSECONDS - PROMPT_ZSHGOD_CMD_START ))
+        unset PROMPT_ZSHGOD_CMD_START
+    else
+        unset PROMPT_ZSHGOD_CMD_DURATION
+    fi
 }
-
-# [ Prompt specific opts and Hooks for Functions ]
-add-zsh-hook precmd prompt_zshgod_setup
 
 # [ Prompt Scructure ]
 prompt_zshgod_setup() {
     PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}=>%f "
 
-    RPROMPT=" %F{$prompt_thm_green}$(prompt_zshgod_git_dirty)%f %F{$prompt_thm_blue}%~%f"
+    RPROMPT=" $(prompt_zshgod_exectime) %F{$prompt_thm_green}$(prompt_zshgod_git_dirty)%f %F{$prompt_thm_blue}%~%f"
 }
+
+# [ Prompt specific opts and Hooks for Functions ]
+add-zsh-hook precmd prompt_zshgod_setup
 

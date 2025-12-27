@@ -89,7 +89,7 @@ preexec() {
 
 # Function that runs just AFTER a command finishes (before the next prompt)
 precmd() {
-    # Piece of code which calculated exectime before
+    # Piece of code which calculated exectime before displaying prompt for prompt_zshgod_exectime function
     if (( ${+PROMPT_ZSHGOD_CMD_START} )); then
         PROMPT_ZSHGOD_CMD_DURATION=$(( EPOCHSECONDS - PROMPT_ZSHGOD_CMD_START ))
         unset PROMPT_ZSHGOD_CMD_START

@@ -109,9 +109,9 @@ precmd() {
 
 # [ Prompt Scructure ]
 prompt_zshgod_setup() {
-    PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}=>%f "
+    PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}%B>%b%f "
 
-    RPROMPT="%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%~%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f %(!,%F{$prompt_thm_red}%n%f,%F{$prompt_thm_green}%n%f)%F{$prompt_thm_yellow}@%f%F{$prompt_thm_sky}%m%f"
+    RPROMPT="%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%B%~%b%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f %B%(!,%F{$prompt_thm_red}%n%f,%F{$prompt_thm_green}%n%f)%F{$prompt_thm_yellow}@%f%F{$prompt_thm_sky}%m%f%b"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]

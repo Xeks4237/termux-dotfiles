@@ -27,8 +27,11 @@ ZELLIJ_AUTO_ATTACH=false
 export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/fzf-options
 
 # Set default editor which gonna be used by other apps
-EDITOR="nvim"
-VISUAL="nvim"
+EDITOR="$PREFIX/bin/nvim"
+VISUAL="$PREFIX/bin/nvim"
+
+# Set Esc key press timeout to 0
+KEYTIMEOUT=0
 
 # Max length of zsh command history
 HISTSIZE=10000

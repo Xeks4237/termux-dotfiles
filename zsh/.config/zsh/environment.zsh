@@ -30,6 +30,12 @@ export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/fzf-options
 EDITOR="$PREFIX/bin/nvim"
 VISUAL="$PREFIX/bin/nvim"
 
+# Editor which is used when editing current command in editor through zsh-vi-mode plugin
+ZVM_VI_EDITOR={$EDITOR:-$VISUAL}
+
+# Enables system clipboard support for zsh-vi-mode plugin
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+
 # Set Esc key press timeout to 0
 KEYTIMEOUT=0
 

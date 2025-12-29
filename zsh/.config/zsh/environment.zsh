@@ -36,8 +36,8 @@ ZVM_VI_EDITOR={$EDITOR:-$VISUAL}
 # Enables system clipboard support for zsh-vi-mode plugin
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 
-# Set Esc key press timeout to 0
-KEYTIMEOUT=0
+# Set Esc key press timeout to 20
+KEYTIMEOUT=20
 
 # Max length of zsh command history
 HISTSIZE=10000

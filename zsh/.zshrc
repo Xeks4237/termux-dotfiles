@@ -1,6 +1,3 @@
-# [ Environment Variables ]
-source ~/.config/zsh/environment.zsh
-
 # [ Zinit plugin manager ]
 source $XDG_CONFIG_HOME/zsh/zinit.zsh
 

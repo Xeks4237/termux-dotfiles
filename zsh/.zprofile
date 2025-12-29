@@ -17,12 +17,6 @@ XDG_CACHE_HOME="$HOME/.cache/"
 # PATH
 PATH=$PATH:$HOME/.local/bin:$HOME/Scripts
 
-# Auto exit/close Terminal after closing zellij
-ZELLIJ_AUTO_EXIT=true
-
-# Auto attach to the zellij session if available, else create new session
-ZELLIJ_AUTO_ATTACH=false
-
 # fzf default options file
 export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/fzf-options
 

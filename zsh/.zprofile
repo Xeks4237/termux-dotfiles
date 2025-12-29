@@ -15,7 +15,7 @@ XDG_STATE_HOME="$HOME/.local/state/"
 XDG_CACHE_HOME="$HOME/.cache/"
 
 # PATH
-PATH=$PATH:$HOME/.local/bin:$HOME/Scripts
+PATH=$PATH:$HOME/.local/bin/:$HOME/Scripts/
 
 # fzf default options file
 export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/fzf-options

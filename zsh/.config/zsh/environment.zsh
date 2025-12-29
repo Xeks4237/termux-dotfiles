@@ -36,6 +36,12 @@ ZVM_VI_EDITOR={$EDITOR:-$VISUAL}
 # Enables system clipboard support for zsh-vi-mode plugin
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 
+# What commant zsh-vi-mode plugin uses to send text from system clipboard
+ZVM_CLIPBOARD_COPY_CMD="termux-clipboard-set"
+
+# What commant zsh-vi-mode plugin uses to get text from system clipboard
+ZVM_CLIPBOARD_PASTE_CMD="termux-clipboard-get"
+
 # Set Esc key press timeout to 20
 KEYTIMEOUT=20
 

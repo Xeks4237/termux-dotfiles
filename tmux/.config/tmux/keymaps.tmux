@@ -2,6 +2,7 @@
 unbind -a
 
 # Keybindings which are set to be work after prefix key
+bind-key -T prefix C-Space send-prefix
 bind-key -T prefix Tab next-window
 bind-key -T prefix C-t break-pane
 bind-key -T prefix C-h split-window

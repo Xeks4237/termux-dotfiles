@@ -125,7 +125,7 @@ prompt_zshgod_current-pwd() {
 
 # Function which shows arrow with current username@hostname
 prompt_zshgod_userandhost() {
-    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n%k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green}%n%f)%F{$prompt_thm_lavender}@%f%F{$prompt_thm_crust}%K{$prompt_thm_sky}%m%k%f"
+    print "%(!,%F{$prompt_thm_red}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_red} %n%k%f,%F{$prompt_thm_green}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f)%F{$prompt_thm_yellow}%K{$prompt_thm_green}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k%F{$prompt_thm_yellow}%K{$prompt_thm_sky}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f%F{$prompt_thm_sky}%K{$prompt_thm_crust}%k%f"
 }
 
 # [ Prompt Scructure ]

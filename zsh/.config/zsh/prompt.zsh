@@ -123,11 +123,11 @@ prompt_zshgod_git_info() {
     # Build the output parts only if the count is greater than 0
     local parts=()
 
-    (( staged_count > 0 )) && parts+=("${staged_count}+")
-    (( modified_count > 0 )) && parts+=("%F{$prompt_thm_red}${modified_count}!%f")
-    (( deleted_count > 0 )) && parts+=("${deleted_count}-")
-    (( untracked_count > 0 )) && parts+=("%F{$prompt_thm_red}${untracked_count}?%f")
-    (( ahead_count > 0 )) && parts+=("%F{$prompt_thm_green}${ahead_count}↑%f")
+    (( staged_count > 0 )) && parts+=("%F{$prompt_thm_green}${staged_count}+%f")
+    (( modified_count > 0 )) && parts+=("%F{$prompt_thm_yellow}${modified_count}!%f")
+    (( deleted_count > 0 )) && parts+=("%F{$prompt_thm_red}${deleted_count}-%f")
+    (( untracked_count > 0 )) && parts+=("%F{$prompt_thm_sky}${untracked_count}?%f")
+    (( ahead_count > 0 )) && parts+=("%F{$prompt_thm_lavender}${ahead_count}↑%f")
 
     # If there's anything to show, join the parts add do some customization
     if (( ${#parts[@]} > 0 )); then
@@ -184,9 +184,9 @@ prompt_zshgod_userandhost() {
 # Function where all other functions are used to make prompt
 prompt_zshgod_setup() {
     echo ""
-    PROMPT="%B$(prompt_zshgod_git_info) $(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%b "
+    PROMPT="%B$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%b "
 
-    RPROMPT="%B$(prompt_zshgod_exectime)$(prompt_zshgod_current-pwd)$(prompt_zshgod_git_dirty)$(prompt_zshgod_git_branch)$(prompt_zshgod_userandhost)%b"
+    RPROMPT="%B$(prompt_zshgod_exectime)$(prompt_zshgod_git_info)$(prompt_zshgod_git_dirty)$(prompt_zshgod_git_branch)$(prompt_zshgod_current-pwd)$(prompt_zshgod_userandhost)%b"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]

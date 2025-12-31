@@ -113,7 +113,7 @@ prompt_zshgod_exectime-precmd() {
 # [ Functions with only custom look for builtin stuff with no new Functionality ]
 # Function for showing arrow with customly formatted current time
 prompt_zshgod_time() {
-    print "%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f%F{$prompt_thm_yellow}%K{$prompt_thm_bg}%k%f"
+    print "%F{$prompt_thm_yellow}%K{$prompt_thm_bg}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f%F{$prompt_thm_yellow}%K{$prompt_thm_bg}%k%f"
 }
 
 # Function which shows colored arrow with different color if current user is root

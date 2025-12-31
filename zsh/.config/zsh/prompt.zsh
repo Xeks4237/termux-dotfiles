@@ -57,7 +57,7 @@ prompt_thm_mantle="#181825"
 prompt_thm_crust="#11111b"
 prompt_thm_bg="#1e1e2e"
 
-# [ Functions ]
+# [ Functions with Some Functionality ]
 # Function for checking git repos if they are dirty
 prompt_zshgod_git_dirty() {
     # Checks if we're in a git repo
@@ -107,9 +107,18 @@ precmd() {
     fi
 }
 
+# [ Functions with only custom look for builtin stuff with no new Functionality ]
+prompt_zshgod_time() {
+    print "%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f"
+}
+
+prompt_zshgod_root-indicator () {
+    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %% %k%f)"
+}
+
 # [ Prompt Scructure ]
 prompt_zshgod_setup() {
-    PROMPT="%F{$prompt_thm_yellow}%D{%H:%M:%S}%f %(!,%F{$prompt_thm_red}#%f,%F{$prompt_thm_green}%%%f) %F{$prompt_thm_lavender}%B>%b%f "
+    PROMPT="$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%F{$prompt_thm_lavender}%B>%b%f "
 
     RPROMPT="%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%B%~%b%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f %B%(!,%F{$prompt_thm_red}%n%f,%F{$prompt_thm_green}%n%f)%F{$prompt_thm_lavender}@%f%F{$prompt_thm_sky}%m%f%b"
 }

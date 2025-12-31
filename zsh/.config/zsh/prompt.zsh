@@ -68,7 +68,7 @@ prompt_zshgod_git_dirty() {
     command test -n "$(git status --porcelain --ignore-submodules ${umode} 2>/dev/null | head -100)"
 
     # Prints "*" if repo is dirty
-    (($? == 0)) && print "%F{$prompt_thm_green}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_green} * %k%f%F{$prompt_thm_green}%K{$prompt_thm_crust}%k%f"
+    (($? == 0)) && print "%F{$prompt_thm_peach}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_peach} * %k%f%F{$prompt_thm_peach}%K{$prompt_thm_crust}%k%f"
 }
 
 # Function which outputs current branch when called
@@ -80,7 +80,7 @@ prompt_zshgod_git_branch() {
     local branch="$(command git branch --show-current 2>/dev/null)"
 
     # Only output if we successfully got a branch name
-    [[ -n "$branch" ]] && print "$branch"
+    [[ -n "$branch" ]] && print "%F{$prompt_thm_green}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_green} $branch %F{$prompt_thm_green}%K{$prompt_thm_crust}%k%f"
 }
 
 # Function which returns exectime for commands after it's been called

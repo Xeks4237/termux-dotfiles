@@ -86,7 +86,7 @@ prompt_zshgod_git_branch() {
 # Function which returns exectime for commands after it's been called
 prompt_zshgod_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_MIN_EXECTIME )); then
-        print "${PROMPT_ZSHGOD_CMD_DURATION}s"
+        print "%F{$prompt_thm_yellow}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_yellow} ${PROMPT_ZSHGOD_CMD_DURATION}s %f%k%F{$prompt_thm_yellow}%K{$prompt_thm_crust}%k%f"
     fi
 }
 

@@ -134,7 +134,7 @@ prompt_zshgod_setup() {
     echo ""
     PROMPT="%B$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%b "
 
-    RPROMPT="%B$(prompt_zshgod_exectime)$(prompt_zshgod_current-pwd)$(prompt_zshgod_git_dirty) $(prompt_zshgod_git_branch)$(prompt_zshgod_userandhost)%b"
+    RPROMPT="%B$(prompt_zshgod_exectime)$(prompt_zshgod_current-pwd)$(prompt_zshgod_git_dirty)$(prompt_zshgod_git_branch)$(prompt_zshgod_userandhost)%b"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]

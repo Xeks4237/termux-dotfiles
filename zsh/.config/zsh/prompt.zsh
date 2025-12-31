@@ -67,8 +67,8 @@ prompt_zshgod_git_dirty() {
     local umode="-uno"
     command test -n "$(git status --porcelain --ignore-submodules ${umode} 2>/dev/null | head -100)"
 
-    # Echo "*" if repo is dirty
-    (($? == 0)) && echo "*"
+    # Prints "*" if repo is dirty
+    (($? == 0)) && print "%F{$prompt_thm_green}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_green} * %k%f%F{$prompt_thm_green}%K{$prompt_thm_crust}%k%f"
 }
 
 # Function which outputs current branch when called
@@ -80,13 +80,13 @@ prompt_zshgod_git_branch() {
     local branch="$(command git branch --show-current 2>/dev/null)"
 
     # Only output if we successfully got a branch name
-    [[ -n "$branch" ]] && echo "$branch"
+    [[ -n "$branch" ]] && print "$branch"
 }
 
 # Function which returns exectime for commands after it's been called
 prompt_zshgod_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_MIN_EXECTIME )); then
-        echo "${PROMPT_ZSHGOD_CMD_DURATION}s"
+        print "${PROMPT_ZSHGOD_CMD_DURATION}s"
     fi
 }
 
@@ -108,28 +108,33 @@ prompt_zshgod_exectime-precmd() {
 }
 
 # [ Functions with only custom look for builtin stuff with no new Functionality ]
+# Function for showing arrow with customly formatted current time
 prompt_zshgod_time() {
     print "%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f%F{$prompt_thm_yellow}%K{$prompt_thm_bg}%k%f"
 }
 
+# Function which shows colored arrow with different color if current user is root
 prompt_zshgod_root-indicator () {
     print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f,%k%f%F{$prompt_thm_green}%K{$prompt_thm_bg}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_green} %% %k%f%F{$prompt_thm_green}%K{$prompt_thm_bg}%k%f)"
 }
 
+# Function for showing arrow with current working directory
 prompt_zshgod_current-pwd() {
     print "%F{$prompt_thm_blue}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_blue} %~ %k%f%F{$prompt_thm_blue}%K{$prompt_thm_crust}%k%f"
 }
 
+# Function which shows arrow with current username@hostname
 prompt_zshgod_userandhost() {
     print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n%k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green}%n%f)%F{$prompt_thm_lavender}@%f%F{$prompt_thm_crust}%K{$prompt_thm_sky}%m%k%f"
 }
 
 # [ Prompt Scructure ]
+# Function where all other functions are used to make prompt
 prompt_zshgod_setup() {
     echo ""
     PROMPT="%B$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%b "
 
-    RPROMPT="%B%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f $(prompt_zshgod_current-pwd) %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f $(prompt_zshgod_userandhost)%b"
+    RPROMPT="%B$(prompt_zshgod_exectime)$(prompt_zshgod_current-pwd)$(prompt_zshgod_git_dirty) $(prompt_zshgod_git_branch)$(prompt_zshgod_userandhost)%b"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]

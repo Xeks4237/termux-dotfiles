@@ -83,21 +83,21 @@ prompt_zshgod_git_branch() {
     [[ -n "$branch" ]] && echo "$branch"
 }
 
-# Function which returns exectime of commands after it's been called
+# Function which returns exectime for commands after it's been called
 prompt_zshgod_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_MIN_EXECTIME )); then
         echo "${PROMPT_ZSHGOD_CMD_DURATION}s"
     fi
 }
 
-# preexec() function is called before executing every command
-preexec() {
+# Function which captures exectime before executing every command
+prompt_zshgod_exectime-preexec() {
     # Saves value of $EPOCHSECONDS before executing command to variable for function prompt_zshgod_exectime
     PROMPT_ZSHGOD_CMD_START=$EPOCHSECONDS
 }
 
-# Function that runs just AFTER a command finishes (before the next prompt)
-precmd() {
+# Function which calculates exectime before drowing prompt
+prompt_zshgod_exectime-precmd() {
     # Piece of code which calculated exectime before displaying prompt for prompt_zshgod_exectime function
     if (( ${+PROMPT_ZSHGOD_CMD_START} )); then
         PROMPT_ZSHGOD_CMD_DURATION=$(( EPOCHSECONDS - PROMPT_ZSHGOD_CMD_START ))
@@ -109,20 +109,27 @@ precmd() {
 
 # [ Functions with only custom look for builtin stuff with no new Functionality ]
 prompt_zshgod_time() {
-    print "%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f"
+    print "%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f%F{$prompt_thm_yellow}%K{$prompt_thm_bg}%k%f"
 }
 
 prompt_zshgod_root-indicator () {
-    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %% %k%f)"
+    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f,%k%f%F{$prompt_thm_green}%K{$prompt_thm_bg}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_green} %% %k%f%F{$prompt_thm_green}%K{$prompt_thm_bg}%k%f)"
+}
+
+prompt_zshgod_userandhost() {
+    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n%k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green}%n%f)%F{$prompt_thm_lavender}@%f%F{$prompt_thm_crust}%K{$prompt_thm_sky}%m%k%f"
 }
 
 # [ Prompt Scructure ]
 prompt_zshgod_setup() {
-    PROMPT="$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%F{$prompt_thm_lavender}%B>%b%f "
+    echo ""
+    PROMPT="%B$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%b "
 
-    RPROMPT="%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%B%~%b%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f %B%(!,%F{$prompt_thm_red}%n%f,%F{$prompt_thm_green}%n%f)%F{$prompt_thm_lavender}@%f%F{$prompt_thm_sky}%m%f%b"
+    RPROMPT="%B%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%~%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f $(prompt_zshgod_userandhost)%b"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]
 add-zsh-hook precmd prompt_zshgod_setup
+add-zsh-hook precmd prompt_zshgod_exectime-precmd
+add-zsh-hook preexec prompt_zshgod_exectime-preexec
 

@@ -116,6 +116,10 @@ prompt_zshgod_root-indicator () {
     print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f,%k%f%F{$prompt_thm_green}%K{$prompt_thm_bg}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_green} %% %k%f%F{$prompt_thm_green}%K{$prompt_thm_bg}%k%f)"
 }
 
+prompt_zshgod_current-pwd() {
+    print "%F{$prompt_thm_blue}%K{$prompt_thm_crust}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_blue} %~ %k%f%F{$prompt_thm_blue}%K{$prompt_thm_crust}%k%f"
+}
+
 prompt_zshgod_userandhost() {
     print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n%k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green}%n%f)%F{$prompt_thm_lavender}@%f%F{$prompt_thm_crust}%K{$prompt_thm_sky}%m%k%f"
 }
@@ -125,7 +129,7 @@ prompt_zshgod_setup() {
     echo ""
     PROMPT="%B$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%b "
 
-    RPROMPT="%B%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f %F{$prompt_thm_blue}%~%f %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f $(prompt_zshgod_userandhost)%b"
+    RPROMPT="%B%F{$prompt_thm_yellow}$(prompt_zshgod_exectime)%f $(prompt_zshgod_current-pwd) %F{$prompt_thm_green}$(prompt_zshgod_git_branch)$(prompt_zshgod_git_dirty)%f $(prompt_zshgod_userandhost)%b"
 }
 
 # [ Prompt specific opts and Hooks for Functions ]

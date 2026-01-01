@@ -21,8 +21,7 @@
 # Files with functions to use in prompt
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_left-to-right_arrowed.zsh
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_right-to-left_arrowed.zsh
-# source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_left-to-right_rectangular.zsh
-# source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_right-to-left_rectangular.zsh
+source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_rectangular.zsh
 
 # async library to make prompt asynchronous
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/async.zsh
@@ -105,6 +104,6 @@ prompt_zshgod_setup() {
     PROMPT="└%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
 
     # Variable which sets right side of prompt
-    RPROMPT="$(prompt_zshgod_right-to-left_userandhostname)"
+    RPROMPT="$(prompt_zshgod_rectangular_userandhostname)"
 }
 

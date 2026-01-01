@@ -91,11 +91,16 @@ prompt_zshgod_exectime-precmd() {
 # [ Prompt Scructure ]
 # Function where all other functions are used to make prompt
 prompt_zshgod_setup() {
+    # Echo nothing before setting up prompt to make it have extra sparce
     echo ""
-    # print -P "%B$(prompt_zshgod_exectime)$(prompt_zshgod_git_info)$(prompt_zshgod_git_dirty)$(prompt_zshgod_git_branch)$(prompt_zshgod_current-pwd)$(prompt_zshgod_userandhost)%b"
 
-    PROMPT="%B$(prompt_zshgod_time)$(prompt_zshgod_root-indicator)%b "
+    # Print command with -P flag to make multiline prompt
+    # print -P ""
 
-    RPROMPT="%B$(prompt_zshgod_exectime)$(prompt_zshgod_git_info)$(prompt_zshgod_git_dirty)$(prompt_zshgod_git_branch)$(prompt_zshgod_current-pwd)$(prompt_zshgod_userandhost)%b"
+    # Variable which sets left side of prompt
+    PROMPT="%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
+
+    # Variable which sets right side of prompt
+    RPROMPT="%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_git_dirty)$(prompt_zshgod_right-to-left_git_branch)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_userandhost)%b"
 }
 

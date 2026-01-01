@@ -1,5 +1,5 @@
 # Function for checking git repos if they are dirty
-prompt_zshgod_git_dirty() {
+prompt_zshgod_right-to-left_git_dirty() {
     # Checks if we're in a git repo
     command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -12,7 +12,7 @@ prompt_zshgod_git_dirty() {
 }
 
 # Function which outputs current branch when called
-prompt_zshgod_git_branch() {
+prompt_zshgod_right-to-left_git_branch() {
     # Check if we're inside a git repository
     command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -23,7 +23,7 @@ prompt_zshgod_git_branch() {
     [[ -n "$branch" ]] && print "%F{$prompt_thm_green}%f%F{$prompt_thm_crust}%K{$prompt_thm_green} $branch %k%f%F{$prompt_thm_green}%f"
 }
 
-prompt_zshgod_git_info() {
+prompt_zshgod_right-to-left_git_info() {
     # Silently exit if not inside a git repository
     command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -72,20 +72,30 @@ prompt_zshgod_git_info() {
     fi
 }
 
+# Function for showing arrow with customly formatted current time
+prompt_zshgod_right-to-left_time() {
+    print "%F{$prompt_thm_yellow}%f%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f%F{$prompt_thm_yellow}%f"
+}
+
 # Function which returns exectime for commands after it's been called
-prompt_zshgod_exectime() {
+prompt_zshgod_right-to-left_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_EXECTIME_MIN )); then
         print "%F{$prompt_thm_yellow}%f%F{$prompt_thm_crust}%K{$prompt_thm_yellow} ${PROMPT_ZSHGOD_CMD_DURATION}s %f%k%F{$prompt_thm_yellow}%f"
     fi
 }
 
 # Function for showing arrow with current working directory
-prompt_zshgod_current-pwd() {
+prompt_zshgod_right-to-left_current-pwd() {
     print "%F{$prompt_thm_blue}%f%F{$prompt_thm_crust}%K{$prompt_thm_blue} %~ %k%f%F{$prompt_thm_blue}%f"
 }
 
 # Function which shows arrow with current username@hostname
-prompt_zshgod_userandhost() {
+prompt_zshgod_right-to-left_userandhost() {
     print "%(!,%F{$prompt_thm_red}%f%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f%F{$prompt_thm_red}%K{$prompt_thm_yellow}%k%f,%F{$prompt_thm_green}%f%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f%F{$prompt_thm_green}%K{$prompt_thm_yellow}%k%f)%F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k%F{$prompt_thm_yellow}%K{$prompt_thm_sky}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f%F{$prompt_thm_sky}%f"
+}
+
+# Function which shows colored arrow with different color if current user is root
+prompt_zshgod_right-to-left_root-indicator () {
+    print "%(!,%F{$prompt_thm_red}%f%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f%F{$prompt_thm_red}%f,%F{$prompt_thm_green}%f%F{$prompt_thm_crust}%K{$prompt_thm_green} \$ %k%f%F{$prompt_thm_green}%f)"
 }
 

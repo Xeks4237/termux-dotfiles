@@ -38,11 +38,7 @@ add-zsh-hook precmd prompt_zshgod_setup
 # Variable which sets amount of exectime after exectime is not hided
 PROMPT_ZSHGOD_EXECTIME_MIN=5
 
-# Variable which allows to turn on/off simplified look of prompt, removed nerd font arrow symbhols
-PROMPT_ZSHGOD_UI_SIMPLIFIED=false
-
-# INFO: I used Catppuccin Mocha Colors from:
-# https://github.com/catppuccin
+# INFO: I used Catppuccin Mocha Colors from: https://github.com/catppuccin
 # Main colors
 prompt_thm_rosewater="#f5e0dc"
 prompt_thm_flamingo="#f2cdcd"

@@ -14,5 +14,5 @@ source $XDG_CONFIG_HOME/zsh/keymaps.zsh
 source $XDG_CONFIG_HOME/zsh/aliases.zsh
 
 # [ Prompt ]
-source $XDG_CONFIG_HOME/zsh/prompt/prompt.zsh
+source $XDG_CONFIG_HOME/zsh/prompt.zsh
 

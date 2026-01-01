@@ -61,7 +61,7 @@ prompt_zshgod_left-to-right_git_info() {
     local parts=()
 
     (( staged_count > 0 )) && parts+=("%F{$prompt_thm_green}${staged_count}+%f")
-    (( modified_count > 0 )) && parts+=("%F{$prompt_thm_yellow}${modified_count}!%f")
+    (( modified_count > 0 )) && parts+=("%F{$prompt_thm_yellow}${modified_count}*%f")
     (( deleted_count > 0 )) && parts+=("%F{$prompt_thm_red}${deleted_count}-%f")
     (( untracked_count > 0 )) && parts+=("%F{$prompt_thm_sky}${untracked_count}?%f")
     (( ahead_count > 0 )) && parts+=("%F{$prompt_thm_lavender}${ahead_count}↑%f")
@@ -90,7 +90,7 @@ prompt_zshgod_left-to-right_current-pwd() {
 }
 
 # Function which shows arrow with current username@hostname
-prompt_zshgod_left-to-right_userandhost() {
+prompt_zshgod_left-to-right_userandhostname() {
     print "%(!,%F{$prompt_thm_red}%f%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f%F{$prompt_thm_red}%K{$prompt_thm_yellow}%k%f,%F{$prompt_thm_green}%f%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f%F{$prompt_thm_green}%K{$prompt_thm_yellow}%k%f)%F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k%F{$prompt_thm_yellow}%K{$prompt_thm_sky}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f%F{$prompt_thm_sky}%f"
 }
 

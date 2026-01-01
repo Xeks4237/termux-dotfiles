@@ -1,30 +1,32 @@
 # [ Title with useful information ]
-# Zsh-God prompt
-# by Xeks4237: https://gitlab.com/Xeks4237
+# Zsh-God Prompt
+# Made by Xeks4237: https://gitlab.com/Xeks4237
 # Licensed under: MIT License
 
+# Uses zsh-async library from: https://github.com/mafredri/zsh-async
+
 # Zsh substitutions:
-# %F{} => Colors everything after it
-# %f => Resets coloring after itself
+# %F{} => Changes foreground color of text after itself, excepts HEX values for color
+# %K{} => Changes background color of text after itself, excepts HEX values for color
+# %f => Resets foreground coloring after itself
+# %k => Resets background coloring after itself
+# %D{} => Shows customly formatted time, like soo "%H:%M:%S.%."
 # %~ => Current path relative to $HOME directory
 # %n => Shows $USERNAME of the surrent user
 # %m => Shows hostname up to the first `.' symbols
-# %# => Shows "#" if shell is privileged, if not "%", its same as "%(!,#,%%)"
-# %D{} => Shows customly formatted time, like soo "%H:%M:%S.%."
+# %# => Shows "#" if shell is privileged, if not "%", its same as %(!,#,%%)
 # %(?,,) => prompt condition for doing some logic, %(condition,true,false)
-
-# Terminal codes:
-# \e7   => save cursor position
-# \e[2A => move cursor 2 lines up
-# \e[1G => go to position 1 in terminal
-# \e8   => restore cursor position
-# \e[K  => clears everything after the cursor on the current line
-# \e[2K => clear everything on the current line
 
 # [ Sourcing and Loading extra stuff ]
 # Files with functions to use in prompt
 source $XDG_CONFIG_HOME/zsh/prompt/functions_left-to-right.zsh
 source $XDG_CONFIG_HOME/zsh/prompt/functions_right-to-left.zsh
+
+# async library to make prompt asynchronous
+source $XDG_CONFIG_HOME/zsh/prompt/async.zsh
+
+# Initialise async library
+async_init
 
 # [ Prompt specific opts and Hooks for Functions ]
 add-zsh-hook preexec prompt_zshgod_exectime-preexec

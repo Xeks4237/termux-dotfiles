@@ -2,16 +2,20 @@
 unbind -a
 
 # Keybindings which are set to be work after prefix key
-bind-key -T prefix C-Space send-prefix
-bind-key -T prefix Tab next-window
-bind-key -T prefix C-t break-pane
-bind-key -T prefix C-h split-window
+bind-key -T prefix Space next-layout
+bind-key -T prefix ! break-pane
+bind-key -T prefix \" split-window
 bind-key -T prefix \# list-buffers
 bind-key -T prefix \$ command-prompt -I "#S" { rename-session "%%" }
-bind-key -T prefix C-v split-window -h
-bind-key -T prefix X confirm-before -p "#[bg=#{@thm_bg},fg=#{@thm_sky}]Kill Window #{window_index}: #{window_name} (y/n)" kill-window
-bind-key -T prefix \{ switch-client -p
-bind-key -T prefix \} switch-client -n
+bind-key -T prefix \% split-window -h
+bind-key -T prefix & confirm-before -p "#[bg=#{@thm_bg},fg=#{@thm_sky}]Kill Window #{window_index}: #{window_name} (y/n)" kill-window
+bind-key -T prefix \' command-prompt -T window-target -p index { select-window -t ":%%" }
+bind-key -T prefix ( switch-client -p
+bind-key -T prefix ) switch-client -n
+bind-key -T prefix , command-prompt -I "#W" { rename-window "%%" }
+bind-key -T prefix - delete-buffer
+bind-key -T prefix . command-prompt -T target { move-window -t "%%" }
+bind-key -T prefix / command-prompt -k -p key { list-keys -1N "%%" }
 bind-key -T prefix 0 select-window -t :=10
 bind-key -T prefix 1 select-window -t :=1
 bind-key -T prefix 2 select-window -t :=2
@@ -23,34 +27,41 @@ bind-key -T prefix 7 select-window -t :=7
 bind-key -T prefix 8 select-window -t :=8
 bind-key -T prefix 9 select-window -t :=9
 bind-key -T prefix : command-prompt
-bind-key -T prefix C-p choose-buffer -Z
-bind-key -T prefix ? list-keys
+bind-key -T prefix \; last-pane
+bind-key -T prefix < display-menu -T "#[align=centre]#{window_index}:#{window_name}" -x W -y W "#{?#{>:#{session_windows},1},,-}Swap Left" l { swap-window -t :-1 } "#{?#{>:#{session_windows},1},,-}Swap Right" r { swap-window -t :+1 } "#{?pane_marked_set,,-}Swap Marked" s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } Rename n { command-prompt -F -I "#W" { rename-window -t "#{window_id}" "%%" } } '' "New After" w { new-window -a } "New At End" W { new-window }
+bind-key -T prefix = choose-buffer -Z
+bind-key -T prefix > display-menu -T "#[align=centre]#{pane_index} (#{pane_id})" -x P -y P "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}" < { send-keys -X history-top } "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}" > { send-keys -X history-bottom } '' "#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}" C-r { if-shell -F "#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}" "copy-mode -t=" ; send-keys -X -t = search-backward -- "#{q:mouse_word}" } "#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}" C-y { copy-mode -q ; send-keys -l "#{q:mouse_word}" } "#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}" c { copy-mode -q ; set-buffer "#{q:mouse_word}" } "#{?mouse_line,Copy Line,}" l { copy-mode -q ; set-buffer "#{q:mouse_line}" } '' "#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}" C-h { copy-mode -q ; send-keys -l "#{q:mouse_hyperlink}" } "#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}" h { copy-mode -q ; set-buffer "#{q:mouse_hyperlink}" } '' "Horizontal Split" h { split-window -h } "Vertical Split" v { split-window -v } '' "#{?#{>:#{window_panes},1},,-}Swap Up" u { swap-pane -U } "#{?#{>:#{window_panes},1},,-}Swap Down" d { swap-pane -D } "#{?pane_marked_set,,-}Swap Marked" s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } "#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}" z { resize-pane -Z }
+bind-key -T prefix ? list-keys -N
 bind-key -T prefix C customize-mode -Z
-bind-key -T prefix s choose-tree -Zs
-bind-key -T prefix S choose-client -Z
+bind-key -T prefix D choose-client -Z
+bind-key -T prefix E select-layout -E
 bind-key -T prefix I run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/install_plugins
-bind-key -T prefix U run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/update_plugins
-bind-key -T prefix \\ run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tmux-menus/items/main.sh
+bind-key -T prefix L switch-client -l
 bind-key -T prefix M select-pane -M
-bind-key -T prefix v copy-mode
-bind-key -T prefix p paste-buffer -p
+bind-key -T prefix U run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/update_plugins
+bind-key -T prefix [ copy-mode
+bind-key -T prefix ] paste-buffer -p
 bind-key -T prefix c new-window
 bind-key -T prefix d detach-client
 bind-key -T prefix f command-prompt { find-window -Z "%%" }
 bind-key -T prefix i display-message
+bind-key -T prefix l last-window
 bind-key -T prefix m select-pane -m
-bind-key -T prefix ] next-window
-bind-key -T prefix [ previous-window
+bind-key -T prefix n next-window
+bind-key -T prefix o select-pane -t :.+
+bind-key -T prefix p previous-window
 bind-key -T prefix q display-panes
 bind-key -T prefix r refresh-client
+bind-key -T prefix s choose-tree -Zs
 bind-key -T prefix t clock-mode
 bind-key -T prefix w choose-tree -Zw
 bind-key -T prefix x confirm-before -p "#[bg=#{@thm_bg},fg=#{@thm_sky}]Kill Pane #{pane_index}? (y/n)" kill-pane
 bind-key -T prefix z resize-pane -Z
-bind-key -T prefix \H swap-pane -U
-bind-key -T prefix \L swap-pane -D
+bind-key -T prefix \{ swap-pane -U
+bind-key -T prefix \} swap-pane -D
 bind-key -T prefix \~ show-messages
 bind-key -r -T prefix DC refresh-client -c
+bind-key -T prefix PPage copy-mode -u
 bind-key -r -T prefix Up select-pane -U
 bind-key -r -T prefix Down select-pane -D
 bind-key -r -T prefix Left select-pane -L
@@ -70,6 +81,7 @@ bind-key -r -T prefix M-Up resize-pane -U 5
 bind-key -r -T prefix M-Down resize-pane -D 5
 bind-key -r -T prefix M-Left resize-pane -L 5
 bind-key -r -T prefix M-Right resize-pane -R 5
+bind-key -T prefix C-Space send-prefix
 bind-key -T prefix C-o rotate-window
 bind-key -T prefix C-z suspend-client
 bind-key -r -T prefix C-Up resize-pane -U
@@ -90,7 +102,7 @@ bind-key -T root MouseDown2Pane select-pane -t = \; if-shell -F "#{||:#{pane_in_
 bind-key -T root MouseDown3Pane if-shell -F -t = "#{||:#{mouse_any_flag},#{&&:#{pane_in_mode},#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}}}" { select-pane -t = ; send-keys -M } { display-menu -T "#[align=centre]#{pane_index} (#{pane_id})" -t = -x M -y M "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}" < { send-keys -X history-top } "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}" > { send-keys -X history-bottom } '' "#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}" C-r { if-shell -F "#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}" "copy-mode -t=" ; send-keys -X -t = search-backward -- "#{q:mouse_word}" } "#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}" C-y { copy-mode -q ; send-keys -l "#{q:mouse_word}" } "#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}" c { copy-mode -q ; set-buffer "#{q:mouse_word}" } "#{?mouse_line,Copy Line,}" l { copy-mode -q ; set-buffer "#{q:mouse_line}" } '' "#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}" C-h { copy-mode -q ; send-keys -l "#{q:mouse_hyperlink}" } "#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}" h { copy-mode -q ; set-buffer "#{q:mouse_hyperlink}" } '' "Horizontal Split" h { split-window -h } "Vertical Split" v { split-window -v } '' "#{?#{>:#{window_panes},1},,-}Swap Up" u { swap-pane -U } "#{?#{>:#{window_panes},1},,-}Swap Down" d { swap-pane -D } "#{?pane_marked_set,,-}Swap Marked" s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } "#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}" z { resize-pane -Z } }
 bind-key -T root MouseDown3Status display-menu -T "#[align=centre]#{window_index}:#{window_name}" -t = -x W -y W "#{?#{>:#{session_windows},1},,-}Swap Left" l { swap-window -t :-1 } "#{?#{>:#{session_windows},1},,-}Swap Right" r { swap-window -t :+1 } "#{?pane_marked_set,,-}Swap Marked" s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } Rename n { command-prompt -F -I "#W" { rename-window -t "#{window_id}" "%%" } } '' "New After" w { new-window -a } "New At End" W { new-window }
 bind-key -T root MouseDown3StatusLeft display-menu -T "#[align=centre]#{session_name}" -t = -x M -y W Next n { switch-client -n } Previous p { switch-client -p } '' Renumber N { move-window -r } Rename n { command-prompt -I "#S" { rename-session "%%" } } '' "New Session" s { new-session } "New Window" w { new-window }
-bind-key -T root MouseDrag1Pane if-shell -F "#{||:#{alternate_on},#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { copy-mode -M }
+bind-key -T root MouseDrag1Pane if-shell -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { copy-mode -M }
 bind-key -T root MouseDrag1ScrollbarSlider copy-mode -S
 bind-key -T root MouseDrag1Border resize-pane -M
 bind-key -T root WheelUpPane if-shell -F "#{||:#{alternate_on},#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { copy-mode -e }
@@ -102,7 +114,7 @@ bind-key -T root M-MouseDown3Pane display-menu -T "#[align=centre]#{pane_index} 
 bind-key -T root M-MouseDown3Status display-menu -T "#[align=centre]#{window_index}:#{window_name}" -t = -x W -y W "#{?#{>:#{session_windows},1},,-}Swap Left" l { swap-window -t :-1 } "#{?#{>:#{session_windows},1},,-}Swap Right" r { swap-window -t :+1 } "#{?pane_marked_set,,-}Swap Marked" s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } Rename n { command-prompt -F -I "#W" { rename-window -t "#{window_id}" "%%" } } '' "New After" w { new-window -a } "New At End" W { new-window }
 bind-key -T root M-MouseDown3StatusLeft display-menu -T "#[align=centre]#{session_name}" -t = -x M -y W Next n { switch-client -n } Previous p { switch-client -p } '' Renumber N { move-window -r } Rename n { command-prompt -I "#S" { rename-session "%%" } } '' "New Session" s { new-session } "New Window" w { new-window }
 
-# Keybindings for copy mode with vi keys
+# Vi style keybindings for copy-mode
 # NOTE: Works only if status-keys and mode-keys are set to "vi"
 bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel
 bind-key -T copy-mode-vi Escape send-keys -X clear-selection
@@ -192,7 +204,7 @@ bind-key -T copy-mode-vi C-y send-keys -X scroll-up
 bind-key -T copy-mode-vi C-Up send-keys -X scroll-up
 bind-key -T copy-mode-vi C-Down send-keys -X scroll-down
 
-# Keybindings for copy mode with emacs keys
+# Emacs style keybindings for copy-mode
 # NOTE: works only if status-keys and mode-keys are set to "emacs"
 bind-key -T copy-mode Escape send-keys -X cancel
 bind-key -T copy-mode Space send-keys -X page-down

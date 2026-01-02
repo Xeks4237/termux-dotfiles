@@ -100,6 +100,6 @@ prompt_zshgod_setup() {
     PROMPT="└%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
 
     # Variable which sets right side of prompt
-    RPROMPT="$(prompt_zshgod_rectangular_userandhostname)"
+    RPROMPT="%B$(prompt_zshgod_right-to-left_userandhostname)%b"
 }
 

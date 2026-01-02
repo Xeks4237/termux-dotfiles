@@ -78,13 +78,15 @@ prompt_thm_bg="#1e1e2e"
 # [ Functions needed for other functions which don't have visual look ]
 # Function which captures exectime before executing every command
 prompt_zshgod_exectime-preexec() {
-    # Saves value of $EPOCHSECONDS before executing command to variable for function prompt_zshgod_exectime
+    # Saves value of $EPOCHSECONDS before executing command to variable
+    # Its for prompt_zshgod_exectime function
     PROMPT_ZSHGOD_CMD_START=$EPOCHSECONDS
 }
 
 # Function which calculates exectime before drowing prompt
 prompt_zshgod_exectime-precmd() {
-    # Piece of code which calculated exectime before displaying prompt for prompt_zshgod_exectime function
+    # Piece of code which calculated exectime before displaying prompt
+    # Its for prompt_zshgod_exectime function
     if (( ${+PROMPT_ZSHGOD_CMD_START} )); then
         PROMPT_ZSHGOD_CMD_DURATION=$(( EPOCHSECONDS - PROMPT_ZSHGOD_CMD_START ))
         unset PROMPT_ZSHGOD_CMD_START

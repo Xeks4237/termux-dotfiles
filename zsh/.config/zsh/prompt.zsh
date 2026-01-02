@@ -18,6 +18,12 @@
 # %(?,,) => prompt condition for doing some logic, %(condition,true,false)
 
 # [ Sourcing and Loading extra stuff ]
+# Some zsh's zle hook for zle widgets
+autoload -z add-zle-hook-widget
+
+# Allows using command substitutions in prompt variable directly
+setopt promptsubst
+
 # Files with functions to use in prompt
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_left-to-right_arrowed.zsh
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_right-to-left_arrowed.zsh
@@ -94,10 +100,10 @@ prompt_zshgod_setup() {
     echo ""
 
     # Print command with -P flag to make multiline prompt
-    print -P "┌%B$(prompt_zshgod_left-to-right_current-pwd)$(prompt_zshgod_left-to-right_git_branch)$(prompt_zshgod_left-to-right_git_dirty)$(prompt_zshgod_left-to-right_git_info)$(prompt_zshgod_left-to-right_exectime)%b"
+    print -P "%B╭$(prompt_zshgod_left-to-right_current-pwd)$(prompt_zshgod_left-to-right_git_branch)$(prompt_zshgod_left-to-right_git_dirty)$(prompt_zshgod_left-to-right_git_info)$(prompt_zshgod_left-to-right_exectime)%b"
 
     # Variable which sets left side of prompt
-    PROMPT="└%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
+    PROMPT="%B╰$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
 
     # Variable which sets right side of prompt
     RPROMPT="%B$(prompt_zshgod_right-to-left_userandhostname)%b"

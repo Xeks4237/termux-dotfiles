@@ -10,6 +10,8 @@
 # %K{} => Changes background color of text after itself, excepts HEX values for color
 # %f => Resets foreground coloring after itself
 # %k => Resets background coloring after itself
+# %B => Makes text after itself to bold
+# %b => Resets "boldness" effect of text caused by %B
 # %D{} => Shows customly formatted time, like soo "%H:%M:%S.%."
 # %~ => Current path relative to $HOME directory
 # %n => Shows $USERNAME of the surrent user

@@ -3,9 +3,7 @@
 # Made by Xeks4237: https://gitlab.com/Xeks4237
 # Licensed under: MIT License
 
-# Uses zsh-async library from: https://github.com/mafredri/zsh-async
-
-# Zsh substitutions:
+# Zsh substitutions (To get more info check mandoc of zsh):
 # %F{} => Changes foreground color of text after itself, excepts HEX values for color
 # %K{} => Changes background color of text after itself, excepts HEX values for color
 # %f => Resets foreground coloring after itself
@@ -18,6 +16,14 @@
 # %m => Shows hostname up to the first `.' symbols
 # %# => Shows "#" if shell is privileged, if not "%", its same as %(!,#,%%)
 # %(?,,) => prompt condition for doing some logic, %(condition,true,false)
+
+# [ List of custom functions ]
+# These are functions which are after being called or evaluated
+# will return one of the customly made pieces of prompt
+# They are used in "prompt_zshgod_setup" function in end of this file
+# Each of functions are written inside of $() to evaluate its functionality
+# instead of just printing its name
+# TODO: make "--help" or "prompt_zshgod_help" function for help
 
 # [ Sourcing and Loading extra stuff ]
 # Some zsh's zle hook for zle widgets
@@ -34,9 +40,6 @@ source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_rectangular.zsh
 # async library to make prompt asynchronous
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/async.zsh
 
-# Initialise async library
-async_init
-
 # [ Prompt specific opts and Hooks for Functions ]
 add-zsh-hook preexec prompt_zshgod_exectime-preexec
 add-zsh-hook precmd prompt_zshgod_exectime-precmd
@@ -45,6 +48,9 @@ add-zsh-hook precmd prompt_zshgod_setup
 # [ Global Usage Variables ]
 # Variable which sets amount of exectime after exectime is not hided
 PROMPT_ZSHGOD_EXECTIME_MIN=5
+
+# Variable to easily toggle multilined prompt
+PROMPT_ZSHGOD_MULTILENE=false
 
 # INFO: I used Catppuccin Mocha Colors from: https://github.com/catppuccin
 # Main colors
@@ -97,19 +103,31 @@ prompt_zshgod_exectime-precmd() {
     fi
 }
 
+# Function which returns user and hostname part of the zshgod prompt
+# Only when connected through ssh
+prompt_zshgod_right-to-left_userandhostname-sshonly() {
+    if [[ -n $SSH_CONNECTION ]]; then
+        prompt_zshgod_right-to-left_userandhostname
+    fi
+}
+
 # [ Prompt Scructure ]
 # Function where all other functions are used to make prompt
 prompt_zshgod_setup() {
-    # Echo nothing before setting up prompt to make it have extra sparce
+    # Echo nothing before setting up prompt to make it sparce
     echo ""
 
-    # Print command with -P flag to make multiline prompt
-    print -P "%B╭$(prompt_zshgod_left-to-right_current-pwd)$(prompt_zshgod_left-to-right_git_branch)$(prompt_zshgod_left-to-right_git_dirty)$(prompt_zshgod_left-to-right_git_info)$(prompt_zshgod_left-to-right_exectime)%b"
+    # Checks if "PROMPT_ZSHGOD_MULTILENE" is equal to true
+    # and outputs extra line for making prompt multilined
+    if [[ $PROMPT_ZSHGOD_MULTILENE == true ]]; then
+        # "print" command with -P flag to output PROMPT like stuff before actuall prompt
+        print -P "%B$(prompt_zshgod_left-to-right_current-pwd)$(prompt_zshgod_left-to-right_git_branch)$(prompt_zshgod_left-to-right_git_info)$(prompt_zshgod_left-to-right_git_dirty)$(prompt_zshgod_left-to-right_exectime)%b"
+    fi
 
     # Variable which sets left side of prompt
-    PROMPT="%B╰$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
+    PROMPT="%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
 
     # Variable which sets right side of prompt
-    RPROMPT="%B$(prompt_zshgod_right-to-left_userandhostname)%b"
+    RPROMPT="%B$(prompt_zshgod_right-to-left_exectime)    $(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_git_branch)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_userandhostname-sshonly)%b"
 }
 

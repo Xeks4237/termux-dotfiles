@@ -99,3 +99,10 @@ prompt_zshgod_right-to-left_root-indicator () {
     print "%(!,%F{$prompt_thm_red}%f%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f%F{$prompt_thm_red}%f,%F{$prompt_thm_green}%f%F{$prompt_thm_crust}%K{$prompt_thm_green} \$ %k%f%F{$prompt_thm_green}%f)"
 }
 
+# Function which returns prompt_zshgod_right-to-left_userandhostname only when connected through ssh
+prompt_zshgod_right-to-left_userandhostname_sshonly() {
+    if [[ -n $SSH_CONNECTION ]]; then
+        prompt_zshgod_right-to-left_userandhostname
+    fi
+}
+

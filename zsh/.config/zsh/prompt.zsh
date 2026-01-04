@@ -103,14 +103,6 @@ prompt_zshgod_exectime-precmd() {
     fi
 }
 
-# Function which returns user and hostname part of the zshgod prompt
-# Only when connected through ssh
-prompt_zshgod_right-to-left_userandhostname-sshonly() {
-    if [[ -n $SSH_CONNECTION ]]; then
-        prompt_zshgod_right-to-left_userandhostname
-    fi
-}
-
 # [ Prompt Scructure ]
 # Function where all other functions are used to make prompt
 prompt_zshgod_setup() {
@@ -128,6 +120,6 @@ prompt_zshgod_setup() {
     PROMPT="%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
 
     # Variable which sets right side of prompt
-    RPROMPT="%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_git_branch)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_userandhostname-sshonly)%b"
+    RPROMPT="%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_git_branch)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_userandhostname_sshonly)%b"
 }
 

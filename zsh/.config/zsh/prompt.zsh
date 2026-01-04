@@ -128,6 +128,6 @@ prompt_zshgod_setup() {
     PROMPT="%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b "
 
     # Variable which sets right side of prompt
-    RPROMPT="%B$(prompt_zshgod_right-to-left_exectime)    $(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_git_branch)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_userandhostname-sshonly)%b"
+    RPROMPT="%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_git_branch)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_userandhostname-sshonly)%b"
 }
 

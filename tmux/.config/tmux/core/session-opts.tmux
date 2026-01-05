@@ -25,7 +25,7 @@ set -g destroy-unattached off
 
 # Whether to detach when a session is destroyed
 # Or switch the client to another session if any exist
-set -g detach-on-destroy on
+set -g detach-on-destroy off
 
 # Color of the active pane in "display-panes" menu
 set -g display-panes-active-colour "red"

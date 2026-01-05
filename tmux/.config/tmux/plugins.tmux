@@ -12,14 +12,15 @@ set -g @sessionx-x-path "$HOME/.dotfiles/"
 
 # Comma delimited list of absolute-paths always visible in results
 # TIP: if you're using zoxide mode, there's a good chance this is redundant
-set -g @sessionx-custom-paths "/data/data/com.termux/files/home/,/data/data/com.termux/files/usr/"
+set -g @sessionx-custom-paths ""
 
 # Boolean flag, if set to true, will also display subdirectories of "sessionx-custom-paths"
 set -g @sessionx-custom-paths-subdirectories "false"
 
 # Uses "fzf --tmux" command instead of "fzf-tmux" script
 # (requires fzf >= 0.53).
-set -g @sessionx-fzf-builtin-tmux on
+# NOTE: Setting it to "on" makes sessionx ui to open in new pane instead of floating pane
+set -g @sessionx-fzf-builtin-tmux off
 
 # By default, the current session will not be shown on first view
 # This is needed to support quick switch of sessions only after other actions (e.g. rename)

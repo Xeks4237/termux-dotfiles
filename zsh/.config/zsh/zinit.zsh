@@ -16,15 +16,12 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light jeffreytse/zsh-vi-mode
 
 # [ Snippets ]
-# Oh-My-Zsh Lib snippets
-zinit snippet OMZL::git.zsh
-
 #  Oh-My-Zsh Plugin snippets
 zinit snippet OMZP::git
+zinit snippet OMZP::tmux
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::copybuffer
-zinit snippet OMZP::git/git.plugin.zsh
 
 # [ Loading Section ]
 # Completions

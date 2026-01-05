@@ -37,9 +37,6 @@ source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_left-to-right_arrowed.zsh
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_right-to-left_arrowed.zsh
 source $XDG_CONFIG_HOME/zsh/prompt-libraries/functions_rectangular.zsh
 
-# async library to make prompt asynchronous
-source $XDG_CONFIG_HOME/zsh/prompt-libraries/async.zsh
-
 # [ Prompt specific opts and Hooks for Functions ]
 add-zsh-hook preexec prompt_zshgod_exectime-preexec
 add-zsh-hook precmd prompt_zshgod_exectime-precmd

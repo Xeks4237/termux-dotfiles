@@ -1,6 +1,19 @@
 # Unbinds all default keymaps
 unbind -a
 
+# [ Keymaps for Plugins ]
+# tpm: Update all outdated plugins
+bind-key -T prefix U run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/update_plugins
+
+# tpm: Resource tmux config and install new plugins if availible
+bind-key -T prefix I run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/install_plugins
+
+# tpm: Clean plugins which are removed from config
+bind-key -T prefix O run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/clean_plugins
+
+# tmux-sessionx: Key after prefix key to open sessionx
+set -g @sessionx-bind "F"
+
 # Keybindings which are set to be work after prefix key
 bind-key -T prefix Space next-layout
 bind-key -T prefix ! break-pane
@@ -35,10 +48,8 @@ bind-key -T prefix ? list-keys -N
 bind-key -T prefix C customize-mode -Z
 bind-key -T prefix D choose-client -Z
 bind-key -T prefix E select-layout -E
-bind-key -T prefix I run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/install_plugins
 bind-key -T prefix L switch-client -l
 bind-key -T prefix M select-pane -M
-bind-key -T prefix U run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/update_plugins
 bind-key -T prefix [ copy-mode
 bind-key -T prefix ] paste-buffer -p
 bind-key -T prefix c new-window
@@ -76,7 +87,6 @@ bind-key -T prefix M-7 select-layout main-vertical-mirrored
 bind-key -T prefix M-n next-window -a
 bind-key -T prefix M-o rotate-window -D
 bind-key -T prefix M-p previous-window -a
-bind-key -T prefix M-u run-shell /data/data/com.termux/files/home/.config/tmux/plugins/tpm/bindings/clean_plugins
 bind-key -r -T prefix M-Up resize-pane -U 5
 bind-key -r -T prefix M-Down resize-pane -D 5
 bind-key -r -T prefix M-Left resize-pane -L 5

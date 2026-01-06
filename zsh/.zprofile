@@ -3,22 +3,22 @@
 LANG=ru_RU.UTF-8
 
 # XDG configurations directory
-XDG_CONFIG_HOME="$HOME/.config/"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/}"
 
 # XDG data directory
-XDG_DATA_HOME="$HOME/.local/share/"
+XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}"
 
 # XDG state directory
-XDG_STATE_HOME="$HOME/.local/state/"
+XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state/}"
 
 # XDG cache directory
-XDG_CACHE_HOME="$HOME/.cache/"
+XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache/}"
 
 # PATH
 PATH=$PATH:$HOME/.local/bin/:$HOME/Scripts/
 
 # fzf default options file
-export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/fzf-options
+export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}/fzf/fzf-options"
 
 # Set default editor which gonna be used by other apps
 EDITOR="$PREFIX/bin/nvim"
@@ -31,17 +31,13 @@ KEYTIMEOUT=20
 HISTSIZE=10000
 
 # Location of zsh-history file
-HISTFILE=$XDG_CONFIG_HOME/zsh/zsh-history
+HISTFILE="${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/zsh-history"
 
 # Sets max length of SAVED command history to the max length of command history
 SAVEHIST=$HISTSIZE
 
 # Set the directory where we want to store zinit plugin manager and plugins for zsh
-if [[ -n "${XDG_DATA_HOME}" ]]; then
-    ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
-else
-    ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
-fi
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"
 
 # [ Variables for Zsh plugins ]
 # zsh-vi-mode: Editor which is used when editing current command in editor
@@ -69,7 +65,7 @@ ZSH_TMUX_AUTOCONNECT=true
 ZSH_TMUX_AUTOQUIT=true
 
 # OMZP::tmux: Path to tmux.conf file
-ZSH_TMUX_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
+ZSH_TMUX_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config/}/tmux/tmux.conf"
 
 # OMZP::tmux: default session name when autostart for tmux is enabled
 ZSH_TMUX_DEFAULT_SESSION_NAME="Termux, btw"

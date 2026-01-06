@@ -8,6 +8,9 @@ XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/}"
 # XDG data directory
 XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}"
 
+# XDG bin directory
+XDG_BIN_HOME="${XDG_BIN_HOME:-$HOME/.local/bin/}"
+
 # XDG state directory
 XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state/}"
 

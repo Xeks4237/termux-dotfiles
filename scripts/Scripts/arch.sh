@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.termux/files/usr/bin/env dash
 
 # little bug-fix for xkeyboard config
 export XKB_CONFIG_ROOT=/data/data/com.termux/files/usr/share/xkeyboard-config-2

@@ -1,18 +1,18 @@
 # [ Environment Variables ]
-source ~/.zprofile
+source $HOME/.zprofile
 
 # [ Zinit plugin manager ]
-source $XDG_CONFIG_HOME/zsh/zinit.zsh
+source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/zinit.zsh
 
 # [ Etc little pieces of code ]
-source $XDG_CONFIG_HOME/zsh/etc.zsh
+source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/etc.zsh
 
 # [ Keymaps ]
-source $XDG_CONFIG_HOME/zsh/keymaps.zsh
+source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/keymaps.zsh
 
 # [ Aliases ]
-source $XDG_CONFIG_HOME/zsh/aliases.zsh
+source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/aliases.zsh
 
 # [ Prompt ]
-source $XDG_CONFIG_HOME/zsh/prompt.zsh
+source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/prompt.zsh
 

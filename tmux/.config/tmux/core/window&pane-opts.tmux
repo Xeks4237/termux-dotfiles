@@ -147,7 +147,7 @@ set -g popup-border-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 set -g popup-style "bg=#{@thm_bg},fg=#{@thm_fg}"
 
 # Whether panes should remain ("on") or be automatically killed ("off" or "failed") when the program inside exits
-set -g remain-on-exit failed
+set -g remain-on-exit off
 
 # Message shown after the program in a pane has exited, if remain-on-exit is enabled
 set -g remain-on-exit-format "#{pane_current_command} in Pane #{pane_index} Failed"

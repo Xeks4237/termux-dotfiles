@@ -15,7 +15,7 @@ set -g editor "$PREFIX/bin/nvim"
 set -g escape-time 0
 
 # Whether the server should exit if there are no sessions
-set -g exit-empty on
+set -g exit-empty off
 
 # Whether the server should exit if there are no attached clients
 set -g exit-unattached off

@@ -28,7 +28,7 @@ zinit snippet OMZP::copybuffer
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 
-# Fish like history substring search
+# Load fish like history substring search plugin
 zinit load "zsh-users/zsh-history-substring-search"
 zinit ice wait atload"_history_substring_search_config"
 

@@ -13,10 +13,13 @@ zstyle ":completion:*" menu no
 
 # Makes fzf-tab plugin to use fzf options variables
 # Some options can break plugin, but after 3 years of using it I don't spotted any :3
-zstyle ':fzf-tab:*' use-fzf-default-opts yes
+zstyle ":fzf-tab:*" use-fzf-default-opts yes
 
 # Enables fzf-tab completions for cd command
 zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --almost-all --human-readable --color=always $realpath"
+
+# Make fzf-tab preview directory's content with eza when completing cd
+zstyle ":fzf-tab:complete:cd:*" fzf-preview "eza -1 --color=always $realpath"
 
 # [ Shell integrations, completions and etc ]
 # fzf

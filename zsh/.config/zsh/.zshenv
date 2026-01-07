@@ -1,6 +1,6 @@
 # [ Environment Variables ]
 # Language
-LANG=ru_RU.UTF-8
+LANG=en_US.UTF-8
 
 # XDG configurations directory
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/}"
@@ -17,32 +17,32 @@ XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state/}"
 # XDG cache directory
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache/}"
 
-# PATH
-PATH=$PATH:$HOME/.local/bin/:$HOME/Scripts/
+# Directory where files for zsh is present
+ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/"
 
-# fzf default options file
-export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}/fzf/fzf-options"
+# PATH
+PATH=$PATH:$XDG_BIN_HOME:$HOME/Scripts/
 
 # Set default editor which gonna be used by other apps
 EDITOR="$PREFIX/bin/nvim"
 VISUAL="$PREFIX/bin/nvim"
 
-# Set Esc key press timeout to 20
-KEYTIMEOUT=20
+# Location of zsh history file
+HISTFILE="$ZDOTDIR/.zshistory"
 
 # Max length of zsh command history
 HISTSIZE=10000
 
-# Location of zsh-history file
-HISTFILE="${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/zsh-history"
-
 # Sets max length of SAVED command history to the max length of command history
 SAVEHIST=$HISTSIZE
+
+# fzf default options file
+FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}/fzf/fzf-options"
 
 # Set the directory where we want to store zinit plugin manager and plugins for zsh
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"
 
-# [ Variables for Zsh plugins ]
+# [ Variables for Zsh/Zinit plugins ]
 # zsh-vi-mode: Editor which is used when editing current command in editor
 ZVM_VI_EDITOR=${EDITOR:-$VISUAL}
 

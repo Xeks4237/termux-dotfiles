@@ -19,7 +19,7 @@ zstyle ":fzf-tab:*" use-fzf-default-opts yes
 zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --almost-all --human-readable --color=always $realpath"
 
 # Make fzf-tab preview directory's content with eza when completing cd
-zstyle ":fzf-tab:complete:cd:*" fzf-preview "eza -1 --color=always $realpath"
+# zstyle ":fzf-tab:complete:cd:*" fzf-preview "eza --almost-all --color=always $realpath"
 
 # [ Shell integrations, completions and etc ]
 # fzf

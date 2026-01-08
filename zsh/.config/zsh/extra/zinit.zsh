@@ -9,11 +9,11 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # [ Plugins ]
+zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light jeffreytse/zsh-vi-mode
 
 # [ Snippets ]
 #  Oh-My-Zsh Plugin snippets

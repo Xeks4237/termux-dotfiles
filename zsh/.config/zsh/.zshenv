@@ -36,8 +36,19 @@ HISTSIZE=10000
 # Sets max length of SAVED command history to the max length of command history
 SAVEHIST=$HISTSIZE
 
-# fzf default options file
-FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}/fzf/fzf-options"
+# Variable used by fzf to define flags/options used by default
+# NOTE: fzf-tab plugin gor zsh uses it too if enabled
+FZF_DEFAULT_OPTS='
+--multi
+--extended
+--style=full:rounded
+--layout=reverse
+--color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8
+--color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC
+--color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8
+--color=selected-bg:#45475A
+--color=border:#6C7086,label:#CDD6F4
+'
 
 # Set the directory where we want to store zinit plugin manager and plugins for zsh
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"

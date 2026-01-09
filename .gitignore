@@ -12,6 +12,7 @@ nvim/
 
 # Git/Github credentials file
 .git-credentials
+credentials
 
 # Github cli hosts file
 hosts.yml

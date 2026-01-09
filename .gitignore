@@ -3,7 +3,7 @@ zsh_history
 zsh-history
 .zshistory
 
-# compiled zsh script files
+# Compiled zsh script files
 .zcompdump
 *.zwc
 
@@ -19,6 +19,13 @@ hosts.yml
 
 # Termux-auth paasword's file
 .termux_authinfo
+
+# Symlink to the shell made by termux
+shell
+
+# files which end with '.ttf'
+# Needed because termux has 'font.ttf' file to set its font
+*.ttf
 
 # Directory with tmux plugins
 tmux/.config/tmux/plugins/

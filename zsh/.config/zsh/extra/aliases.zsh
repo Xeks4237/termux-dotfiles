@@ -13,4 +13,6 @@ alias eza="eza --across --almost-all --classify=always --color=always --context 
 # Alias to make wine-stable package command more convenient
 alias wine="wine-stable"
 
+# Alias for wget to use custom laction for its cache file
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 

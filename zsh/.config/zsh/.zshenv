@@ -20,6 +20,12 @@ XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache/}"
 # Directory where files for zsh is present
 ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/"
 
+# Variable which sets directory for gnupg
+GNUPGHOME="$XDG_DATA_HOME/gnupg/"
+
+# Variable which sets location for wine prefix directory
+WINEPREFIX="$XDG_DATA_HOME/wine/"
+
 # PATH
 PATH=$PATH:$XDG_BIN_HOME:$HOME/Scripts/
 

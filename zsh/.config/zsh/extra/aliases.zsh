@@ -14,5 +14,8 @@ alias eza="eza --across --almost-all --classify=always --color=always --context 
 alias wine="wine-stable"
 
 # Alias for wget to use custom laction for its cache file
-alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget/wget-hsts"
+
+# alias to changes default location of ~/.vitetris file
+alias tetris='tetris -hiscores "$XDG_CONFIG_HOME/vitetris/vitetris"'
 

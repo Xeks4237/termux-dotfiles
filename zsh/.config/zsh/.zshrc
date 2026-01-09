@@ -16,3 +16,16 @@ source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/extra/aliases.zsh
 # [ Prompt ]
 source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/extra/prompt.zsh
 
+# [ Variables for Zsh/Zinit plugins ]
+# zsh-vi-mode: Editor which is used when editing current command in editor
+ZVM_VI_EDITOR=${EDITOR:-$VISUAL}
+
+# zsh-vi-mode: Enables system clipboard support for zsh-vi-mode plugin
+ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+
+# zsh-vi-mode: What commant plugin uses to send text to system clipboard
+ZVM_CLIPBOARD_COPY_CMD="termux-clipboard-set"
+
+# zsh-vi-mode: What commant plugin uses to get text from system clipboard
+ZVM_CLIPBOARD_PASTE_CMD="termux-clipboard-get"
+

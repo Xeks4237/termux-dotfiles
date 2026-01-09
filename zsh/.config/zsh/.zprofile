@@ -1,0 +1,3 @@
+# PATH
+PATH=$PATH:$XDG_BIN_HOME:$HOME/Scripts/
+

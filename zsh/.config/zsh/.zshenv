@@ -1,5 +1,9 @@
+# This file is sources by every instance of zsh
+# Except instance of zsh runned in '/usr/bin/sh' symlink
+# because then zsh runns in POSIX compilant 'Bourne shell' like mode
+
 # [ Environment Variables ]
-# Language
+# Vatiable which sets Locale/Language of system and tool
 LANG=en_US.UTF-8
 
 # XDG configurations directory
@@ -20,18 +24,15 @@ XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache/}"
 # Directory where files for zsh is present
 ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/"
 
+# Set default editor which gonna be used by other apps
+EDITOR="$PREFIX/bin/nvim"
+VISUAL="$PREFIX/bin/nvim"
+
 # Variable which sets directory for gnupg
 GNUPGHOME="$XDG_DATA_HOME/gnupg/"
 
 # Variable which sets location for wine prefix directory
 WINEPREFIX="$XDG_DATA_HOME/wine/"
-
-# PATH
-PATH=$PATH:$XDG_BIN_HOME:$HOME/Scripts/
-
-# Set default editor which gonna be used by other apps
-EDITOR="$PREFIX/bin/nvim"
-VISUAL="$PREFIX/bin/nvim"
 
 # Location of zsh history file
 HISTFILE="$ZDOTDIR/.zshistory"
@@ -40,7 +41,7 @@ HISTFILE="$ZDOTDIR/.zshistory"
 HISTSIZE=10000
 
 # Sets max length of SAVED command history to the max length of command history
-SAVEHIST=$HISTSIZE
+SAVEHIST="$HISTSIZE"
 
 # Variable used by fzf to define flags/options used by default
 # NOTE: fzf-tab plugin gor zsh uses it too if enabled
@@ -56,21 +57,9 @@ FZF_DEFAULT_OPTS='
 --color=border:#6C7086,label:#CDD6F4
 '
 
+# [ Variables for Zsh/Zinit plugins ]
 # Set the directory where we want to store zinit plugin manager and plugins for zsh
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"
-
-# [ Variables for Zsh/Zinit plugins ]
-# zsh-vi-mode: Editor which is used when editing current command in editor
-ZVM_VI_EDITOR=${EDITOR:-$VISUAL}
-
-# zsh-vi-mode: Enables system clipboard support for zsh-vi-mode plugin
-ZVM_SYSTEM_CLIPBOARD_ENABLED=true
-
-# zsh-vi-mode: What commant plugin uses to send text to system clipboard
-ZVM_CLIPBOARD_COPY_CMD="termux-clipboard-set"
-
-# zsh-vi-mode: What commant plugin uses to get text from system clipboard
-ZVM_CLIPBOARD_PASTE_CMD="termux-clipboard-get"
 
 # OMZP::tmux: Automatically starts tmux
 ZSH_TMUX_AUTOSTART=true
@@ -88,7 +77,7 @@ ZSH_TMUX_AUTOQUIT=true
 ZSH_TMUX_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config/}/tmux/tmux.conf"
 
 # OMZP::tmux: default session name when autostart for tmux is enabled
-ZSH_TMUX_DEFAULT_SESSION_NAME="Termux, btw"
+ZSH_TMUX_DEFAULT_SESSION_NAME='Termux, btw'
 
 # OMZP::tmux: Automatically name new sessions using basename of $PWD
 ZSH_TMUX_AUTONAME_SESSION=false
@@ -96,4 +85,10 @@ ZSH_TMUX_AUTONAME_SESSION=false
 # OMZP::tmux: Sets $TERM to 256-color term or not based on current terminal support
 # NOTE: I have it turned off because I have stuff related to it in my tmux config directly
 ZSH_TMUX_FIXTERM=false
+
+NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME/npm/config/npm-init.js"
+NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+NPM_CONFIG_TMP="$XDG_RUNTIME_DIR/npm"
+
+GOPATH="$XDG_DATA_HOME/go/"
 

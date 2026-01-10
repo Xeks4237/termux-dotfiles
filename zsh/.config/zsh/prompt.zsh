@@ -33,9 +33,9 @@ autoload -z add-zle-hook-widget
 setopt promptsubst
 
 # Files with functions to use in prompt
-source ${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/extra/prompt-libraries/functions_left-to-right_arrowed.zsh
-source ${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/extra/prompt-libraries/functions_right-to-left_arrowed.zsh
-source ${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/extra/prompt-libraries/functions_rectangular.zsh
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_left-to-right_arrowed.zsh"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_right-to-left_arrowed.zsh"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_rectangular.zsh"
 
 # [ Prompt specific opts and Hooks for Functions ]
 add-zsh-hook preexec prompt_zshgod_exectime-preexec

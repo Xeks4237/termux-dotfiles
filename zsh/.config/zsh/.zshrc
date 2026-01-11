@@ -57,10 +57,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # [ Zsh/Zinit Plugins ]
 zinit light "jeffreytse/zsh-vi-mode"
+zinit light "Aloxaf/fzf-tab"
 zinit light "zsh-users/zsh-completions"
 zinit light "zsh-users/zsh-autosuggestions"
 zinit light "zsh-users/zsh-history-substring-search"
-zinit light "Aloxaf/fzf-tab"
 zinit light "zdharma-continuum/fast-syntax-highlighting"
 
 # [ Zsh/Zinit Snippets ] (Sourced remote/local files)

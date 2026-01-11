@@ -52,6 +52,9 @@ PROMPT_ZSHGOD_MULTILENE=false
 # Variable which set frequency with prompt gets redrawn
 PROMPT_ZSHGOD_AUTOREDRAW_FREQUENCY=1
 
+# Builtin variable which sets indentation for prompts right side
+ZLE_RPROMPT_INDENT=0
+
 # INFO: I used Catppuccin Mocha Colors from: https://github.com/catppuccin
 # Main colors
 prompt_thm_rosewater='#f5e0dc'

@@ -65,7 +65,6 @@ zinit light "zdharma-continuum/fast-syntax-highlighting"
 
 # [ Zsh/Zinit Snippets ] (Sourced remote/local files)
 # Plugins sourced from Oh-My-Zsh framework
-zinit snippet OMZP::git
 zinit snippet OMZP::tmux
 
 # [ Extra commands for Zsh/Zinit plugins ]
@@ -90,6 +89,27 @@ ZVM_CLIPBOARD_COPY_CMD="termux-clipboard-set"
 
 # zsh-vi-mode: What commant plugin uses to get text from system clipboard
 ZVM_CLIPBOARD_PASTE_CMD="termux-clipboard-get"
+
+# zsh-vi-mode: Override the default open command
+ZVM_OPEN_CMD='xdg-open'
+
+# zsh-vi-mode: Override the open command for URLs
+ZVM_OPEN_URL_CMD='termux-open-url'
+
+# zsh-vi-mode: Override the open command for files
+ZVM_OPEN_FILE_CMD='termux-open'
+
+# zsh-vi-mode: Change to Zsh's default readkey engine
+ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+
+# zsh-vi-mode: Enable/Disable the cursor style feature
+ZVM_CURSOR_STYLE_ENABLED=true
+
+# zsh-vi-mode: Set the term variable of zsh-vi-mode to $TERM
+ZVM_TERM=$TERM
+
+# zsh-vi-mode: Set insert mode to be default one
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 # NOTE: Environment variables for zsh tmux plugin are set in .zprofile
 

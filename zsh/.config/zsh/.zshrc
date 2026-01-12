@@ -10,7 +10,7 @@
 
 # [ Environment Variables ]
 # Path
-PATH=$PATH:$XDG_BIN_HOME:$HOME/Scripts/
+PATH="$PREFIX/bin/:$XDG_BIN_HOME::$HOME/Scripts/"
 
 # Location of zsh history file
 HISTFILE="$ZDOTDIR/.zshistory"
@@ -56,12 +56,12 @@ ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # [ Zsh/Zinit Plugins ]
-zinit light "jeffreytse/zsh-vi-mode"
-zinit light "Aloxaf/fzf-tab"
-zinit light "zsh-users/zsh-completions"
-zinit light "zsh-users/zsh-autosuggestions"
-zinit light "zsh-users/zsh-history-substring-search"
-zinit light "zdharma-continuum/fast-syntax-highlighting"
+zinit light 'jeffreytse/zsh-vi-mode'
+zinit light 'Aloxaf/fzf-tab'
+zinit light 'zsh-users/zsh-completions'
+zinit light 'zsh-users/zsh-autosuggestions'
+zinit light 'zsh-users/zsh-history-substring-search'
+zinit light 'zdharma-continuum/fast-syntax-highlighting'
 
 # [ Zsh/Zinit Snippets ] (Sourced remote/local files)
 # Plugins sourced from Oh-My-Zsh framework
@@ -75,7 +75,7 @@ fast-theme --quiet default
 zinit cdreplay -q
 
 # Load fish like history substring search plugin
-zinit ice wait atload"_history_substring_search_config"
+zinit ice wait atload "_history_substring_search_config"
 
 # [ Environment variables for Zsh/Zinit plugins ]
 # zsh-vi-mode: Editor which is used when editing current command in editor

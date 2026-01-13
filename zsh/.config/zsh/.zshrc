@@ -192,6 +192,9 @@ alias wine="wine-stable"
 # Alias for wget
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 
+# Alias for vitetris game
+alias tetris="tetris -hiscores $XDG_CONFIG_HOME/vitetris/vitetris"
+
 # [ Prompt ]
 # NOTE: My zsh prompt is set and configured in different file only for maintaining purposes
 source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/prompt.zsh

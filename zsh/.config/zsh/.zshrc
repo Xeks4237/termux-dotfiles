@@ -48,12 +48,16 @@ eval "$(fzf --zsh)"
 # gitleaks
 eval "$(gitleaks completion zsh --verbose)"
 
-# [ Environment variables for Zinit ]
+# [ Environment variables for and Source/Load Zinit plugin manager ]
 # Directory where Zinit plugin manager stores itself and its plugins for zsh
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"
 
-# [ Source/Load Zinit plugin manager ]
+# Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
+
+# [ Zsh/Zinit Snippets ] (Sourced remote/local files)
+# Plugins sourced from Oh-My-Zsh framework
+zinit snippet OMZP::tmux
 
 # [ Zsh/Zinit Plugins ]
 zinit light 'jeffreytse/zsh-vi-mode'
@@ -63,15 +67,11 @@ zinit light 'zsh-users/zsh-autosuggestions'
 zinit light 'zsh-users/zsh-history-substring-search'
 zinit light 'zdharma-continuum/fast-syntax-highlighting'
 
-# [ Zsh/Zinit Snippets ] (Sourced remote/local files)
-# Plugins sourced from Oh-My-Zsh framework
-zinit snippet OMZP::tmux
-
 # [ Extra commands for Zsh/Zinit plugins ]
 # Choose/Set theme of fast-syntax-highlighting
 fast-theme --quiet default
 
-# Load and initialize stuff
+# Load and initialize completions related stuff for zinit
 zinit cdreplay -q
 
 # Load fish like history substring search plugin
@@ -111,7 +111,7 @@ ZVM_TERM=$TERM
 # zsh-vi-mode: Set insert mode to be default one
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
-# NOTE: Environment variables for zsh tmux plugin are set in .zprofile
+# NOTE: Environment variables for zsh-tmux plugin are set in .zprofile
 
 # [ Zstyle options ]
 # Makes completions to use half case-sensitive matching

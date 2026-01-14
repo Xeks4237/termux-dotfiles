@@ -48,11 +48,17 @@ ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
 # Variable which sets location for wine prefix directory
 WINEPREFIX="$XDG_DATA_HOME/wine/"
 
-# Variables which set location for npm init module
+# Variable which sets location for per user cargo directory
+CARGO_HOME="$XDG_DATA_HOME/cargo/"
+
+# Variable which sets location for per user go directory
+GOPATH="$XDG_DATA_HOME/go"
+
+# Variables which sets location for per user npm init module
 NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME/npm/config/npm-init.js"
 npm_config_init_module="$NPM_CONFIG_INIT_MODULE"
 
-# Variables which set location for npm cache directory
+# Variables which set location for per user npm cache directory
 NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 npm_config_cache="$NPM_CONFIG_CACHE"
 

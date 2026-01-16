@@ -54,17 +54,21 @@ CARGO_HOME="$XDG_DATA_HOME/cargo/"
 # Variable which sets location for per user go directory
 GOPATH="$XDG_DATA_HOME/go"
 
-# Variables which sets location for per user npm init module
-NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME/npm/config/npm-init.js"
+# Variables which set location for per user npm init module
+NPM_CONFIG_INIT_MODULE="${XDG_CONFIG_HOME:-$HOME/.config/}/npm/config/npm-init.js"
 npm_config_init_module="$NPM_CONFIG_INIT_MODULE"
 
 # Variables which set location for per user npm cache directory
-NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.config/}/npm/"
 npm_config_cache="$NPM_CONFIG_CACHE"
+
+# Variables which set location for per user npmrc file
+NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config/}/npm/npmrc"
+npm_config_userconfig="$NPM_CONFIG_USERCONFIG"
 
 # Variable used by fzf to define flags/options used by default
 # NOTE: fzf-tab plugin gor zsh uses it too if enabled
-FZF_DEFAULT_OPTS='
+FZF_DEFAULT_OPTS="
 --multi
 --extended
 --style=full:rounded
@@ -74,5 +78,5 @@ FZF_DEFAULT_OPTS='
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8
 --color=selected-bg:#45475A
 --color=border:#6C7086,label:#CDD6F4
-'
+"
 

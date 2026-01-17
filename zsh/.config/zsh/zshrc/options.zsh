@@ -126,16 +126,20 @@ setopt POSIX_CD
 # PUSHD_IGNORE_DUPS
 #   Don't push multiple copies of the same directory onto the
 #   directory stack.
+unsetopt PUSHD_IGNORE_DUPS
 
 # PUSHD_MINUS
 #   Exchanges the meanings of '+' and '-' when used with a number to
 #   specify a directory in the stack.
+unsetopt PUSHD_MINUS
 
 # PUSHD_SILENT (-E)
 #   Do not print the directory stack after pushd or popd.
+setopt PUSHD_SILENT
 
 # PUSHD_TO_HOME (-D)
 #   Have pushd with no arguments act like 'pushd $HOME'.
+setopt PUSHD_TO_HOME
 
 # [ Options related to Completions ]
 # ALWAYS_LAST_PROMPT <D>

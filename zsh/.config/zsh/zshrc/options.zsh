@@ -261,19 +261,23 @@ setopt LIST_AMBIGUOUS
 #   completion, which causes the shell to beep if the option BEEP is
 #   also set; this may be modified if completion is called from a
 #   user-defined widget.
+unsetopt LIST_BEEP
 
 # LIST_PACKED
 #   Try to make the completion list smaller (occupying less lines)
 #   by printing the matches in columns with different widths.
+unsetopt LIST_PACKED
 
 # LIST_ROWS_FIRST
 #   Lay out the matches in completion lists sorted horizontally,
 #   that is, the second match is to the right of the first one, not
 #   under it as usual.
+setopt LIST_ROWS_FIRST
 
 # LIST_TYPES (-X) <D>
 #   When listing files that are possible completions, show the type
 #   of each file with a trailing identifying mark.
+setopt LIST_TYPES
 
 # MENU_COMPLETE (-Y)
 #   On an ambiguous completion, instead of listing possibilities or
@@ -283,28 +287,33 @@ setopt LIST_AMBIGUOUS
 #   to the first one again.  reverse-menu-complete may be used to
 #   loop through the list in the other direction. This option
 #   overrides AUTO_MENU.
+setopt MENU_COMPLETE
 
 # REC_EXACT (-S)
 #   If the string on the command line exactly matches one of the
 #   possible completions, it is accepted, even if there is another
 #   completion (i.e. that string with something else added) that
 #   also matches.
+setopt REC_EXACT
 
 # [ Options related to Expansion and Globbing ]
 # BAD_PATTERN (+2) <C> <Z>
 #   If a pattern for filename generation is badly formed, print an
 #   error message.  (If this option is unset, the pattern will be
 #   left unchanged.)
+setopt BAD_PATTERN
 
 # BARE_GLOB_QUAL <Z>
 #   In a glob pattern, treat a trailing set of parentheses as a
 #   qualifier list, if it contains no '|', '(' or (if special) '~'
 #   characters.  See the section 'Filename Generation'.
+setopt BARE_GLOB_QUAL
 
 # BRACE_CCL
 #   Expand expressions in braces which would not otherwise undergo
 #   brace expansion to a lexically ordered list of all the
 #   characters.  See the section 'Brace Expansion'.
+setopt BRACE_CCL
 
 # CASE_GLOB <D>
 #   Make globbing (filename generation) sensitive to case.  Note

@@ -1,7 +1,6 @@
 # Unbinds all default keymaps
 unbind -a
 
-# [ Keymaps for Plugins ]
 # Keybindings which are set to be work after prefix key
 bind-key -T prefix Space next-layout
 bind-key -T prefix ! break-pane

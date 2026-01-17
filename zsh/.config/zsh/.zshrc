@@ -23,27 +23,12 @@ HISTSIZE=10000
 # Sets max length of SAVED command history to the max length of command history
 SAVEHIST="$HISTSIZE"
 
-# [ Options for Zsh ]
-# For more info about zsh options see 'zshoptions' mandoc page
-
 # Load compinit and initialize it if loaded successfully
 autoload -Uz compinit && compinit
 
-# Enable command substitution in prompt
-setopt PROMPTSUBST
-
-# Changes how history is shared and appended
-setopt APPENDHISTORY
-setopt SHAREHISTORY
-
-# Makes command history to ignore space
-setopt HIST_IGNORE_SPACE
-
-# Options to don't save duplicates in command history
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_IGNORE_DUPS
-setopt HIST_FIND_NO_DUPS
+# [ Zsh Options ]
+# NOTE: For more about zsh options see 'zshoptions' mandoc page
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/options.zsh"
 
 # [ Shell integrations with external tools ]
 # fzf

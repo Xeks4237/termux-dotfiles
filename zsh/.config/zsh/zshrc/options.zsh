@@ -1,3 +1,11 @@
+#!/usr/bin/env zsh
+# NOTE: Shebang line isn't needed here, But I anyway added it for fun
+
+# This file is sourced in '.zshrc'
+# This file is used for (un)setting options of your interactive zsh instances
+# And this file exists only for maintaining purposes
+
+
 # [ Disabled options for Zsh ]
 
 # If a command is issued that can't be executed as a normal

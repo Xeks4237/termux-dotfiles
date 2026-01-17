@@ -26,20 +26,20 @@ SAVEHIST="$HISTSIZE"
 autoload -Uz compinit && compinit
 
 # Enable command substitution in prompt
-setopt promptsubst
+setopt PROMPTSUBST
 
 # Changes how history is shared and appended
-setopt appendhistory
-setopt sharehistory
+setopt APPENDHISTORY
+setopt SHAREHISTORY
 
 # Makes command history to ignore space
-setopt hist_ignore_space
+setopt HIST_IGNORE_SPACE
 
 # Options to don't save duplicates in command history
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
 
 # [ Shell integrations with external tools ]
 # fzf

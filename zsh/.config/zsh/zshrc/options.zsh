@@ -147,6 +147,7 @@ setopt PUSHD_TO_HOME
 #   the last prompt if given a numeric argument. If set these
 #   functions try to return to the last prompt if given no numeric
 #   argument.
+setopt ALWAYS_LAST_PROMPT
 
 # ALWAYS_TO_END
 #   If a completion is performed with the cursor within a word, and
@@ -154,14 +155,17 @@ setopt PUSHD_TO_HOME
 #   the word.  That is, the cursor is moved to the end of the word
 #   if either a single match is inserted or menu completion is
 #   performed.
+setopt ALWAYS_TO_END
 
 # AUTO_LIST (-9) <D>
 #   Automatically list choices on an ambiguous completion.
+setopt AUTO_LIST
 
 # AUTO_MENU <D>
 #   Automatically use menu completion after the second consecutive
 #   request for completion, for example by pressing the tab key
 #   repeatedly. This option is overridden by MENU_COMPLETE.
+setopt AUTO_MENU
 
 # AUTO_NAME_DIRS
 #   Any parameter that is set to the absolute name of a directory
@@ -170,6 +174,7 @@ setopt PUSHD_TO_HOME
 #   when completion is performed on a word starting with '~'.
 #   (Otherwise, the parameter must be used in the form '~param'
 #   first.)
+setopt AUTO_NAME_DIRS
 
 # AUTO_PARAM_KEYS <D>
 #   If a parameter name was completed and a following character
@@ -180,16 +185,20 @@ setopt PUSHD_TO_HOME
 #   immediately after the parameter name.  Completion in a brace
 #   expansion is affected similarly: the added character is a ',',
 #   which will be removed if '}' is typed next.
+setopt AUTO_PARAM_KEYS
 
 # AUTO_PARAM_SLASH <D>
 #   If a parameter is completed whose content is the name of a
 #   directory, then add a trailing slash instead of a space.
+setopt AUTO_PARAM_SLASH
 
 # AUTO_REMOVE_SLASH <D>
 #   When the last character resulting from a completion is a slash
 #   and the next character typed is a word delimiter, a slash, or a
 #   character that ends a command (such as a semicolon or an
 #   ampersand), remove the slash.
+#   NOTE: My favorite one, because I like being verbose myself
+unsetopt AUTO_REMOVE_SLASH
 
 # BASH_AUTO_LIST
 #   On an ambiguous completion, automatically list choices when the
@@ -199,16 +208,19 @@ setopt PUSHD_TO_HOME
 #   start with the third press.  Note that this will not work with
 #   MENU_COMPLETE, since repeated completion calls immediately cycle
 #   through the list in that case.
+unsetopt BASH_AUTO_LIST
 
 # COMPLETE_ALIASES
 #   Prevents aliases on the command line from being internally
 #   substituted before completion is attempted.  The effect is to
 #   make the alias a distinct command for completion purposes.
+setopt COMPLETE_ALIASES
 
 # COMPLETE_IN_WORD
 #   If unset, the cursor is set to the end of the word if completion
 #   is started. Otherwise it stays there and completion is done from
 #   both ends.
+unsetopt COMPLETE_IN_WORD
 
 # GLOB_COMPLETE
 #   When the current word has a glob pattern, do not insert all the
@@ -219,18 +231,20 @@ setopt PUSHD_TO_HOME
 #   This actually uses pattern matching, not globbing, so it works
 #   not only for files but for any completion, such as options, user
 #   names, etc.
-
+#
 #   Note that when the pattern matcher is used, matching control
 #   (for example, case-insensitive or anchored matching) cannot be
 #   used.  This limitation only applies when the current word
 #   contains a pattern; simply turning on the GLOB_COMPLETE option
 #   does not have this effect.
+unsetopt GLOB_COMPLETE
 
 # HASH_LIST_ALL <D>
 #   Whenever a command completion or spelling correction is
 #   attempted, make sure the entire command path is hashed first.
 #   This makes the first completion slower but avoids false reports
 #   of spelling errors.
+setopt HASH_LIST_ALL
 
 # LIST_AMBIGUOUS <D>
 #   This option works when AUTO_LIST or BASH_AUTO_LIST is also set.
@@ -239,6 +253,7 @@ setopt PUSHD_TO_HOME
 #   words, auto-listing behaviour only takes place when nothing
 #   would be inserted.  In the case of BASH_AUTO_LIST, this means
 #   that the list will be delayed to the third call of the function.
+setopt LIST_AMBIGUOUS
 
 # LIST_BEEP <D>
 #   Beep on an ambiguous completion.  More accurately, this forces

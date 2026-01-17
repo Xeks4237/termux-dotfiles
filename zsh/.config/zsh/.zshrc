@@ -111,7 +111,7 @@ zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 
 # Turns off completions menu, because its replaced with fzf-tab plugin
-zstyle ":completion:*" menu no
+zstyle ":completion:*" menu select
 
 # Makes fzf-tab plugin to use fzf options variables
 # Some options can break plugin

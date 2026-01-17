@@ -68,7 +68,7 @@ npm_config_userconfig="$NPM_CONFIG_USERCONFIG"
 
 # Variable used by fzf to define flags/options used by default
 # NOTE: fzf-tab plugin gor zsh uses it too if enabled
-FZF_DEFAULT_OPTS="
+export FZF_DEFAULT_OPTS='
 --multi
 --extended
 --style=full:rounded
@@ -78,5 +78,5 @@ FZF_DEFAULT_OPTS="
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8
 --color=selected-bg:#45475A
 --color=border:#6C7086,label:#CDD6F4
-"
+'
 

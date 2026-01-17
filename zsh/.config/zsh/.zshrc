@@ -22,7 +22,7 @@ HISTSIZE=10000
 SAVEHIST="$HISTSIZE"
 
 # [ Options for Zsh ]
-# Load and initialize compinit
+# Load compinit and initialize it if loaded successfully
 autoload -Uz compinit && compinit
 
 # Enable command substitution in prompt

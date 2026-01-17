@@ -8,6 +8,8 @@
 
 # So you should put here stuff which should be launched only once on startup
 
+# NOTE: For more about zsh see 'zshall' mandoc page
+
 # [ Environment Variables ]
 # PATH
 PATH=$PATH:$XDG_BIN_HOME:$HOME/Scripts/

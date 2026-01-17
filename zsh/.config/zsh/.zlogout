@@ -10,6 +10,8 @@
 # So you can put here some stuff like:
 # Commands to clear cache/tmp, display goodbye message, close some additional stuff and etc.
 
+# NOTE: For more about zsh see 'zshall' mandoc page
+
 # Goodbye message
 print -P "%F{$prompt_thm_green}$(figlet -ckfslant ':3')%f"
 

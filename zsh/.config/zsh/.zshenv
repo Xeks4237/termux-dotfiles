@@ -7,7 +7,10 @@
 # because then zsh runns in POSIX compilant 'Bourne Shell' like mode where it doesn't sources this file
 
 # So you should put here stuff like environment variables which are should be set EVERYWHERE
-# NOTE: This file is sourced my scripts launched by zsh too.
+
+# NOTE: This file is sourced my scripts launched with zsh too
+
+# NOTE: For more about zsh see 'zshall' mandoc page
 
 # [ Environment Variables generally needed ]
 # Vatiable which sets Locale/Language of system and tools

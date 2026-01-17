@@ -11,3 +11,5 @@
 # Put everything to '.zprofile' file instead of this file
 # '.zprofile' is more convenient, consistent, reliable, and better overall.
 
+# NOTE: For more about zsh see 'zshall' mandoc page
+

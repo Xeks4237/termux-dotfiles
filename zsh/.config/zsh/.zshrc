@@ -8,6 +8,8 @@
 
 # So you should put here stuff which should be launched for every instance of zsh where you can type commands
 
+# NOTE: For more about zsh see 'zshall' mandoc page
+
 # [ Environment Variables ]
 # Path
 PATH="$PREFIX/bin/:$XDG_BIN_HOME::$HOME/Scripts/"
@@ -22,6 +24,8 @@ HISTSIZE=10000
 SAVEHIST="$HISTSIZE"
 
 # [ Options for Zsh ]
+# For more info about zsh options see 'zshoptions' mandoc page
+
 # Load compinit and initialize it if loaded successfully
 autoload -Uz compinit && compinit
 

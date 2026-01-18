@@ -5,10 +5,9 @@
 # This file is sources by 'interaactive' instances of zsh
 # Its not the case if instance of zsh was runned through '/usr/bin/sh' symlink
 # because then zsh runns in POSIX compilant 'Bourne Shell' like mode where it doesn't sources this file
+# INFO: For more about zsh see 'zshall' mandoc page
 
-# So you should put here stuff which should be launched for every instance of zsh where you can type commands
-
-# NOTE: For more about zsh see 'zshall' mandoc page
+# NOTE: So you should put here stuff which should be launched for every instance of zsh where you can type commands
 
 # [ Environment Variables ]
 # Path

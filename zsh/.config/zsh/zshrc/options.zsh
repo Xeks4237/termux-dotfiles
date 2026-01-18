@@ -323,10 +323,12 @@ setopt BRACE_CCL
 #   matching.  For example, cvs(/) can match the directory CVS owing
 #   to the presence of the globbing flag (unless the option
 #   BARE_GLOB_QUAL is unset).
+unsetopt CASE_GLOB
 
 # CASE_MATCH <D>
 #   Make regular expressions using the zsh/regex module (including
 #   matches with =~) sensitive to case.
+unsetopt CASE_MATCH
 
 # CASE_PATHS
 #   If CASE_PATHS is not set (the default), CASE_GLOB affects the
@@ -339,21 +341,25 @@ setopt BRACE_CCL
 #
 #   Note that if the filesystem itself is not sensitive to case,
 #   then CASE_PATHS has no effect.
+unsetopt CASE_PATHS
 
 # CSH_NULL_GLOB <C>
 #   If a pattern for filename generation has no matches, delete the
 #   pattern from the argument list; do not report an error unless
 #   all the patterns in a command have no matches.  Overrides
 #   NOMATCH.
+unsetopt CSH_NULL_GLOB
 
 # EQUALS <Z>
 #   Perform = filename expansion.  (See the section 'Filename
 #   Expansion'.)
+setopt EQUALS
 
 # EXTENDED_GLOB
 #   Treat the '#', '~' and '^' characters as part of patterns for
 #   filename generation, etc.  (An initial unquoted '~' always
 #   produces named directory expansion.)
+setopt EXTENDED_GLOB
 
 # FORCE_FLOAT
 #   Constants in arithmetic evaluation will be treated as floating
@@ -361,10 +367,12 @@ setopt BRACE_CCL
 #   integer variables will be converted to floating point when used
 #   in arithmetic expressions.  Integers in any base will be
 #   converted.
+unsetopt FORCE_FLOAT
 
 # GLOB (+F, ksh: +f) <D>
 #   Perform filename generation (globbing).  (See the section
 #   'Filename Generation'.)
+setopt GLOB
 
 # GLOB_ASSIGN <C>
 #   If this option is set, filename generation (globbing) is
@@ -377,10 +385,12 @@ setopt BRACE_CCL
 #   'foo=(*)') and this form is recommended for clarity; with this
 #   option set, it is not possible to predict whether the result
 #   will be an array or a scalar.
+unsetopt GLOB_ASSIGN
 
 # GLOB_DOTS (-4)
 #   Do not require a leading '.' in a filename to be matched
 #   explicitly.
+setopt GLOB_DOTS
 
 # GLOB_STAR_SHORT
 #   When this option is set and the default zsh-style globbing is in
@@ -390,6 +400,7 @@ setopt BRACE_CCL
 #   while also following symbolic links.  A / immediately after the
 #   '**' or '***' forces the pattern to be treated as the
 #   unabbreviated form.
+setopt GLOB_STAR_SHORT
 
 # GLOB_SUBST <C> <K> <S>
 #   Treat any characters resulting from parameter expansion as being
@@ -397,6 +408,7 @@ setopt BRACE_CCL
 #   characters resulting from command substitution as being eligible
 #   for filename generation.  Braces (and commas in between) do not
 #   become eligible for expansion.
+setopt GLOB_SUBST
 
 # HIST_SUBST_PATTERN
 #   Substitutions using the :s and :& history modifiers are
@@ -404,10 +416,12 @@ setopt BRACE_CCL
 #   This occurs wherever history modifiers are valid, including glob
 #   qualifiers and parameters.  See the section 'Modifiers' in
 #   zshexpn(1).
+setopt HIST_SUBST_PATTERN
 
 # IGNORE_BRACES (-I) <S>
 #   Do not perform brace expansion.  For historical reasons this
 #   also includes the effect of the IGNORE_CLOSE_BRACES option.
+unsetopt IGNORE_BRACES
 
 # IGNORE_CLOSE_BRACES
 #   When neither this option nor IGNORE_BRACES is set, a sole close
@@ -418,7 +432,7 @@ setopt BRACE_CCL
 #   brace is syntactically significant only in command position.
 #   Unlike IGNORE_BRACES, this option does not disable brace
 #   expansion.
-
+#
 #   For example, with both options unset a function may be defined
 #   in the following fashion:
 #
@@ -428,11 +442,13 @@ setopt BRACE_CCL
 #   equivalent to the following is required:
 #
 #          args() { echo $#; }
+setopt IGNORE_CLOSE_BRACES
 
 # KSH_GLOB <K>
 #   In pattern matching, the interpretation of parentheses is
 #   affected by a preceding '@', '*', '+', '?' or '!'.  See the
 #   section 'Filename Generation'.
+setopt KSH_GLOB
 
 # MAGIC_EQUAL_SUBST
 #   All unquoted arguments of the form 'anything=expression'
@@ -448,10 +464,12 @@ setopt BRACE_CCL
 #   This option respects the setting of the KSH_TYPESET option.  In
 #   other words, if both options are in effect, arguments looking
 #   like assignments will not undergo word splitting.
+setopt MAGIC_EQUAL_SUBST
 
 # MARK_DIRS (-8, ksh: -X)
 #   Append a trailing '/' to all directory names resulting from
 #   filename generation (globbing).
+setopt MARK_DIRS
 
 # MULTIBYTE <D>
 #   Respect multibyte characters when found in strings.  When this
@@ -475,27 +493,32 @@ setopt BRACE_CCL
 #   uses the locale to determine multibyte characters.  This is
 #   because the character set displayed by the terminal emulator is
 #   independent of shell settings.
+setopt MULTIBYTE
 
 # NOMATCH (+3) <C> <Z>
 #   If a pattern for filename generation has no matches, print an
 #   error, instead of leaving it unchanged in the argument list.
 #   This also applies to file expansion of an initial '~' or '='.
+setopt NOMATCH
 
 # NULL_GLOB (-G)
 #   If a pattern for filename generation has no matches, delete the
 #   pattern from the argument list instead of reporting an error.
 #   Overrides NOMATCH.
+unsetopt NULL_GLOB
 
 # NUMERIC_GLOB_SORT
 #   If numeric filenames are matched by a filename generation
 #   pattern, sort the filenames numerically rather than
 #   lexicographically.
+setopt NUMERIC_GLOB_SORT
 
 # RC_EXPAND_PARAM (-P)
 #   Array expansions of the form 'foo${xx}bar', where the parameter
 #   xx is set to (a b c), are substituted with 'fooabar foobbar
 #   foocbar' instead of the default 'fooa b cbar'.  Note that an
 #   empty array will therefore cause all arguments to be removed.
+setopt RC_EXPAND_PARAM
 
 # REMATCH_PCRE
 #   If set, regular expression matching with the =~ operator will
@@ -503,6 +526,7 @@ setopt BRACE_CCL
 #   (The zsh/pcre module must be available.) If not set, regular
 #   expressions will use the extended regexp syntax provided by the
 #   system libraries.
+setopt REMATCH_PCRE
 
 # SH_GLOB <K> <S>
 #   Disables the special meaning of '(', '|', ')' and '<' for
@@ -514,12 +538,14 @@ setopt BRACE_CCL
 #   parenthesis, e.g. !(true) is interpreted as if there were a
 #   space after the !.  This option is set by default if zsh is
 #   invoked as sh or ksh.
+unsetopt SH_GLOB
 
 # UNSET (+u, ksh: +u) <K> <S> <Z>
 #   Treat unset parameters as if they were empty when substituting,
 #   and as if they were zero when reading their values in arithmetic
 #   expansion and arithmetic commands.  Otherwise they are treated
 #   as an error.
+unsetopt UNSET
 
 # WARN_CREATE_GLOBAL
 #   Print a warning message when a global parameter is created in a
@@ -529,6 +555,7 @@ setopt BRACE_CCL
 #   within a function using typeset -g do not cause a warning.  Note
 #   that there is no warning when a local parameter is assigned to
 #   in a nested function, which may also indicate an error.
+setopt WARN_CREATE_GLOBAL
 
 # WARN_NESTED_VAR
 #   Print a warning message when an existing parameter from an
@@ -555,6 +582,7 @@ setopt BRACE_CCL
 #          }
 #          setopt warn_nested_var
 #          toplevel
+setopt WARN_NESTED_VAR
 
 # [ Options related to History ]
 # APPEND_HISTORY <D>
@@ -565,10 +593,12 @@ setopt BRACE_CCL
 #   exit.  The file will still be periodically re-written to trim it
 #   when the number of lines grows 20% beyond the value specified by
 #   $SAVEHIST (see also the HIST_SAVE_BY_COPY option).
+setopt APPEND_HISTORY
 
 # BANG_HIST (+K) <C> <Z>
-#   Perform textual history expansion, csh-style, treating the
+#   Perform text'ual history expansion, csh-style, treating the
 #   character '!' specially.
+unsetopt BANG_HIST
 
 # EXTENDED_HISTORY <C>
 #   Save each command's beginning timestamp (in seconds since the
@@ -576,14 +606,17 @@ setopt BRACE_CCL
 #   format of this prefixed data is:
 #
 #   `: <beginning time>:<elapsed seconds>;<command>'.
+setopt EXTENDED_HISTORY
 
 # HIST_ALLOW_CLOBBER
 #   Add '|' to output redirections in the history.  This allows
 #   history references to clobber files even when CLOBBER is unset.
+unsetopt HIST_ALLOW_CLOBBER
 
 # HIST_BEEP <D>
 #   Beep in ZLE when a widget attempts to access a history entry
 #   which isn't there.
+setopt HIST_BEEP
 
 # HIST_EXPIRE_DUPS_FIRST
 #   If the internal history needs to be trimmed to add the current
@@ -594,6 +627,7 @@ setopt BRACE_CCL
 #   some room for the duplicated events, otherwise this option will
 #   behave just like HIST_IGNORE_ALL_DUPS once the history fills up
 #   with unique events.
+unsetopt HIST_EXPIRE_DUPS_FIRST
 
 # HIST_FCNTL_LOCK
 #   When writing out the history file, by default zsh uses ad-hoc
@@ -603,20 +637,24 @@ setopt BRACE_CCL
 #   recent operating systems this may provide better performance, in
 #   particular avoiding history corruption when files are stored on
 #   NFS.
+setopt HIST_FCNTL_LOCK
 
 # HIST_FIND_NO_DUPS
 #   When searching for history entries in the line editor, do not
 #   display duplicates of a line previously found, even if the
 #   duplicates are not contiguous.
+setopt HIST_FIND_NO_DUPS
 
 # HIST_IGNORE_ALL_DUPS
 #   If a new command line being added to the history list duplicates
 #   an older one, the older command is removed from the list (even
 #   if it is not the previous event).
+unsetopt HIST_IGNORE_ALL_DUPS
 
 # HIST_IGNORE_DUPS (-h)
 #   Do not enter command lines into the history list if they are
 #   duplicates of the previous event.
+unsetopt HIST_IGNORE_DUPS
 
 # HIST_IGNORE_SPACE (-g)
 #   Remove command lines from the history list when the first
@@ -627,6 +665,7 @@ setopt BRACE_CCL
 #   is entered before it vanishes, allowing you to briefly reuse or
 #   edit the line.  If you want to make it vanish right away without
 #   entering another command, type a space and press return.
+setopt HIST_IGNORE_SPACE
 
 # HIST_LEX_WORDS
 #   By default, shell history that is read in from files is split
@@ -639,22 +678,26 @@ setopt BRACE_CCL
 #   this produces more accurately delimited words, if the size of
 #   the history file is large this can be slow.  Trial and error is
 #   necessary to decide.
+setopt HIST_LEX_WORDS
 
 # HIST_NO_FUNCTIONS
 #   Remove function definitions from the history list.  Note that
 #   the function lingers in the internal history until the next
 #   command is entered before it vanishes, allowing you to briefly
 #   reuse or edit the definition.
+unsetopt HIST_NO_FUNCTIONS
 
 # HIST_NO_STORE
 #   Remove the history (fc -l) command from the history list when
 #   invoked.  Note that the command lingers in the internal history
 #   until the next command is entered before it vanishes, allowing
 #   you to briefly reuse or edit the line.
+unsetopt HIST_NO_STORE
 
 # HIST_REDUCE_BLANKS
 #   Remove superfluous blanks from each command line being added to
 #   the history list.
+setopt HIST_REDUCE_BLANKS
 
 # HIST_SAVE_BY_COPY <D>
 #   When the history file is re-written, we normally write out a
@@ -671,6 +714,7 @@ setopt BRACE_CCL
 #   old file's permissions and group information, but will refuse to
 #   write out a new file if it would change the history file's
 #   owner.
+setopt HIST_SAVE_BY_COPY
 
 # HIST_SAVE_NO_DUPS
 #   When writing out the history file, older commands that duplicate

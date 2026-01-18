@@ -123,7 +123,7 @@ set -g pane-border-style "bg=#{@thm_bg},fg=#{@thm_overlay_0}"
 
 # Pane scrollbars state
 # NOTE: "modal" value makes scrollbars to appear only when needed
-set -g pane-scrollbars modal
+set -g pane-scrollbars off
 
 # Pane scrollbars position
 set -g pane-scrollbars-position right

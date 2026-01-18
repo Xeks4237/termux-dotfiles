@@ -6,11 +6,10 @@
 # Its not the case if instance of zsh was runned through '/usr/bin/sh' symlink
 # because then zsh runns in POSIX compilant 'Bourne Shell' like mode where it doesn't sources this file
 # This file was ment to be used as alternative to '.login' file for 'ksh' users.
+# INFO: For more about zsh see 'zshall' mandoc page
 
-# So you can put here some stuff like:
+# NOTE: So you can put here some stuff like:
 # Commands to clear cache/tmp, display goodbye message, close some additional stuff and etc.
-
-# NOTE: For more about zsh see 'zshall' mandoc page
 
 # Goodbye message
 print -P "%F{$prompt_thm_green}$(figlet -ckfslant ':3')%f"

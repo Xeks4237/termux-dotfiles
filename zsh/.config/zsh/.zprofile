@@ -5,14 +5,16 @@
 # This file is sources by login shell instance(s) of zsh
 # Its not the case if instance of zsh was runned through '/usr/bin/sh' symlink
 # because then zsh runns in POSIX compilant 'Bourne Shell' like mode where it doesn't sources this file
+# INFO: For more about zsh see 'zshall' mandoc page
 
-# So you should put here stuff which should be launched only once on startup
+# NOTE: So you should put here stuff which should be launched only once on startup
 
-# NOTE: For more about zsh see 'zshall' mandoc page
+# { Zsh option to enable exportion of variables without 'export' }
+setopt ALL_EXPORT
 
 # [ Environment Variables ]
 # PATH
-export PATH="$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
+PATH="$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
 
 # [ Environment variables for Zsh/Zinit plugins ]
 # OMZP::tmux: Automatically starts tmux
@@ -39,4 +41,7 @@ ZSH_TMUX_AUTONAME_SESSION=false
 # OMZP::tmux: Sets $TERM to 256-color term or not based on current terminal support
 # NOTE: Don't use this variable if you have tmux configured anyway
 ZSH_TMUX_FIXTERM=false
+
+# { Zsh option to disable exportion of variables without 'export' }
+setopt ALL_EXPORT
 

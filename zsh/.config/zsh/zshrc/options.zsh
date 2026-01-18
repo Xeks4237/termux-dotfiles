@@ -719,11 +719,13 @@ setopt HIST_SAVE_BY_COPY
 # HIST_SAVE_NO_DUPS
 #   When writing out the history file, older commands that duplicate
 #   newer ones are omitted.
+unsetopt HIST_SAVE_NO_DUPS
 
 # HIST_VERIFY
 #   Whenever the user enters a line with history expansion, don't
 #   execute the line directly; instead, perform history expansion
 #   and reload the line into the editing buffer.
+setopt HIST_VERIFY
 
 # INC_APPEND_HISTORY
 #   This option works like APPEND_HISTORY except that new history
@@ -732,6 +734,7 @@ setopt HIST_SAVE_BY_COPY
 #   file will still be periodically re-written to trim it when the
 #   number of lines grows 20% beyond the value specified by
 #   $SAVEHIST (see also the HIST_SAVE_BY_COPY option).
+unsetopt INC_APPEND_HISTORY
 
 # INC_APPEND_HISTORY_TIME
 #   This option is a variant of INC_APPEND_HISTORY in which, where
@@ -745,9 +748,9 @@ setopt HIST_SAVE_BY_COPY
 #   This option is only useful if INC_APPEND_HISTORY and
 #   SHARE_HISTORY are turned off.  The three options should be
 #   considered mutually exclusive.
+setopt INC_APPEND_HISTORY_TIME
 
 # SHARE_HISTORY <K>
-#
 #   This option both imports new commands from the history file, and
 #   also causes your typed commands to be appended to the history
 #   file (the latter is like specifying INC_APPEND_HISTORY, which
@@ -767,10 +770,12 @@ setopt HIST_SAVE_BY_COPY
 #   INC_APPEND_HISTORY or INC_APPEND_HISTORY_TIME (see above) on,
 #   and then manually import commands whenever you need them using
 #   'fc -RI'.
+setopt SHARE_HISTORY
 
 # [Options related to Initialization ]
 # ALL_EXPORT (-a, ksh: -a)
 #   All parameters subsequently defined are automatically exported.
+unsetopt ALL_EXPORT
 
 # GLOBAL_EXPORT <Z>
 #   If this option is set, passing the -x flag to the builtins

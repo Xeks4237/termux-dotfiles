@@ -9,9 +9,6 @@
 
 # NOTE: So you should put here stuff which should be launched only once on startup
 
-# { Zsh option to enable exportion of variables without 'export' }
-setopt ALL_EXPORT
-
 # [ Environment Variables ]
 # PATH
 PATH="$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
@@ -41,7 +38,4 @@ ZSH_TMUX_AUTONAME_SESSION=false
 # OMZP::tmux: Sets $TERM to 256-color term or not based on current terminal support
 # NOTE: Don't use this variable if you have tmux configured anyway
 ZSH_TMUX_FIXTERM=false
-
-# { Zsh option to disable exportion of variables without 'export' }
-setopt ALL_EXPORT
 

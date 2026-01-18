@@ -5,6 +5,8 @@
 # This file is used for (un)setting options of your interactive zsh instances
 # And this file exists only for maintaining purposes
 
+# INFO: For more about zsh options see 'zshoptions' mandoc page
+
 # WARN: Some options can break stuff related to plugins!
 
 # [ Specifying options ]

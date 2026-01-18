@@ -1,9 +1,11 @@
 #!/usr/bin/env zsh
 # NOTE: Shebang line isn't needed here, But I anyway added it for fun
 
-# This file is sourced in '.zshrc'
+# NOTE: This file is sourced in '.zshrc'
 # This file is used for (un)setting options of your interactive zsh instances
 # And this file exists only for maintaining purposes
+
+# WARN: Some options can break stuff related to plugins!
 
 # [ Specifying options ]
 # Options are primarily referred to by name.  These names are case
@@ -301,7 +303,7 @@ setopt REC_EXACT
 #   If a pattern for filename generation is badly formed, print an
 #   error message.  (If this option is unset, the pattern will be
 #   left unchanged.)
-setopt BAD_PATTERN
+unsetopt BAD_PATTERN
 
 # BARE_GLOB_QUAL <Z>
 #   In a glob pattern, treat a trailing set of parentheses as a
@@ -448,7 +450,7 @@ setopt IGNORE_CLOSE_BRACES
 #   In pattern matching, the interpretation of parentheses is
 #   affected by a preceding '@', '*', '+', '?' or '!'.  See the
 #   section 'Filename Generation'.
-setopt KSH_GLOB
+unsetopt KSH_GLOB
 
 # MAGIC_EQUAL_SUBST
 #   All unquoted arguments of the form 'anything=expression'
@@ -545,7 +547,7 @@ unsetopt SH_GLOB
 #   and as if they were zero when reading their values in arithmetic
 #   expansion and arithmetic commands.  Otherwise they are treated
 #   as an error.
-unsetopt UNSET
+setopt UNSET
 
 # WARN_CREATE_GLOBAL
 #   Print a warning message when a global parameter is created in a
@@ -555,7 +557,7 @@ unsetopt UNSET
 #   within a function using typeset -g do not cause a warning.  Note
 #   that there is no warning when a local parameter is assigned to
 #   in a nested function, which may also indicate an error.
-setopt WARN_CREATE_GLOBAL
+unsetopt WARN_CREATE_GLOBAL
 
 # WARN_NESTED_VAR
 #   Print a warning message when an existing parameter from an
@@ -582,7 +584,7 @@ setopt WARN_CREATE_GLOBAL
 #          }
 #          setopt warn_nested_var
 #          toplevel
-setopt WARN_NESTED_VAR
+unsetopt WARN_NESTED_VAR
 
 # [ Options related to History ]
 # APPEND_HISTORY <D>

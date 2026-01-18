@@ -12,7 +12,7 @@
 
 # [ Environment Variables ]
 # Path
-PATH="$PREFIX/bin/:$XDG_BIN_HOME::$HOME/Scripts/"
+export PATH="$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
 
 # Location of zsh history file
 HISTFILE="$ZDOTDIR/.zshistory"
@@ -39,7 +39,7 @@ eval "$(gitleaks completion zsh --verbose)"
 
 # [ Environment variables for and Source/Load Zinit plugin manager ]
 # Directory where Zinit plugin manager stores itself and its plugins for zsh
-ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"
+export ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/zinit/zinit.git"
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
@@ -50,7 +50,7 @@ zinit snippet OMZP::tmux
 
 # [ Zsh/Zinit Plugins ]
 zinit light 'jeffreytse/zsh-vi-mode'
-zinit light 'Aloxaf/fzf-tab'
+# zinit light 'Aloxaf/fzf-tab'
 zinit light 'zsh-users/zsh-completions'
 zinit light 'zsh-users/zsh-autosuggestions'
 zinit light 'zsh-users/zsh-history-substring-search'
@@ -102,7 +102,7 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 # NOTE: Environment variables for zsh-tmux plugin are set in .zprofile
 
-# [ Zstyle options ]
+# [ Zstyle ]
 # Makes completions to use half case-sensitive matching
 # Like "foo" equals to "FOO", but "FOO" doesn't equals to "foo"
 zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
@@ -121,54 +121,12 @@ zstyle ":fzf-tab:*" use-fzf-default-opts yes
 # Enables fzf-tab completions for 'cd' command, and use 'ls' for preview
 zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --almost-all --human-readable --color=always $realpath"
 
-# [ Keymaps/Keybindings ]
-# Enable vi style keymaps
-bindkey -v
-
-# Sets Home key to move cursor to the beginning of line
-bindkey "\e[H" beginning-of-line
-bindkey "^[[1~" beginning-of-line
-
-# Sets End key to move cursor to the beginning of line
-bindkey "\e[F" end-of-line
-bindkey "^[[4~" end-of-line
-
-# Fish like history search/suggestions
-# Arrow up to search up
-bindkey "\e[A" history-substring-search-up
-# Arrow down to search down
-bindkey "\e[B" history-substring-search-down
-
-# Sets PageDown key to open fzf history search widget
-bindkey "\e[6~" fzf-history-widget
-
-# Simple function with Keymap to toggle termux wakelock state
-# File where this state is stores globally to don't cause error while using multiple shells
-TERMUX_WAKE_LOCK_STATE_FILE="$XDG_DATA_HOME/termux/termux_wake_lock_state_file"
-# Function to do logic related to wakelock
-termux_wake_lock_toggle() {
-    local termux_wake_lock_state=$(cat $TERMUX_WAKE_LOCK_STATE_FILE)
-    if [[ $termux_wake_lock_state == 0 ]]; then
-        termux-wake-lock
-        echo "1" > $TERMUX_WAKE_LOCK_STATE_FILE
-    else
-        termux-wake-unlock
-        echo "0" > $TERMUX_WAKE_LOCK_STATE_FILE
-    fi
-}
-# Make zle widget from function
-zle -N termux_wake_lock_toggle_widget termux_wake_lock_toggle
-# Bind this widget to 'Ctrl h'
-bindkey "^h" termux_wake_lock_toggle_widget
-
-# Makes 'frontspace?' to delete 1 character after the cursor
-# Its like 'backspace' but deletes character after the cursor rather then before
-bindkey "\e[3~" delete-char
+# [ Keymaps ]
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/keymaps.zsh"
 
 # [ Aliases ]
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
 
 # [ Prompt ]
-# NOTE: My zsh prompt is set and configured in different file only for maintaining purposes
 source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/prompt.zsh
 

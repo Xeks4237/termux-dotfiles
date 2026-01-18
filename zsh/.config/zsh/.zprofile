@@ -12,7 +12,7 @@
 
 # [ Environment Variables ]
 # PATH
-PATH=$PATH:$XDG_BIN_HOME:$HOME/Scripts/
+export PATH="$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
 
 # [ Environment variables for Zsh/Zinit plugins ]
 # OMZP::tmux: Automatically starts tmux

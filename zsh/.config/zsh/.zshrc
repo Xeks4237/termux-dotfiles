@@ -22,8 +22,12 @@ HISTSIZE=10000
 # Sets max length of SAVED command history to the max length of command history
 SAVEHIST="$HISTSIZE"
 
-# Load compinit and initialize it if loaded successfully
-autoload -Uz compinit && compinit
+# [ Zsh Modules ]
+# Load compinit module and initialize it
+autoload -U compinit && compinit
+
+# Load zmv module
+autoload -U zmv
 
 # [ Zsh Options ]
 # NOTE: For more about zsh options see 'zshoptions' mandoc page

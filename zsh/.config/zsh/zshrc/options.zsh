@@ -327,7 +327,7 @@ setopt BRACE_CCL
 #   matching.  For example, cvs(/) can match the directory CVS owing
 #   to the presence of the globbing flag (unless the option
 #   BARE_GLOB_QUAL is unset).
-unsetopt CASE_GLOB
+setopt CASE_GLOB
 
 # CASE_MATCH <D>
 #   Make regular expressions using the zsh/regex module (including
@@ -446,7 +446,7 @@ unsetopt IGNORE_BRACES
 #   equivalent to the following is required:
 #
 #          args() { echo $#; }
-setopt IGNORE_CLOSE_BRACES
+unsetopt IGNORE_CLOSE_BRACES
 
 # KSH_GLOB <K>
 #   In pattern matching, the interpretation of parentheses is

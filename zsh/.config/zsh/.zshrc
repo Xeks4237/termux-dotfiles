@@ -27,7 +27,7 @@ autoload -Uz compinit && compinit
 
 # [ Zsh Options ]
 # NOTE: For more about zsh options see 'zshoptions' mandoc page
-# source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/options.zsh"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/options.zsh"
 
 # [ Shell integrations with external tools ]
 # fzf

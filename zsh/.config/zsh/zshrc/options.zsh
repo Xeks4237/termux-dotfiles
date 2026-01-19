@@ -1472,6 +1472,7 @@ setopt KSH_OPTION_PRINT
 #   word splitting after command and parameter expansion in
 #   arguments of an assignment; with it, word splitting does not
 #   take place in those cases.
+unsetopt KSH_TYPESET
 
 # KSH_ZERO_SUBSCRIPT
 #   Treat use of a subscript of value zero in array or string
@@ -1496,6 +1497,7 @@ setopt KSH_OPTION_PRINT
 #
 #   This option is for compatibility with older versions of the
 #   shell and is not recommended in new code.
+unsetopt KSH_ZERO_SUBSCRIPT
 
 # POSIX_ALIASES <K> <S>
 #   When this option is set, reserved words are not candidates for
@@ -1512,6 +1514,7 @@ setopt KSH_OPTION_PRINT
 #   argument is parsed as one unit, so aliases defined within the
 #   argument are not available even in later lines.  If in doubt,
 #   avoid use of aliases in non-interactive code.
+setopt POSIX_ALIASES
 
 # POSIX_ARGZERO
 #   This option may be used to temporarily disable FUNCTION_ARGZERO
@@ -1527,6 +1530,7 @@ setopt KSH_OPTION_PRINT
 #
 #   Note that NO_POSIX_ARGZERO has no effect unless FUNCTION_ARGZERO
 #   was already enabled upon entry to the function or script.
+unsetopt POSIX_ARGZERO
 
 # POSIX_BUILTINS <K> <S>
 #   When this option is set the command builtin can be used to
@@ -1552,6 +1556,7 @@ setopt KSH_OPTION_PRINT
 #
 #   Moreover, the warning and special exit code from [[ -o
 #   non_existent_option ]] are suppressed.
+setopt POSIX_BUILTINS
 
 # POSIX_IDENTIFIERS <K> <S>
 #   When this option is set, only the ASCII characters a to z, A to
@@ -1585,6 +1590,7 @@ setopt KSH_OPTION_PRINT
 #   this option is ignored; all octets with the top bit set may be
 #   used in identifiers.  This is non-standard but is the
 #   traditional zsh behaviour.
+unsetopt POSIX_IDENTIFIERS
 
 # POSIX_STRINGS <K> <S>
 #   This option affects processing of quoted strings.  Currently it
@@ -1606,6 +1612,7 @@ setopt KSH_OPTION_PRINT
 #   For example, the command line argument a$'b\0c'd is treated with
 #   the option off as the characters a, b, null, c, d, and with the
 #   option on as the characters a, b, d.
+setopt POSIX_STRINGS
 
 # POSIX_TRAPS <K> <S>
 #   When this option is set, the usual zsh behaviour of executing
@@ -1621,6 +1628,7 @@ setopt KSH_OPTION_PRINT
 #   Furthermore, if a trap is set to be ignored, this state persists
 #   when a subshell is entered.  Without the option, the trap would
 #   be reset to its default state at this point.
+unsetopt POSIX_TRAPS
 
 # SH_FILE_EXPANSION <K> <S>
 #   Perform filename expansion (e.g., ~ expansion) before parameter

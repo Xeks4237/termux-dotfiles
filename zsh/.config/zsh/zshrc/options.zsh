@@ -892,11 +892,13 @@ setopt INTERACTIVE_COMMENTS
 #   commands whose names do not appear in the functions or aliases
 #   hash tables are hashed in order to avoid reporting them as
 #   spelling errors.
+setopt HASH_CMDS
 
 # HASH_DIRS <D>
 #   Whenever a command name is hashed, hash the directory containing
 #   it, as well as all directories that occur earlier in the path.
 #   Has no effect if neither HASH_CMDS nor CORRECT is set.
+setopt HASH_DIRS
 
 # HASH_EXECUTABLES_ONLY
 #   When hashing commands because of HASH_CMDS, check that the file
@@ -905,10 +907,12 @@ setopt INTERACTIVE_COMMENTS
 #   consists of many remote files, the additional tests can take a
 #   long time.  Trial and error is needed to show if this option is
 #   beneficial.
+setopt HASH_EXECUTABLES_ONLY
 
 # MAIL_WARNING (-U)
 #   Print a warning message if a mail file has been accessed since
 #   the shell last checked.
+setopt MAIL_WARNING
 
 # PATH_DIRS (-Q)
 #   Perform a path search even on command names with slashes in
@@ -923,6 +927,7 @@ setopt INTERACTIVE_COMMENTS
 #   place before any search indicated by this option, and regardless
 #   of whether '.' or the current directory appear in the command
 #   search path.
+setopt PATH_DIRS
 
 # PATH_SCRIPT <K> <S>
 #   If this option is not set, a script passed as the first
@@ -931,11 +936,13 @@ setopt INTERACTIVE_COMMENTS
 #   specify a directory path, the script is looked for first in the
 #   current directory, then in the command path.  See the section
 #   INVOCATION in zsh(1).
+setopt PATH_SCRIPT
 
 # PRINT_EIGHT_BIT
 #   Print eight bit characters literally in completion lists, etc.
 #   This option is not necessary if your system correctly returns
 #   the printability of eight bit characters (see ctype(3)).
+unsetopt PRINT_EIGHT_BIT
 
 # PRINT_EXIT_VALUE (-1)
 #   Print the exit value of programs with non-zero exit status.

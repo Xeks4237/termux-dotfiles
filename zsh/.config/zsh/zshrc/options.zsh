@@ -1336,7 +1336,7 @@ setopt PIPE_FAIL
 #   A file may be loaded by the shell itself when it starts up and
 #   shuts down (Startup/Shutdown Files) or by the use of the
 #   'source' and 'dot' builtin commands.
-setopt SOURCE_TRACE
+unsetopt SOURCE_TRACE
 
 # TYPESET_SILENT
 #   If this is unset, executing any of the 'typeset' family of

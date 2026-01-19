@@ -1076,12 +1076,14 @@ setopt POSIX_JOBS
 # PROMPT_BANG <K>
 #   If set, '!' is treated specially in prompt expansion.  See
 #   EXPANSION OF PROMPT SEQUENCES in zshmisc(1).
+setopt PROMPT_BANG
 
 # PROMPT_CR (+V) <D>
 #   Print a carriage return just before printing a prompt in the
 #   line editor.  This is on by default as multi-line editing is
 #   only possible if the editor knows where the start of the line
 #   appears.
+setopt PROMPT_CR
 
 # PROMPT_SP <D>
 #   Attempt to preserve a partial line (i.e. a line that did not end
@@ -1100,20 +1102,24 @@ setopt POSIX_JOBS
 #
 #   NOTE: if the PROMPT_CR option is not set, enabling this option
 #   will have no effect.  This option is on by default.
+setopt PROMPT_SP
 
 # PROMPT_PERCENT <C> <Z>
 #   If set, '%' is treated specially in prompt expansion.  See
 #   EXPANSION OF PROMPT SEQUENCES in zshmisc(1).
+setopt PROMPT_PERCENT
 
 # PROMPT_SUBST <K> <S>
 #   If set, parameter expansion, command substitution and arithmetic
 #   expansion are performed in prompts.  Substitutions within
 #   prompts do not affect the command status.
+setopt PROMPT_SUBST
 
 # TRANSIENT_RPROMPT
 #   Remove any right prompt from display when accepting a command
 #   line.  This may be useful with terminals with other cut/paste
 #   methods.
+unsetopt TRANSIENT_RPROMPT
 
 # [ Options related to Scripts and Functions ]
 # ALIAS_FUNC_DEF <S>
@@ -1140,6 +1146,8 @@ setopt POSIX_JOBS
 #   quoting any part of the function name, or using the keyword
 #   function, avoids the problem, so is recommended when the
 #   function name can also be an alias.
+#   WARN: Don't use it!
+unsetopt ALIAS_FUNC_DEF
 
 # C_BASES
 #   Output hexadecimal numbers in the standard C format, for example
@@ -1150,16 +1158,19 @@ setopt POSIX_JOBS
 #   on the output of bases other than hexadecimal and octal.  Note
 #   that these formats will be understood on input irrespective of
 #   the setting of C_BASES.
+setopt C_BASES
 
 # C_PRECEDENCES
 #   This alters the precedence of arithmetic operators to be more
 #   like C and other programming languages; the section ARITHMETIC
 #   EVALUATION in zshmisc(1) has an explicit list.
+setopt C_PRECEDENCES
 
 # DEBUG_BEFORE_CMD <D>
 #   Run the DEBUG trap before each command; otherwise it is run
 #   after each command.  Setting this option mimics the behaviour of
 #   ksh 93; with the option unset the behaviour is that of ksh 88.
+setopt DEBUG_BEFORE_CMD
 
 # ERR_EXIT (-e, ksh: -e)
 #   If a command has a non-zero exit status, execute the ZERR trap,

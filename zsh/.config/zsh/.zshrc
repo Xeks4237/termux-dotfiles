@@ -65,59 +65,34 @@ zinit cdreplay -q
 zinit ice wait atload "_history_substring_search_config"
 
 # [ Environment variables for Zsh/Zinit plugins ]
-# zsh-vi-mode: Editor which is used when editing current command in editor
-ZVM_VI_EDITOR=${EDITOR:-$VISUAL}
+# NOTE: Environment variables for zsh-tmux plugin are set in .zprofile too
+# OMZP::tmux: Automatically starts tmux
+ZSH_TMUX_AUTOSTART=true
 
-# zsh-vi-mode: Enables system clipboard support for zsh-vi-mode plugin
-ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+# OMZP::tmux: Autostart only if tmux hasn't been started previously
+ZSH_TMUX_AUTOSTART_ONCE=true
 
-# zsh-vi-mode: What commant plugin uses to send text to system clipboard
-ZVM_CLIPBOARD_COPY_CMD="termux-clipboard-set"
+# OMZP::tmux: Automatically connect to a previous session if it exits
+ZSH_TMUX_AUTOCONNECT=true
 
-# zsh-vi-mode: What commant plugin uses to get text from system clipboard
-ZVM_CLIPBOARD_PASTE_CMD="termux-clipboard-get"
+# OMZP::tmux: Automatically closes terminal once tmux exits
+ZSH_TMUX_AUTOQUIT=true
 
-# zsh-vi-mode: Override the default open command
-ZVM_OPEN_CMD='xdg-open'
+# OMZP::tmux: Path to tmux.conf file
+ZSH_TMUX_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config/}/tmux/tmux.conf"
 
-# zsh-vi-mode: Override the open command for URLs
-ZVM_OPEN_URL_CMD='termux-open-url'
+# OMZP::tmux: default session name when autostart for tmux is enabled
+ZSH_TMUX_DEFAULT_SESSION_NAME='Termux, btw'
 
-# zsh-vi-mode: Override the open command for files
-ZVM_OPEN_FILE_CMD='termux-open'
+# OMZP::tmux: Automatically name new sessions using basename of $PWD
+ZSH_TMUX_AUTONAME_SESSION=false
 
-# zsh-vi-mode: Change to Zsh's default readkey engine
-ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
-
-# zsh-vi-mode: Enable/Disable the cursor style feature
-ZVM_CURSOR_STYLE_ENABLED=true
-
-# zsh-vi-mode: Set the term variable of zsh-vi-mode to $TERM
-ZVM_TERM=$TERM
-
-# zsh-vi-mode: Set insert mode to be default one
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-
-# NOTE: Environment variables for zsh-tmux plugin are set in .zprofile
+# OMZP::tmux: Sets $TERM to 256-color term or not based on current terminal support
+# NOTE: Don't use this variable if you have tmux configured anyway
+ZSH_TMUX_FIXTERM=false
 
 # [ Zstyle ]
-# Makes completions to use half case-sensitive matching
-# Like "foo" equals to "FOO", but "FOO" doesn't equals to "foo"
-zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
-
-# Makes coloring for completions using ls color
-zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
-
-# Turns off completions menu, because its replaced with fzf-tab plugin
-zstyle ":completion:*" menu select
-
-# Makes fzf-tab plugin to use fzf options variables
-# Some options can break plugin
-# but after 4 years of using it I don't spotted any :3
-zstyle ":fzf-tab:*" use-fzf-default-opts yes
-
-# Enables fzf-tab completions for 'cd' command, and use 'ls' for preview
-zstyle ":fzf-tab:complete:cd:*" fzf-preview "ls --almost-all --human-readable --color=always $realpath"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/zstyle.zsh"
 
 # [ Keymaps ]
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/keymaps.zsh"
@@ -126,5 +101,5 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/keymaps.zsh"
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
 
 # [ Prompt ]
-source ${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/prompt.zsh
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/prompt.zsh"
 

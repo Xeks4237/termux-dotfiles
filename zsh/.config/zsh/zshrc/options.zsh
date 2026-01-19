@@ -1194,6 +1194,7 @@ setopt DEBUG_BEFORE_CMD
 #
 #   Exiting due to ERR_EXIT has certain interactions with
 #   asynchronous jobs noted in the section JOBS in zshmisc(1).
+unsetopt ERR_EXIT
 
 # ERR_RETURN
 #   If a command has a non-zero exit status, return immediately from
@@ -1216,6 +1217,7 @@ setopt DEBUG_BEFORE_CMD
 #   a return from summit (assuming the option remains set within
 #   summit), but not from the enclosing context.  This behaviour is
 #   different from ERR_EXIT which is unaffected by function scope.
+unsetopt ERR_RETURN
 
 # EVAL_LINENO <Z>
 #   If set, line numbers of expressions evaluated using the builtin
@@ -1228,12 +1230,14 @@ setopt DEBUG_BEFORE_CMD
 #   XTRACE is set.)  If EVAL_LINENO is unset, the line number of the
 #   surrounding script or function is retained during the
 #   evaluation.
+setopt EVAL_LINENO
 
 # EXEC (+n, ksh: +n) <D>
 #   Do execute commands.  Without this option, commands are read and
 #   checked for syntax errors, but not executed.  This option cannot
 #   be turned off in an interactive shell, except when '-n' is
 #   supplied to the shell at startup.
+setopt EXEC
 
 # FUNCTION_ARGZERO <C> <Z>
 #   When executing a shell function or sourcing a script, set $0
@@ -1241,6 +1245,7 @@ setopt DEBUG_BEFORE_CMD
 #   toggling FUNCTION_ARGZERO from on to off (or off to on) does not
 #   change the current value of $0.  Only the state upon entry to
 #   the function or script has an effect.  Compare POSIX_ARGZERO.
+setopt FUNCTION_ARGZERO
 
 # LOCAL_LOOPS
 #   When this option is not set, the effect of break and continue
@@ -1249,6 +1254,7 @@ setopt DEBUG_BEFORE_CMD
 #   function, a break or a continue that is not caught within a
 #   called function (regardless of the setting of the option within
 #   that function) produces a warning and the effect is cancelled.
+setopt LOCAL_LOOPS
 
 # LOCAL_OPTIONS <K>
 #   If this option is set at the point of return from a shell
@@ -1261,6 +1267,7 @@ setopt DEBUG_BEFORE_CMD
 #   remain so.  A shell function can also guarantee itself a known
 #   shell configuration with a formulation like 'emulate -L zsh';
 #   the -L activates LOCAL_OPTIONS.
+unsetopt LOCAL_OPTIONS
 
 # LOCAL_PATTERNS
 #   If this option is set at the point of return from a shell
@@ -1270,6 +1277,7 @@ setopt DEBUG_BEFORE_CMD
 #   to the effect of LOCAL_OPTIONS on options; hence 'emulate -L sh'
 #   (or indeed any other emulation with the -L option) activates
 #   LOCAL_PATTERNS.
+setopt LOCAL_PATTERNS
 
 # LOCAL_TRAPS <K>
 #   If this option is set when a signal trap is set inside a
@@ -1286,6 +1294,7 @@ setopt DEBUG_BEFORE_CMD
 #          fn() { setopt localtraps; trap '' INT; sleep 3; }
 #
 #   will restore normal handling of SIGINT after the function exits.
+unsetopt LOCAL_TRAPS
 
 # MULTI_FUNC_DEF <Z>
 #   Allow definitions of multiple functions at once in the form 'fn1
@@ -1293,10 +1302,12 @@ setopt DEBUG_BEFORE_CMD
 #   Definition of multiple functions with the function keyword is
 #   always allowed.  Multiple function definitions are not often
 #   used and can cause obscure errors.
+setopt MULTI_FUNC_DEF
 
 # MULTIOS <Z>
 #   Perform implicit tees or cats when multiple redirections are
 #   attempted (see the section 'Redirection').
+setopt MULTIOS
 
 # OCTAL_ZEROES <S>
 #   Interpret any integer constant beginning with a 0 as octal, per
@@ -1307,6 +1318,7 @@ setopt DEBUG_BEFORE_CMD
 #   Sequences of digits indicating a numeric base such as the '08'
 #   component in '08#77' are always interpreted as decimal,
 #   regardless of leading zeroes.
+unsetopt OCTAL_ZEROES
 
 # PIPE_FAIL
 #   By default, when a pipeline exits the exit status recorded by
@@ -1315,6 +1327,7 @@ setopt DEBUG_BEFORE_CMD
 #   exit status instead reflects the status of the rightmost element
 #   of the pipeline that was non-zero, or zero if all elements
 #   exited with zero status.
+setopt PIPE_FAIL
 
 # SOURCE_TRACE
 #   If set, zsh will print an informational message announcing the
@@ -1323,6 +1336,7 @@ setopt DEBUG_BEFORE_CMD
 #   A file may be loaded by the shell itself when it starts up and
 #   shuts down (Startup/Shutdown Files) or by the use of the
 #   'source' and 'dot' builtin commands.
+setopt SOURCE_TRACE
 
 # TYPESET_SILENT
 #   If this is unset, executing any of the 'typeset' family of
@@ -1331,20 +1345,24 @@ setopt DEBUG_BEFORE_CMD
 #   of the parameter.  If the option is set, they will only be shown
 #   when parameters are selected with the '-m' option.  The option
 #   '-p' is available whether or not the option is set.
+unsetopt TYPESET_SILENT
 
 # TYPESET_TO_UNSET <K> <S>
 #   When declaring a new parameter with any of the 'typeset' family
 #   of related commands, the parameter remains unset unless and
 #   until a value is explicity assigned to it, either in the
 #   'typeset' command itself or as a later assignment statement.
+unsetopt TYPESET_TO_UNSET
 
 # VERBOSE (-v, ksh: -v)
 #   Print shell input lines as they are read.
+unsetopt VERBOSE
 
 # XTRACE (-x, ksh: -x)
 #   Print commands and their arguments as they are executed.  The
 #   output is preceded by the value of $PS4, formatted as described
 #   in the section EXPANSION OF PROMPT SEQUENCES in zshmisc(1).
+unsetopt XTRACE
 
 # [ Options related to Shell Emulation ]
 # APPEND_CREATE <K> <S>

@@ -1403,6 +1403,7 @@ setopt BSD_ECHO
 #   interactive shells, where the shell returns to the line editor
 #   to read a new command; it was the normal behaviour in versions
 #   of zsh before 5.0.1.
+unsetopt CONTINUE_ON_ERROR
 
 # CSH_JUNKIE_HISTORY <C>
 #   A history reference without an event specifier will always refer
@@ -1410,23 +1411,27 @@ setopt BSD_ECHO
 #   reference refers to the same event as the previous history
 #   reference on the current command line, defaulting to the
 #   previous command.
+unsetopt CSH_JUNKIE_HISTORY
 
 # CSH_JUNKIE_LOOPS <C>
 #   Allow loop bodies to take the form 'list; end' instead of 'do
 #   list; done'.
+unsetopt CSH_JUNKIE_LOOPS
 
 # CSH_JUNKIE_QUOTES <C>
-#   Changes the rules for single- and double-quoted text to match
+#   Changes the rules for single and double-quoted text to match
 #   that of csh.  These require that embedded newlines be preceded
 #   by a backslash; unescaped newlines will cause an error message.
 #   In double-quoted strings, it is made impossible to escape '$',
 #   ''' or '"' (and '\' itself no longer needs escaping).  Command
 #   substitutions are only expanded once, and cannot be nested.
+unsetopt CSH_JUNKIE_QUOTES
 
 # CSH_NULLCMD <C>
 #   Do not use the values of NULLCMD and READNULLCMD when running
 #   redirections with no command.  This make such redirections fail
 #   (see the section 'Redirection').
+unsetopt CSH_NULLCMD
 
 # KSH_ARRAYS <K> <S>
 #   Emulate ksh array handling as closely as possible.  If this

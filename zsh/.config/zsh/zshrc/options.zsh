@@ -1636,20 +1636,24 @@ unsetopt POSIX_TRAPS
 #   expansion.  If this option is unset, it is performed after brace
 #   expansion, so things like '~$USERNAME' and '~{pfalstad,rc}' will
 #   work.
+setopt SH_FILE_EXPANSION
 
 # SH_NULLCMD <K> <S>
 #   Do not use the values of NULLCMD and READNULLCMD when doing
 #   redirections, use ':' instead (see the section 'Redirection').
+setopt SH_NULLCMD
 
 # SH_OPTION_LETTERS <K> <S>
 #   If this option is set the shell tries to interpret single letter
 #   options (which are used with set and setopt) like ksh does.
 #   This also affects the value of the - special parameter.
+setopt SH_OPTION_LETTERS
 
 # SH_WORD_SPLIT (-y) <K> <S>
 #   Causes field splitting to be performed on unquoted parameter
 #   expansions.  Note that this option has nothing to do with word
 #   splitting.  (See zshmisc(1).)
+setopt SH_WORD_SPLIT
 
 # TRAPS_ASYNC
 #   While waiting for a program to exit, handle signals and run
@@ -1657,6 +1661,7 @@ unsetopt POSIX_TRAPS
 #   process has exited.  Note this does not affect the point at
 #   which traps are run for any case other than when the shell is
 #   waiting for a child process.
+setopt TRAPS_ASYNC
 
 # [ Options related to Shell State ]
 # INTERACTIVE (-i, ksh: -i)
@@ -1667,11 +1672,13 @@ unsetopt POSIX_TRAPS
 #   state for this option on the command line.  The value of this
 #   option can only be changed via flags supplied at invocation of
 #   the shell.  It cannot be changed once zsh is running.
+#   NOTE: Don't set this option manually in this file
 
 # LOGIN (-l, ksh: -l)
 #   This is a login shell.  If this option is not explicitly set,
 #   the shell becomes a login shell if the first character of the
 #   argv[0] passed to the shell is a '-'.
+#   NOTE: Don't set this option manually in this file
 
 # PRIVILEGED (-p, ksh: -p)
 #   Turn on privileged mode. Typically this is used when script is
@@ -1699,12 +1706,14 @@ unsetopt POSIX_TRAPS
 #   -m option of setopt and unsetopt, and changing it inside a
 #   function always changes it globally regardless of the
 #   LOCAL_OPTIONS option.
+#   NOTE: Don't set this option manually in this file
 
 # RESTRICTED (-r)
 #   Enables restricted mode.  This option cannot be changed using
 #   unsetopt, and setting it inside a function always changes it
 #   globally regardless of the LOCAL_OPTIONS option.  See the
 #   section 'Restricted Shell'.
+#   NOTE: Don't set this option manually in this file
 
 # SHIN_STDIN (-s, ksh: -s)
 #   Commands are being read from the standard input.  Commands are
@@ -1719,6 +1728,7 @@ unsetopt POSIX_TRAPS
 #   actually being read from standard input.  The value of this
 #   option can only be changed via flags supplied at invocation of
 #   the shell.  It cannot be changed once zsh is running.
+#   NOTE: Don't set this option manually in this file
 
 # SINGLE_COMMAND (-t, ksh: -t)
 #   If the shell is reading from standard input, it exits after a
@@ -1727,10 +1737,12 @@ unsetopt POSIX_TRAPS
 #   on the command line.  The value of this option can only be
 #   changed via flags supplied at invocation of the shell.  It
 #   cannot be changed once zsh is running.
+#   NOTE: Don't set this option manually in this file
 
 # [ Options related to Zle (Zsh Line Editor) ]
 # BEEP (+B) <D>
 #   Beep on error in ZLE.
+setopt BEEP
 
 # COMBINING_CHARS
 #   Assume that the terminal displays combining characters
@@ -1747,6 +1759,7 @@ unsetopt POSIX_TRAPS
 #   be used as part of a word in combination with a word character.
 #   Otherwise the base shell does not handle combining characters
 #   specially.
+setopt COMBINING_CHARS
 
 # EMACS  If ZLE is loaded, turning on this option has the equivalent
 #   effect of 'bindkey -e'.  In addition, the VI option is unset.
@@ -1754,9 +1767,11 @@ unsetopt POSIX_TRAPS
 #   guaranteed to reflect the current keymap.  This option is
 #   provided for compatibility; bindkey is the recommended
 #   interface.
+unsetopt EMACS
 
 # OVERSTRIKE
 #   Start up the line editor in overstrike mode.
+#   NOTE: Don't set this option manually in this file
 
 # SINGLE_LINE_ZLE (-M) <K>
 #   Use single-line command line editing instead of multi-line.
@@ -1766,6 +1781,7 @@ unsetopt POSIX_TRAPS
 #   and reduces the effectiveness of the zsh line editor.  As it has
 #   no effect on shell syntax, many users may wish to disable this
 #   option when using ksh emulation interactively.
+#   NOTE: Don't set this option manually in this file
 
 # VI     If ZLE is loaded, turning on this option has the equivalent
 #   effect of 'bindkey -v'.  In addition, the EMACS option is unset.
@@ -1773,10 +1789,12 @@ unsetopt POSIX_TRAPS
 #   guaranteed to reflect the current keymap.  This option is
 #   provided for compatibility; bindkey is the recommended
 #   interface.
+setopt VI
 
 # ZLE (-Z)
 #   Use the zsh line editor.  Set by default in interactive shells
 #   connected to a terminal.
+setopt ZLE
 
 # [ Options aliases ]
 # Some options have alternative names.  These aliases are never used for

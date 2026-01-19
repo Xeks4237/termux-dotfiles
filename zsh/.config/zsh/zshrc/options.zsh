@@ -948,6 +948,7 @@ unsetopt PRINT_EIGHT_BIT
 #   Print the exit value of programs with non-zero exit status.
 #   This is only available at the command line in interactive
 #   shells.
+setopt PRINT_EXIT_VALUE
 
 # RC_QUOTES
 #   Allow the character sequence '''' to signify a single quote

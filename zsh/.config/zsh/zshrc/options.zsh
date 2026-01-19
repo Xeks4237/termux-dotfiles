@@ -993,15 +993,15 @@ unsetopt SUN_KEYBOARD_HACK
 #   With this option set, stopped jobs that are removed from the job
 #   table with the disown builtin command are automatically sent a
 #   CONT signal to make them running.
-#
+
 # AUTO_RESUME (-W)
 #   Treat single word simple commands without redirection as
 #   candidates for resumption of an existing job.
-#
+
 # BG_NICE (-6) <C> <Z>
 #   Run all background jobs at a lower priority.  This option is set
 #   by default.
-#
+
 # CHECK_JOBS <Z>
 #   Report the status of background and suspended jobs before
 #   exiting a shell with job control; a second attempt to exit the
@@ -1015,27 +1015,27 @@ unsetopt SUN_KEYBOARD_HACK
 #   'jobs' command run from one of the hook functions defined in the
 #   section SPECIAL FUNCTIONS in zshmisc(1) is not counted for this
 #   purpose.
-#
+
 # CHECK_RUNNING_JOBS <Z>
 #   Check for both running and suspended jobs when CHECK_JOBS is
 #   enabled.  When this option is disabled, zsh checks only for
 #   suspended jobs, which matches the default behavior of bash.
 #
 #   This option has no effect unless CHECK_JOBS is set.
-#
+
 # HUP <Z>
 #   Send the HUP signal to running jobs when the shell exits.
-#
+
 # LONG_LIST_JOBS (-R)
 #   Print job notifications in the long format by default.
-#
+
 # MONITOR (-m, ksh: -m)
 #   Allow job control.  Set by default in interactive shells.
-#
+
 # NOTIFY (-5, ksh: -b) <Z>
 #   Report the status of background jobs immediately, rather than
 #   waiting until just before printing a prompt.
-#
+
 # POSIX_JOBS <K> <S>
 #   This option makes job control more compliant with the POSIX
 #   standard.
@@ -1066,13 +1066,13 @@ unsetopt SUN_KEYBOARD_HACK
 # PROMPT_BANG <K>
 #   If set, '!' is treated specially in prompt expansion.  See
 #   EXPANSION OF PROMPT SEQUENCES in zshmisc(1).
-#
+
 # PROMPT_CR (+V) <D>
 #   Print a carriage return just before printing a prompt in the
 #   line editor.  This is on by default as multi-line editing is
 #   only possible if the editor knows where the start of the line
 #   appears.
-#
+
 # PROMPT_SP <D>
 #   Attempt to preserve a partial line (i.e. a line that did not end
 #   with a newline) that would otherwise be covered up by the
@@ -1090,16 +1090,16 @@ unsetopt SUN_KEYBOARD_HACK
 #
 #   NOTE: if the PROMPT_CR option is not set, enabling this option
 #   will have no effect.  This option is on by default.
-#
+
 # PROMPT_PERCENT <C> <Z>
 #   If set, '%' is treated specially in prompt expansion.  See
 #   EXPANSION OF PROMPT SEQUENCES in zshmisc(1).
-#
+
 # PROMPT_SUBST <K> <S>
 #   If set, parameter expansion, command substitution and arithmetic
 #   expansion are performed in prompts.  Substitutions within
 #   prompts do not affect the command status.
-#
+
 # TRANSIENT_RPROMPT
 #   Remove any right prompt from display when accepting a command
 #   line.  This may be useful with terminals with other cut/paste
@@ -1130,7 +1130,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   quoting any part of the function name, or using the keyword
 #   function, avoids the problem, so is recommended when the
 #   function name can also be an alias.
-#
+
 # C_BASES
 #   Output hexadecimal numbers in the standard C format, for example
 #   '0xFF' instead of the usual '16#FF'.  If the option OCTAL_ZEROES
@@ -1140,17 +1140,17 @@ unsetopt SUN_KEYBOARD_HACK
 #   on the output of bases other than hexadecimal and octal.  Note
 #   that these formats will be understood on input irrespective of
 #   the setting of C_BASES.
-#
+
 # C_PRECEDENCES
 #   This alters the precedence of arithmetic operators to be more
 #   like C and other programming languages; the section ARITHMETIC
 #   EVALUATION in zshmisc(1) has an explicit list.
-#
+
 # DEBUG_BEFORE_CMD <D>
 #   Run the DEBUG trap before each command; otherwise it is run
 #   after each command.  Setting this option mimics the behaviour of
 #   ksh 93; with the option unset the behaviour is that of ksh 88.
-#
+
 # ERR_EXIT (-e, ksh: -e)
 #   If a command has a non-zero exit status, execute the ZERR trap,
 #   if set, and exit.  This is disabled while running initialization
@@ -1173,7 +1173,7 @@ unsetopt SUN_KEYBOARD_HACK
 #
 #   Exiting due to ERR_EXIT has certain interactions with
 #   asynchronous jobs noted in the section JOBS in zshmisc(1).
-#
+
 # ERR_RETURN
 #   If a command has a non-zero exit status, return immediately from
 #   the enclosing function.  The logic is similar to that for
@@ -1190,12 +1190,12 @@ unsetopt SUN_KEYBOARD_HACK
 #   no return is forced as the combined effect always has a zero
 #   return status.
 #
-#   Note. however, that if summit in the above example is itself a
+#   NOTE: however, that if summit in the above example is itself a
 #   function, code inside it is considered separately: it may force
 #   a return from summit (assuming the option remains set within
 #   summit), but not from the enclosing context.  This behaviour is
 #   different from ERR_EXIT which is unaffected by function scope.
-#
+
 # EVAL_LINENO <Z>
 #   If set, line numbers of expressions evaluated using the builtin
 #   eval are tracked separately of the enclosing environment.  This
@@ -1207,20 +1207,20 @@ unsetopt SUN_KEYBOARD_HACK
 #   XTRACE is set.)  If EVAL_LINENO is unset, the line number of the
 #   surrounding script or function is retained during the
 #   evaluation.
-#
+
 # EXEC (+n, ksh: +n) <D>
 #   Do execute commands.  Without this option, commands are read and
 #   checked for syntax errors, but not executed.  This option cannot
 #   be turned off in an interactive shell, except when '-n' is
 #   supplied to the shell at startup.
-#
+
 # FUNCTION_ARGZERO <C> <Z>
 #   When executing a shell function or sourcing a script, set $0
 #   temporarily to the name of the function/script.  Note that
 #   toggling FUNCTION_ARGZERO from on to off (or off to on) does not
 #   change the current value of $0.  Only the state upon entry to
 #   the function or script has an effect.  Compare POSIX_ARGZERO.
-#
+
 # LOCAL_LOOPS
 #   When this option is not set, the effect of break and continue
 #   commands may propagate outside function scope, affecting loops
@@ -1228,7 +1228,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   function, a break or a continue that is not caught within a
 #   called function (regardless of the setting of the option within
 #   that function) produces a warning and the effect is cancelled.
-#
+
 # LOCAL_OPTIONS <K>
 #   If this option is set at the point of return from a shell
 #   function, most options (including this one) which were in force
@@ -1240,7 +1240,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   remain so.  A shell function can also guarantee itself a known
 #   shell configuration with a formulation like 'emulate -L zsh';
 #   the -L activates LOCAL_OPTIONS.
-#
+
 # LOCAL_PATTERNS
 #   If this option is set at the point of return from a shell
 #   function, the state of pattern disables, as set with the builtin
@@ -1249,7 +1249,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   to the effect of LOCAL_OPTIONS on options; hence 'emulate -L sh'
 #   (or indeed any other emulation with the -L option) activates
 #   LOCAL_PATTERNS.
-#
+
 # LOCAL_TRAPS <K>
 #   If this option is set when a signal trap is set inside a
 #   function, then the previous status of the trap for that signal
@@ -1265,18 +1265,18 @@ unsetopt SUN_KEYBOARD_HACK
 #          fn() { setopt localtraps; trap '' INT; sleep 3; }
 #
 #   will restore normal handling of SIGINT after the function exits.
-#
+
 # MULTI_FUNC_DEF <Z>
 #   Allow definitions of multiple functions at once in the form 'fn1
 #   fn2...()'; if the option is not set, this causes a parse error.
 #   Definition of multiple functions with the function keyword is
 #   always allowed.  Multiple function definitions are not often
 #   used and can cause obscure errors.
-#
+
 # MULTIOS <Z>
 #   Perform implicit tees or cats when multiple redirections are
 #   attempted (see the section 'Redirection').
-#
+
 # OCTAL_ZEROES <S>
 #   Interpret any integer constant beginning with a 0 as octal, per
 #   IEEE Std 1003.2-1992 (ISO 9945-2:1993).  This is not enabled by
@@ -1286,7 +1286,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   Sequences of digits indicating a numeric base such as the '08'
 #   component in '08#77' are always interpreted as decimal,
 #   regardless of leading zeroes.
-#
+
 # PIPE_FAIL
 #   By default, when a pipeline exits the exit status recorded by
 #   the shell and returned by the shell variable $? reflects that of
@@ -1294,7 +1294,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   exit status instead reflects the status of the rightmost element
 #   of the pipeline that was non-zero, or zero if all elements
 #   exited with zero status.
-#
+
 # SOURCE_TRACE
 #   If set, zsh will print an informational message announcing the
 #   name of each file it loads.  The format of the output is similar
@@ -1302,7 +1302,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   A file may be loaded by the shell itself when it starts up and
 #   shuts down (Startup/Shutdown Files) or by the use of the
 #   'source' and 'dot' builtin commands.
-#
+
 # TYPESET_SILENT
 #   If this is unset, executing any of the 'typeset' family of
 #   commands with no options and a list of parameters that have no
@@ -1310,16 +1310,16 @@ unsetopt SUN_KEYBOARD_HACK
 #   of the parameter.  If the option is set, they will only be shown
 #   when parameters are selected with the '-m' option.  The option
 #   '-p' is available whether or not the option is set.
-#
+
 # TYPESET_TO_UNSET <K> <S>
 #   When declaring a new parameter with any of the 'typeset' family
 #   of related commands, the parameter remains unset unless and
 #   until a value is explicity assigned to it, either in the
 #   'typeset' command itself or as a later assignment statement.
-#
+
 # VERBOSE (-v, ksh: -v)
 #   Print shell input lines as they are read.
-#
+
 # XTRACE (-x, ksh: -x)
 #   Print commands and their arguments as they are executed.  The
 #   output is preceded by the value of $PS4, formatted as described
@@ -1333,7 +1333,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   append redirection (>>) is used on a file that does not already
 #   exists (the traditional zsh behaviour of NO_CLOBBER).  If the
 #   option is set, no error is reported (POSIX behaviour).
-#
+
 # BASH_REMATCH
 #   When set, matches performed with the =~ operator will set the
 #   BASH_REMATCH array variable, instead of the default MATCH and
@@ -1344,12 +1344,12 @@ unsetopt SUN_KEYBOARD_HACK
 #   is stored at index 0 and the first substring is at index 1.
 #   Without this option, the MATCH variable contains the entire
 #   matched text and the match array variable contains substrings.
-#
+
 # BSD_ECHO <S>
 #   Make the echo builtin compatible with the BSD echo(1) command.
 #   This disables backslashed escape sequences in echo strings
 #   unless the -e option is specified.
-#
+
 # CONTINUE_ON_ERROR
 #   If a fatal error is encountered (see the section ERRORS in
 #   zshmisc(1)), and the code is running in a script, the shell will
@@ -1359,18 +1359,18 @@ unsetopt SUN_KEYBOARD_HACK
 #   interactive shells, where the shell returns to the line editor
 #   to read a new command; it was the normal behaviour in versions
 #   of zsh before 5.0.1.
-#
+
 # CSH_JUNKIE_HISTORY <C>
 #   A history reference without an event specifier will always refer
 #   to the previous command.  Without this option, such a history
 #   reference refers to the same event as the previous history
 #   reference on the current command line, defaulting to the
 #   previous command.
-#
+
 # CSH_JUNKIE_LOOPS <C>
 #   Allow loop bodies to take the form 'list; end' instead of 'do
 #   list; done'.
-#
+
 # CSH_JUNKIE_QUOTES <C>
 #   Changes the rules for single- and double-quoted text to match
 #   that of csh.  These require that embedded newlines be preceded
@@ -1378,12 +1378,12 @@ unsetopt SUN_KEYBOARD_HACK
 #   In double-quoted strings, it is made impossible to escape '$',
 #   ''' or '"' (and '\' itself no longer needs escaping).  Command
 #   substitutions are only expanded once, and cannot be nested.
-#
+
 # CSH_NULLCMD <C>
 #   Do not use the values of NULLCMD and READNULLCMD when running
 #   redirections with no command.  This make such redirections fail
 #   (see the section 'Redirection').
-#
+
 # KSH_ARRAYS <K> <S>
 #   Emulate ksh array handling as closely as possible.  If this
 #   option is set, array elements are numbered from zero, an array
@@ -1391,7 +1391,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   of the whole array, and braces are required to delimit a
 #   subscript ('${path[2]}' rather than just '$path[2]') or to apply
 #   modifiers to any parameter ('${PWD:h}' rather than '$PWD:h').
-#
+
 # KSH_AUTOLOAD <K> <S>
 #   Emulate ksh function autoloading.  This means that when a
 #   function is autoloaded, the corresponding file is merely
@@ -1400,12 +1400,12 @@ unsetopt SUN_KEYBOARD_HACK
 #   most common ksh-style case - of the file containing only a
 #   simple definition of the function - is always handled in the
 #   ksh-compatible manner.)
-#
+
 # KSH_OPTION_PRINT <K>
 #   Alters the way options settings are printed: instead of separate
 #   lists of set and unset options, all options are shown, marked
 #   'on' if they are in the non-default state, 'off' otherwise.
-#
+
 # KSH_TYPESET
 #   This option is now obsolete: a better appropximation to the
 #   behaviour of other shells is obtained with the reserved word
@@ -1419,7 +1419,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   word splitting after command and parameter expansion in
 #   arguments of an assignment; with it, word splitting does not
 #   take place in those cases.
-#
+
 # KSH_ZERO_SUBSCRIPT
 #   Treat use of a subscript of value zero in array or string
 #   expressions as a reference to the first element, i.e. the
@@ -1443,7 +1443,7 @@ unsetopt SUN_KEYBOARD_HACK
 #
 #   This option is for compatibility with older versions of the
 #   shell and is not recommended in new code.
-#
+
 # POSIX_ALIASES <K> <S>
 #   When this option is set, reserved words are not candidates for
 #   alias expansion:  it is still possible to declare any of them as
@@ -1459,7 +1459,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   argument is parsed as one unit, so aliases defined within the
 #   argument are not available even in later lines.  If in doubt,
 #   avoid use of aliases in non-interactive code.
-#
+
 # POSIX_ARGZERO
 #   This option may be used to temporarily disable FUNCTION_ARGZERO
 #   and thereby restore the value of $0 to the name used to invoke
@@ -1474,7 +1474,7 @@ unsetopt SUN_KEYBOARD_HACK
 #
 #   Note that NO_POSIX_ARGZERO has no effect unless FUNCTION_ARGZERO
 #   was already enabled upon entry to the function or script.
-#
+
 # POSIX_BUILTINS <K> <S>
 #   When this option is set the command builtin can be used to
 #   execute shell builtin commands.  Parameter assignments specified
@@ -1499,7 +1499,7 @@ unsetopt SUN_KEYBOARD_HACK
 #
 #   Moreover, the warning and special exit code from [[ -o
 #   non_existent_option ]] are suppressed.
-#
+
 # POSIX_IDENTIFIERS <K> <S>
 #   When this option is set, only the ASCII characters a to z, A to
 #   Z, 0 to 9 and _ may be used in identifiers (names of shell
@@ -1532,7 +1532,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   this option is ignored; all octets with the top bit set may be
 #   used in identifiers.  This is non-standard but is the
 #   traditional zsh behaviour.
-#
+
 # POSIX_STRINGS <K> <S>
 #   This option affects processing of quoted strings.  Currently it
 #   only affects the behaviour of null characters, i.e. character 0
@@ -1553,7 +1553,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   For example, the command line argument a$'b\0c'd is treated with
 #   the option off as the characters a, b, null, c, d, and with the
 #   option on as the characters a, b, d.
-#
+
 # POSIX_TRAPS <K> <S>
 #   When this option is set, the usual zsh behaviour of executing
 #   traps for EXIT on exit from shell functions is suppressed.  In
@@ -1568,28 +1568,28 @@ unsetopt SUN_KEYBOARD_HACK
 #   Furthermore, if a trap is set to be ignored, this state persists
 #   when a subshell is entered.  Without the option, the trap would
 #   be reset to its default state at this point.
-#
+
 # SH_FILE_EXPANSION <K> <S>
 #   Perform filename expansion (e.g., ~ expansion) before parameter
 #   expansion, command substitution, arithmetic expansion and brace
 #   expansion.  If this option is unset, it is performed after brace
 #   expansion, so things like '~$USERNAME' and '~{pfalstad,rc}' will
 #   work.
-#
+
 # SH_NULLCMD <K> <S>
 #   Do not use the values of NULLCMD and READNULLCMD when doing
 #   redirections, use ':' instead (see the section 'Redirection').
-#
+
 # SH_OPTION_LETTERS <K> <S>
 #   If this option is set the shell tries to interpret single letter
 #   options (which are used with set and setopt) like ksh does.
 #   This also affects the value of the - special parameter.
-#
+
 # SH_WORD_SPLIT (-y) <K> <S>
 #   Causes field splitting to be performed on unquoted parameter
 #   expansions.  Note that this option has nothing to do with word
 #   splitting.  (See zshmisc(1).)
-#
+
 # TRAPS_ASYNC
 #   While waiting for a program to exit, handle signals and run
 #   traps immediately.  Otherwise the trap is run after a child
@@ -1606,12 +1606,12 @@ unsetopt SUN_KEYBOARD_HACK
 #   state for this option on the command line.  The value of this
 #   option can only be changed via flags supplied at invocation of
 #   the shell.  It cannot be changed once zsh is running.
-#
+
 # LOGIN (-l, ksh: -l)
 #   This is a login shell.  If this option is not explicitly set,
 #   the shell becomes a login shell if the first character of the
 #   argv[0] passed to the shell is a '-'.
-#
+
 # PRIVILEGED (-p, ksh: -p)
 #   Turn on privileged mode. Typically this is used when script is
 #   to be run with elevated privileges. This should be done as
@@ -1638,13 +1638,13 @@ unsetopt SUN_KEYBOARD_HACK
 #   -m option of setopt and unsetopt, and changing it inside a
 #   function always changes it globally regardless of the
 #   LOCAL_OPTIONS option.
-#
+
 # RESTRICTED (-r)
 #   Enables restricted mode.  This option cannot be changed using
 #   unsetopt, and setting it inside a function always changes it
 #   globally regardless of the LOCAL_OPTIONS option.  See the
 #   section 'Restricted Shell'.
-#
+
 # SHIN_STDIN (-s, ksh: -s)
 #   Commands are being read from the standard input.  Commands are
 #   read from standard input if no command is specified with -c and
@@ -1658,7 +1658,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   actually being read from standard input.  The value of this
 #   option can only be changed via flags supplied at invocation of
 #   the shell.  It cannot be changed once zsh is running.
-#
+
 # SINGLE_COMMAND (-t, ksh: -t)
 #   If the shell is reading from standard input, it exits after a
 #   single command has been executed.  This also makes the shell
@@ -1670,7 +1670,7 @@ unsetopt SUN_KEYBOARD_HACK
 # [ Options related to Zle (Zsh Line Editor) ]
 # BEEP (+B) <D>
 #   Beep on error in ZLE.
-#
+
 # COMBINING_CHARS
 #   Assume that the terminal displays combining characters
 #   correctly.  Specifically, if a base alphanumeric character is
@@ -1686,17 +1686,17 @@ unsetopt SUN_KEYBOARD_HACK
 #   be used as part of a word in combination with a word character.
 #   Otherwise the base shell does not handle combining characters
 #   specially.
-#
+
 # EMACS  If ZLE is loaded, turning on this option has the equivalent
 #   effect of 'bindkey -e'.  In addition, the VI option is unset.
 #   Turning it off has no effect.  The option setting is not
 #   guaranteed to reflect the current keymap.  This option is
 #   provided for compatibility; bindkey is the recommended
 #   interface.
-#
+
 # OVERSTRIKE
 #   Start up the line editor in overstrike mode.
-#
+
 # SINGLE_LINE_ZLE (-M) <K>
 #   Use single-line command line editing instead of multi-line.
 #
@@ -1705,14 +1705,14 @@ unsetopt SUN_KEYBOARD_HACK
 #   and reduces the effectiveness of the zsh line editor.  As it has
 #   no effect on shell syntax, many users may wish to disable this
 #   option when using ksh emulation interactively.
-#
+
 # VI     If ZLE is loaded, turning on this option has the equivalent
 #   effect of 'bindkey -v'.  In addition, the EMACS option is unset.
 #   Turning it off has no effect.  The option setting is not
 #   guaranteed to reflect the current keymap.  This option is
 #   provided for compatibility; bindkey is the recommended
 #   interface.
-#
+
 # ZLE (-Z)
 #   Use the zsh line editor.  Set by default in interactive shells
 #   connected to a terminal.
@@ -1721,38 +1721,38 @@ unsetopt SUN_KEYBOARD_HACK
 # Some options have alternative names.  These aliases are never used for
 # output, but can be used just like normal option names when specifying
 # options to the shell.
-#
+
 # BRACE_EXPAND
 #   NO_IGNORE_BRACES (ksh and bash compatibility)
-#
+
 # DOT_GLOB
 #   GLOB_DOTS (bash compatibility)
-#
+
 # HASH_ALL
 #   HASH_CMDS (bash compatibility)
-#
+
 # HIST_APPEND
 #   APPEND_HISTORY (bash compatibility)
-#
+
 # HIST_EXPAND
 #   BANG_HIST (bash compatibility)
-#
+
 # LOG    NO_HIST_NO_FUNCTIONS (ksh compatibility)
-#
+
 # MAIL_WARN
 #   MAIL_WARNING (bash compatibility)
-#
+
 # ONE_CMD
 #   SINGLE_COMMAND (bash compatibility)
-#
+
 # PHYSICAL
 #   CHASE_LINKS (ksh and bash compatibility)
-#
+
 # PROMPT_VARS
 #   PROMPT_SUBST (bash compatibility)
-#
+
 # STDIN  SHIN_STDIN (ksh compatibility)
-#
+
 # TRACK_ALL
 #   HASH_CMDS (ksh compatibility)
 

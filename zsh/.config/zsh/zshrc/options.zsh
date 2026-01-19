@@ -796,12 +796,14 @@ unsetopt ALL_EXPORT
 #   hence its effect extends beyond the scope of the enclosing
 #   function; this is the most portable way to achieve this
 #   behaviour.
+setopt GLOBAL_EXPORT
 
 # GLOBAL_RCS (+d) <D>
 #   If this option is unset, the startup files /etc/zprofile,
 #   /etc/zshrc, /etc/zlogin and /etc/zlogout will not be run.  It
 #   can be disabled and re-enabled at any time, including inside
 #   local startup files (.zshrc, etc.).
+setopt GLOBAL_RCS
 
 # RCS (+f) <D>
 #   After /etc/zshenv is sourced on startup, source the .zshenv,
@@ -811,10 +813,12 @@ unsetopt ALL_EXPORT
 #   sourced, but any of the others will not be; it can be set at any
 #   time to prevent the remaining startup files after the currently
 #   executing one from being sourced.
+setopt RCS
 
 # [ Options related to Input/Output ]
 # ALIASES <D>
 #   Expand aliases.
+setopt ALIASES
 
 # CLOBBER (+C, ksh: +C) <D>
 #   Allows '>' redirection to truncate existing files.  Otherwise
@@ -823,6 +827,7 @@ unsetopt ALL_EXPORT
 #   If the option is not set, and the option APPEND_CREATE is also
 #   not set, '>>!' or '>>|' must be used to create a file.  If
 #   either option is set, '>>' may be used.
+setopt CLOBBER
 
 # CLOBBER_EMPTY
 #   This option is only used if the option CLOBBER is not set: note
@@ -834,30 +839,34 @@ unsetopt ALL_EXPORT
 #   file by the current process.  This option should therefore not
 #   be used in cases where files to be clobbered may be written to
 #   asynchronously.
+setopt CLOBBER_EMPTY
 
 # CORRECT (-0)
-#   Try to correct the spelling of commands.  Note that, when the
+#   Ask/Try to correct the spelling of commands.  Note that, when the
 #   HASH_LIST_ALL option is not set or when some directories in the
 #   path are not readable, this may falsely report spelling errors
 #   the first time some commands are used.
 #
 #   The shell variable CORRECT_IGNORE may be set to a pattern to
 #   match words that will never be offered as corrections.
+setopt CORRECT
 
 # CORRECT_ALL (-O)
-#   Try to correct the spelling of all arguments in a line.
+#   Ask/Try to correct the spelling of all arguments in a line.
 #
 #   The shell variable CORRECT_IGNORE_FILE may be set to a pattern
 #   to match file names that will never be offered as corrections.
 #
-# DVORAK Use the Dvorak keyboard instead of the standard qwerty keyboard
+#  DVORAK Use the Dvorak keyboard instead of the standard qwerty keyboard
 #   as a basis for examining spelling mistakes for the CORRECT and
 #   CORRECT_ALL options and the spell-word editor command.
+setopt CORRECT_ALL
 
 # FLOW_CONTROL <D>
 #   If this option is unset, output flow control via start/stop
 #   characters (usually assigned to ^S/^Q) is disabled in the
 #   shell's editor.
+setopt FLOW_CONTROL
 
 # IGNORE_EOF (-7)
 #   Do not exit on end-of-file.  Require the use of exit or logout
@@ -869,9 +878,11 @@ unsetopt ALL_EXPORT
 #   (normally Control-D) without printing the normal warning
 #   message.  This works only for normal widgets, not for completion
 #   widgets.
+unsetopt IGNORE_EOF
 
 # INTERACTIVE_COMMENTS (-k) <K> <S>
 #   Allow comments even in interactive shells.
+setopt INTERACTIVE_COMMENTS
 
 # HASH_CMDS <D>
 #   Note the location of each command the first time it is executed.

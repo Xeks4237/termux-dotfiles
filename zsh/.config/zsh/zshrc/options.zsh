@@ -993,14 +993,17 @@ unsetopt SUN_KEYBOARD_HACK
 #   With this option set, stopped jobs that are removed from the job
 #   table with the disown builtin command are automatically sent a
 #   CONT signal to make them running.
+setopt AUTO_CONTINUE
 
 # AUTO_RESUME (-W)
 #   Treat single word simple commands without redirection as
 #   candidates for resumption of an existing job.
+unsetopt AUTO_RESUME
 
 # BG_NICE (-6) <C> <Z>
 #   Run all background jobs at a lower priority.  This option is set
 #   by default.
+setopt BG_NICE
 
 # CHECK_JOBS <Z>
 #   Report the status of background and suspended jobs before
@@ -1015,6 +1018,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   'jobs' command run from one of the hook functions defined in the
 #   section SPECIAL FUNCTIONS in zshmisc(1) is not counted for this
 #   purpose.
+setopt CHECK_JOBS
 
 # CHECK_RUNNING_JOBS <Z>
 #   Check for both running and suspended jobs when CHECK_JOBS is
@@ -1022,19 +1026,24 @@ unsetopt SUN_KEYBOARD_HACK
 #   suspended jobs, which matches the default behavior of bash.
 #
 #   This option has no effect unless CHECK_JOBS is set.
+setopt CHECK_RUNNING_JOBS
 
 # HUP <Z>
 #   Send the HUP signal to running jobs when the shell exits.
+setopt HUP
 
 # LONG_LIST_JOBS (-R)
 #   Print job notifications in the long format by default.
+setopt LONG_LIST_JOBS
 
 # MONITOR (-m, ksh: -m)
 #   Allow job control.  Set by default in interactive shells.
+setopt MONITOR
 
 # NOTIFY (-5, ksh: -b) <Z>
 #   Report the status of background jobs immediately, rather than
 #   waiting until just before printing a prompt.
+unsetopt NOTIFY
 
 # POSIX_JOBS <K> <S>
 #   This option makes job control more compliant with the POSIX
@@ -1061,6 +1070,7 @@ unsetopt SUN_KEYBOARD_HACK
 #   POSIX_JOBS in order for the builtin command wait to return the
 #   status of background jobs that had already exited.  This is no
 #   longer the case.
+setopt POSIX_JOBS
 
 # [ Options related to Prompting ]
 # PROMPT_BANG <K>

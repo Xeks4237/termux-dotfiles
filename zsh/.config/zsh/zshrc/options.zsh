@@ -1612,7 +1612,7 @@ unsetopt POSIX_IDENTIFIERS
 #   For example, the command line argument a$'b\0c'd is treated with
 #   the option off as the characters a, b, null, c, d, and with the
 #   option on as the characters a, b, d.
-setopt POSIX_STRINGS
+unsetopt POSIX_STRINGS
 
 # POSIX_TRAPS <K> <S>
 #   When this option is set, the usual zsh behaviour of executing

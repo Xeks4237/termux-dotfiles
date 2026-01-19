@@ -955,9 +955,11 @@ setopt PRINT_EXIT_VALUE
 #   within singly quoted strings.  Note this does not apply in
 #   quoted strings using the format $'...', where a backslashed
 #   single quote can be used.
+setopt RC_QUOTES
 
 # RM_STAR_SILENT (-H) <K> <S>
 #   Do not query the user before executing 'rm *' or 'rm path/*'.
+unsetopt RM_STAR_SILENT
 
 # RM_STAR_WAIT
 #   If querying the user before executing 'rm *' or 'rm path/*',
@@ -965,14 +967,17 @@ setopt PRINT_EXIT_VALUE
 #   This avoids the problem of reflexively answering 'yes' to the
 #   query when one didn't really mean it.  The wait and query can
 #   always be avoided by expanding the '*' in ZLE (with tab).
+setopt RM_STAR_WAIT
 
 # SHORT_LOOPS <C> <Z>
 #   Allow the short forms of for, repeat, select, if, and function
 #   constructs.
+setopt SHORT_LOOPS
 
 # SHORT_REPEAT
 #   Allow the short form repeat as SHORT_LOOPS but without enabling
 #   it for the other constructs.
+setopt SHORT_REPEAT
 
 # SUN_KEYBOARD_HACK (-L)
 #   If a line ends with a backquote, and there are an odd number of
@@ -981,6 +986,7 @@ setopt PRINT_EXIT_VALUE
 #   the backquote key lies annoyingly close to it.  As an
 #   alternative the variable KEYBOARD_HACK lets you choose the
 #   character to be removed.
+unsetopt SUN_KEYBOARD_HACK
 
 # [ Options related to Job Control ]
 # AUTO_CONTINUE

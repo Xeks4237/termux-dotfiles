@@ -1450,11 +1450,14 @@ unsetopt KSH_ARRAYS
 #   most common ksh-style case - of the file containing only a
 #   simple definition of the function - is always handled in the
 #   ksh-compatible manner.)
+unsetopt KSH_AUTOLOAD
 
 # KSH_OPTION_PRINT <K>
 #   Alters the way options settings are printed: instead of separate
 #   lists of set and unset options, all options are shown, marked
 #   'on' if they are in the non-default state, 'off' otherwise.
+#   NOTE: Changes list which appears when 'setopt' command is runned with args
+setopt KSH_OPTION_PRINT
 
 # KSH_TYPESET
 #   This option is now obsolete: a better appropximation to the

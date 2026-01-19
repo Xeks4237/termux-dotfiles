@@ -12,5 +12,5 @@
 # Commands to clear cache/tmp, display goodbye message, close some additional stuff and etc.
 
 # Goodbye message
-print -P "%F{$prompt_thm_green}$(figlet -ckfslant ':3')%f"
+print -Pr "%F{$prompt_thm_green}$(figlet -kcfslant '>:3')%f"
 

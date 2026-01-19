@@ -30,7 +30,7 @@
 autoload -z add-zle-hook-widget
 
 # Allows using command substitutions in prompt variable directly
-setopt promptsubst
+setopt PROMPT_SUBST
 
 # Files with functions to use in prompt
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_left-to-right_arrowed.zsh"

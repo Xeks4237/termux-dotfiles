@@ -1372,6 +1372,7 @@ unsetopt XTRACE
 #   append redirection (>>) is used on a file that does not already
 #   exists (the traditional zsh behaviour of NO_CLOBBER).  If the
 #   option is set, no error is reported (POSIX behaviour).
+setopt APPEND_CREATE
 
 # BASH_REMATCH
 #   When set, matches performed with the =~ operator will set the
@@ -1383,11 +1384,15 @@ unsetopt XTRACE
 #   is stored at index 0 and the first substring is at index 1.
 #   Without this option, the MATCH variable contains the entire
 #   matched text and the match array variable contains substrings.
+unsetopt BASH_REMATCH
 
 # BSD_ECHO <S>
 #   Make the echo builtin compatible with the BSD echo(1) command.
 #   This disables backslashed escape sequences in echo strings
 #   unless the -e option is specified.
+#   NOTE: Echo should be dumb, and you should use 'print' when
+#   something smarter is needed
+setopt BSD_ECHO
 
 # CONTINUE_ON_ERROR
 #   If a fatal error is encountered (see the section ERRORS in
@@ -1430,6 +1435,7 @@ unsetopt XTRACE
 #   of the whole array, and braces are required to delimit a
 #   subscript ('${path[2]}' rather than just '$path[2]') or to apply
 #   modifiers to any parameter ('${PWD:h}' rather than '$PWD:h').
+unsetopt KSH_ARRAYS
 
 # KSH_AUTOLOAD <K> <S>
 #   Emulate ksh function autoloading.  This means that when a

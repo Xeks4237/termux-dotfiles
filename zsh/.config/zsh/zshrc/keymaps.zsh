@@ -11,10 +11,16 @@ bindkey -v
 # Sets Home key to move cursor to the beginning of line
 bindkey '\e[H' beginning-of-line
 bindkey '^[[1~' beginning-of-line
+# Same thing but for vi normal modes
+bindkey -M vicmd '\e[H' beginning-of-line
+bindkey -M vicmd '^[[1~' beginning-of-line
 
 # Sets End key to move cursor to the beginning of line
 bindkey '\e[F' end-of-line
 bindkey '^[[4~' end-of-line
+# Same thing but for vi normal modes
+bindkey -M vicmd '\e[F' end-of-line
+bindkey -M vicmd '^[[4~' end-of-line
 
 # Fish like history search/suggestions
 # Arrow up to search up

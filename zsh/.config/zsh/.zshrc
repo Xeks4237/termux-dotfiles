@@ -50,6 +50,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # [ Zsh/Zinit Snippets ] (Sourced remote/local files)
 # Plugins sourced from Oh-My-Zsh framework
 zinit snippet OMZP::tmux
+zinit snippet OMZP::fancy-ctrl-z
 
 # [ Zsh/Zinit Plugins ]
 zinit light 'Aloxaf/fzf-tab'

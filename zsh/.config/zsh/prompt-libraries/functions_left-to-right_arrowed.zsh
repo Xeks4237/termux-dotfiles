@@ -74,7 +74,7 @@ prompt_zshgod_left-to-right_git_info() {
 
 # Function for showing arrow with customly formatted current time
 prompt_zshgod_left-to-right_time() {
-    print "%F{$prompt_thm_yellow}%f%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f%F{$prompt_thm_yellow}%f"
+    print "%F{$prompt_thm_yellow}%S %K{$prompt_thm_crust}%D{%H:%M:%S}%k %s%f"
 }
 
 # Function which returns exectime for commands after it's been called

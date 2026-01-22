@@ -60,15 +60,15 @@ prompt_zshgod_left-to-right_git_info() {
     # Build the output parts only if the count is greater than 0
     local parts=()
 
-    (( staged_count > 0 )) && parts+=("%F{$prompt_thm_green}${staged_count}+%f")
-    (( modified_count > 0 )) && parts+=("%F{$prompt_thm_yellow}${modified_count}*%f")
-    (( deleted_count > 0 )) && parts+=("%F{$prompt_thm_red}${deleted_count}-%f")
-    (( untracked_count > 0 )) && parts+=("%F{$prompt_thm_sky}${untracked_count}?%f")
-    (( ahead_count > 0 )) && parts+=("%F{$prompt_thm_lavender}${ahead_count}↑%f")
+    (( staged_count > 0 )) && parts+=("%K{$prompt_thm_green}${staged_count}+%k")
+    (( modified_count > 0 )) && parts+=("%K{$prompt_thm_yellow}${modified_count}*%k")
+    (( deleted_count > 0 )) && parts+=("%K{$prompt_thm_red}${deleted_count}-%k")
+    (( untracked_count > 0 )) && parts+=("%K{$prompt_thm_sky}${untracked_count}?%k")
+    (( ahead_count > 0 )) && parts+=("%K{$prompt_thm_lavender}${ahead_count}↑%k")
 
     # If there's anything to show, join the parts add do some customization
     if (( ${#parts[@]} > 0 )); then
-        print "%F{$prompt_thm_overlay_0}%f%F{$prompt_thm_yellow}%K{$prompt_thm_overlay_0} ${parts[*]} %k%f%F{$prompt_thm_overlay_0}%f"
+        print "%F{$prompt_thm_overlay_0}%S ${parts[*]} %s%f"
     fi
 }
 

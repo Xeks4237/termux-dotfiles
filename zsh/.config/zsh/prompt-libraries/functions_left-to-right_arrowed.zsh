@@ -86,10 +86,11 @@ prompt_zshgod_left-to-right_time() {
     print "%F{$prompt_thm_yellow}%S %K{$prompt_thm_crust}%D{%H:%M:%S}%k %s%f"
 }
 
-# Function which returns exectime for commands after it's been called
+# Function which returns exectime for last executed command
+# This function uses environment variables from two other functions to work correctly
 prompt_zshgod_left-to-right_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_EXECTIME_MIN )); then
-        print "%F{$prompt_thm_yellow}%f%F{$prompt_thm_crust}%K{$prompt_thm_yellow} ${PROMPT_ZSHGOD_CMD_DURATION}s %f%k%F{$prompt_thm_yellow}%f"
+        print "%F{$prompt_thm_yellow}%S %K{$prompt_thm_crust}${PROMPT_ZSHGOD_CMD_DURATION}s%k %s%f"
     fi
 }
 

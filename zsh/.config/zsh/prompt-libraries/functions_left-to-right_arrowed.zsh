@@ -20,7 +20,7 @@ prompt_zshgod_left-to-right_git_branch() {
     local branch="$(command git branch --show-current 2>/dev/null)"
 
     # Only output if we successfully got a branch name
-    [[ -n "$branch" ]] && print "%F{$prompt_thm_green}%f%F{$prompt_thm_crust}%K{$prompt_thm_green} $branch %k%f%F{$prompt_thm_green}%f"
+    [[ -n "$branch" ]] && print "%F{$prompt_thm_green}%S %K{$prompt_thm_crust}$branch%k %s%f"
 }
 
 prompt_zshgod_left-to-right_git_info() {

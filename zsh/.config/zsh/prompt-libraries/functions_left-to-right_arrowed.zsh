@@ -96,7 +96,7 @@ prompt_zshgod_left-to-right_exectime() {
 
 # Function for showing arrow with current working directory
 prompt_zshgod_left-to-right_current-pwd() {
-    print "%F{$prompt_thm_blue}%f%F{$prompt_thm_crust}%K{$prompt_thm_blue} %~ %k%f%F{$prompt_thm_blue}%f"
+    print "%F{$prompt_thm_blue}%S %K{$prompt_thm_crust}%~%k %s%f"
 }
 
 # Function which shows arrow with current username@hostname

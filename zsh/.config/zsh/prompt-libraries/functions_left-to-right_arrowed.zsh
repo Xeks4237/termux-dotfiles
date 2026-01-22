@@ -8,7 +8,7 @@ prompt_zshgod_left-to-right_git_dirty() {
     command test -n "$(git status --porcelain --ignore-submodules ${umode} 2>/dev/null | head -100)"
 
     # Prints "*" if repo is dirty
-    (($? == 0)) && print "%F{$prompt_thm_peach}%f%F{$prompt_thm_crust}%K{$prompt_thm_peach} * %k%f%F{$prompt_thm_peach}%f"
+    (($? == 0)) && print "%F{$prompt_thm_peach}%S %K{$prompt_thm_crust}*%k %s%f"
 }
 
 # Function which outputs current branch when called

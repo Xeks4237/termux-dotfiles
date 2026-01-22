@@ -1,7 +1,13 @@
+# Ignore all files which have 'history' in their name
+*history*
+
 # zsh history file
 zsh_history
 zsh-history
 .zshistory
+
+# history file of zcalc
+.zcalc_history
 
 # Compiled zsh script files
 .zcompdump

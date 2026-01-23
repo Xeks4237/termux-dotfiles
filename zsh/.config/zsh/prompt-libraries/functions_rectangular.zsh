@@ -91,7 +91,7 @@ prompt_zshgod_rectangular_current-pwd() {
 
 # Function which shows arrow with current username@hostname
 prompt_zshgod_rectangular_userandhostname() {
-    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f)%F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f"
+    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f) %F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k %F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f"
 }
 
 # Function which returns prompt_zshgod_left-to-right_userandhostname only when connected to ssh

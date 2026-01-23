@@ -105,16 +105,16 @@ prompt_zshgod_left-to-right_userandhostname() {
 
 }
 
-# Function which shows colored arrow with different color if current user is root
-prompt_zshgod_left-to-right_root-indicator () {
-    print "%(!,%F{$prompt_thm_red}%S %K{$prompt_thm_crust}#%k %s%f,%F{$prompt_thm_green}%S %K{$prompt_thm_crust}\$%k %s%f)"
-}
-
 # Function which returns prompt_zshgod_left-to-right_userandhostname only when connected to ssh
 prompt_zshgod_left-to-right_userandhostname_sshonly() {
     if [[ -n $SSH_CONNECTION ]]; then
         prompt_zshgod_left-to-right_userandhostname
     fi
+}
+
+# Function which shows colored arrow with different color if current user is root
+prompt_zshgod_left-to-right_root-indicator () {
+    print "%(!,%F{$prompt_thm_red}%S %K{$prompt_thm_crust}#%k %s%f,%F{$prompt_thm_green}%S %K{$prompt_thm_crust}\$%k %s%f)"
 }
 
 # Function which returns colored arrow with current username with different color if current user is root

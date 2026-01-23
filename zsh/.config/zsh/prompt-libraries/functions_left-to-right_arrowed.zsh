@@ -101,7 +101,8 @@ prompt_zshgod_left-to-right_current-pwd() {
 
 # Function which shows arrow with current username@hostname
 prompt_zshgod_left-to-right_userandhostname() {
-    print "%(!,%F{$prompt_thm_red}%f%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f%F{$prompt_thm_red}%K{$prompt_thm_yellow}%k%f,%F{$prompt_thm_green}%f%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f%F{$prompt_thm_green}%K{$prompt_thm_yellow}%k%f)%F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k%F{$prompt_thm_yellow}%K{$prompt_thm_sky}%k%f%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f%F{$prompt_thm_sky}%f"
+    print "%(!,%F{$prompt_thm_red}%S %K{$prompt_thm_crust}%n%k %s%f,%F{$prompt_thm_green}%S %K{$prompt_thm_crust}%n%k %s%f)%F{$prompt_thm_yellow}%S %K{$prompt_thm_crust}@%k %s%f%F{$prompt_thm_sky}%S %K%m%k %s%f"
+
 }
 
 # Function which shows colored arrow with different color if current user is root

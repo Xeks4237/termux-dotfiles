@@ -5,6 +5,34 @@
 # This file is meant for setting keymaps/keybindings of your interactive zsh instances
 # And this file exists only for maintaining purposes
 
+# [ Configuration/Code setted up using zkbd module of zsh ]
+typeset -g -A key
+
+key[F1]='^[OP'
+key[F2]='^[OQ'
+key[F3]='^[OR'
+key[F4]='^[OS'
+key[F5]='^[[15~'
+key[F6]='^[[17~'
+key[F7]='^[[18~'
+key[F8]='^[[19~'
+key[F9]='^[[20~'
+key[F10]='^[[21~'
+key[F11]='^[[23~'
+key[F12]='^[[24~'
+key[Backspace]='^?'
+key[Insert]='^[[2~'
+key[Home]='^[[1~'
+key[PageUp]='^[[5~'
+key[Delete]='^?'
+key[End]='^[[4~'
+key[PageDown]='^[[6~'
+key[Up]='^[[A'
+key[Left]='^[[D'
+key[Down]='^[[B'
+key[Right]='^[[C'
+
+# [ Custom keymaps ]
 # Enable vi style keymaps
 bindkey -v
 
@@ -46,14 +74,16 @@ termux_wake_lock_toggle() {
     local termux_wake_lock_state=$(cat $TERMUX_WAKE_LOCK_STATE_FILE)
     if [[ $termux_wake_lock_state == 0 ]]; then
         termux-wake-lock
+        zle -M 'WakeLock Acquired'
         echo '1' > $TERMUX_WAKE_LOCK_STATE_FILE
     else
         termux-wake-unlock
+        zle -M 'WakeLock Released'
         echo '0' > $TERMUX_WAKE_LOCK_STATE_FILE
     fi
 }
 # Make zle widget from function
-zle -N termux_wake_lock_toggle_widget termux_wake_lock_toggle
+zle -N termux_wake_lock_toggle
 # Bind this widget to 'Ctrl h'
-bindkey '^h' termux_wake_lock_toggle_widget
+bindkey '^h' termux_wake_lock_toggle
 

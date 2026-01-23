@@ -99,3 +99,8 @@ prompt_zshgod_rectangular_root-indicator () {
     print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} \$ %k%f)"
 }
 
+# Function which returns colored arrow with current username with different color if current user is root
+prompt_zshgod_rectangular_username() {
+    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f)"
+}
+

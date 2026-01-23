@@ -117,3 +117,8 @@ prompt_zshgod_right-to-left_userandhostname_sshonly() {
     fi
 }
 
+# Function which returns colored arrow with current username with different color if current user is root
+prompt_zshgod_right-to-left_username() {
+    print "%(!,%F{$prompt_thm_red}%S %K{$prompt_thm_crust}%n%k %s%f,%F{$prompt_thm_green}%S %K{$prompt_thm_crust}%n%k %s%f)"
+}
+

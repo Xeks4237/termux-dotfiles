@@ -23,11 +23,24 @@ HISTSIZE=10000
 SAVEHIST="$HISTSIZE"
 
 # [ Zsh Modules ]
-# Load compinit module and initialize it
+# Load add-zsh-hook module, its a command which allows to add custom hooks to functions
+autoload -U add-zsh-hook
+
+# Load add-zsh-hook module, its a command which allows to add custom zle hooks to functions
+autoload -U add-zle-hook-widget
+
+# Load compinit module and initialize it, completions system of zsh
+# NOTE: It needs to be loaded before plugin manager and plugins.
 autoload -U compinit && compinit
 
-# Load zmv module
+# Load zcompile module, command for compiling zsh scripts
+autoload -U zcompile
+
+# Load zmv module, command for advanced cp/mv/ln/.etc like stuff using regex patterns
 autoload -U zmv
+
+# Load zcalc module, builtin calculator in zsh which is more precise than you think XD
+autoload -U zcalc
 
 # [ Zsh Options ]
 # NOTE: For more about zsh options see 'zshoptions' mandoc page

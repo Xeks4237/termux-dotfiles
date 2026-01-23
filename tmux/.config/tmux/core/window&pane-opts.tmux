@@ -46,7 +46,7 @@ set -g copy-mode-match-style "bg=#{@thm_sky},fg=#{@thm_crust}"
 set -g copy-mode-position-style "bg=#{@thm_green},fg=#{@thm_crust}"
 
 # Style of selection in copy mode
-set -g copy-mode-selection-style "bg=#{@thm_yellow},fg=#{@thm_crust}"
+set -g copy-mode-selection-style "bg=#{@thm_overlay_0},fg=#{@thm_fg}"
 
 # Color of the cursor
 set -g cursor-colour "#cdd6f4"

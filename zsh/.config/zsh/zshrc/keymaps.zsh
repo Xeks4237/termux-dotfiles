@@ -74,11 +74,11 @@ termux_wake_lock_toggle() {
     local termux_wake_lock_state=$(cat $TERMUX_WAKE_LOCK_STATE_FILE)
     if [[ $termux_wake_lock_state == 0 ]]; then
         termux-wake-lock
-        zle -M 'WakeLock Acquired'
+        zle -M 'zsh: WakeLock Acquired'
         echo '1' > $TERMUX_WAKE_LOCK_STATE_FILE
     else
         termux-wake-unlock
-        zle -M 'WakeLock Released'
+        zle -M 'zsh: WakeLock Released'
         echo '0' > $TERMUX_WAKE_LOCK_STATE_FILE
     fi
 }

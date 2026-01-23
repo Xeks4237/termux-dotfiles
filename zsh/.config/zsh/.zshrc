@@ -121,3 +121,6 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
 # [ Prompt ]
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/prompt.zsh"
 
+# Variable which sets style for command typo correction menu of zsh
+SPROMPT="%F{$prompt_thm_lavender}zsh:%f %F{$prompt_thm_yellow}correct '%f%F{$prompt_thm_red}%R%f%F{$prompt_thm_yellow}' to '%f%F{$prompt_thm_green}%r%f%F{$prompt_thm_yellow}'? [%f%F{$prompt_thm_red}n%f%F{$prompt_thm_green}y%f%F{$prompt_thm_peach}a%f%F{$prompt_thm_blue}e%f%F{$prompt_thm_yellow}]:%f "
+

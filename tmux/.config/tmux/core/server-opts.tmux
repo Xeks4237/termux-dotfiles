@@ -31,7 +31,7 @@ set -g focus-events on
 
 # Location of the command prompt history file
 # NOTE: If left empty then don't writes history file
-set -g history-file "~/.config/tmux/command-history"
+set -g history-file "~/.config/tmux/tmux_command-history"
 
 # Number of bytes accepted in a single input before dropping buffer
 set -g input-buffer-size 1048576 

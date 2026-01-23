@@ -94,10 +94,10 @@ prompt_zshgod_rectangular_userandhostname() {
     print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f) %F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k %F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f"
 }
 
-# Function which returns prompt_zshgod_left-to-right_userandhostname only when connected to ssh
-prompt_zshgod_rectangular_userandhostname_sshonly() {
+# Function which returns prompt_zshgod_rectangular_userandhostname only when connected to ssh
+prompt_zshgod_rectangular_sshonly_userandhostname() {
     if [[ -n $SSH_CONNECTION ]]; then
-        prompt_zshgod_left-to-right_userandhostname
+        prompt_zshgod_rectangular_userandhostname
     fi
 }
 
@@ -109,5 +109,24 @@ prompt_zshgod_rectangular_root-indicator () {
 # Function which returns colored arrow with current username with different color if current user is root
 prompt_zshgod_rectangular_username() {
     print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f)"
+}
+
+# Same function as prompt_zshgod_rectangular_username but shown only through ssh
+prompt_zshgod_rectangular_sshonly_username() {
+    if [[ -n $SSH_CONNECTION ]]; then
+        prompt_zshgod_rectangular_username
+    fi
+}
+
+# Function which returns colored arrow with current hostname
+prompt_zshgod_rectangular_hostname() {
+    print "%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f"
+}
+
+# Same function as prompt_zshgod_rectangular_hostname but shown only through ssh
+prompt_zshgod_rectangular_sshonly_hostname() {
+    if [[ -n $SSH_CONNECTION ]]; then
+        prompt_zshgod_rectangular_hostname
+    fi
 }
 

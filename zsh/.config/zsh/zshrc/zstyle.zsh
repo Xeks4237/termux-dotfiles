@@ -22,18 +22,15 @@ zstyle ':completion:*' menu select
 # Make fzf-tab to use tmux popup
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
-# Enable preview for cd completions with fzf-tab
-# NOTE: I don't know why it wasn't working with eza before I setted 'realpath=$realpath'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'realpath=$realpath eza -1 --almost-all --color=always $realpath'
-
 # Extra fzf flags for fzf-tab if needed
 # zstyle ':fzf-tab:*' fzf-flags ''
 
-# How many lines does fzf's prompt occupies, set it to 4 if you use '--border' flag
+# How many lines does fzf's prompt occupies
+# NOTE: Set it to 4 if you use '--border' flag for fzf
 zstyle ':fzf-tab:*' fzf-pad 2
 
 # Define minimal height for fzf-tab when using fzf instead of tmux popup
-zstyle ':fzf-tab:*' fzf-min-height 15
+zstyle ':fzf-tab:*' fzf-min-height 20
 
 # It specifies the key to accept and run a suggestion in one keystroke
 # zstyle ':fzf-tab:*' accept-line alt-enter
@@ -42,7 +39,7 @@ zstyle ':fzf-tab:*' fzf-min-height 15
 zstyle ':fzf-tab:*' continuous-trigger '/'
 
 # Set key to use already written output as final completion
-zstyle ':fzf-tab:*' print-query alt-enter
+zstyle ':fzf-tab:*:*' print-query alt-enter
 
 # Specifies keys to switch completions group of fzf-tab
 # zstyle ':fzf-tab:*' switch-group F1 F2
@@ -55,13 +52,13 @@ zstyle ':fzf-tab:*' query-string prefix input first
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
 # Define size for fzf-tab's tmux popup
-zstyle ':fzf-tab:*:*' popup-min-size 50 20
+zstyle ':fzf-tab:*' popup-min-size 50 20
 
 # Enbale smart tab feature of fzf-tab, its enabled by default
 zstyle ':fzf-tab:*' popup-smart-tab yes
 
 # Enable preview for values of environment variables while completing
-zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word}'
+zstyle ':fzf-tab:complete:(-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word}'
 
 # Show systemd unit status
 # NOTE: I added it for fun because I don't use systemd :P
@@ -69,4 +66,16 @@ zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl
 
 # Preview for actual command completions using smart ways
 zstyle ':fzf-tab:complete:-command-:*' fzf-preview '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" | bat -pP --theme="Catppuccin Mocha" --color=always --language=Manpage) 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
+
+#
+zstyle ':fzf-tab:complete:*' fzf-preview '
+if [[ -n $realpath && -e $realpath ]]; then
+    if [[ -d $realpath ]]; then
+        eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --sort=Name $realpath
+    elif [[ -f $realpath ]]; then
+        bat -pP --theme="Catppuccin Mocha" --color=always --style=numbers --line-range :60 $realpath 2>/dev/null
+    fi
+fi
+'
+
 

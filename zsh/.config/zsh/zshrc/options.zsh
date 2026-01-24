@@ -503,7 +503,7 @@ setopt MULTIBYTE
 #   If a pattern for filename generation has no matches, print an
 #   error, instead of leaving it unchanged in the argument list.
 #   This also applies to file expansion of an initial '~' or '='.
-setopt NOMATCH
+unsetopt NOMATCH
 
 # NULL_GLOB (-G)
 #   If a pattern for filename generation has no matches, delete the

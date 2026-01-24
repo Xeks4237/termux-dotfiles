@@ -66,8 +66,16 @@ zinit snippet OMZP::tmux
 zinit snippet OMZP::fancy-ctrl-z
 
 # [ Zsh/Zinit Plugins ]
+# Plugin for fuzzy finding zsh completions
 zinit light 'Aloxaf/fzf-tab'
+
+# Extra completion styles for fzf-tab plugin
+zinit light 'Freed-Wu/fzf-tab-source'
+
+# Additional completion definitions for zsh
 zinit light 'zsh-users/zsh-completions'
+
+# Plugin which autosuggests completions
 zinit light 'zsh-users/zsh-autosuggestions'
 zinit light 'zsh-users/zsh-history-substring-search'
 zinit light 'zdharma-continuum/fast-syntax-highlighting'

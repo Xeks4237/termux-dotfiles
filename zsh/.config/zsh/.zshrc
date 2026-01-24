@@ -14,7 +14,7 @@
 export PATH="$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
 
 # Location of zsh history file
-HISTFILE="$ZDOTDIR/.zshistory"
+HISTFILE="$ZDOTDIR/.zsh_history"
 
 # Max length of zsh command history
 HISTSIZE=10000

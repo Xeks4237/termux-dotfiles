@@ -12,5 +12,5 @@
 # Commands to clear cache/tmp, display goodbye message, close some additional stuff and etc.
 
 # Goodbye message
-print -Pr "%F{$prompt_thm_green}$(figlet -kcfslant '>:3')%f"
+print -Pr "%F{$ZSH_THM_GREEN}$(figlet -kcfslant '>:3')%f"
 

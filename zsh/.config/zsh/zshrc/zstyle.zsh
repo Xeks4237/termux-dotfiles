@@ -67,20 +67,14 @@ zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl
 # Preview for actual command completions using smart ways
 zstyle ':fzf-tab:complete:-command-:*' fzf-preview '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" | bat -pP --theme="Catppuccin Mocha" --color=always --language=Manpage) 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
 
-#
+# Custom zstyle for using eza for directories and bat for files in fzf-tab
 zstyle ':fzf-tab:complete:*' fzf-preview '
 if [[ -n $realpath ]]; then
     if [[ -d $realpath ]]; then
         eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name $realpath 2>/dev/null
     elif [[ -f $realpath ]]; then
         bat --tabs=4 --wrap=character --color=always --decorations=auto --paging=never --theme=Catppuccin\ Mocha --theme-dark=Catppuccin\ Mocha --theme-light=Catppuccin\ Latte --strip-ansi=auto --style=changes,numbers $realpath 2>/dev/null
-    else
-        print "why are you reading that?"
     fi
-elif [[ -n $desc ]]; then
-    bat "$desc"
-else
-    return ""
 fi
 '
 

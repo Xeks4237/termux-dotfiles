@@ -78,7 +78,7 @@ termux_wake_lock_toggle() {
         echo '1' > $TERMUX_WAKE_LOCK_STATE_FILE
     else
         termux-wake-unlock
-        zle -M "$(print -P '%F{$prompt_thm_lavender}zsh:%f %F{$thm_green}WakeLock Released  ')"
+        zle -M 'zsh: WakeLock Released  '
         echo '0' > $TERMUX_WAKE_LOCK_STATE_FILE
     fi
 }

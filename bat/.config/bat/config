@@ -1,0 +1,14 @@
+--nonprintable-notation=caret
+--binary=no-printing
+--tabs=4
+--wrap=character
+--color=always
+--italic-text=never
+--decorations=auto
+--paging=never
+--theme=Catppuccin\ Mocha
+--theme-dark=Catppuccin\ Mocha
+--theme-light=Catppuccin\ Latte
+--strip-ansi=auto
+--style=changes,numbers
+--set-terminal-title

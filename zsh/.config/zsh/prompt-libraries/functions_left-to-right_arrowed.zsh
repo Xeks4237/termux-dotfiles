@@ -8,7 +8,7 @@ prompt_zshgod_left-to-right_git_dirty() {
     command test -n "$(git status --porcelain --ignore-submodules ${umode} 2>/dev/null | head -100)"
 
     # Prints "*" if repo is dirty
-    (($? == 0)) && print "%F{$prompt_thm_peach}%S %K{$prompt_thm_crust}*%k %s%f"
+    (($? == 0)) && print "%F{$ZSH_THM_PEACH}%S %K{$ZSH_THM_CRUST}*%k %s%f"
 }
 
 # Function which outputs current branch when called
@@ -20,7 +20,7 @@ prompt_zshgod_left-to-right_git_branch() {
     local branch="$(command git branch --show-current 2>/dev/null)"
 
     # Only output if we successfully got a branch name
-    [[ -n "$branch" ]] && print "%F{$prompt_thm_green}%S %K{$prompt_thm_crust}$branch%k %s%f"
+    [[ -n "$branch" ]] && print "%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}$branch%k %s%f"
 }
 
 prompt_zshgod_left-to-right_git_info() {
@@ -61,47 +61,47 @@ prompt_zshgod_left-to-right_git_info() {
     local parts=()
 
     # Check if staged count is zero or not and add it to the parts[] array
-    (( staged_count > 0 )) && parts+=("%K{$prompt_thm_green}${staged_count}+%k")
+    (( staged_count > 0 )) && parts+=("%K{$ZSH_THM_GREEN}${staged_count}+%k")
 
     # Check if modified count is zero or not and add it to the parts[] array
-    (( modified_count > 0 )) && parts+=("%K{$prompt_thm_yellow}${modified_count}*%k")
+    (( modified_count > 0 )) && parts+=("%K{$ZSH_THM_YELLOW}${modified_count}*%k")
 
     # Check if deleted count is zero or not and add it to the parts[] array
-    (( deleted_count > 0 )) && parts+=("%K{$prompt_thm_red}${deleted_count}-%k")
+    (( deleted_count > 0 )) && parts+=("%K{$ZSH_THM_RED}${deleted_count}-%k")
 
     # Check if untracked count is zero or not and add it to the parts[] array
-    (( untracked_count > 0 )) && parts+=("%K{$prompt_thm_sky}${untracked_count}?%k")
+    (( untracked_count > 0 )) && parts+=("%K{$ZSH_THM_SKY}${untracked_count}?%k")
 
     # Check if ahead count is zero or not and add it to the parts[] array
-    (( ahead_count > 0 )) && parts+=("%K{$prompt_thm_lavender}${ahead_count}↑%k")
+    (( ahead_count > 0 )) && parts+=("%K{$ZSH_THM_LAVENDER}${ahead_count}↑%k")
 
     # If there's anything to show, join the parts and do some customization
     if (( ${#parts[@]} > 0 )); then
-        print "%F{$prompt_thm_overlay_0}%S ${parts[*]} %s%f"
+        print "%F{$ZSH_THM_OVERLAY_0}%S ${parts[*]} %s%f"
     fi
 }
 
 # Function for showing arrow with customly formatted current time
 prompt_zshgod_left-to-right_time() {
-    print "%F{$prompt_thm_yellow}%S %K{$prompt_thm_crust}%D{%H:%M:%S}%k %s%f"
+    print "%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}%D{%H:%M:%S}%k %s%f"
 }
 
 # Function which returns exectime for last executed command
 # This function uses environment variables from two other functions to work correctly
 prompt_zshgod_left-to-right_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_EXECTIME_MIN )); then
-        print "%F{$prompt_thm_yellow}%S %K{$prompt_thm_crust}${PROMPT_ZSHGOD_CMD_DURATION}s%k %s%f"
+        print "%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}${PROMPT_ZSHGOD_CMD_DURATION}s%k %s%f"
     fi
 }
 
 # Function for showing arrow with current working directory
 prompt_zshgod_left-to-right_current-pwd() {
-    print "%F{$prompt_thm_blue}%S %K{$prompt_thm_crust}%~%k %s%f"
+    print "%F{$ZSH_THM_BLUE}%S %K{$ZSH_THM_CRUST}%~%k %s%f"
 }
 
 # Function which shows arrow with current username@hostname
 prompt_zshgod_left-to-right_userandhostname() {
-    print "%(!,%F{$prompt_thm_red}%S %K{$prompt_thm_crust}%n%k %s%f,%F{$prompt_thm_green}%S %K{$prompt_thm_crust}%n%k %s%f)%F{$prompt_thm_yellow}%S %K{$prompt_thm_crust}@%k %s%f%F{$prompt_thm_sky}%S %K%m%k %s%f"
+    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}%n%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}%n%k %s%f)%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}@%k %s%f%F{$ZSH_THM_SKY}%S %K%m%k %s%f"
 
 }
 
@@ -114,12 +114,12 @@ prompt_zshgod_left-to-right_sshonly_userandhostname() {
 
 # Function which shows colored arrow with different color if current user is root
 prompt_zshgod_left-to-right_root-indicator () {
-    print "%(!,%F{$prompt_thm_red}%S %K{$prompt_thm_crust}#%k %s%f,%F{$prompt_thm_green}%S %K{$prompt_thm_crust}\$%k %s%f)"
+    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}#%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}\$%k %s%f)"
 }
 
 # Function which returns colored arrow with current username with different color if current user is root
 prompt_zshgod_left-to-right_username() {
-    print "%(!,%F{$prompt_thm_red}%S %K{$prompt_thm_crust}%n%k %s%f,%F{$prompt_thm_green}%S %K{$prompt_thm_crust}%n%k %s%f)"
+    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}%n%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}%n%k %s%f)"
 }
 
 # Same function as prompt_zshgod_left-to-right_username but shown only through ssh
@@ -131,7 +131,7 @@ prompt_zshgod_left-to-right_sshonly_username() {
 
 # Function which returns colored arrow with current hostname
 prompt_zshgod_left-to-right_hostname() {
-    print "%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f"
+    print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_SKY} %m %k%f"
 }
 
 # Same function as prompt_zshgod_left-to-right_hostname but shown only through ssh

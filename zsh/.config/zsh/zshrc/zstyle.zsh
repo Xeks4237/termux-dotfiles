@@ -69,13 +69,18 @@ zstyle ':fzf-tab:complete:-command-:*' fzf-preview '(out=$(tldr --color always "
 
 #
 zstyle ':fzf-tab:complete:*' fzf-preview '
-if [[ -n $realpath && -e $realpath ]]; then
+if [[ -n $realpath ]]; then
     if [[ -d $realpath ]]; then
-        eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --sort=Name $realpath
+        eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name $realpath 2>/dev/null
     elif [[ -f $realpath ]]; then
-        bat -pP --theme="Catppuccin Mocha" --color=always --style=numbers --line-range :60 $realpath 2>/dev/null
+        bat --tabs=4 --wrap=character --color=always --decorations=auto --paging=never --theme=Catppuccin\ Mocha --theme-dark=Catppuccin\ Mocha --theme-light=Catppuccin\ Latte --strip-ansi=auto --style=changes,numbers $realpath 2>/dev/null
+    else
+        print "why are you reading that?"
     fi
+elif [[ -n $desc ]]; then
+    bat "$desc"
+else
+    return ""
 fi
 '
-
 

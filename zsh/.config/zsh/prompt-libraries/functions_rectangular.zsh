@@ -8,7 +8,7 @@ prompt_zshgod_rectangular_git_dirty() {
     command test -n "$(git status --porcelain --ignore-submodules ${umode} 2>/dev/null | head -100)"
 
     # Prints "*" if repo is dirty
-    (($? == 0)) && print "%F{$prompt_thm_crust}%K{$prompt_thm_peach} * %k%f"
+    (($? == 0)) && print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_PEACH} * %k%f"
 }
 
 # Function which outputs current branch when called
@@ -20,7 +20,7 @@ prompt_zshgod_rectangular_git_branch() {
     local branch="$(command git branch --show-current 2>/dev/null)"
 
     # Only output if we successfully got a branch name
-    [[ -n "$branch" ]] && print "%F{$prompt_thm_crust}%K{$prompt_thm_green} $branch %k%f"
+    [[ -n "$branch" ]] && print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_GREEN} $branch %k%f"
 }
 
 prompt_zshgod_rectangular_git_info() {
@@ -60,38 +60,38 @@ prompt_zshgod_rectangular_git_info() {
     # Build the output parts only if the count is greater than 0
     local parts=()
 
-    (( staged_count > 0 )) && parts+=("%F{$prompt_thm_green}${staged_count}+%f")
-    (( modified_count > 0 )) && parts+=("%F{$prompt_thm_yellow}${modified_count}*%f")
-    (( deleted_count > 0 )) && parts+=("%F{$prompt_thm_red}${deleted_count}-%f")
-    (( untracked_count > 0 )) && parts+=("%F{$prompt_thm_sky}${untracked_count}?%f")
-    (( ahead_count > 0 )) && parts+=("%F{$prompt_thm_lavender}${ahead_count}↑%f")
+    (( staged_count > 0 )) && parts+=("%F{$ZSH_THM_GREEN}${staged_count}+%f")
+    (( modified_count > 0 )) && parts+=("%F{$ZSH_THM_YELLOW}${modified_count}*%f")
+    (( deleted_count > 0 )) && parts+=("%F{$ZSH_THM_RED}${deleted_count}-%f")
+    (( untracked_count > 0 )) && parts+=("%F{$ZSH_THM_SKY}${untracked_count}?%f")
+    (( ahead_count > 0 )) && parts+=("%F{$ZSH_THM_LAVENDER}${ahead_count}↑%f")
 
     # If there's anything to show, join the parts add do some customization
     if (( ${#parts[@]} > 0 )); then
-        print "%F{$prompt_thm_yellow}%K{$prompt_thm_overlay_0} ${parts[*]} %k%f"
+        print "%F{$ZSH_THM_YELLOW}%K{$ZSH_THM_OVERLAY_0} ${parts[*]} %k%f"
     fi
 }
 
 # Function for showing arrow with customly formatted current time
 prompt_zshgod_rectangular_time() {
-    print "%F{$prompt_thm_crust}%K{$prompt_thm_yellow} %D{%H:%M:%S} %k%f"
+    print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_YELLOW} %D{%H:%M:%S} %k%f"
 }
 
 # Function which returns exectime for commands after it's been called
 prompt_zshgod_rectangular_exectime() {
     if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_EXECTIME_MIN )); then
-        print "%F{$prompt_thm_crust}%K{$prompt_thm_yellow} ${PROMPT_ZSHGOD_CMD_DURATION}s %f%k"
+        print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_YELLOW} ${PROMPT_ZSHGOD_CMD_DURATION}s %f%k"
     fi
 }
 
 # Function for showing arrow with current working directory
 prompt_zshgod_rectangular_current-pwd() {
-    print "%F{$prompt_thm_crust}%K{$prompt_thm_blue} %~ %k%f"
+    print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_BLUE} %~ %k%f"
 }
 
 # Function which shows arrow with current username@hostname
 prompt_zshgod_rectangular_userandhostname() {
-    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f) %F{$prompt_thm_crust}%K{$prompt_thm_yellow} @ %f%k %F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f"
+    print "%(!,%F{$ZSH_THM_CRUST}%K{$ZSH_THM_RED} %n %k%f,%F{$ZSH_THM_CRUST}%K{$ZSH_THM_GREEN} %n %k%f) %F{$ZSH_THM_CRUST}%K{$ZSH_THM_YELLOW} @ %f%k %F{$ZSH_THM_CRUST}%K{$ZSH_THM_SKY} %m %k%f"
 }
 
 # Function which returns prompt_zshgod_rectangular_userandhostname only when connected to ssh
@@ -103,12 +103,12 @@ prompt_zshgod_rectangular_sshonly_userandhostname() {
 
 # Function which shows colored arrow with different color if current user is root
 prompt_zshgod_rectangular_root-indicator () {
-    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} # %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} \$ %k%f)"
+    print "%(!,%F{$ZSH_THM_CRUST}%K{$ZSH_THM_RED} # %k%f,%F{$ZSH_THM_CRUST}%K{$ZSH_THM_GREEN} \$ %k%f)"
 }
 
 # Function which returns colored arrow with current username with different color if current user is root
 prompt_zshgod_rectangular_username() {
-    print "%(!,%F{$prompt_thm_crust}%K{$prompt_thm_red} %n %k%f,%F{$prompt_thm_crust}%K{$prompt_thm_green} %n %k%f)"
+    print "%(!,%F{$ZSH_THM_CRUST}%K{$ZSH_THM_RED} %n %k%f,%F{$ZSH_THM_CRUST}%K{$ZSH_THM_GREEN} %n %k%f)"
 }
 
 # Same function as prompt_zshgod_rectangular_username but shown only through ssh
@@ -120,7 +120,7 @@ prompt_zshgod_rectangular_sshonly_username() {
 
 # Function which returns colored arrow with current hostname
 prompt_zshgod_rectangular_hostname() {
-    print "%F{$prompt_thm_crust}%K{$prompt_thm_sky} %m %k%f"
+    print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_SKY} %m %k%f"
 }
 
 # Same function as prompt_zshgod_rectangular_hostname but shown only through ssh

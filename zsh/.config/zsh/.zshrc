@@ -36,6 +36,9 @@ autoload -U compinit && compinit
 # Load zcompile module, command for compiling zsh scripts
 autoload -U zcompile
 
+# Builtin functoons for detecting current vcs and info about it, needed for prompt
+autoload -Uz vcs_info
+
 # Load zmv module, command for advanced cp/mv/ln/.etc like stuff using regex patterns
 autoload -U zmv
 

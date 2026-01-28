@@ -26,8 +26,11 @@
 # TODO: make '--help' or 'prompt_zshgod_help' function for help
 
 # [ Sourcing and Loading extra stuff ]
-# Some zsh's zle hook for zle widgets
-autoload -z add-zle-hook-widget
+# Zsh module related to zle hooks
+autoload -Uz add-zle-hook-widget add-zsh-hook
+
+# Builtin zsh module for getting basic info from vcs systems
+autoload -Uz vcs_info
 
 # Allows using command substitutions in prompt variable directly
 setopt PROMPT_SUBST

@@ -11,18 +11,6 @@ prompt_zshgod_right-to-left_git_dirty() {
     (($? == 0)) && print "%F{$ZSH_THM_PEACH}%S %K{$ZSH_THM_CRUST}*%k %s%f"
 }
 
-# Function which outputs current branch when called
-prompt_zshgod_right-to-left_git_branch() {
-    # Check if we're inside a git repository
-    command git rev-parse --is-inside-work-tree &>/dev/null || return
-
-    # Get the current branch name (fast and reliable)
-    local branch="$(command git branch --show-current 2>/dev/null)"
-
-    # Only output if we successfully got a branch name
-    [[ -n "$branch" ]] && print "%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}$branch%k %s%f"
-}
-
 prompt_zshgod_right-to-left_git_info() {
     # Silently exit if not inside a git repository
     command git rev-parse --is-inside-work-tree &>/dev/null || return
@@ -131,13 +119,20 @@ prompt_zshgod_right-to-left_sshonly_username() {
 
 # Function which returns colored arrow with current hostname
 prompt_zshgod_right-to-left_hostname() {
-    print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_SKY} %m %k%f"
+    print "%F{$ZSH_THM_SKY}%S %K{$ZSH_THM_CRUST}%m%k %s%f"
 }
 
 # Same function as prompt_zshgod_right-to-left_hostname but shown only through ssh
 prompt_zshgod_right-to-left_sshonly_hostname() {
     if [[ -n $SSH_CONNECTION ]]; then
         prompt_zshgod_right-to-left_hostname
+    fi
+}
+
+# Function which returns basic info about current vcs
+prompt_zshgod_right-to-left_vcs-info() {
+    if [[ -n $vcs_info_msg_0_ ]]; then
+        print "%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}$vcs_info_msg_0_%k %s%f"
     fi
 }
 

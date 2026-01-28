@@ -41,8 +41,16 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_right-to-le
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_rectangular.zsh"
 
 # [ Prompt specific opts and Hooks for Functions ]
+# preexec hook for recording time when any command was runned, needed for exectime functions
 add-zsh-hook preexec prompt_zshgod_exectime-preexec
+
+# precmd hook for recording time when any command was finished, needed for exectime functions
 add-zsh-hook precmd prompt_zshgod_exectime-precmd
+
+# vcs_info function for gettings info about current vcs
+add-zsh-hook precmd vcs_info
+
+# prompt_zshgod_setup to update/set values of prompt before drowing it
 add-zsh-hook precmd prompt_zshgod_setup
 
 # [ Global Usage Variables ]
@@ -57,6 +65,15 @@ PROMPT_ZSHGOD_AUTOREDRAW_FREQUENCY=1
 
 # Builtin variable which sets indentation for prompts right side
 ZLE_RPROMPT_INDENT=0
+
+# zstyle options to enable or disable some vcs systems which you don't use
+zstyle ':vcs_info:*' enable bzr cdv cvs darcs fossil git hg mtn p4 svk svn tla
+# zstyle ':vcs_info:*' disable git svn
+
+# zstyle options to customize look of vcs_info
+zstyle ':vcs_info:*' actionformats '%b|%a'
+zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
 
 # INFO: I used Catppuccin Mocha Colors from: https://github.com/catppuccin
 # Main colors
@@ -119,13 +136,13 @@ prompt_zshgod_setup() {
     # and outputs extra line for making prompt multilined
     if [[ $PROMPT_ZSHGOD_MULTILENE == true ]]; then
         # 'print' command with -P flag to output PROMPT like stuff before actuall prompt
-        print -P '%B$(prompt_zshgod_left-to-right_current-pwd)$(prompt_zshgod_left-to-right_git_branch)$(prompt_zshgod_left-to-right_git_info)$(prompt_zshgod_left-to-right_git_dirty)$(prompt_zshgod_left-to-right_exectime)%b'
+        print -P '%B$(prompt_zshgod_left-to-right_current-pwd)$(prompt_zshgod_left-to-right_vcs-info)$(prompt_zshgod_left-to-right_git_info)$(prompt_zshgod_left-to-right_git_dirty)$(prompt_zshgod_left-to-right_exectime)%b'
     fi
 
     # Variable which sets left side of prompt
     PROMPT='%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b '
 
     # Variable which sets right side of prompt
-    RPROMPT='%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_git_branch)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_sshonly_userandhostname)%b'
+    RPROMPT='%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_vcs-info)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_sshonly_userandhostname)%b'
 }
 

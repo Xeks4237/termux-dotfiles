@@ -11,18 +11,6 @@ prompt_zshgod_rectangular_git_dirty() {
     (($? == 0)) && print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_PEACH} * %k%f"
 }
 
-# Function which outputs current branch when called
-prompt_zshgod_rectangular_git_branch() {
-    # Check if we're inside a git repository
-    command git rev-parse --is-inside-work-tree &>/dev/null || return
-
-    # Get the current branch name (fast and reliable)
-    local branch="$(command git branch --show-current 2>/dev/null)"
-
-    # Only output if we successfully got a branch name
-    [[ -n "$branch" ]] && print "%F{$ZSH_THM_CRUST}%K{$ZSH_THM_GREEN} $branch %k%f"
-}
-
 prompt_zshgod_rectangular_git_info() {
     # Silently exit if not inside a git repository
     command git rev-parse --is-inside-work-tree &>/dev/null || return
@@ -127,6 +115,13 @@ prompt_zshgod_rectangular_hostname() {
 prompt_zshgod_rectangular_sshonly_hostname() {
     if [[ -n $SSH_CONNECTION ]]; then
         prompt_zshgod_rectangular_hostname
+    fi
+}
+
+# Function which returns basic info about current vcs
+prompt_zshgod_rectangular_vcs-info() {
+    if [[ -n $vcs_info_msg_0_ ]]; then
+        print '%F{$ZSH_THM_CRUST}%K{$ZSH_THM_GREEN} $vcs_info_msg_0_ %k%f'
     fi
 }
 

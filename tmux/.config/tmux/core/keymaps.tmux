@@ -31,7 +31,6 @@ bind-key    -T prefix       C-p                       choose-buffer -Z
 bind-key    -T prefix       ?                         list-keys
 bind-key    -T prefix       C                         customize-mode -Z
 bind-key    -T prefix       E                         select-layout -E
-bind-key    -T prefix       M                         select-pane -M
 bind-key    -T prefix       v                         copy-mode
 bind-key    -T prefix       p                         paste-buffer -p
 bind-key    -T prefix       c                         new-window
@@ -53,20 +52,6 @@ bind-key -r -T prefix       Up                        select-pane -U
 bind-key -r -T prefix       Down                      select-pane -D
 bind-key -r -T prefix       Left                      select-pane -L
 bind-key -r -T prefix       Right                     select-pane -R
-bind-key    -T prefix       M-1                       select-layout even-horizontal
-bind-key    -T prefix       M-2                       select-layout even-vertical
-bind-key    -T prefix       M-3                       select-layout main-horizontal
-bind-key    -T prefix       M-4                       select-layout main-vertical
-bind-key    -T prefix       M-5                       select-layout tiled
-bind-key    -T prefix       M-6                       select-layout main-horizontal-mirrored
-bind-key    -T prefix       M-7                       select-layout main-vertical-mirrored
-bind-key    -T prefix       M-n                       next-window -a
-bind-key    -T prefix       M-o                       rotate-window -D
-bind-key    -T prefix       M-p                       previous-window -a
-bind-key -r -T prefix       M-Up                      resize-pane -U 5
-bind-key -r -T prefix       M-Down                    resize-pane -D 5
-bind-key -r -T prefix       M-Left                    resize-pane -L 5
-bind-key -r -T prefix       M-Right                   resize-pane -R 5
 bind-key    -T prefix       C-b                       send-prefix
 bind-key    -T prefix       C-o                       rotate-window
 bind-key    -T prefix       C-z                       suspend-client
@@ -76,14 +61,11 @@ bind-key -r -T prefix       C-Left                    resize-pane -L
 bind-key -r -T prefix       C-Right                   resize-pane -R
 
 # [ Keybindings for vi style copy mode ] (e.g copy-mode-vi)
-bind-key    -T copy-mode-vi Enter                     send-keys -X copy-pipe-and-cancel
+bind-key    -T copy-mode-vi y                         send-keys -X copy-pipe-and-cancel
 bind-key    -T copy-mode-vi Escape                    send-keys -X clear-selection
 bind-key    -T copy-mode-vi Space                     send-keys -X begin-selection
-bind-key    -T copy-mode-vi \#                        send-keys -FX search-backward -- "#{copy_cursor_word}"
 bind-key    -T copy-mode-vi \$                        send-keys -X end-of-line
-bind-key    -T copy-mode-vi \%                        send-keys -X next-matching-bracket
-bind-key    -T copy-mode-vi *                         send-keys -FX search-forward -- "#{copy_cursor_word}"
-bind-key    -T copy-mode-vi ,                         send-keys -X jump-reverse
+bind-key    -T copy-mode-vi ?                         command-prompt -T search -p "(search up)" { send-keys -X search-backward -- "%%" }
 bind-key    -T copy-mode-vi /                         command-prompt -T search -p "(search down)" { send-keys -X search-forward -- "%%" }
 bind-key    -T copy-mode-vi 0                         send-keys -X start-of-line
 bind-key    -T copy-mode-vi 1                         command-prompt -N -I 1 -p (repeat) { send-keys -N "%%" }
@@ -95,43 +77,23 @@ bind-key    -T copy-mode-vi 6                         command-prompt -N -I 6 -p 
 bind-key    -T copy-mode-vi 7                         command-prompt -N -I 7 -p (repeat) { send-keys -N "%%" }
 bind-key    -T copy-mode-vi 8                         command-prompt -N -I 8 -p (repeat) { send-keys -N "%%" }
 bind-key    -T copy-mode-vi 9                         command-prompt -N -I 9 -p (repeat) { send-keys -N "%%" }
-bind-key    -T copy-mode-vi :                         command-prompt -p "(goto line)" { send-keys -X goto-line -- "%%" }
-bind-key    -T copy-mode-vi \;                        send-keys -X jump-again
-bind-key    -T copy-mode-vi ?                         command-prompt -T search -p "(search up)" { send-keys -X search-backward -- "%%" }
-bind-key    -T copy-mode-vi A                         send-keys -X append-selection-and-cancel
-bind-key    -T copy-mode-vi B                         send-keys -X previous-space
-bind-key    -T copy-mode-vi D                         send-keys -X copy-pipe-end-of-line-and-cancel
-bind-key    -T copy-mode-vi E                         send-keys -X next-space-end
-bind-key    -T copy-mode-vi F                         command-prompt -1 -p "(jump backward)" { send-keys -X jump-backward -- "%%" }
-bind-key    -T copy-mode-vi G                         send-keys -X history-bottom
-bind-key    -T copy-mode-vi H                         send-keys -X top-line
-bind-key    -T copy-mode-vi L                         send-keys -X bottom-line
-bind-key    -T copy-mode-vi M                         send-keys -X middle-line
+bind-key    -T copy-mode-vi :                         command-prompt
+bind-key    -T copy-mode-vi g                         send-keys -X top-line
+bind-key    -T copy-mode-vi G                         send-keys -X bottom-line
+bind-key    -T copy-mode-vi n                         send-keys -X search-again
 bind-key    -T copy-mode-vi N                         send-keys -X search-reverse
-bind-key    -T copy-mode-vi P                         send-keys -X toggle-position
-bind-key    -T copy-mode-vi T                         command-prompt -1 -p "(jump to backward)" { send-keys -X jump-to-backward -- "%%" }
+bind-key    -T copy-mode-vi p                         send-keys -X toggle-position
 bind-key    -T copy-mode-vi V                         send-keys -X select-line
-bind-key    -T copy-mode-vi W                         send-keys -X next-space
-bind-key    -T copy-mode-vi X                         send-keys -X set-mark
-bind-key    -T copy-mode-vi ^                         send-keys -X back-to-indentation
-bind-key    -T copy-mode-vi b                         send-keys -X previous-word
-bind-key    -T copy-mode-vi e                         send-keys -X next-word-end
+bind-key    -T copy-mode-vi m                         send-keys -X set-mark
 bind-key    -T copy-mode-vi f                         command-prompt -1 -p "(jump forward)" { send-keys -X jump-forward -- "%%" }
-bind-key    -T copy-mode-vi g                         send-keys -X history-top
+bind-key    -T copy-mode-vi F                         command-prompt -1 -p "(jump backward)" { send-keys -X jump-backward -- "%%" }
 bind-key    -T copy-mode-vi h                         send-keys -X cursor-left
 bind-key    -T copy-mode-vi j                         send-keys -X cursor-down
 bind-key    -T copy-mode-vi k                         send-keys -X cursor-up
 bind-key    -T copy-mode-vi l                         send-keys -X cursor-right
-bind-key    -T copy-mode-vi n                         send-keys -X search-again
-bind-key    -T copy-mode-vi o                         send-keys -X other-end
 bind-key    -T copy-mode-vi q                         send-keys -X cancel
 bind-key    -T copy-mode-vi r                         send-keys -X refresh-from-pane
-bind-key    -T copy-mode-vi t                         command-prompt -1 -p "(jump to forward)" { send-keys -X jump-to-forward -- "%%" }
-bind-key    -T copy-mode-vi v                         send-keys -X rectangle-toggle
 bind-key    -T copy-mode-vi w                         send-keys -X next-word
-bind-key    -T copy-mode-vi z                         send-keys -X scroll-middle
-bind-key    -T copy-mode-vi \{                        send-keys -X previous-paragraph
-bind-key    -T copy-mode-vi \}                        send-keys -X next-paragraph
 bind-key    -T copy-mode-vi MouseDown1Pane            select-pane
 bind-key    -T copy-mode-vi MouseDrag1Pane            select-pane \; send-keys -X begin-selection
 bind-key    -T copy-mode-vi MouseDragEnd1Pane         send-keys -X copy-pipe-and-cancel
@@ -144,10 +106,8 @@ bind-key    -T copy-mode-vi Up                        send-keys -X cursor-up
 bind-key    -T copy-mode-vi Down                      send-keys -X cursor-down
 bind-key    -T copy-mode-vi Left                      send-keys -X cursor-left
 bind-key    -T copy-mode-vi Right                     send-keys -X cursor-right
-bind-key    -T copy-mode-vi M-x                       send-keys -X jump-to-mark
+bind-key    -T copy-mode-vi C-m                       send-keys -X jump-to-mark
 bind-key    -T copy-mode-vi C-c                       send-keys -X cancel
-bind-key    -T copy-mode-vi C-h                       send-keys -X cursor-left
-bind-key    -T copy-mode-vi C-j                       send-keys -X copy-pipe-and-cancel
 bind-key    -T copy-mode-vi C-v                       send-keys -X rectangle-toggle
 
 # [ Keybindings for emacs style copy mode ] (e.g copy-mode)

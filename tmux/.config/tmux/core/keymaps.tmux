@@ -30,9 +30,7 @@ bind-key    -T prefix       >                         display-menu -T "#[align=c
 bind-key    -T prefix       C-p                       choose-buffer -Z
 bind-key    -T prefix       ?                         list-keys
 bind-key    -T prefix       C                         customize-mode -Z
-bind-key    -T prefix       D                         choose-client -Z
 bind-key    -T prefix       E                         select-layout -E
-bind-key    -T prefix       L                         switch-client -l
 bind-key    -T prefix       M                         select-pane -M
 bind-key    -T prefix       v                         copy-mode
 bind-key    -T prefix       p                         paste-buffer -p
@@ -42,8 +40,9 @@ bind-key    -T prefix       m                         select-pane -m
 bind-key    -T prefix       ]                         next-window
 bind-key    -T prefix       [                         previous-window
 bind-key    -T prefix       n                         display-panes
-bind-key    -T prefix       S                         choose-tree -Zs
-bind-key    -T prefix       s                         choose-tree -Zw
+bind-key    -T prefix       C-s                       choose-tree -Zs
+bind-key    -T prefix       S                         choose-tree -Zw
+bind-key    -T prefix       s                         choose-client -Z
 bind-key    -T prefix       t                         clock-mode
 bind-key    -T prefix       z                         resize-pane -Z
 bind-key    -T prefix       \(                        swap-pane -U

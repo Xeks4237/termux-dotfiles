@@ -3,7 +3,7 @@
 set -g buffer-limit 100
 
 # Default command to run when tmux is run without a command
-set -g default-client-command "new-session"
+set -g default-client-command 'new-session'
 
 # Set default-terminal option using $TERM variable
 set -g default-terminal "${TERM}"
@@ -24,14 +24,14 @@ set -g exit-unattached off
 set -g extended-keys on
 
 # The format of emitted extended key sequences
-set -g extended-keys-format "xterm"
+set -g extended-keys-format 'xterm'
 
 # Whether to send focus events to applications
 set -g focus-events on
 
 # Location of the command prompt history file
 # NOTE: If left empty then don't writes history file
-set -g history-file "~/.config/tmux/tmux_command-history"
+set -g history-file '~/.config/tmux/tmux_command-history'
 
 # Number of bytes accepted in a single input before dropping buffer
 set -g input-buffer-size 1048576 
@@ -49,8 +49,8 @@ set -g prompt-history-limit 100
 set -g set-clipboard on
 
 # NOTE: terminal-overrides is a List of terminal capabilities overrides
-# This one enables truecolor support for tmux by adding :RGB to $TERM if it's "xterm-256color"
-set -g terminal-overrides ",xterm-256color:RGB"
+# This one enables truecolor support for tmux by adding :RGB to $TERM if its 'xterm-256color'
+set -g terminal-overrides ',xterm-256color:RGB'
 
 # If the Unicode VS16 codepoint should always be treated as a wide character
 set -g variation-selector-always-wide on

@@ -24,7 +24,7 @@ set -g automatic-rename on
 # set -g automatic-rename-format ''
 
 # Color of the clock in clock mode
-set -g clock-mode-colour '#b4befe'
+set -g clock-mode-colour '#a6e3a1'
 
 # Time format of the clock in clock mode
 set -g clock-mode-style '24-with-seconds'
@@ -67,7 +67,7 @@ set -g main-pane-width 80
 set -g menu-border-lines heavy
 
 # Default style of menu borders
-set -g menu-border-style 'bg=#{@thm_bg},fg=#{@thm_fg}'
+set -g menu-border-style 'bg=#{@thm_bg},fg=#{@thm_green}'
 
 # Default style of selected menu item
 set -g menu-selected-style 'bg=#{@thm_yellow},fg=#{@thm_crust}'
@@ -137,11 +137,12 @@ set -g pane-status-current-style 'bg=#{@thm_bg},fg=#{@thm_green}'
 # Style of panes in the status line, except the current pane
 set -g pane-status-style 'bg=#{@thm_bg},fg=#{@thm_overlay_0}'
 
-# Type of characters used to draw popup border lines. Some of these are only supported on terminals with UTF-8 support
-set -g popup-border-lines heavy
+# Type of characters used to draw popup border lines.
+# NOTE: Some of these are only supported on terminals with UTF-8 support
+set -g popup-border-lines none
 
 # Default style of popup borders
-set -g popup-border-style 'bg=#{@thm_bg},fg=#{@thm_fg}'
+set -g popup-border-style 'bg=#{@thm_bg},fg=#{@thm_green}'
 
 # Default style of popups
 set -g popup-style 'bg=#{@thm_bg},fg=#{@thm_fg}'

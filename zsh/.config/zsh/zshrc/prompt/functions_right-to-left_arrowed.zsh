@@ -1,5 +1,5 @@
 # Function for checking git repos if they are dirty
-prompt_zshgod_left-to-right_git_dirty() {
+prompt_zshgod_right-to-left_git_dirty() {
     # Checks if we're in a git repo
     command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -8,10 +8,10 @@ prompt_zshgod_left-to-right_git_dirty() {
     command test -n "$(git status --porcelain --ignore-submodules ${umode} 2>/dev/null | head -100)"
 
     # Prints "*" if repo is dirty
-    (($? == 0)) && print "%F{$ZSH_THM_PEACH}%S %K{$ZSH_THM_CRUST}*%k %s%f"
+    (($? == 0)) && print "%F{$ZSH_THM_PEACH}%S %K{$ZSH_THM_CRUST}*%k %s%f"
 }
 
-prompt_zshgod_left-to-right_git_info() {
+prompt_zshgod_right-to-left_git_info() {
     # Silently exit if not inside a git repository
     command git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -65,74 +65,74 @@ prompt_zshgod_left-to-right_git_info() {
 
     # If there's anything to show, join the parts and do some customization
     if (( ${#parts[@]} > 0 )); then
-        print "%F{$ZSH_THM_OVERLAY_0}%S ${parts[*]} %s%f"
+        print "%F{$ZSH_THM_OVERLAY_0}%S ${parts[*]} %s%f"
     fi
 }
 
 # Function for showing arrow with customly formatted current time
-prompt_zshgod_left-to-right_time() {
-    print "%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}%D{%H:%M:%S}%k %s%f"
+prompt_zshgod_right-to-left_time() {
+    print "%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}%D{%H:%M:%S}%k %s%f"
 }
 
 # Function which returns exectime for last executed command
 # This function uses environment variables from two other functions to work correctly
-prompt_zshgod_left-to-right_exectime() {
-    if (( ${+PROMPT_ZSHGOD_CMD_DURATION} && PROMPT_ZSHGOD_CMD_DURATION >= PROMPT_ZSHGOD_EXECTIME_MIN )); then
-        print "%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}${PROMPT_ZSHGOD_CMD_DURATION}s%k %s%f"
+prompt_zshgod_right-to-left_exectime() {
+    if (( ${+ZSHGOD_EXECTIME_DURATION} && ZSHGOD_EXECTIME_DURATION >= ZSHGOD_EXECTIME_MIN )); then
+        print "%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}${ZSHGOD_EXECTIME_DURATION}s%k %s%f"
     fi
 }
 
 # Function for showing arrow with current working directory
-prompt_zshgod_left-to-right_current-pwd() {
-    print "%F{$ZSH_THM_BLUE}%S %K{$ZSH_THM_CRUST}%~%k %s%f"
+prompt_zshgod_right-to-left_current-pwd() {
+    print "%F{$ZSH_THM_BLUE}%S %K{$ZSH_THM_CRUST}%~%k %s%f"
 }
 
 # Function which shows arrow with current username@hostname
-prompt_zshgod_left-to-right_userandhostname() {
-    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}%n%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}%n%k %s%f)%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}@%k %s%f%F{$ZSH_THM_SKY}%S %K%m%k %s%f"
+prompt_zshgod_right-to-left_userandhostname() {
+    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}%n%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}%n%k %s%f)%F{$ZSH_THM_YELLOW}%S %K{$ZSH_THM_CRUST}@%k %s%f%F{$ZSH_THM_SKY}%S %K%m%k %s%f"
 
 }
 
-# Function which returns prompt_zshgod_left-to-right_userandhostname only when connected to ssh
-prompt_zshgod_left-to-right_sshonly_userandhostname() {
+# Function which returns prompt_zshgod_right-to-left_userandhostname only when connected to ssh
+prompt_zshgod_right-to-left_sshonly_userandhostname() {
     if [[ -n $SSH_CONNECTION ]]; then
-        prompt_zshgod_left-to-right_userandhostname
+        prompt_zshgod_right-to-left_userandhostname
     fi
 }
 
 # Function which shows colored arrow with different color if current user is root
-prompt_zshgod_left-to-right_root-indicator () {
-    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}#%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}\$%k %s%f)"
+prompt_zshgod_right-to-left_root-indicator () {
+    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}#%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}\$%k %s%f)"
 }
 
 # Function which returns colored arrow with current username with different color if current user is root
-prompt_zshgod_left-to-right_username() {
-    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}%n%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}%n%k %s%f)"
+prompt_zshgod_right-to-left_username() {
+    print "%(!,%F{$ZSH_THM_RED}%S %K{$ZSH_THM_CRUST}%n%k %s%f,%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}%n%k %s%f)"
 }
 
-# Same function as prompt_zshgod_left-to-right_username but shown only through ssh
-prompt_zshgod_left-to-right_sshonly_username() {
+# Same function as prompt_zshgod_right-to-left_username but shown only through ssh
+prompt_zshgod_right-to-left_sshonly_username() {
     if [[ -n $SSH_CONNECTION ]]; then
-        prompt_zshgod_left-to-right_username
+        prompt_zshgod_right-to-left_username
     fi
 }
 
 # Function which returns colored arrow with current hostname
-prompt_zshgod_left-to-right_hostname() {
-    print "%F{$ZSH_THM_SKY}%S %K{$ZSH_THM_CRUST}%m%k %s%f"
+prompt_zshgod_right-to-left_hostname() {
+    print "%F{$ZSH_THM_SKY}%S %K{$ZSH_THM_CRUST}%m%k %s%f"
 }
 
-# Same function as prompt_zshgod_left-to-right_hostname but shown only through ssh
-prompt_zshgod_left-to-right_sshonly_hostname() {
+# Same function as prompt_zshgod_right-to-left_hostname but shown only through ssh
+prompt_zshgod_right-to-left_sshonly_hostname() {
     if [[ -n $SSH_CONNECTION ]]; then
-        prompt_zshgod_left-to-right_hostname
+        prompt_zshgod_right-to-left_hostname
     fi
 }
 
 # Function which returns basic info about current vcs
-prompt_zshgod_left-to-right_vcs-info() {
+prompt_zshgod_right-to-left_vcs-info() {
     if [[ -n $vcs_info_msg_0_ ]]; then
-        print "%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}$vcs_info_msg_0_%k %s%f"
+        print "%F{$ZSH_THM_GREEN}%S %K{$ZSH_THM_CRUST}$vcs_info_msg_0_%k %s%f"
     fi
 }
 

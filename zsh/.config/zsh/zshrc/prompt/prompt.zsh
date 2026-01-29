@@ -36,32 +36,26 @@ autoload -Uz vcs_info
 setopt PROMPT_SUBST
 
 # Files with functions to use in prompt
-source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_left-to-right_arrowed.zsh"
-source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_right-to-left_arrowed.zsh"
-source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/prompt-libraries/functions_rectangular.zsh"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc//prompt/functions_left-to-right_arrowed.zsh"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc//prompt/functions_right-to-left_arrowed.zsh"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc//prompt/functions_rectangular.zsh"
 
 # [ Prompt specific opts and Hooks for Functions ]
 # preexec hook for recording time when any command was runned, needed for exectime functions
-add-zsh-hook preexec prompt_zshgod_exectime-preexec
+add-zsh-hook preexec prompt_zshgod_exectime_preexec
 
 # precmd hook for recording time when any command was finished, needed for exectime functions
-add-zsh-hook precmd prompt_zshgod_exectime-precmd
+add-zsh-hook precmd prompt_zshgod_exectime_precmd
 
 # vcs_info function for gettings info about current vcs
 add-zsh-hook precmd vcs_info
 
 # prompt_zshgod_setup to update/set values of prompt before drowing it
-add-zsh-hook precmd prompt_zshgod_setup
+# add-zsh-hook precmd prompt_zshgod_setup
 
 # [ Global Usage Variables ]
 # Variable which sets amount of exectime after exectime is not hided
-PROMPT_ZSHGOD_EXECTIME_MIN=5
-
-# Variable to easily toggle multilined prompt
-PROMPT_ZSHGOD_MULTILENE=false
-
-# Variable which set frequency with prompt gets redrawn
-PROMPT_ZSHGOD_AUTOREDRAW_FREQUENCY=1
+ZSHGOD_EXECTIME_MIN=5
 
 # Builtin variable which sets indentation for prompts right side
 ZLE_RPROMPT_INDENT=0
@@ -108,21 +102,21 @@ export ZSH_THM_BACKGROUND='#1E1E2E'
 
 # [ Functions needed for other functions which don't have visual look ]
 # Function which captures exectime before executing every command
-prompt_zshgod_exectime-preexec() {
+prompt_zshgod_exectime_preexec() {
     # Saves value of $EPOCHSECONDS before executing command to variable
     # Its for prompt_zshgod_exectime function
-    PROMPT_ZSHGOD_CMD_START=$EPOCHSECONDS
+    ZSHGOD_EXECTIME_START=$EPOCHSECONDS
 }
 
 # Function which calculates exectime before drowing prompt
-prompt_zshgod_exectime-precmd() {
+prompt_zshgod_exectime_precmd() {
     # Piece of code which calculated exectime before displaying prompt
     # Its for prompt_zshgod_exectime function
-    if (( ${+PROMPT_ZSHGOD_CMD_START} )); then
-        PROMPT_ZSHGOD_CMD_DURATION=$(( EPOCHSECONDS - PROMPT_ZSHGOD_CMD_START ))
-        unset PROMPT_ZSHGOD_CMD_START
+    if (( ${+ZSHGOD_EXECTIME_START} )); then
+        ZSHGOD_EXECTIME_DURATION=$(( EPOCHSECONDS - ZSHGOD_EXECTIME_START ))
+        unset ZSHGOD_EXECTIME_START
     else
-        unset PROMPT_ZSHGOD_CMD_DURATION
+        unset ZSHGOD_EXECTIME_DURATION
     fi
 }
 
@@ -132,17 +126,10 @@ prompt_zshgod_setup() {
     # Echo nothing before setting up prompt to make it sparce
     echo ''
 
-    # Checks if 'PROMPT_ZSHGOD_MULTILENE' is equal to true
-    # and outputs extra line for making prompt multilined
-    if [[ $PROMPT_ZSHGOD_MULTILENE == true ]]; then
-        # 'print' command with -P flag to output PROMPT like stuff before actuall prompt
-        print -P '%B$(prompt_zshgod_left-to-right_current-pwd)$(prompt_zshgod_left-to-right_vcs-info)$(prompt_zshgod_left-to-right_git_info)$(prompt_zshgod_left-to-right_git_dirty)$(prompt_zshgod_left-to-right_exectime)%b'
-    fi
-
     # Variable which sets left side of prompt
-    PROMPT='%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b '
+    PS1='%B$(prompt_zshgod_left-to-right_time)$(prompt_zshgod_left-to-right_root-indicator)%b '
 
     # Variable which sets right side of prompt
-    RPROMPT='%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_vcs-info)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_sshonly_userandhostname)%b'
+    RPS1='%B$(prompt_zshgod_right-to-left_exectime)$(prompt_zshgod_right-to-left_git_info)$(prompt_zshgod_right-to-left_vcs-info)$(prompt_zshgod_right-to-left_current-pwd)$(prompt_zshgod_right-to-left_sshonly_userandhostname)%b'
 }
 

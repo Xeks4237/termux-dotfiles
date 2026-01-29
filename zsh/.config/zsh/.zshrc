@@ -22,6 +22,9 @@ HISTSIZE=10000
 # Sets max length of SAVED command history to the max length of command history
 SAVEHIST="$HISTSIZE"
 
+# Variable which sets style for command typo correction menu of zsh
+SPROMPT="%F{$ZSH_THM_LAVENDER}zsh:%f %F{$ZSH_THM_YELLOW}correct '%f%F{$ZSH_THM_RED}%R%f%F{$ZSH_THM_YELLOW}' to '%f%F{$ZSH_THM_GREEN}%r%f%F{$ZSH_THM_YELLOW}'? [%f%F{$ZSH_THM_RED}n%f%F{$ZSH_THM_GREEN}y%f%F{$ZSH_THM_PEACH}a%f%F{$ZSH_THM_BLUE}e%f%F{$ZSH_THM_YELLOW}]:%f "
+
 # [ Zsh Modules ]
 # Load add-zsh-hook module, its a command which allows to add custom hooks to functions
 autoload -U add-zsh-hook
@@ -36,8 +39,11 @@ autoload -U compinit && compinit
 # Load zcompile module, command for compiling zsh scripts
 autoload -U zcompile
 
-# Builtin functoons for detecting current vcs and info about it, needed for prompt
+# Builtin functions for detecting current vcs and info about it, needed for prompt
 autoload -Uz vcs_info
+
+# Builtin functions and expansions like '%F' for coloring stuff in terminal
+autoload -U colors
 
 # Load zmv module, command for advanced cp/mv/ln/.etc like stuff using regex patterns
 autoload -U zmv
@@ -45,7 +51,7 @@ autoload -U zmv
 # Load zcalc module, builtin calculator in zsh which is more precise than you think XD
 autoload -U zcalc
 
-# [ Zsh Options ]
+# Seperate file with zsh options
 # NOTE: For more about zsh options see 'zshoptions' mandoc page
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/options.zsh"
 
@@ -57,14 +63,16 @@ eval "$(fzf --zsh)"
 eval "$(gitleaks completion zsh --verbose)"
 
 # [ Source/Load Zinit plugin manager ]
-# Snippet which bootstraps zinit
+# Variable which sets home directory of zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Snippet which bootstraps zinit
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # [ Zsh/Zinit Snippets ] (Sourced remote/local files)
-# Plugins sourced from Oh-My-Zsh framework
+# Plugin files sourced from Oh-My-Zsh framework
 zinit snippet OMZP::tmux
 zinit snippet OMZP::fancy-ctrl-z
 
@@ -130,8 +138,5 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/keymaps.zsh"
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
 
 # [ Prompt ]
-source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/prompt.zsh"
-
-# Variable which sets style for command typo correction menu of zsh
-SPROMPT="%F{$ZSH_THM_LAVENDER}zsh:%f %F{$ZSH_THM_YELLOW}correct '%f%F{$ZSH_THM_RED}%R%f%F{$ZSH_THM_YELLOW}' to '%f%F{$ZSH_THM_GREEN}%r%f%F{$ZSH_THM_YELLOW}'? [%f%F{$ZSH_THM_RED}n%f%F{$ZSH_THM_GREEN}y%f%F{$ZSH_THM_PEACH}a%f%F{$ZSH_THM_BLUE}e%f%F{$ZSH_THM_YELLOW}]:%f "
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/prompt/prompt.zsh"
 

@@ -14,9 +14,6 @@ bind-key    -T prefix       X                         confirm-before -p "#[bg=#{
 bind-key    -T prefix       x                         confirm-before -p "#[bg=#{@thm_bg}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_green}]Pane #{pane_index}#[fg=#{@thm_yellow}]? #[fg=#{@thm_yellow}](#[fg=#{@thm_green}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])" kill-pane
 bind-key    -T prefix       \{                        switch-client -p
 bind-key    -T prefix       \}                        switch-client -n
-bind-key    -T prefix       -                         delete-buffer
-bind-key    -T prefix       .                         command-prompt -T target { move-window -t "%%" }
-bind-key    -T prefix       /                         command-prompt -k -p key { list-keys -1N "%%" }
 bind-key    -T prefix       0                         select-window -t :=10
 bind-key    -T prefix       1                         select-window -t :=1
 bind-key    -T prefix       2                         select-window -t :=2
@@ -30,7 +27,7 @@ bind-key    -T prefix       9                         select-window -t :=9
 bind-key    -T prefix       :                         command-prompt
 bind-key    -T prefix       <                         display-menu -T "#[align=centre,bg=#{@thm_bg},fg=#{@thm_green}] #{window_index}: #{window_name} " -x W -y W "#{?#{>:#{session_windows},1},,-}Swap Left" l { swap-window -t :-1 } "#{?#{>:#{session_windows},1},,-}Swap Right" r { swap-window -t :+1 } "#{?pane_marked_set,,-}Swap Marked" s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } Rename n { command-prompt -F -I "#W" { rename-window -t "#{window_id}" "%%" } } '' "New After" w { new-window -a } "New At End" W { new-window }
 bind-key    -T prefix       >                         display-menu -T "#[align=centre,bg=#{@thm_bg},fg=#{@thm_green}] Pane #{pane_index} " -x P -y P "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}" < { send-keys -X history-top } "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}" > { send-keys -X history-bottom } '' "#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}" C-r { if-shell -F "#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}" "copy-mode -t=" ; send-keys -X -t = search-backward -- "#{q:mouse_word}" } "#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}" C-y { copy-mode -q ; send-keys -l "#{q:mouse_word}" } "#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}" c { copy-mode -q ; set-buffer "#{q:mouse_word}" } "#{?mouse_line,Copy Line,}" l { copy-mode -q ; set-buffer "#{q:mouse_line}" } '' "#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}" C-h { copy-mode -q ; send-keys -l "#{q:mouse_hyperlink}" } "#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}" h { copy-mode -q ; set-buffer "#{q:mouse_hyperlink}" } '' "Horizontal Split" h { split-window -h } "Vertical Split" v { split-window -v } '' "#{?#{>:#{window_panes},1},,-}Swap Up" u { swap-pane -U } "#{?#{>:#{window_panes},1},,-}Swap Down" d { swap-pane -D } "#{?pane_marked_set,,-}Swap Marked" s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } "#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}" z { resize-pane -Z }
-bind-key    -T prefix       =                         choose-buffer -Z
+bind-key    -T prefix       C-p                       choose-buffer -Z
 bind-key    -T prefix       ?                         list-keys
 bind-key    -T prefix       C                         customize-mode -Z
 bind-key    -T prefix       D                         choose-client -Z
@@ -41,16 +38,13 @@ bind-key    -T prefix       v                         copy-mode
 bind-key    -T prefix       p                         paste-buffer -p
 bind-key    -T prefix       c                         new-window
 bind-key    -T prefix       d                         detach-client
-bind-key    -T prefix       f                         command-prompt { find-window -Z "%%" }
-bind-key    -T prefix       i                         display-message
-bind-key    -T prefix       l                         last-window
 bind-key    -T prefix       m                         select-pane -m
 bind-key    -T prefix       ]                         next-window
 bind-key    -T prefix       [                         previous-window
 bind-key    -T prefix       n                         display-panes
 bind-key    -T prefix       S                         choose-tree -Zs
-bind-key    -T prefix       t                         clock-mode
 bind-key    -T prefix       s                         choose-tree -Zw
+bind-key    -T prefix       t                         clock-mode
 bind-key    -T prefix       z                         resize-pane -Z
 bind-key    -T prefix       \(                        swap-pane -U
 bind-key    -T prefix       \)                        swap-pane -D

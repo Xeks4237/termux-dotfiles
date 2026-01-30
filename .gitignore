@@ -16,6 +16,9 @@ zsh-history
 # NeoVim config which lives in seperate repo
 nvim/
 
+# Zsh prompt which lives in seperate repo
+zshgod/
+
 # Git/Github credentials file
 .git-credentials
 credentials

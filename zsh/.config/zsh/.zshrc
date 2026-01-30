@@ -99,7 +99,7 @@ zinit light 'zsh-users/zsh-history-substring-search'
 zinit light 'zdharma-continuum/fast-syntax-highlighting'
 
 # My customly made prompt
-# zinit light 'Xeks4237/ZshGod'
+zinit light 'Xeks4237/ZshGod'
 
 # [ Extra commands for Zsh/Zinit plugins ]
 # Choose/Set theme of fast-syntax-highlighting
@@ -149,7 +149,4 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/keymaps.zsh"
 
 # [ Aliases ]
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
-
-# [ Prompt ]
-source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshgod/zshgod.plugin.zsh"
 

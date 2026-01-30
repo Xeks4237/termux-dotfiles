@@ -36,6 +36,9 @@ autoload -U add-zle-hook-widget
 # NOTE: It needs to be loaded before plugin manager and plugins.
 autoload -U compinit && compinit
 
+# Builtin prompts/themes manager for managing custom prompts
+autoload -U promptinit && promptinit
+
 # Load zcompile module, command for compiling zsh scripts
 autoload -U zcompile
 
@@ -86,10 +89,17 @@ zinit light 'Freed-Wu/fzf-tab-source'
 # Additional completion definitions for zsh
 zinit light 'zsh-users/zsh-completions'
 
-# Plugin which autosuggests completions
+# Plugin which autosuggests completions based on command history
 zinit light 'zsh-users/zsh-autosuggestions'
+
+# Plugin which allows to autocomplete commands using text written in prompt, like in fish shell
 zinit light 'zsh-users/zsh-history-substring-search'
+
+# Fast syntax highlighting for zsh
 zinit light 'zdharma-continuum/fast-syntax-highlighting'
+
+# My customly made prompt
+# zinit light 'Xeks4237/ZshGod'
 
 # [ Extra commands for Zsh/Zinit plugins ]
 # Choose/Set theme of fast-syntax-highlighting
@@ -100,6 +110,9 @@ zinit cdreplay -q
 
 # Load fish like history substring search plugin
 zinit ice wait atload "_history_substring_search_config"
+
+# Choose theme/prompt for zsh using builtin prompts manager
+# prompt zshgod
 
 # [ Environment variables for Zsh/Zinit plugins ]
 # NOTE: Environment variables for zsh-tmux plugin are set in .zprofile too
@@ -138,5 +151,5 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/keymaps.zsh"
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
 
 # [ Prompt ]
-source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/prompt/prompt.zsh"
+source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshgod/zshgod.plugin.zsh"
 

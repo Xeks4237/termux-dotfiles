@@ -52,7 +52,7 @@ bind-key -r -T   prefix    Up       select-pane -U
 bind-key -r -T   prefix    Down     select-pane -D
 bind-key -r -T   prefix    Left     select-pane -L
 bind-key -r -T   prefix    Right    select-pane -R
-bind-key    -T   prefix    C-b      send-prefix
+bind-key    -T   prefix    C-Space  send-prefix
 bind-key    -T   prefix    C-o      rotate-window
 bind-key    -T   prefix    C-z      suspend-client
 bind-key -r -T   prefix    C-Up     resize-pane -U

@@ -112,7 +112,7 @@ zinit cdreplay -q
 zinit ice wait atload "_history_substring_search_config"
 
 # Choose theme/prompt for zsh using builtin prompts manager
-# prompt zshgod
+prompt zshgod
 
 # [ Environment variables for Zsh/Zinit plugins ]
 # NOTE: Environment variables for zsh-tmux plugin are set in .zprofile too

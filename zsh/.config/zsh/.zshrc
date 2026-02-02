@@ -75,8 +75,10 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # [ Zsh/Zinit Snippets ] (Sourced remote/local files)
-# Plugin files sourced from Oh-My-Zsh framework
+# Tmux integration plugin from Oh-My-Zsh framework
 zinit snippet OMZP::tmux
+
+# Plugin for using going back to previous job by pressing Ctrl z
 zinit snippet OMZP::fancy-ctrl-z
 
 # [ Zsh/Zinit Plugins ]
@@ -92,7 +94,7 @@ zinit light 'zsh-users/zsh-completions'
 # Plugin which autosuggests completions based on command history
 zinit light 'zsh-users/zsh-autosuggestions'
 
-# Plugin which allows to autocomplete commands using text written in prompt, like in fish shell
+# Plugin which allows to autocomplete commands using text written in prompt and history, like in fish shell
 zinit light 'zsh-users/zsh-history-substring-search'
 
 # Fast syntax highlighting for zsh

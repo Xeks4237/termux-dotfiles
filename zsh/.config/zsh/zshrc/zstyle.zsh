@@ -30,7 +30,7 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:*' fzf-pad 2
 
 # Define minimal height for fzf-tab when using fzf instead of tmux popup
-zstyle ':fzf-tab:*' fzf-min-height 20
+zstyle ':fzf-tab:*' fzf-min-height 30
 
 # It specifies the key to accept and run a suggestion in one keystroke
 # zstyle ':fzf-tab:*' accept-line alt-enter
@@ -52,7 +52,7 @@ zstyle ':fzf-tab:*' query-string prefix input first
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
 # Define size for fzf-tab's tmux popup
-zstyle ':fzf-tab:*' popup-min-size 50 20
+zstyle ':fzf-tab:*' popup-min-size 60 30
 
 # Enbale smart tab feature of fzf-tab, its enabled by default
 zstyle ':fzf-tab:*' popup-smart-tab yes

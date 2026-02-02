@@ -38,6 +38,7 @@
 --preview-label-pos center:top
 --bind 'Ctrl-/:change-preview-window(down:50%|left:50%|up:50%|right:50%|hidden)'
 --bind '?:toggle-preview'
+--bind 'Alt-/:toggle-wrap'
 --bind 'Ctrl-y:execute-silent(termux-clipboard-set {})'
 --bind 'Ctrl-e:execute(nvim {})'
 --expect 'Ctrl-l'

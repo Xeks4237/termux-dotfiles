@@ -19,7 +19,7 @@
 --info-command 'echo -n " {+n}/{n}  " | sed "s/^ //"'
 --separator '─'
 --scrollbar '█'
---gap 1
+--gap 0
 --gap-line '┈'
 --gutter '▌'
 --cycle

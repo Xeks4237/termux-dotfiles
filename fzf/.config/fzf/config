@@ -1,10 +1,48 @@
---preview-window=right
---multi
---extended
---style=full:rounded
---layout=reverse
 --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8
 --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#B4BEFE
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8
 --color=selected-bg:#45475A
 --color=border:#6C7086,label:#CDD6F4
+--style full:rounded
+--layout reverse
+--reverse
+--margin 0,0,0,0
+--padding 0,0
+--border none
+--border-label ' fzf Fuzzy Search '
+--border-label-pos center:top
+--prompt '> '
+--pointer '┃'
+--marker '┃'
+--ellipsis '…'
+--info inline-right
+--info-command 'echo -n " {+n}/{n}  " | sed "s/^ //"'
+--separator '─'
+--scrollbar '█'
+--gap 1
+--gap-line '┈'
+--gutter '▌'
+--cycle
+--wrap
+--wrap-sign '↪ '
+--jump-labels 'asdfghjklqwertyuiopzxcvbn'
+--tabstop 2
+--highlight-line
+--header-border rounded
+--header-label ' Header '
+--header-label-pos 4:top
+--preview 'bat --tabs=4 --wrap=character --color=always --decorations=auto --paging=never --theme=Catppuccin\ Mocha --theme-dark=Catppuccin\ Mocha --theme-light=Catppuccin\ Latte --strip-ansi=auto --style=changes {} 2>/dev/null || eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name {} 2>/dev/null || echo {}'
+--preview-window 'right:50%:border-rounded'
+--preview-border rounded
+--preview-label ' Preview '
+--preview-label-pos center:top
+--bind 'Ctrl-/:change-preview-window(down:50%|left:50%|up:50%|right:50%|hidden)'
+--bind '?:toggle-preview'
+--bind 'Ctrl-y:execute-silent(termux-clipboard-set {})'
+--bind 'Ctrl-e:execute(nvim {})'
+--expect 'Ctrl-l'
+--multi
+--tiebreak begin,chunk,length,index
+--smart-case
+--extended
+--scheme default

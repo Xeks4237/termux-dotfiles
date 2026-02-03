@@ -9,22 +9,6 @@
 
 # NOTE: So you should put here stuff which should be launched for every instance of zsh where you can type commands
 
-# [ Environment Variables ]
-# Path
-export PATH="$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
-
-# Location of zsh history file
-HISTFILE="$ZDOTDIR/.zsh_history"
-
-# Max length of zsh command history
-HISTSIZE=10000
-
-# Sets max length of SAVED command history to the max length of command history
-SAVEHIST="$HISTSIZE"
-
-# Variable which sets style for command typo correction menu of zsh
-SPROMPT="%F{$ZSH_THM_LAVENDER}zsh:%f %F{$ZSH_THM_YELLOW}correct '%f%F{$ZSH_THM_RED}%R%f%F{$ZSH_THM_YELLOW}' to '%f%F{$ZSH_THM_GREEN}%r%f%F{$ZSH_THM_YELLOW}'? [%f%F{$ZSH_THM_RED}n%f%F{$ZSH_THM_GREEN}y%f%F{$ZSH_THM_PEACH}a%f%F{$ZSH_THM_BLUE}e%f%F{$ZSH_THM_YELLOW}]:%f "
-
 # [ Zsh Modules ]
 # Load add-zsh-hook module, its a command which allows to add custom hooks to functions
 autoload -U add-zsh-hook
@@ -148,4 +132,20 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/keymaps.zsh"
 
 # [ Aliases ]
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
+
+# [ Environment Variables ]
+# Path
+PATH="$PATH:$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
+
+# Location of zsh history file
+HISTFILE="$ZDOTDIR/.zsh_history"
+
+# Max length of zsh command history
+HISTSIZE=10000
+
+# Sets max length of SAVED command history to the max length of command history
+SAVEHIST="$HISTSIZE"
+
+# Variable which sets style for command typo correction menu of zsh
+SPROMPT="%F{$ZSH_THM_LAVENDER}zsh:%f %F{$ZSH_THM_YELLOW}correct '%f%F{$ZSH_THM_RED}%R%f%F{$ZSH_THM_YELLOW}' to '%f%F{$ZSH_THM_GREEN}%r%f%F{$ZSH_THM_YELLOW}'? [%f%F{$ZSH_THM_RED}n%f%F{$ZSH_THM_GREEN}y%f%F{$ZSH_THM_PEACH}a%f%F{$ZSH_THM_BLUE}e%f%F{$ZSH_THM_YELLOW}]:%f "
 

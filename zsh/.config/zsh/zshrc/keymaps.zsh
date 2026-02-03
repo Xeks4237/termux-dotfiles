@@ -32,7 +32,7 @@ bindkey '^r' fzf-history-widget
 [[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
 
 # Makes/Fixes backspace to work after returning to insert mode from normal mode
-[[ -n ${key[Delete]} ]] && bindkey -M viins "${key[Delete]}" backward-delete-char
+[[ -n ${key[Backspace]} ]] && bindkey -M viins "${key[Backspace]}" backward-delete-char
 
 # Simple function with Keymap to toggle termux wakelock state
 # File where this state is stores globally to don't cause error while using multiple shells

@@ -12,4 +12,3 @@ getnf -U
 rm -rf ~/share/
 
 echo "Update is Finished!"
-

@@ -50,12 +50,6 @@ bindkey '^[[4~' end-of-line
 bindkey -M vicmd '\e[F' end-of-line
 bindkey -M vicmd '^[[4~' end-of-line
 
-# Fish like history search/suggestions
-# Arrow up to search up
-bindkey '\e[A' history-substring-search-up
-# Arrow down to search down
-bindkey '\e[B' history-substring-search-down
-
 # Sets PageDown key to open fzf history search widget
 bindkey '\e[6~' fzf-history-widget
 

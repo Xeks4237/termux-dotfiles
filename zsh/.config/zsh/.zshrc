@@ -94,9 +94,6 @@ zinit light 'zsh-users/zsh-completions'
 # Plugin which autosuggests completions based on command history
 zinit light 'zsh-users/zsh-autosuggestions'
 
-# Plugin which allows to autocomplete commands using text written in prompt and history, like in fish shell
-zinit light 'zsh-users/zsh-history-substring-search'
-
 # Fast syntax highlighting for zsh
 zinit light 'zdharma-continuum/fast-syntax-highlighting'
 

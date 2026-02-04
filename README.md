@@ -8,40 +8,30 @@ Also I don't included here my NeoVim config because it's in seperate repo cold N
 
 WARNING: commands belove can overwrite existing files, please recheck before continuing.
 
-To use dotfiles:
+# How to add/install/use dotfiles
 
 Clone dotfiles using git:
 
 ```sh
-git clone https://gitlab.com/Xeks4237/termux-dotfiles.git
+git clone https://gitlab.com/Xeks4237/termux-dotfiles.git ~/.dotfiles/
 ```
 
-Stow config for stow self:
+Stow everything correctly, expect files for termux itself:
 
 ```sh
-stow --verbose=2 --adopt --dir=$HOME/.dotfiles/ --target=$HOME stow
+stow --verbose=2 --adopt --dir=$HOME/.dotfiles/ --target=$HOME --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
 ```
 
-Stow everything else:
+Commands to symlink dotfiles for termux, because stow don't allows to do it by security reasons:
 
 ```sh
-stow csol git htop lazygit nano nodejs nvim pip scripts stow thunar tmux vitetris wget xfce4 zsh
+cd ~ ; ln -s .dotfiles/termux/.termux/ ~/.termux ; ln -s .dotfiles/termux/.config/termux/ ~/.config/termux ; ln -s .dotfiles/termux/.termux_authinfo ~/.termux_authinfo
 ```
 
-Commands to symlink dotfiles for termux, because stow don't allows to do it:
+# How to apply changes after installing
+
+After stowing everthing first time, everything can be restowed with this command, also it is no difference from where you run this command:
 
 ```sh
-cd ~/ && rm -r ~/.termux/
-```
-
-```sh
-cd ~/ && ln -is ~/.dotfiles/termux/.termux/ ~/.termux
-```
-
-```sh
-cd ~/ && ln -is ~/.dotfiles/termux/.config/termux/ ~/.config/termux
-```
-
-```sh
-cd ~/ && ln -is ~/.dotfiles/termux/.termux_authinfo ~/.termux_authinfo
+stow --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
 ```

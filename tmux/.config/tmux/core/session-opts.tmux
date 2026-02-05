@@ -69,7 +69,7 @@ set -g message-style 'bg=#{@thm_bg},fg=#{@thm_fg}'
 set -g mouse on
 
 # The prefix key
-set -g prefix C-Space
+set -g prefix C-b
 
 # The second prefix key
 # NOTE: in most cases one prefix key is enough

@@ -3,12 +3,12 @@
 print -P '%B%F{#A6E3A1}Starting Update...%f%b'
 pkg update -y
 pkg upgrade -y
-print -P '%B%F{#A6E3A1}Update is finished.b%f%b'
+print -P '%B%F{#A6E3A1}Update is finished.%f%b'
 
 print -P '%B%F{#A6E3A1}Cleaning mess of pkg/apt...%f%b'
 pkg autoclean
 pkg clean
-print -P '%B%F{#A6E3A1}Cleaned mess of pkg/apt.%f%b'
+print -P '%B%F{#A6E3A1}Finished cleaning mess of pkg/apt.%f%b'
 
 print -P '%B%F{#A6E3A1}Starting update of nerd fonts through getnf...%f%b'
 getnf -U

@@ -84,6 +84,9 @@ zinit light 'zdharma-continuum/fast-syntax-highlighting'
 # My customly made prompt
 zinit light 'Xeks4237/ZshGod'
 
+# async library for zsh
+zinit light 'mafredri/zsh-async'
+
 # [ Extra commands for Zsh/Zinit plugins ]
 # Choose/Set theme of fast-syntax-highlighting
 fast-theme --quiet default

@@ -36,10 +36,10 @@
 --preview-border rounded
 --preview-label ' Preview '
 --preview-label-pos center:top
---bind 'Ctrl-Left:change-preview-window(left:50%|left:45%|left:40%|left:35%|left:30%|left:25%|left:20%|left:15%|left:10%)'
---bind 'Ctrl-Down:change-preview-window(down)'
---bind 'Ctrl-Up:change-preview-window(up)'
---bind 'Ctrl-Right:change-preview-window(right)'
+--bind 'Ctrl-Left:change-preview-window(left:50%)'
+--bind 'Ctrl-Down:change-preview-window(down:50%)'
+--bind 'Ctrl-Up:change-preview-window(up:50%)'
+--bind 'Ctrl-Right:change-preview-window(right:50%)'
 --bind '?:toggle-preview'
 --bind 'Alt-/:toggle-wrap'
 --bind 'Ctrl-y:execute-silent(termux-clipboard-set {})'

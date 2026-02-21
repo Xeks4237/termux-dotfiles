@@ -11,32 +11,26 @@
 
 # [ Zsh Modules ]
 # Load add-zsh-hook module, its a command which allows to add custom hooks to functions
-autoload -U add-zsh-hook
+autoload -Uz add-zsh-hook
 
 # Load add-zsh-hook module, its a command which allows to add custom zle hooks to functions
-autoload -U add-zle-hook-widget
+autoload -Uz add-zle-hook-widget
 
 # Load compinit module and initialize it, completions system of zsh
 # NOTE: It needs to be loaded before plugin manager and plugins.
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 # Builtin prompts/themes manager for managing custom prompts
-autoload -U promptinit && promptinit
-
-# Load zcompile module, command for compiling zsh scripts
-autoload -U zcompile
-
-# Builtin functions for detecting current vcs and info about it, needed for prompt
-autoload -Uz vcs_info
+autoload -Uz promptinit && promptinit
 
 # Builtin functions and expansions like '%F' for coloring stuff in terminal
-autoload -U colors
+autoload -Uz colors
 
 # Load zmv module, command for advanced cp/mv/ln/.etc like stuff using regex patterns
-autoload -U zmv
+autoload -Uz zmv
 
 # Load zcalc module, builtin calculator in zsh which is more precise than you think XD
-autoload -U zcalc
+autoload -Uz zcalc
 
 # Seperate file with zsh options
 # NOTE: For more about zsh options see 'zshoptions' mandoc page

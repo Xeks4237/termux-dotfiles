@@ -91,7 +91,7 @@ set -g repeat-time 500
 set -g set-titles on
 
 # Format of the terminal title to set
-set -g set-titles-string '#S:#I:#W - "#T" #{session_alerts}'
+set -g set-titles-string '#S: #W - #T #{session_alerts}'
 
 # Action to take on a silence alert
 set -g silence-action other

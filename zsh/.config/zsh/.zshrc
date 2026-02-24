@@ -83,7 +83,7 @@ zinit light 'mafredri/zsh-async'
 
 # [ Extra commands for Zsh/Zinit plugins ]
 # Choose/Set theme of fast-syntax-highlighting
-fast-theme --quiet default
+fast-theme --quiet $ZDOTDIR/zshrc/custom-fsh-theme.ini
 
 # Load and initialize completions related stuff for zinit
 zinit cdreplay -q

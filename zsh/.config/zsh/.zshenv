@@ -70,3 +70,5 @@ export npm_config_userconfig="$NPM_CONFIG_USERCONFIG"
 # NOTE: fzf-tab plugin for zsh uses it too if enabled
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}/fzf/config"
 
+# Variable which sets location of searxng config file
+export SEARXNG_SETTINGS_PATH="${XDG_CONFIG_HOME:-$HOME/.config/}/searxng/settings.yml"

@@ -10,10 +10,16 @@ WARNING: commands belove can overwrite existing files, please recheck before con
 
 # How to add/install/use dotfiles
 
-Clone dotfiles using git:
+Clone dotfiles without nvim config using git:
 
 ```sh
 git clone https://gitlab.com/Xeks4237/termux-dotfiles.git ~/.dotfiles/
+```
+
+Clone dotfiles with nvim config using git:
+
+```sh
+git clone --recurse-submodules https://gitlab.com/Xeks4237/termux-dotfiles.git ~/.dotfiles/
 ```
 
 Stow everything correctly, expect files for termux itself:

@@ -39,9 +39,9 @@ bind-key    -T   prefix    m        select-pane -m
 bind-key    -T   prefix    ]        next-window
 bind-key    -T   prefix    [        previous-window
 bind-key    -T   prefix    n        display-panes
-bind-key    -T   prefix    C-s      choose-tree -Zs
-bind-key    -T   prefix    S        choose-tree -Zw
-bind-key    -T   prefix    s        choose-client -Z
+bind-key    -T   prefix    S        choose-tree -Zs
+bind-key    -T   prefix    s        choose-tree -Zw
+bind-key    -T   prefix    C-s      choose-client -Z
 bind-key    -T   prefix    t        clock-mode
 bind-key    -T   prefix    z        resize-pane -Z
 bind-key    -T   prefix    \(       swap-pane -U

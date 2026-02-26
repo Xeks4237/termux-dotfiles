@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/sh
 
 # tmp before it gonna be fixed
 export XKB_CONFIG_ROOT=/data/data/com.termux/files/usr/share/xkeyboard-config-2

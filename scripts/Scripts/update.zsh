@@ -1,4 +1,4 @@
-#!/bin/env zsh
+#!/bin/zsh
 
 print -P '%B%F{#A6E3A1}Starting Update...%f%b'
 pkg update -y

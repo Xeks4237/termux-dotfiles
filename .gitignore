@@ -13,9 +13,6 @@ zsh-history
 .zcompdump
 *.zwc
 
-# NeoVim config which lives in seperate repo
-nvim/
-
 # Zsh prompt which lives in seperate repo
 zshgod/
 

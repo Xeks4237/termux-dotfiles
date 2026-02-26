@@ -19,13 +19,13 @@ git clone https://gitlab.com/Xeks4237/termux-dotfiles.git ~/.dotfiles/
 Stow everything correctly, expect files for termux itself:
 
 ```sh
-stow --verbose=2 --adopt --dir=$HOME/.dotfiles/ --target=$HOME --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
+stow --verbose=2 --adopt --dir=$HOME/.dotfiles/ --target=$HOME --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ searxng/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
 ```
 
 Commands to symlink dotfiles for termux, because stow don't allows to do it by security reasons:
 
 ```sh
-cd ~ ; ln -s .dotfiles/termux/.termux/ ~/.termux ; ln -s .dotfiles/termux/.config/termux/ ~/.config/termux ; ln -s .dotfiles/termux/.termux_authinfo ~/.termux_authinfo
+cd ~ && ln -s .dotfiles/termux/.termux/ ~/.termux; ln -s .dotfiles/termux/.config/termux/ ~/.config/termux; ln -s .dotfiles/termux/.termux_authinfo ~/.termux_authinfo
 ```
 
 # How to apply changes after installing
@@ -33,5 +33,5 @@ cd ~ ; ln -s .dotfiles/termux/.termux/ ~/.termux ; ln -s .dotfiles/termux/.confi
 After stowing everthing first time, everything can be restowed with this command, also it is no difference from where you run this command:
 
 ```sh
-stow --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
+stow --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ searxng/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
 ```

@@ -155,7 +155,7 @@ set -g status-right-length 200
 set -g status-right-style 'default'
 
 # Style of the status line, like background color of windows line and etc
-set -g status-style 'bg=#{@thm_bg},fg=#{#thm_fg}'
+set -g status-style 'bg=#{@thm_bg},fg=#{@thm_fg}'
 
 # How activity alerts should be shown: a message ('on'), a message and a bell ('both') or nothing ('off')
 set -g visual-activity both

@@ -99,7 +99,7 @@ set -g other-pane-height 0
 set -g other-pane-width 0
 
 # Style of the active pane border
-set -g pane-active-border-style '#{?pane_in_mode,fg=#{@thm_yellow},#{?synchronize-panes,fg=#{@thm_lavender},fg=#{@thm_green}}}'
+set -g pane-active-border-style 'bg=#{@thm_bg},fg=#{?pane_in_mod>e,#{@thm_yellow},#{?synchronize-panes,#{@thm_lavender},#{@thm_green}}}'
 
 # Index of the first pane in each window
 set -g pane-base-index 1

@@ -2,24 +2,24 @@ Noting Special to see here
 
 # My dotfiles from termux android
 
-though to post it on [gitlab](https://gitlab.com/Xeks4237/termux-dotfiles) and [github](https://github.com/Xeks4237/termux-dotfiles) because I love to install custom roms for my phone and it's takes time to copy paste configs for tools to make tests
+My dotfiles of my android phone because I love to install custom roms on my phone and it's takes time to copy paste configs for tools to make tests
 
-Also I don't included here my NeoVim config because it's in seperate repo cold NV-GOD on [gitlab](https://gitlab.com/Xeks4237/NV-GOD) and [github](https://github.com/Xeks4237/NV-GOD)
+Also my NeoVim config is the seperate project cold [NV-GOD](https://codeberg.org/Xeks4237/NV-GOD)
 
-WARNING: commands belove can overwrite existing files, please recheck before continuing.
+# How to add/install dotfiles
 
-# How to add/install/use dotfiles
+⚠️ WARNING: If you want to try my dotfies please recheck everthing begore doing anything, Commands belove can overwrite existing files
 
-Clone dotfiles without nvim config using git:
+Clone dotfiles without NeoVim config using git:
 
 ```sh
-git clone https://gitlab.com/Xeks4237/termux-dotfiles.git ~/.dotfiles/
+git clone https://codeberg.org/Xeks4237/termux-dotfiles.git ~/.dotfiles/
 ```
 
-Clone dotfiles with nvim config using git:
+Clone dotfiles with NeoVim config using git:
 
 ```sh
-git clone --recurse-submodules https://gitlab.com/Xeks4237/termux-dotfiles.git ~/.dotfiles/
+git clone --recurse-submodules https://codeberg.org/Xeks4237/termux-dotfiles.git ~/.dotfiles/
 ```
 
 Stow everything correctly, expect files for termux itself:

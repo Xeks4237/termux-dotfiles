@@ -3,6 +3,7 @@
 set -g activity-action other
 
 # Maximum time between input to assume it is pasting rather than typing
+# NOTE: 1 means 1 millisecond
 set -g assume-paste-time 1
 
 # Default index of the first window in each session
@@ -18,7 +19,7 @@ set -g default-command 'zsh'
 set -g default-shell "$SHELL"
 
 # Initial size of new sessions
-set -g default-size '80x24'
+set -g default-size '77x36'
 
 # Whether to destroy sessions when they have no attached clients
 set -g destroy-unattached off
@@ -27,14 +28,14 @@ set -g destroy-unattached off
 # Or switch the client to another session if any exist
 set -g detach-on-destroy off
 
-# Color of the active pane in 'display-panes' menu
-set -g display-panes-active-colour 'red'
+# Color of the active pane in 'display-panes'
+set -g display-panes-active-colour 'green'
 
-# Color of not active panes in 'display-panes' menu
-set -g display-panes-colour 'blue'
+# Color of not active panes in 'display-panes'
+set -g display-panes-colour 'green'
 
 # Time in which 'display-panes' menu should show pane numbers
-set -g display-panes-time 500
+set -g display-panes-time 1000
 
 # Time in which status line messages should appear
 set -g display-time 500
@@ -45,17 +46,16 @@ set -g history-limit 10000
 # Time to wait for a key binding to repeat the first time the key is pressed
 set -g initial-repeat-time 0
 
-# Default key table
-# NOTE: Key presses are first looked up in this table if-T is not specified for bindkey
+# Default key table, Key presses are first looked up in this table
 set -g key-table 'root'
 
-# Time after which client is locked if not used
+# Time in seconds after which client is locked if not used
 set -g lock-after-time 0
 
 # Shell command to run to lock a client
 set -g lock-command 'lock -np'
 
-# Style of the command prompt when in command mode, if 'mode-keys' is set  to 'vi'
+# Style of the command prompt when in command mode, If 'mode-keys' is set  to 'vi'
 set -g message-command-style 'bg=#{@thm_surface_0},fg=#{@thm_yellow}'
 
 # Position (line) of messages and the command prompt
@@ -72,7 +72,7 @@ set -g mouse on
 set -g prefix C-b
 
 # The second prefix key
-# NOTE: in most cases one prefix key is enough
+# NOTE: In most cases one prefix key is enough
 set -g prefix2 none
 
 # Color of the cursor when in the command prompt

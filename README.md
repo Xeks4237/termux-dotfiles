@@ -4,6 +4,8 @@ Noting Special to see here
 
 My dotfiles of my android phone because I love to install custom roms on my phone and it's takes time to copy paste configs for tools to make tests
 
+This repo is hosted on [codeberg](https://codeberg.org/Xeks4237/termux-dotfiles) with mirrors of it being on [gitlab](https://gitlab.com/Xeks4237/termux-dotfiles) and [github](https://github.com/Xeks4237/termux-dotfiles)
+
 Also my NeoVim config is the seperate project cold [NV-GOD](https://codeberg.org/Xeks4237/NV-GOD)
 
 # How to add/install dotfiles

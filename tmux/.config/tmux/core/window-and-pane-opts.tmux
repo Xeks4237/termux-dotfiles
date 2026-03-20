@@ -171,7 +171,7 @@ set -g synchronize-panes off
 set -g tiled-layout-max-columns 0
 
 # Default style of the active pane
-set -g window-active-style 'bg=default,fg=default
+set -g window-active-style 'bg=default,fg=default'
 
 # How window size is calculated. 'latest' uses the size of the most recently used client, 'largest' the largest client, 'smallest' the smallest client and 'manual' a size set by the 'resize-window' command
 set -g window-size latest

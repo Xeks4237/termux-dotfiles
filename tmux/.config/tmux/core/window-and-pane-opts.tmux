@@ -89,7 +89,7 @@ set -g monitor-activity off
 set -g monitor-bell off
 
 # Time after which an alert is triggered by silence. Zero means no alert
-# NOTE: it can be usefull to keep your device awake, but why? idk
+# NOTE: it can be useful to keep your device awake, but why? idk
 set -g monitor-silence 0
 
 # Height of the other panes in the 'main-horizontal' layout. This may be a percentage, for example '10%'
@@ -139,7 +139,7 @@ set -g pane-status-style 'bg=#{@thm_bg},fg=#{@thm_overlay_0}'
 
 # Type of characters used to draw popup border lines.
 # NOTE: Some of these are only supported on terminals with UTF-8 support
-set -g popup-border-lines none
+set -g popup-border-lines heavy
 
 # Default style of popup borders
 set -g popup-border-style 'bg=#{@thm_bg},fg=#{@thm_green}'
@@ -163,8 +163,8 @@ set -g session-status-current-style 'bg=#{@thm_green},fg=#{@thm_crust}'
 set -g session-status-style 'bg=#{@thm_bg},fg=#{@thm_green}'
 
 # Whether typing should be sent to all panes simultaneously
-# NOTE: This option is supposed to be used in keymaps for toggling synchronize panes separatly
-# And here I setted up that they are turned of on STARTUP
+# NOTE: This option is supposed to be used in keymaps for toggling synchronize panes separately
+# And here I set up that they are turned of on STARTUP
 set -g synchronize-panes off
 
 # Maximum number of columns in the 'tiled' layout. A value of 0 means no limit

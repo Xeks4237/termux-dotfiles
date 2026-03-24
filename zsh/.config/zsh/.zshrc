@@ -40,9 +40,6 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/options.zsh"
 # fzf
 eval "$(fzf --zsh)"
 
-# gitleaks
-eval "$(gitleaks completion zsh --verbose)"
-
 # [ Source/Load Zinit plugin manager ]
 # Variable which sets home directory of zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

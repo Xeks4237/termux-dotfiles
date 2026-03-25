@@ -208,4 +208,3 @@ set -g wrap-search on
 
 # Whether xterm-style function key sequences should be sent. This option is no longer used but good to be set
 set -g xterm-keys on
-

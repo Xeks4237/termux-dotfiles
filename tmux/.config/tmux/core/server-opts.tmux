@@ -82,4 +82,3 @@ set -g terminal-overrides[0] 'xterm-256color:RGB'
 
 # If the Unicode VS16 codepoint should always be treated as a wide character
 set -g variation-selector-always-wide on
-

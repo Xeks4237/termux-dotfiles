@@ -116,20 +116,13 @@ set -g status-justify left
 set -g status-keys vi
 
 # Contents of the left side of the status line
-# NOTE: This option is used here multiple times for management purposes
-# And also there are used '-a' flag to ADD extra options instead of over writing
-# First set status line to be empty
-set -g status-left ''
-
-# Item for 'status-left' which shows current session name
-# And changes color when prefix key is pressed/active
-set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_crust},bold]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_red}]},#{#[bg=#{@thm_surface_0},fg=#{@thm_green}]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_surface_0}}]}'
+set -g status-left '#{?client_prefix,#{#[bg=#{@thm_red},fg=#{@thm_crust},bold]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_red}]},#{#[bg=#{@thm_surface_0},fg=#{@thm_green}]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_surface_0}}]}#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,#{#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_yellow}]  zoom #[bg=#{@thm_bg},fg=#{@thm_surface_0}]},}#(cat #{socket_path}-\#{session_id}-vimbridge)'
 
 # Item for 'status-left' which is used as seperator
 # set -ga status-left '#[bg=#{@thm_bg},fg=#{@thm_overlay_0},none]│'
 
 # Maximum width of the left side in the status line
-set -g status-left-length 999
+set -g status-left-length 9999
 
 # Main style of the left side in the status line, like background color
 set -g status-left-style 'default'
@@ -138,18 +131,10 @@ set -g status-left-style 'default'
 set -g status-position top
 
 # Contents of the right side of the status line
-# NOTE: This option is used here multiple times for management purposes
-# And also there are used '-a' flag to ADD extra options instead of over writing
-# First set status line to be empty
-set -g status-right ''
-
-# Item for 'status-right' which appears only when some pane is zoomed/fullscreened
-set -ga status-right '#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,#{#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_yellow}]  zoom #[bg=#{@thm_bg},fg=#{@thm_surface_0}]},}#(cat #{socket_path}-\#{session_id}-vimbridge-R)'
-
-set -ga status-right '#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_sky}]  #{=/-32/...:#{s|$USER|~|:#{b:pane_current_path}}} '
+set -g status-right '#(cat #{socket_path}-\#{session_id}-vimbridge-R)'
 
 # Maximum width of the right side in the status line
-set -g status-right-length 999
+set -g status-right-length 9999
 
 # Style of the right side of the status line
 set -g status-right-style 'default'

@@ -33,7 +33,7 @@ stow --verbose=2 --adopt --dir=$HOME/.dotfiles/ --target=$HOME --restow bat/ cso
 Commands to symlink dotfiles for termux, because stow don't allows to do it by security reasons:
 
 ```sh
-cd ~ && ln -s .dotfiles/termux/.termux/ ~/.termux; ln -s .dotfiles/termux/.config/termux/ ~/.config/termux; ln -s .dotfiles/termux/.termux_authinfo ~/.termux_authinfo
+cd ~ && ln -s .dotfiles/termux/.termux/ ~/.termux; ln -s ../.dotfiles/termux/.config/termux/ ~/.config/termux; ln -s .dotfiles/termux/.termux_authinfo ~/.termux_authinfo
 ```
 
 # How to apply changes after installing

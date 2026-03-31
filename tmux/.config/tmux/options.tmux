@@ -203,7 +203,7 @@ set -g status-keys vi
 # Contents of the left side of the status line
 set -g status-left '#{?client_prefix,#{#[#{bg=#{@thm_bg},fg=#{@thm_red}}]#[bg=#{@thm_red},fg=#{@thm_crust},bold]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_red}]},#{#[#{bg=#{@thm_bg},fg=#{@thm_surface_0}}]#[bg=#{@thm_surface_0},fg=#{@thm_green}]  #{session_name} #[bg=#{@thm_bg},fg=#{@thm_surface_0}}]}'
 
-set -ga status-left '#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,#{#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_yellow}]  zoom #[bg=#{@thm_bg},fg=#{@thm_surface_0}]},}
+set -ga status-left '#[bg=#{@thm_bg},fg=#{@thm_yellow}]#{?window_zoomed_flag,#{#[bg=#{@thm_bg},fg=#{@thm_surface_0}]#[bg=#{@thm_surface_0},fg=#{@thm_yellow}]  zoom #[bg=#{@thm_bg},fg=#{@thm_surface_0}]},}'
 
 set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)'
 

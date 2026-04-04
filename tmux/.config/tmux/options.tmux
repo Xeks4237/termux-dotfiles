@@ -151,7 +151,7 @@ set -g message-style 'bg=#{@thm_bg},fg=#{@thm_fg}'
 
 # Whether the mouse is recognised and mouse key bindings are executed
 # NOTE: Applications inside panes can use the mouse even when 'off'
-set -g mouse on
+set -g mouse off
 
 # The prefix key
 set -g prefix C-b

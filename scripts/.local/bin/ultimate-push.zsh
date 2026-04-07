@@ -14,7 +14,7 @@ git status --short
 print -P '%F{green}Pushing ZshGod...%f'
 git push codeberg main
 
-print -P '%F{green}NV-GOD%f'
+print -P '%F{green}NV-GOD:%f'
 cd ~/.dotfiles/nvim/.config/nvim/
 git status --short
 print -P '%F{green}Pushing NV-GOD...%f'

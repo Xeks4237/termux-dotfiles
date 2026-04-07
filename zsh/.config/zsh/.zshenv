@@ -10,8 +10,11 @@
 # NOTE: So you should put here stuff like environment variables which are should be set EVERYWHERE
 
 # [ Environment Variables generally needed ]
-# Vatiable which sets Locale/Language of system and tools
-export LANG=en_US.UTF-8
+# Path
+export PATH="$PREFIX/bin/:$CARGO_HOME/bin/:$XDG_BIN_HOME"
+
+# Variable which sets Locale/Language of system and tools
+export LANG='en_US.UTF-8'
 
 # XDG configurations directory
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/}"
@@ -43,7 +46,7 @@ export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg/"
 
 # Variable which sets location of ICEauthority file
-export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+export ICEAUTHORITY="$XDG_CACHE_HOME/ICEauthority"
 
 # Variable which sets location for wine prefix directory
 export WINEPREFIX="$XDG_DATA_HOME/wine/"

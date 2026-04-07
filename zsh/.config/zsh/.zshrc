@@ -129,7 +129,7 @@ source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/aliases.zsh"
 
 # [ Environment Variables ]
 # Path
-PATH="$PATH:$PREFIX/bin/:$XDG_BIN_HOME:$HOME/Scripts/"
+PATH="$PREFIX/bin/:$CARGO_HOME/bin/:$XDG_BIN_HOME"
 
 # Location of zsh history file
 HISTFILE="$ZDOTDIR/.zsh_history"

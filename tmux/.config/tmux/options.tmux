@@ -44,7 +44,7 @@ set -g exit-unattached off
 set -g extended-keys on
 
 # The format of emitted extended key sequences
-set -g extended-keys-format 'xterm'
+set -g extended-keys-format xterm
 
 # Whether to send focus events to applications
 set -g focus-events on
@@ -132,7 +132,7 @@ set -g history-limit 10000
 set -g initial-repeat-time 0
 
 # Default key table, Key presses are first looked up in this table
-set -g key-table 'root'
+set -g key-table root
 
 # Time in seconds after which client is locked if not used
 set -g lock-after-time 0
@@ -164,7 +164,7 @@ set -g prefix2 none
 set -g prompt-cursor-colour '#cdd6f4'
 
 # Style of the cursor when it's in the command prompt
-set -g prompt-cursor-style 'block'
+set -g prompt-cursor-style block
 
 # Whether windows are automatically renumbered rather than leaving gaps
 set -g renumber-windows on
@@ -272,7 +272,7 @@ set -g automatic-rename on
 set -g clock-mode-colour '#a6e3a1'
 
 # Time format of the clock in clock mode
-set -g clock-mode-style '24-with-seconds'
+set -g clock-mode-style 24-with-seconds
 
 # Style of the current search match in copy mode
 set -g copy-mode-current-match-style 'bg=#{@thm_red},fg=#{@thm_crust}'
@@ -324,7 +324,7 @@ set -g menu-style 'bg=#{@thm_bg},fg=#{@thm_fg}'
 set -g mode-keys vi
 
 # Style of indicators and highlighting in modes
-set -g mode-style 'bg=#f9e2af,fg=#11111b'
+set -g mode-style "bg=#{@thm_yellow},fg=#{@thm_bg}"
 
 # Whether an alert is triggered by activity
 # NOTE: In some tools like top, fzf, and etc it gonna alert constantly if option is set to on
@@ -374,7 +374,7 @@ set -g pane-scrollbars off
 set -g pane-scrollbars-position right
 
 # Style of the pane scrollbar
-set -g pane-scrollbars-style 'bg=#6c7086,fg=#cdd6f4,width=1,pad=0'
+set -g pane-scrollbars-style 'bg=#6C7086,fg=#CDD6F4,width=1,pad=0'
 
 # Style of the current pane in the status line
 set -g pane-status-current-style 'bg=#{@thm_bg},fg=#{@thm_green}'

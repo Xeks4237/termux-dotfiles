@@ -25,7 +25,6 @@ bind-key    -T prefix ?       list-keys
 bind-key    -T prefix C       customize-mode -Z
 bind-key    -T prefix E       select-layout -E
 bind-key    -T prefix R       command-prompt -I "#W" { rename-window "%%" }
-bind-key    -T prefix S       choose-tree -Zs
 bind-key    -T prefix X       confirm-before -p "#[bg=#{@thm_bg}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_yellow}]Window?: #[fg=#{@thm_green}]#{window_index}: #{window_name} #[fg=#{@thm_yellow}](#[fg=#{@thm_green}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])" kill-window
 bind-key    -T prefix [       previous-window
 bind-key    -T prefix ]       next-window
@@ -35,7 +34,7 @@ bind-key    -T prefix m       select-pane -m
 bind-key    -T prefix n       display-panes
 bind-key    -T prefix p       paste-buffer -p
 bind-key    -T prefix r       refresh-client
-bind-key    -T prefix s       choose-tree -Zw
+bind-key    -T prefix s       choose-tree
 bind-key    -T prefix t       clock-mode
 bind-key    -T prefix v       copy-mode
 bind-key    -T prefix x       confirm-before -p "#[bg=#{@thm_bg}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_green}]Pane #{pane_index}#[fg=#{@thm_yellow}]? #[fg=#{@thm_yellow}](#[fg=#{@thm_green}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])" kill-pane

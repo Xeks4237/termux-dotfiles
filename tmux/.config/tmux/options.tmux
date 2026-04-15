@@ -349,11 +349,11 @@ set -g pane-active-border-style 'bg=#{@thm_bg},fg=#{?pane_in_mod>e,#{@thm_yellow
 # Index of the first pane in each window
 set -g pane-base-index 1
 
-# Format of text in the pane status lines
-set -g pane-border-format '#{?pane_active, Pane #{pane_index} ,#{ Pane #{pane_index}: #{pane_current_command} }}'
+# Format of text in the pane's border lines
+set -g pane-border-format '#{?pane_active,#{#[align=absolute-centre,bg=#{@thm_green},fg=#{@thm_bg},bold] Pane #{pane_index} },#{#[align=absolute-centre,bg=#{@thm_overlay_0},fg=#{@thm_fg},bold] Pane #{pane_index}: #{pane_current_command} }}'
 
 # Whether to indicate border of active pane by coloring or displaying arrow markers
-# NOTE: Is tmux devs are British? like why 'colour' instead of 'color'?
+# NOTE: Are tmux devs British? like why 'colour' instead of 'color'?
 set -g pane-border-indicators colour
 
 # Type of characters used to draw pane border lines. Some of these are only supported on terminals with UTF-8 support

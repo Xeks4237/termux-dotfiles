@@ -28,9 +28,6 @@ bindkey '^[[4~' end-of-line
 [[ -n ${key[End]} ]] && bindkey -M vicmd ${key[End]} end-of-line
 bindkey -M vicmd '^[[4~' end-of-line
 
-# Sets Ctrl r to open fzf history search widget
-bindkey '^r' fzf-history-widget
-
 # Makes 'frontspace?' to delete 1 character after the cursor
 # Its like 'backspace' but deletes character after the cursor rather then before
 [[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char

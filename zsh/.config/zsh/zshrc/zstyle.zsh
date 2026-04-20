@@ -15,7 +15,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # Makes coloring for completions using ls color
 zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 
-# Turns off completions menu, because its replaced with fzf-tab plugin
+# Enables completions menu of zsh and makes it to have selectable entries
 zstyle ':completion:*' menu select
 
 # [ fzf-tab plugin ]

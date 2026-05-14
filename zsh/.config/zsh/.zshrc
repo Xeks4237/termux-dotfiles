@@ -37,8 +37,8 @@ autoload -Uz zcalc
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/options.zsh"
 
 # [ Shell integrations with external tools ]
-# tv
-eval "$(tv init zsh)"
+# fzf
+eval "$(fzf --zsh)"
 
 # [ Source/Load Zinit plugin manager ]
 # Variable which sets home directory of zinit

@@ -77,7 +77,7 @@ zinit light 'Xeks4237/ZshGod'
 
 # [ Extra commands for Zsh/Zinit plugins ]
 # Choose/Set theme of fast-syntax-highlighting
-fast-theme --quiet $ZDOTDIR/zshrc/custom-fsh-theme.ini
+fast-theme --quiet $ZDOTDIR/zshrc/xeks.ini
 
 # Load and initialize completions related stuff for zinit
 zinit cdreplay -q

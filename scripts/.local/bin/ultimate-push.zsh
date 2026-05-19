@@ -9,7 +9,7 @@ print -P '%F{green}Pushing dotfiles...%f'
 git push codeberg main
 
 print -P '%F{green}ZshGod:%f'
-cd ~/Git/zshgod/
+cd ~/Git/ZshGod/
 git status --short
 print -P '%F{green}Pushing ZshGod...%f'
 git push codeberg main

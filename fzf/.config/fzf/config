@@ -3,7 +3,7 @@
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8
 --color=selected-bg:#45475A
 --color=border:#6C7086,label:#CDD6F4
---style full:rounded
+--style full:bold
 --layout reverse
 --reverse
 --margin 0,0,0,0
@@ -17,7 +17,6 @@
 --ellipsis '…'
 --info inline-right
 --info-command 'echo -n " {+n}/{n}  " | sed "s/^ //"'
---separator '─'
 --scrollbar '█'
 --gap 0
 --gap-line '┈'
@@ -25,15 +24,15 @@
 --cycle
 --wrap
 --wrap-sign '↪ '
---jump-labels 'asdfghjklqwertyuiopzxcvbn'
+--jump-labels 'qwertyuiopasdfghjklzxcvbnm'
 --tabstop 2
 --highlight-line
---header-border rounded
+--header-border bold
 --header-label ' Header '
 --header-label-pos 4:top
---preview 'bat --tabs=4 --wrap=character --color=always --decorations=auto --paging=never --theme=Catppuccin\ Mocha --theme-dark=Catppuccin\ Mocha --theme-light=Catppuccin\ Latte --strip-ansi=auto --style=changes {} 2>/dev/null || eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name {} 2>/dev/null || echo {}'
---preview-window 'right:50%:border-rounded'
---preview-border rounded
+--preview 'bat --tabs=2 --wrap=character --color=always --decorations=never --paging=never --theme=Catppuccin\ Mocha --theme-dark=Catppuccin\ Mocha --theme-light=Catppuccin\ Latte --strip-ansi=always --style=changes {} 2>/dev/null || eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name {} 2>/dev/null || print {}'
+--preview-window 'right:50%:border-bold'
+--preview-border bold
 --preview-label ' Preview '
 --preview-label-pos center:top
 --bind 'Ctrl-Left:change-preview-window(left:50%)'
@@ -41,10 +40,7 @@
 --bind 'Ctrl-Up:change-preview-window(up:50%)'
 --bind 'Ctrl-Right:change-preview-window(right:50%)'
 --bind '?:toggle-preview'
---bind 'Alt-/:toggle-wrap'
---bind 'Ctrl-y:execute-silent(termux-clipboard-set {})'
---bind 'Ctrl-e:execute(nvim {})'
---expect 'Ctrl-l'
+--bind 'Ctrl-/:toggle-wrap'
 --multi
 --tiebreak begin,chunk,length,index
 --smart-case

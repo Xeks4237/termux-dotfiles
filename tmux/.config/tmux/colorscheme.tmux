@@ -1,4 +1,6 @@
-# [ Colorscheme ]
+
+
+# [ Colorschemes ]
 %if "#{==:#{@theme},catppuccin_mocha}"
 # Catppuccin Mocha colors
 set -g @thm_black '#11111B'

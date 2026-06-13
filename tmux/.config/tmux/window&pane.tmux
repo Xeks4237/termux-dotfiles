@@ -30,26 +30,26 @@ set -gF clock-mode-colour '#{@thm_accent-color}'
 set -g clock-mode-style 24-with-seconds
 
 # Style of the current search match in copy mode
-set -g copy-mode-current-match-style 'bg=#{@thm_red},fg=#{@thm_black}'
+set -g copy-mode-current-match-style 'bg=red,fg=black'
 
 # Style of the marked line in copy mode
-set -g copy-mode-mark-style 'bg=#{@thm_red},fg=#{@thm_black}'
+set -g copy-mode-mark-style 'bg=red,fg=black'
 
 # Style of search matches in copy mode
-set -g copy-mode-match-style 'bg=#{@thm_sky},fg=#{@thm_black}'
+set -g copy-mode-match-style 'bg=cyan,fg=black'
 
 # Format of the position indicator in copy mode
 # TODO: Gonna configure this option to have custom look with better info on it than default later...
 # set -g copy-mode-position-format '#[align=right]#{t/p:top_line_time}#{?#{e|>:#{top_line_time},0},,}[#{scroll_position}/#{history_size}]#{?search_timed_out, (timed out),#{?search_count, (#{search_count}#{?search_count_partial,+,}results),}}'
 
 # Style of position indicator in copy mode
-set -g copy-mode-position-style 'bg=#{@thm_accent-color},fg=#{@thm_black}'
+set -g copy-mode-position-style 'bg=#{@thm_accent-color},fg=black'
 
 # Style of selection in copy mode
-set -g copy-mode-selection-style 'bg=#{@thm_grey},fg=#{@thm_foreground}'
+set -g copy-mode-selection-style 'bg=black,fg=terminal'
 
 # Color of the cursor
-set -gF cursor-colour '#{@thm_cursor-color}'
+set -g cursor-colour 'default'
 
 # Style of the cursor
 set -g cursor-style block
@@ -67,19 +67,19 @@ set -g main-pane-width 80
 set -g menu-border-lines heavy
 
 # Default style of menu borders
-set -g menu-border-style 'bg=#{@thm_background},fg=#{@thm_accent-color}'
+set -g menu-border-style 'bg=default,fg=#{@thm_accent-color}'
 
 # Default style of selected menu item
-set -g menu-selected-style 'bg=#{@thm_yellow},fg=#{@thm_black}'
+set -g menu-selected-style 'bg=yellow,fg=black'
 
 # Default style of menu
-set -g menu-style 'bg=#{@thm_background},fg=#{@thm_foreground}'
+set -g menu-style 'bg=default,fg=terminal'
 
 # Key set used in copy mode
 set -g mode-keys vi
 
 # Style of indicators and highlighting in modes
-set -g mode-style "bg=#{@thm_yellow},fg=#{@thm_background}"
+set -g mode-style "bg=yellow,fg=black"
 
 # Whether an alert is triggered by activity
 # NOTE: In some tools like top, fzf, and etc it gonna alert constantly if option is set to on
@@ -99,13 +99,13 @@ set -g other-pane-height 0
 set -g other-pane-width 0
 
 # Style of the active pane border
-set -g pane-active-border-style 'bg=#{@thm_background},fg=#{?pane_in_mod>e,#{@thm_yellow},#{?synchronize-panes,#{@thm_purple},#{@thm_accent-color}}}'
+set -g pane-active-border-style 'bg=default,fg=#{?pane_in_mod>e,yellow,#{?synchronize-panes,purple,#{@thm_accent-color}}}'
 
 # Index of the first pane in each window
 set -g pane-base-index 1
 
 # Format of text in the pane's border lines
-set -g pane-border-format '#{?pane_active,#{#[align=absolute-centre,bg=#{@thm_accent-color},fg=#{@thm_black},bold] Pane #{pane_index} },#{#[align=absolute-centre,bg=#{@thm_grey},fg=#{@thm_foreground},bold] Pane #{pane_index}: #{pane_current_command} }}'
+set -g pane-border-format '#{?pane_active,#{#[align=absolute-centre,bg=#{@thm_accent-color},fg=black,bold] Pane #{pane_index} },#{#[align=absolute-centre,bg=black,fg=terminal,bold] Pane #{pane_index}: #{pane_current_command} }}'
 
 # Whether to indicate border of active pane by coloring or displaying arrow markers
 # NOTE: Are tmux devs British? like why 'colour' instead of 'color'?
@@ -119,7 +119,7 @@ set -g pane-border-status top
 
 # Style of the pane status line
 # NOTE: This option changes style of non active border lines
-set -g pane-border-style 'bg=#{@thm_background},fg=#{@thm_grey}'
+set -g pane-border-style 'bg=default,fg=black'
 
 # Pane scrollbars state
 # NOTE: 'modal' value makes scrollbars to appear only when needed
@@ -132,20 +132,20 @@ set -g pane-scrollbars-position right
 set -g pane-scrollbars-style 'bg=#6C7086,fg=#CDD6F4,width=1,pad=0'
 
 # Style of the current pane in the status line
-set -g pane-status-current-style 'bg=#{@thm_background},fg=#{@thm_accent-color}'
+set -g pane-status-current-style 'bg=default,fg=#{@thm_accent-color}'
 
 # Style of panes in the status line, except the current pane
-set -g pane-status-style 'bg=#{@thm_background},fg=#{@thm_grey}'
+set -g pane-status-style 'bg=default,fg=black'
 
 # Type of characters used to draw popup border lines.
 # NOTE: Some of these are only supported on terminals with UTF-8 support
 set -g popup-border-lines heavy
 
 # Default style of popup borders
-set -g popup-border-style 'bg=#{@thm_background},fg=#{@thm_accent-color}'
+set -g popup-border-style 'bg=default,fg=#{@thm_accent-color}'
 
 # Default style of popups
-set -g popup-style 'bg=#{@thm_background},fg=#{@thm_foreground}'
+set -g popup-style 'bg=default,fg=terminal'
 
 # Whether panes should remain ('on') or be automatically killed ('off' or 'failed') when the program inside exits
 set -g remain-on-exit off
@@ -157,10 +157,10 @@ set -g remain-on-exit-format '#{pane_current_command} in Pane #{pane_index} Fail
 set -g scroll-on-clear on
 
 # Style of the current session in the status line
-set -g session-status-current-style 'bg=#{@thm_accent-color},fg=#{@thm_black}'
+set -g session-status-current-style 'bg=#{@thm_accent-color},fg=black'
 
 # Style of sessions in the status line, except the current session
-set -g session-status-style 'bg=#{@thm_background},fg=#{@thm_accent-color}'
+set -g session-status-style 'bg=default,fg=#{@thm_accent-color}'
 
 # Whether typing should be sent to all panes simultaneously
 # NOTE: This option is supposed to be used in keymaps for toggling synchronize panes separately
@@ -177,19 +177,19 @@ set -g window-active-style 'bg=default,fg=default'
 set -g window-size latest
 
 # Style of windows in the status line with an activity alert
-set -g window-status-activity-style 'bg=#{@thm_red},fg=#{@thm_background}'
+set -g window-status-activity-style 'bg=red,fg=black'
 
 # Style of windows in the status line with a bell alert
-set -g window-status-bell-style 'bg=#{@thm_red},fg=#{@thm_background}'
+set -g window-status-bell-style 'bg=red,fg=black'
 
 # Format of the current window in the status line
-set -g window-status-current-format '#[bg=#{@thm_background},fg=#{@thm_accent-color}]#[bg=#{@thm_accent-color},fg=#{@thm_black}] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=#{@thm_background},fg=#{@thm_accent-color}]█'
+set -g window-status-current-format '#[bg=default,fg=#{@thm_accent-color}]#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=default,fg=#{@thm_accent-color}]█'
 
 # Style of the current window in the status line
 set -g window-status-current-style 'bold'
 
 # Format of windows in the status line, except the current window
-set -g window-status-format '#[bg=#{@thm_background},fg=#{@thm_grey}]#[bg=#{@thm_grey},fg=#{@thm_accent-color}] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=#{@thm_background},fg=#{@thm_grey}]█'
+set -g window-status-format '#[bg=default,fg=black]#[bg=black,fg=#{@thm_accent-color}] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=default,fg=black]█'
 
 # Style of the last window in the status line
 set -g window-status-last-style ''
@@ -198,7 +198,7 @@ set -g window-status-last-style ''
 set -g window-status-separator ''
 
 # Style of windows in the status line, except the current and last windows
-set -g window-status-style 'bg=#{@thm_grey},fg=#{@thm_accent-color}'
+set -g window-status-style 'bg=black,fg=#{@thm_accent-color}'
 
 # Default style of panes that aren't the active pane
 set -g window-style 'bg=default,fg=default'

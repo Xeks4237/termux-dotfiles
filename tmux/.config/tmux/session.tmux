@@ -32,7 +32,7 @@ set -g detach-on-destroy off
 set -gF display-panes-active-colour '#{@thm_accent-color}'
 
 # Color of not active panes in 'display-panes'
-set -gF display-panes-colour '#{@thm_grey}'
+set -gF display-panes-colour 'black'
 
 # Time in which 'display-panes' menu should show pane numbers
 set -g display-panes-time 1000
@@ -56,13 +56,13 @@ set -g lock-after-time 0
 set -g lock-command 'lock -np'
 
 # Style of the command prompt when in command mode, If 'mode-keys' is set  to 'vi'
-set -g message-command-style 'bg=#{@thm_grey},fg=#{@thm_yellow}'
+set -g message-command-style 'bg=black,fg=yellow'
 
 # Position (line) of messages and the command prompt
 set -g message-line 0
 
 # Style of messages and the command prompt
-set -g message-style 'bg=#{@thm_background},fg=#{@thm_foreground}'
+set -g message-style 'bg=default,fg=terminal'
 
 # Whether the mouse is recognised and mouse key bindings are executed
 # NOTE: Applications inside panes can use the mouse even when 'off'
@@ -76,7 +76,7 @@ set -g prefix C-b
 set -g prefix2 none
 
 # Color of the cursor when in the command prompt
-set -gF prompt-cursor-colour '#{@thm_cursor-color}'
+set -g prompt-cursor-colour 'default'
 
 # Style of the cursor when it's in the command prompt
 set -g prompt-cursor-style block
@@ -116,15 +116,15 @@ set -g status-justify left
 set -g status-keys vi
 
 # Contents of the left side of the status line
-set -g status-left '#{?client_prefix,#{#[#{bg=#{@thm_background},fg=#{@thm_red}}]#[bg=#{@thm_red},fg=#{@thm_black},bold]  #{session_name} #[bg=#{@thm_background},fg=#{@thm_red}]},#{#[#{bg=#{@thm_background},fg=#{@thm_grey}}]#[bg=#{@thm_grey},fg=#{@thm_accent-color}]  #{session_name} #[bg=#{@thm_background},fg=#{@thm_grey}}]}'
+set -g status-left '#{?client_prefix,#{#[bg=default,fg=red]#[bg=red,fg=black,bold]  #{session_name} #[bg=default,fg=red]},#{#[bg=default,fg=black]#[bg=black,fg=#{@thm_accent-color}]  #{session_name} #[bg=default,fg=black}]}'
 
-set -ga status-left '#[bg=#{@thm_background},fg=#{@thm_yellow}]#{?window_zoomed_flag,#{#[bg=#{@thm_background},fg=#{@thm_grey}]#[bg=#{@thm_grey},fg=#{@thm_yellow}]  zoom #[bg=#{@thm_background},fg=#{@thm_grey}]},}'
+set -ga status-left '#[bg=default,fg=yellow]#{?window_zoomed_flag,#{#[bg=default,fg=black]#[bg=black,fg=yellow]  zoom #[bg=default,fg=black]},}'
 
 # NOTE: I use vim-tpipeline plugin for nvim and this line is for it
 set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)'
 
 # Item for 'status-left' which is used as seperator
-# set -ga status-left '#[bg=#{@thm_background},fg=#{@thm_grey},none]│'
+# set -ga status-left '#[bg=default,fg=black,none]│'
 
 # Maximum width of the left side in the status line
 set -g status-left-length 9999
@@ -146,7 +146,7 @@ set -g status-right-length 9999
 set -g status-right-style 'default'
 
 # Style of the status line, like background color of windows line and etc
-set -g status-style 'bg=#{@thm_background},fg=#{@thm_foreground}'
+set -g status-style 'bg=default,fg=terminal'
 
 # How activity alerts should be shown: a message ('on'), a message and a bell ('both') or nothing ('off')
 set -g visual-activity both

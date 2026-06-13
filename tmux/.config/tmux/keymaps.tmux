@@ -20,23 +20,13 @@ bind-key    -T prefix  7       select-window -t :=7
 bind-key    -T prefix  8       select-window -t :=8
 bind-key    -T prefix  9       select-window -t :=9
 bind-key    -T prefix  :       command-prompt
-bind-key    -T prefix  <       display-menu -T '#[align=absolute-centre,bg=#{@thm_accent-color},fg=#{@thm_background},bold] #{window_index}: #{window_name} ' \
--x W -y W \
-'#{?#{>:#{session_windows},1},,-}#[fg=blue]Swap Left' l { swap-window -t :-1 } \
-'#{?#{>:#{session_windows},1},,-}#[fg=blue]Swap Right' r { swap-window -t :+1 } \
-'#{?pane_marked_set,,-}#[fg=blue]Swap Marked' s { swap-window } \
-'' '#[fg=red]Kill' X { kill-window } \
-'#[fg=blue]Respawn' R { respawn-window -k } \
-'#{?pane_marked,#[fg=red]Unmark,#[fg=green]Mark}' m { select-pane -m } \
-'#[fg=blue]Rename' n { command-prompt -F -I '#W' { rename-window -t "#{window_id}" "%%" } } \
-'' '#[fg=blue]New After' w { new-window -a } \
-'#[fg=blue]New At End' W { new-window }
-bind-key    -T prefix  >       display-menu -T "#[align=absolute-centre,bg=#{@thm_accent-color},fg=#{@thm_background},bold] Pane #{pane_index} " -x P -y P "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}" < { send-keys -X history-top } "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}" > { send-keys -X history-bottom } '' "#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}" C-r { if-shell -F "#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}" "copy-mode -t=" ; send-keys -X -t = search-backward -- "#{q:mouse_word}" } "#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}" C-y { copy-mode -q ; send-keys -l "#{q:mouse_word}" } "#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}" c { copy-mode -q ; set-buffer "#{q:mouse_word}" } "#{?mouse_line,Copy Line,}" l { copy-mode -q ; set-buffer "#{q:mouse_line}" } '' "#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}" C-h { copy-mode -q ; send-keys -l "#{q:mouse_hyperlink}" } "#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}" h { copy-mode -q ; set-buffer "#{q:mouse_hyperlink}" } '' "Horizontal Split" h { split-window -h } "Vertical Split" v { split-window -v } '' "#{?#{>:#{window_panes},1},,-}Swap Up" u { swap-pane -U } "#{?#{>:#{window_panes},1},,-}Swap Down" d { swap-pane -D } "#{?pane_marked_set,,-}Swap Marked" s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } "#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}" z { resize-pane -Z }
+bind-key    -T prefix  <       display-menu -T '#[align=absolute-centre,bg=#{@thm_accent-color},fg=#{@thm_background},bold] #{window_index}: #{window_name} ' -x W -y W '#{?#{>:#{session_windows},1},,-}#[fg=blue]Swap Left' l { swap-window -t :-1 } '#{?#{>:#{session_windows},1},,-}#[fg=blue]Swap Right' r { swap-window -t :+1 } '#{?pane_marked_set,,-}#[fg=blue]Swap Marked' s { swap-window } '' '#[fg=red]Kill' X { kill-window } '#[fg=blue]Respawn' R { respawn-window -k } '#{?pane_marked,#[fg=red]Unmark,#[fg=green]Mark}' m { select-pane -m } '#[fg=blue]Rename' n { command-prompt -F -I '#W' { rename-window -t '#{window_id}' '%%' } } '' '#[fg=blue]New After' w { new-window -a } '#[fg=blue]New At End' W { new-window }
+bind-key    -T prefix  >       display-menu -T '#[align=absolute-centre,bg=#{@thm_accent-color},fg=#{@thm_background},bold] Pane #{pane_index} ' -x P -y P '#{?#{m/r:(copy|view)-mode,#{pane_mode}},#[fg=blue]Go To Top,}' < { send-keys -X history-top } '#{?#{m/r:(copy|view)-mode,#{pane_mode}},#[fg=blue]Go To Bottom,}' > { send-keys -X history-bottom } '' '#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}' C-r { if-shell -F '#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}' 'copy-mode -t=' ; send-keys -X -t = search-backward -- '#{q:mouse_word}' } '#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}' C-y { copy-mode -q ; send-keys -l '#{q:mouse_word}' } '#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}' c { copy-mode -q ; set-buffer '#{q:mouse_word}' } '#{?mouse_line,Copy Line,}' l { copy-mode -q ; set-buffer '#{q:mouse_line}' } '' '#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}' C-h { copy-mode -q ; send-keys -l '#{q:mouse_hyperlink}' } '#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}' h { copy-mode -q ; set-buffer '#{q:mouse_hyperlink}' } '' '#[fg=blue]Horizontal Split' h { split-window -h } '#[fg=blue]Vertical Split' v { split-window -v } '' '#{?#{>:#{window_panes},1},,-}#[fg=blue]Swap Up' u { swap-pane -U } '#{?#{>:#{window_panes},1},,-}#[fg=blue]Swap Down' d { swap-pane -D } '#{?pane_marked_set,,-}#[fg=blue]Swap Marked' s { swap-pane } '' '#[fg=red]Kill' X { kill-pane } '#[fg=blue]Respawn' R { respawn-pane -k } '#{?pane_marked,#[fg=red]Unmark,#[fg=green]Mark}' m { select-pane -m } '#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,#[fg=yellow]Unzoom,#[fg=yellow]Zoom}' z { resize-pane -Z }
 bind-key    -T prefix  ?       list-keys
 bind-key    -T prefix  C       customize-mode -Z
 bind-key    -T prefix  E       select-layout -E
-bind-key    -T prefix  R       command-prompt -I "#W" { rename-window "%%" }
-bind-key    -T prefix  X       confirm-before -p "#[bg=#{@thm_background}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_yellow}]Window?: #[fg=#{@thm_accent-color}]#{window_index}: #{window_name} #[fg=#{@thm_yellow}](#[fg=#{@thm_accent-color}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])" kill-window
+bind-key    -T prefix  R       command-prompt -I '#W' { rename-window '%%' }
+bind-key    -T prefix  X       confirm-before -p '#[bg=#{@thm_background}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_yellow}]Window?: #[fg=#{@thm_accent-color}]#{window_index}: #{window_name} #[fg=#{@thm_yellow}](#[fg=#{@thm_accent-color}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])' kill-window
 bind-key    -T prefix  [       previous-window
 bind-key    -T prefix  ]       next-window
 bind-key    -T prefix  c       new-window
@@ -44,11 +34,11 @@ bind-key    -T prefix  d       detach-client
 bind-key    -T prefix  m       select-pane -m
 bind-key    -T prefix  n       display-panes
 bind-key    -T prefix  p       paste-buffer -p
-bind-key    -T prefix  r       refresh-client
+bind-key    -T prefix  r       source "$XDG_CONFIG_HOME/tmux/tmux.conf"\; display-message 'Config reloaded'\; refresh-client
 bind-key    -T prefix  s       choose-tree
 bind-key    -T prefix  t       clock-mode
 bind-key    -T prefix  v       copy-mode
-bind-key    -T prefix  x       confirm-before -p "#[bg=#{@thm_background}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_accent-color}]Pane #{pane_index}#[fg=#{@thm_yellow}]? #[fg=#{@thm_yellow}](#[fg=#{@thm_accent-color}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])" kill-pane
+bind-key    -T prefix  x       confirm-before -p '#[bg=#{@thm_background}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_accent-color}]Pane #{pane_index}#[fg=#{@thm_yellow}]? #[fg=#{@thm_yellow}](#[fg=#{@thm_accent-color}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])' kill-pane
 bind-key    -T prefix  z       resize-pane -Z
 bind-key    -T prefix  \{      switch-client -p
 bind-key    -T prefix  \}      switch-client -n
@@ -61,9 +51,9 @@ bind-key -r -T prefix  Right   select-pane -R
 bind-key    -T prefix  C-b     send-prefix
 bind-key    -T prefix  C-o     rotate-window
 bind-key    -T prefix  C-p     choose-buffer -Z
-bind-key    -T prefix  C-r     command-prompt -I "#S" { rename-session "%%" }
+bind-key    -T prefix  C-r     command-prompt -I '#S' { rename-session '%%' }
 bind-key    -T prefix  C-s     choose-client -Z
-bind-key    -T prefix  C-x     confirm-before -p "#[bg=#{@thm_background}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_yellow}]Session?: #[fg=#{@thm_accent-color}]#{session_name} #[fg=#{@thm_yellow}](#[fg=#{@thm_accent-color}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])" kill-session
+bind-key    -T prefix  C-x     confirm-before -p '#[bg=#{@thm_background}]#[fg=#{@thm_red}]Kill #[fg=#{@thm_yellow}]Session?: #[fg=#{@thm_accent-color}]#{session_name} #[fg=#{@thm_yellow}](#[fg=#{@thm_accent-color}]y#[fg=#{@thm_yellow}]/#[fg=#{@thm_red}]n#[fg=#{@thm_yellow}])' kill-session
 bind-key    -T prefix  C-z     suspend-client
 bind-key -r -T prefix  C-Up    resize-pane -U
 bind-key -r -T prefix  C-Down  resize-pane -D
@@ -74,30 +64,30 @@ bind-key -r -T prefix  C-Right resize-pane -R
 bind-key -T copy-mode-vi Enter             send-keys -X copy-pipe-and-cancel
 bind-key -T copy-mode-vi Escape            send-keys -X clear-selection
 bind-key -T copy-mode-vi Space             send-keys -X begin-selection
-bind-key -T copy-mode-vi \#                send-keys -FX search-backward -- "#{copy_cursor_word}"
+bind-key -T copy-mode-vi \#                send-keys -FX search-backward -- '#{copy_cursor_word}'
 bind-key -T copy-mode-vi \$                send-keys -X end-of-line
 bind-key -T copy-mode-vi \%                send-keys -X next-matching-bracket
-bind-key -T copy-mode-vi *                 send-keys -FX search-forward -- "#{copy_cursor_word}"
+bind-key -T copy-mode-vi *                 send-keys -FX search-forward -- '#{copy_cursor_word}'
 bind-key -T copy-mode-vi ,                 send-keys -X jump-reverse
-bind-key -T copy-mode-vi /                 command-prompt -T search -p "(search down)" { send-keys -X search-forward -- "%%" }
+bind-key -T copy-mode-vi /                 command-prompt -T search -p '(search down)' { send-keys -X search-forward -- '%%' }
 bind-key -T copy-mode-vi 0                 send-keys -X start-of-line
-bind-key -T copy-mode-vi 1                 command-prompt -N -I 1 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 2                 command-prompt -N -I 2 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 3                 command-prompt -N -I 3 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 4                 command-prompt -N -I 4 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 5                 command-prompt -N -I 5 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 6                 command-prompt -N -I 6 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 7                 command-prompt -N -I 7 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 8                 command-prompt -N -I 8 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode-vi 9                 command-prompt -N -I 9 -p (repeat) { send-keys -N "%%" }
+bind-key -T copy-mode-vi 1                 command-prompt -N -I 1 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 2                 command-prompt -N -I 2 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 3                 command-prompt -N -I 3 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 4                 command-prompt -N -I 4 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 5                 command-prompt -N -I 5 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 6                 command-prompt -N -I 6 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 7                 command-prompt -N -I 7 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 8                 command-prompt -N -I 8 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode-vi 9                 command-prompt -N -I 9 -p (repeat) { send-keys -N '%%' }
 bind-key -T copy-mode-vi :                 command-prompt
 bind-key -T copy-mode-vi \;                send-keys -X jump-again
-bind-key -T copy-mode-vi ?                 command-prompt -T search -p "(search up)" { send-keys -X search-backward -- "%%" }
+bind-key -T copy-mode-vi ?                 command-prompt -T search -p '(search up)' { send-keys -X search-backward -- '%%' }
 bind-key -T copy-mode-vi A                 send-keys -X append-selection-and-cancel
 bind-key -T copy-mode-vi B                 send-keys -X previous-space
 bind-key -T copy-mode-vi D                 send-keys -X copy-pipe-end-of-line-and-cancel
 bind-key -T copy-mode-vi E                 send-keys -X next-space-end
-bind-key -T copy-mode-vi F                 command-prompt -1 -p "(jump backward)" { send-keys -X jump-backward -- "%%" }
+bind-key -T copy-mode-vi F                 command-prompt -1 -p '(jump backward)' { send-keys -X jump-backward -- '%%' }
 bind-key -T copy-mode-vi G                 send-keys -X bottom-line
 bind-key -T copy-mode-vi H                 send-keys -X top-line
 bind-key -T copy-mode-vi J                 send-keys -X scroll-down
@@ -106,14 +96,14 @@ bind-key -T copy-mode-vi L                 send-keys -X bottom-line
 bind-key -T copy-mode-vi M                 send-keys -X middle-line
 bind-key -T copy-mode-vi N                 send-keys -X search-reverse
 bind-key -T copy-mode-vi P                 send-keys -X toggle-position
-bind-key -T copy-mode-vi T                 command-prompt -1 -p "(jump to backward)" { send-keys -X jump-to-backward -- "%%" }
+bind-key -T copy-mode-vi T                 command-prompt -1 -p '(jump to backward)' { send-keys -X jump-to-backward -- '%%' }
 bind-key -T copy-mode-vi V                 send-keys -X select-line
 bind-key -T copy-mode-vi W                 send-keys -X next-space
 bind-key -T copy-mode-vi X                 send-keys -X set-mark
 bind-key -T copy-mode-vi ^                 send-keys -X back-to-indentation
 bind-key -T copy-mode-vi b                 send-keys -X previous-word
 bind-key -T copy-mode-vi e                 send-keys -X next-word-end
-bind-key -T copy-mode-vi f                 command-prompt -1 -p "(jump forward)" { send-keys -X jump-forward -- "%%" }
+bind-key -T copy-mode-vi f                 command-prompt -1 -p '(jump forward)' { send-keys -X jump-forward -- '%%' }
 bind-key -T copy-mode-vi g                 send-keys -X top-line
 bind-key -T copy-mode-vi h                 send-keys -X cursor-left
 bind-key -T copy-mode-vi j                 send-keys -X cursor-down
@@ -125,7 +115,7 @@ bind-key -T copy-mode-vi o                 send-keys -X other-end
 bind-key -T copy-mode-vi p                 send-keys -X toggle-position
 bind-key -T copy-mode-vi q                 send-keys -X cancel
 bind-key -T copy-mode-vi r                 send-keys -X refresh-from-pane
-bind-key -T copy-mode-vi t                 command-prompt -1 -p "(jump to forward)" { send-keys -X jump-to-forward -- "%%" }
+bind-key -T copy-mode-vi t                 command-prompt -1 -p '(jump to forward)' { send-keys -X jump-to-forward -- '%%' }
 bind-key -T copy-mode-vi v                 send-keys -X rectangle-toggle
 bind-key -T copy-mode-vi w                 send-keys -X next-word
 bind-key -T copy-mode-vi y                 send-keys -X copy-pipe-and-cancel
@@ -167,18 +157,18 @@ bind-key -T copy-mode Escape            send-keys -X cancel
 bind-key -T copy-mode Space             send-keys -X page-down
 bind-key -T copy-mode ,                 send-keys -X jump-reverse
 bind-key -T copy-mode \;                send-keys -X jump-again
-bind-key -T copy-mode F                 command-prompt -1 -p "(jump backward)" { send-keys -X jump-backward -- "%%" }
+bind-key -T copy-mode F                 command-prompt -1 -p '(jump backward)' { send-keys -X jump-backward -- '%%' }
 bind-key -T copy-mode N                 send-keys -X search-reverse
 bind-key -T copy-mode P                 send-keys -X toggle-position
 bind-key -T copy-mode R                 send-keys -X rectangle-toggle
-bind-key -T copy-mode T                 command-prompt -1 -p "(jump to backward)" { send-keys -X jump-to-backward -- "%%" }
+bind-key -T copy-mode T                 command-prompt -1 -p '(jump to backward)' { send-keys -X jump-to-backward -- '%%' }
 bind-key -T copy-mode X                 send-keys -X set-mark
-bind-key -T copy-mode f                 command-prompt -1 -p "(jump forward)" { send-keys -X jump-forward -- "%%" }
-bind-key -T copy-mode g                 command-prompt -p "(goto line)" { send-keys -X goto-line -- "%%" }
+bind-key -T copy-mode f                 command-prompt -1 -p '(jump forward)' { send-keys -X jump-forward -- '%%' }
+bind-key -T copy-mode g                 command-prompt -p '(goto line)' { send-keys -X goto-line -- '%%' }
 bind-key -T copy-mode n                 send-keys -X search-again
 bind-key -T copy-mode q                 send-keys -X cancel
 bind-key -T copy-mode r                 send-keys -X refresh-from-pane
-bind-key -T copy-mode t                 command-prompt -1 -p "(jump to forward)" { send-keys -X jump-to-forward -- "%%" }
+bind-key -T copy-mode t                 command-prompt -1 -p '(jump to forward)' { send-keys -X jump-to-forward -- '%%' }
 bind-key -T copy-mode MouseDown1Pane    select-pane
 bind-key -T copy-mode MouseDrag1Pane    select-pane \; send-keys -X begin-selection
 bind-key -T copy-mode MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel
@@ -194,15 +184,15 @@ bind-key -T copy-mode Up                send-keys -X cursor-up
 bind-key -T copy-mode Down              send-keys -X cursor-down
 bind-key -T copy-mode Left              send-keys -X cursor-left
 bind-key -T copy-mode Right             send-keys -X cursor-right
-bind-key -T copy-mode M-1               command-prompt -N -I 1 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-2               command-prompt -N -I 2 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-3               command-prompt -N -I 3 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-4               command-prompt -N -I 4 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-5               command-prompt -N -I 5 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-6               command-prompt -N -I 6 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-7               command-prompt -N -I 7 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-8               command-prompt -N -I 8 -p (repeat) { send-keys -N "%%" }
-bind-key -T copy-mode M-9               command-prompt -N -I 9 -p (repeat) { send-keys -N "%%" }
+bind-key -T copy-mode M-1               command-prompt -N -I 1 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-2               command-prompt -N -I 2 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-3               command-prompt -N -I 3 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-4               command-prompt -N -I 4 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-5               command-prompt -N -I 5 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-6               command-prompt -N -I 6 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-7               command-prompt -N -I 7 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-8               command-prompt -N -I 8 -p (repeat) { send-keys -N '%%' }
+bind-key -T copy-mode M-9               command-prompt -N -I 9 -p (repeat) { send-keys -N '%%' }
 bind-key -T copy-mode M-<               send-keys -X history-top
 bind-key -T copy-mode M->               send-keys -X history-bottom
 bind-key -T copy-mode M-R               send-keys -X top-line
@@ -214,8 +204,8 @@ bind-key -T copy-mode M-r               send-keys -X middle-line
 bind-key -T copy-mode M-v               send-keys -X page-up
 bind-key -T copy-mode M-w               send-keys -X copy-pipe-and-cancel
 bind-key -T copy-mode M-x               send-keys -X jump-to-mark
-bind-key -T copy-mode "M-{"             send-keys -X previous-paragraph
-bind-key -T copy-mode "M-}"             send-keys -X next-paragraph
+bind-key -T copy-mode 'M-{'             send-keys -X previous-paragraph
+bind-key -T copy-mode 'M-}'             send-keys -X next-paragraph
 bind-key -T copy-mode M-Up              send-keys -X halfpage-up
 bind-key -T copy-mode M-Down            send-keys -X halfpage-down
 bind-key -T copy-mode C-Space           send-keys -X begin-selection
@@ -229,8 +219,8 @@ bind-key -T copy-mode C-k               send-keys -X copy-pipe-end-of-line-and-c
 bind-key -T copy-mode C-l               send-keys -X cursor-centre-vertical
 bind-key -T copy-mode C-n               send-keys -X cursor-down
 bind-key -T copy-mode C-p               send-keys -X cursor-up
-bind-key -T copy-mode C-r               command-prompt -i -I "#{pane_search_string}" -T search -p "(search up)" { send-keys -X search-backward-incremental -- "%%" }
-bind-key -T copy-mode C-s               command-prompt -i -I "#{pane_search_string}" -T search -p "(search down)" { send-keys -X search-forward-incremental -- "%%" }
+bind-key -T copy-mode C-r               command-prompt -i -I '#{pane_search_string}' -T search -p '(search up)' { send-keys -X search-backward-incremental -- '%%' }
+bind-key -T copy-mode C-s               command-prompt -i -I '#{pane_search_string}' -T search -p '(search down)' { send-keys -X search-forward-incremental -- '%%' }
 bind-key -T copy-mode C-v               send-keys -X page-down
 bind-key -T copy-mode C-w               send-keys -X copy-pipe-and-cancel
 bind-key -T copy-mode C-Up              send-keys -X scroll-up
@@ -243,23 +233,23 @@ bind-key -T root MouseDown1Pane            select-pane -t = \; send-keys -M
 bind-key -T root MouseDown1Status          switch-client -t =
 bind-key -T root MouseDown1ScrollbarUp     copy-mode -u
 bind-key -T root MouseDown1ScrollbarDown   copy-mode -d
-bind-key -T root MouseDown2Pane            select-pane -t = \; if-shell -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { paste-buffer -p }
-bind-key -T root MouseDown3Pane            if-shell -F -t = "#{||:#{mouse_any_flag},#{&&:#{pane_in_mode},#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}}}" { select-pane -t = ; send-keys -M } { display-menu -T "#[align=centre]#{pane_index} (#{pane_id})" -t = -x M -y M "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}" < { send-keys -X history-top } "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}" > { send-keys -X history-bottom } '' "#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}" C-r { if-shell -F "#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}" "copy-mode -t=" ; send-keys -X -t = search-backward -- "#{q:mouse_word}" } "#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}" C-y { copy-mode -q ; send-keys -l "#{q:mouse_word}" } "#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}" c { copy-mode -q ; set-buffer "#{q:mouse_word}" } "#{?mouse_line,Copy Line,}" l { copy-mode -q ; set-buffer "#{q:mouse_line}" } '' "#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}" C-h { copy-mode -q ; send-keys -l "#{q:mouse_hyperlink}" } "#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}" h { copy-mode -q ; set-buffer "#{q:mouse_hyperlink}" } '' "Horizontal Split" h { split-window -h } "Vertical Split" v { split-window -v } '' "#{?#{>:#{window_panes},1},,-}Swap Up" u { swap-pane -U } "#{?#{>:#{window_panes},1},,-}Swap Down" d { swap-pane -D } "#{?pane_marked_set,,-}Swap Marked" s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } "#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}" z { resize-pane -Z } }
-bind-key -T root MouseDown3Status          display-menu -T "#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] #{window_index}: #{window_name} " -t = -x W -y W "#{?#{>:#{session_windows},1},,-}Swap Left" l { swap-window -t :-1 } "#{?#{>:#{session_windows},1},,-}Swap Right" r { swap-window -t :+1 } "#{?pane_marked_set,,-}Swap Marked" s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } Rename n { command-prompt -F -I "#W" { rename-window -t "#{window_id}" "%%" } } '' "New After" w { new-window -a } "New At End" W { new-window }
-bind-key -T root MouseDown3StatusLeft      display-menu -T "#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}]#{session_name}" -t = -x M -y W Next n { switch-client -n } Previous p { switch-client -p } '' Renumber N { move-window -r } Rename n { command-prompt -I "#S" { rename-session "%%" } } '' "New Session" s { new-session } "New Window" w { new-window }
-bind-key -T root MouseDrag1Pane            if-shell -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { copy-mode -M }
+bind-key -T root MouseDown2Pane            select-pane -t = \; if-shell -F '#{||:#{pane_in_mode},#{mouse_any_flag}}' { send-keys -M } { paste-buffer -p }
+bind-key -T root MouseDown3Pane            if-shell -F -t = '#{||:#{mouse_any_flag},#{&&:#{pane_in_mode},#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}}}' { select-pane -t = ; send-keys -M } { display-menu -T '#[align=centre]#{pane_index} (#{pane_id})' -t = -x M -y M '#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}' < { send-keys -X history-top } '#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}' > { send-keys -X history-bottom } '' '#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}' C-r { if-shell -F '#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}' 'copy-mode -t=' ; send-keys -X -t = search-backward -- '#{q:mouse_word}' } '#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}' C-y { copy-mode -q ; send-keys -l '#{q:mouse_word}' } '#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}' c { copy-mode -q ; set-buffer '#{q:mouse_word}' } '#{?mouse_line,Copy Line,}' l { copy-mode -q ; set-buffer '#{q:mouse_line}' } '' '#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}' C-h { copy-mode -q ; send-keys -l '#{q:mouse_hyperlink}' } '#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}' h { copy-mode -q ; set-buffer '#{q:mouse_hyperlink}' } '' 'Horizontal Split' h { split-window -h } 'Vertical Split' v { split-window -v } '' '#{?#{>:#{window_panes},1},,-}Swap Up' u { swap-pane -U } '#{?#{>:#{window_panes},1},,-}Swap Down' d { swap-pane -D } '#{?pane_marked_set,,-}Swap Marked' s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } '#{?pane_marked,Unmark,Mark}' m { select-pane -m } '#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}' z { resize-pane -Z } }
+bind-key -T root MouseDown3Status          display-menu -T '#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] #{window_index}: #{window_name} ' -t = -x W -y W '#{?#{>:#{session_windows},1},,-}Swap Left' l { swap-window -t :-1 } '#{?#{>:#{session_windows},1},,-}Swap Right' r { swap-window -t :+1 } '#{?pane_marked_set,,-}Swap Marked' s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } '#{?pane_marked,Unmark,Mark}' m { select-pane -m } Rename n { command-prompt -F -I '#W' { rename-window -t '#{window_id}' '%%' } } '' 'New After' w { new-window -a } 'New At End' W { new-window }
+bind-key -T root MouseDown3StatusLeft      display-menu -T '#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}]#{session_name}' -t = -x M -y W Next n { switch-client -n } Previous p { switch-client -p } '' Renumber N { move-window -r } Rename n { command-prompt -I '#S' { rename-session '%%' } } '' 'New Session' s { new-session } 'New Window' w { new-window }
+bind-key -T root MouseDrag1Pane            if-shell -F '#{||:#{pane_in_mode},#{mouse_any_flag}}' { send-keys -M } { copy-mode -M }
 bind-key -T root MouseDrag1ScrollbarSlider copy-mode -S
 bind-key -T root MouseDrag1Border          resize-pane -M
-bind-key -T root WheelUpPane               if-shell -F "#{||:#{alternate_on},#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { copy-mode -e }
+bind-key -T root WheelUpPane               if-shell -F '#{||:#{alternate_on},#{pane_in_mode},#{mouse_any_flag}}' { send-keys -M } { copy-mode -e }
 bind-key -T root WheelUpStatus             previous-window
 bind-key -T root WheelDownStatus           next-window
-bind-key -T root DoubleClick1Pane          select-pane -t = \; if-shell -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { copy-mode -H ; send-keys -X select-word ; run -d 0.3 ; send-keys -X copy-pipe-and-cancel }
-bind-key -T root TripleClick1Pane          select-pane -t = \; if-shell -F "#{||:#{pane_in_mode},#{mouse_any_flag}}" { send-keys -M } { copy-mode -H ; send-keys -X select-line ; run -d 0.3 ; send-keys -X copy-pipe-and-cancel }
-bind-key -T root M-MouseDown3Pane          display-menu -T "#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] Pane #{pane_index} " -t = -x M -y M "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}" < { send-keys -X history-top } "#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}" > { send-keys -X history-bottom } '' "#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}" C-r { if-shell -F "#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}" "copy-mode -t=" ; send-keys -X -t = search-backward -- "#{q:mouse_word}" } "#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}" C-y { copy-mode -q ; send-keys -l "#{q:mouse_word}" } "#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}" c { copy-mode -q ; set-buffer "#{q:mouse_word}" } "#{?mouse_line,Copy Line,}" l { copy-mode -q ; set-buffer "#{q:mouse_line}" } '' "#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}" C-h { copy-mode -q ; send-keys -l "#{q:mouse_hyperlink}" } "#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}" h { copy-mode -q ; set-buffer "#{q:mouse_hyperlink}" } '' "Horizontal Split" h { split-window -h } "Vertical Split" v { split-window -v } '' "#{?#{>:#{window_panes},1},,-}Swap Up" u { swap-pane -U } "#{?#{>:#{window_panes},1},,-}Swap Down" d { swap-pane -D } "#{?pane_marked_set,,-}Swap Marked" s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } "#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}" z { resize-pane -Z }
-bind-key -T root M-MouseDown3Status        display-menu -T "#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] #{window_index}: #{window_name} " -t = -x W -y W "#{?#{>:#{session_windows},1},,-}Swap Left" l { swap-window -t :-1 } "#{?#{>:#{session_windows},1},,-}Swap Right" r { swap-window -t :+1 } "#{?pane_marked_set,,-}Swap Marked" s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } "#{?pane_marked,Unmark,Mark}" m { select-pane -m } Rename n { command-prompt -F -I "#W" { rename-window -t "#{window_id}" "%%" } } '' "New After" w { new-window -a } "New At End" W { new-window }
-bind-key -T root M-MouseDown3StatusLeft    display-menu -T "#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] #{session_name} " -t = -x M -y W Next n { switch-client -n } Previous p { switch-client -p } '' Renumber N { move-window -r } Rename n { command-prompt -I "#S" { rename-session "%%" } } '' "New Session" s { new-session } "New Window" w { new-window }
+bind-key -T root DoubleClick1Pane          select-pane -t = \; if-shell -F '#{||:#{pane_in_mode},#{mouse_any_flag}}' { send-keys -M } { copy-mode -H ; send-keys -X select-word ; run -d 0.3 ; send-keys -X copy-pipe-and-cancel }
+bind-key -T root TripleClick1Pane          select-pane -t = \; if-shell -F '#{||:#{pane_in_mode},#{mouse_any_flag}}' { send-keys -M } { copy-mode -H ; send-keys -X select-line ; run -d 0.3 ; send-keys -X copy-pipe-and-cancel }
+bind-key -T root M-MouseDown3Pane          display-menu -T '#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] Pane #{pane_index} ' -t = -x M -y M '#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Top,}' < { send-keys -X history-top } '#{?#{m/r:(copy|view)-mode,#{pane_mode}},Go To Bottom,}' > { send-keys -X history-bottom } '' '#{?mouse_word,Search For #[underscore]#{=/9/...:mouse_word},}' C-r { if-shell -F '#{?#{m/r:(copy|view)-mode,#{pane_mode}},0,1}' 'copy-mode -t=' ; send-keys -X -t = search-backward -- '#{q:mouse_word}' } '#{?mouse_word,Type #[underscore]#{=/9/...:mouse_word},}' C-y { copy-mode -q ; send-keys -l '#{q:mouse_word}' } '#{?mouse_word,Copy #[underscore]#{=/9/...:mouse_word},}' c { copy-mode -q ; set-buffer '#{q:mouse_word}' } '#{?mouse_line,Copy Line,}' l { copy-mode -q ; set-buffer '#{q:mouse_line}' } '' '#{?mouse_hyperlink,Type #[underscore]#{=/9/...:mouse_hyperlink},}' C-h { copy-mode -q ; send-keys -l '#{q:mouse_hyperlink}' } '#{?mouse_hyperlink,Copy #[underscore]#{=/9/...:mouse_hyperlink},}' h { copy-mode -q ; set-buffer '#{q:mouse_hyperlink}' } '' 'Horizontal Split' h { split-window -h } 'Vertical Split' v { split-window -v } '' '#{?#{>:#{window_panes},1},,-}Swap Up' u { swap-pane -U } '#{?#{>:#{window_panes},1},,-}Swap Down' d { swap-pane -D } '#{?pane_marked_set,,-}Swap Marked' s { swap-pane } '' Kill X { kill-pane } Respawn R { respawn-pane -k } '#{?pane_marked,Unmark,Mark}' m { select-pane -m } '#{?#{>:#{window_panes},1},,-}#{?window_zoomed_flag,Unzoom,Zoom}' z { resize-pane -Z }
+bind-key -T root M-MouseDown3Status        display-menu -T '#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] #{window_index}: #{window_name} ' -t = -x W -y W '#{?#{>:#{session_windows},1},,-}Swap Left' l { swap-window -t :-1 } '#{?#{>:#{session_windows},1},,-}Swap Right' r { swap-window -t :+1 } '#{?pane_marked_set,,-}Swap Marked' s { swap-window } '' Kill X { kill-window } Respawn R { respawn-window -k } '#{?pane_marked,Unmark,Mark}' m { select-pane -m } Rename n { command-prompt -F -I '#W' { rename-window -t '#{window_id}' '%%' } } '' 'New After' w { new-window -a } 'New At End' W { new-window }
+bind-key -T root M-MouseDown3StatusLeft    display-menu -T '#[align=centre,bg=#{@thm_background},fg=#{@thm_accent-color}] #{session_name} ' -t = -x M -y W Next n { switch-client -n } Previous p { switch-client -p } '' Renumber N { move-window -r } Rename n { command-prompt -I '#S' { rename-session '%%' } } '' 'New Session' s { new-session } 'New Window' w { new-window }
 
 # Tmux Plugin Manager
-bind-key -T prefix U run -b '#{d:current_file}/plugins/tpm-async/bindings/update_plugins'
-bind-key -T prefix I run -b '#{d:current_file}/plugins/tpm-async/bindings/install_plugins'
-bind-key -T prefix O run -b '#{d:current_file}/plugins/tpm-async/bindings/clean_plugins'
+bind-key -T prefix U run -b "$XDG_CONFIG_HOME/tmux/plugins/tpm-async/bindings/update_plugins"
+bind-key -T prefix I run -b "$XDG_CONFIG_HOME/tmux/plugins/tpm-async/bindings/install_plugins"
+bind-key -T prefix O run -b "$XDG_CONFIG_HOME/tmux/plugins/tpm-async/bindings/clean_plugins"

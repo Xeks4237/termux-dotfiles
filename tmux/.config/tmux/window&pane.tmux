@@ -129,7 +129,7 @@ set -g pane-scrollbars off
 set -g pane-scrollbars-position right
 
 # Style of the pane scrollbar
-set -g pane-scrollbars-style 'bg=#6C7086,fg=#CDD6F4,width=1,pad=0'
+set -g pane-scrollbars-style 'bg=black,fg=white,width=1,pad=0'
 
 # Style of the current pane in the status line
 set -g pane-status-current-style 'bg=default,fg=#{@thm_accent-color}'
@@ -171,6 +171,7 @@ set -g synchronize-panes off
 set -g tiled-layout-max-columns 0
 
 # Default style of the active pane
+# NOTE: Don't change it if you want be able to change your background color using ascii escape sequences
 set -g window-active-style 'bg=default,fg=default'
 
 # How window size is calculated. 'latest' uses the size of the most recently used client, 'largest' the largest client, 'smallest' the smallest client and 'manual' a size set by the 'resize-window' command
@@ -183,13 +184,13 @@ set -g window-status-activity-style 'bg=red,fg=black'
 set -g window-status-bell-style 'bg=red,fg=black'
 
 # Format of the current window in the status line
-set -g window-status-current-format '#[bg=default,fg=#{@thm_accent-color}]#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=default,fg=#{@thm_accent-color}]█'
+set -g window-status-current-format '#[bg=default,fg=#{@thm_accent-color}]#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} #[bg=default,fg=#{@thm_accent-color}]'
 
 # Style of the current window in the status line
 set -g window-status-current-style 'bold'
 
 # Format of windows in the status line, except the current window
-set -g window-status-format '#[bg=default,fg=black]#[bg=black,fg=#{@thm_accent-color}] #{window_index}: #{window_icon}#{window_name}#{?window_flags, #{window_flags},}#[bg=default,fg=black]█'
+set -g window-status-format '#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=#{@thm_accent-color}] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} #[bg=terminal,fg=brightblack]'
 
 # Style of the last window in the status line
 set -g window-status-last-style ''

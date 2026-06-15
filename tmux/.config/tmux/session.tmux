@@ -118,7 +118,7 @@ set -g status-keys vi
 # Contents of the left side of the status line
 set -g status-left '#{?client_prefix,#{#[bg=terminal,fg=red]#[bg=red,fg=black,bold]  #{session_name} #[bg=terminal,fg=red]},#{#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} #[bg=terminal,fg=brightblack}]}'
 
-set -ga status-left '#{?window_zoomed_flag,#{#[bg=default,fg=black]#[bg=black,fg=yellow]  zoom #[bg=default,fg=black]},}'
+set -ga status-left '#{?window_zoomed_flag,#{#[bg=default,fg=brightblack]#[bg=brightblack,fg=yellow]  Zoom #[bg=default,fg=brightblack]#{}},}'
 
 # NOTE: I use vim-tpipeline plugin for nvim and this line is for it
 set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)'

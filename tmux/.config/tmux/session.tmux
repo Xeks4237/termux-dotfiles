@@ -64,9 +64,10 @@ set -g message-line 0
 # Style of messages and the command prompt
 set -g message-style 'bg=default,fg=terminal'
 
-# Whether the mouse is recognised and mouse key bindings are executed
+# Whether the mouse is recognised and mouse key bindings are set/executed
 # NOTE: Applications inside panes can use the mouse even when 'off'
-set -g mouse on
+# And also it works better on 'off' in termux, like man pages and etc
+set -g mouse off
 
 # The prefix key
 set -g prefix C-b
@@ -116,15 +117,23 @@ set -g status-justify left
 set -g status-keys vi
 
 # Contents of the left side of the status line
-set -g status-left '#{?client_prefix,#{#[bg=terminal,fg=red]#[bg=red,fg=black,bold]  #{session_name} #[bg=terminal,fg=red]},#{#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} #[bg=terminal,fg=brightblack}]}'
+# NOTE: I use vim-tpipeline plugin for nvim in status line
+%if '#{==:#{@thm_style},arrows}'
+set -g status-left '#{?client_prefix,#{#[bg=terminal,fg=red]#[bg=red,fg=black,bold]  #{session_name} #[bg=terminal,fg=red]},#{#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} #[bg=terminal,fg=brightblack}]}#[default]'
+set -ga status-left '#{?window_zoomed_flag,#{#[bg=default,fg=brightblack]#[bg=brightblack,fg=yellow]  Zoom #[bg=default,fg=brightblack]#{}},}#[default]'
+set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#[default]'
 
-set -ga status-left '#{?window_zoomed_flag,#{#[bg=default,fg=brightblack]#[bg=brightblack,fg=yellow]  Zoom #[bg=default,fg=brightblack]#{}},}'
+%elif '#{==:#{@thm_style},cubic}'
+set -g status-left '#{?client_prefix,#{#[bg=red,fg=black,bold]  #{session_name} },#{#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} }}#[default]'
+set -ga status-left '#{?window_zoomed_flag,#{#[bg=brightblack,fg=yellow]  Zoom #{}},}#[default]'
+set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#[default]'
 
-# NOTE: I use vim-tpipeline plugin for nvim and this line is for it
-set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)'
-
-# Item for 'status-left' which is used as seperator
-# set -ga status-left '#[bg=default,fg=black,none]│'
+%else
+set -g @thm_style cubic
+set -g status-left '#{?client_prefix,#{#[bg=red,fg=black,bold]  #{session_name} },#{#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} }}#[default]'
+set -ga status-left '#{?window_zoomed_flag,#{#[bg=brightblack,fg=yellow]  Zoom #{}},}#[default]'
+set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#[default]'
+%endif
 
 # Maximum width of the left side in the status line
 set -g status-left-length 9999

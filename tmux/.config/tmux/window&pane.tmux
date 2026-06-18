@@ -39,8 +39,7 @@ set -g copy-mode-mark-style 'bg=red,fg=black'
 set -g copy-mode-match-style 'bg=cyan,fg=black'
 
 # Format of the position indicator in copy mode
-# TODO: Gonna configure this option to have custom look with better info on it than default later...
-# set -g copy-mode-position-format '#[align=right]#{t/p:top_line_time}#{?#{e|>:#{top_line_time},0},,}[#{scroll_position}/#{history_size}]#{?search_timed_out, (timed out),#{?search_count, (#{search_count}#{?search_count_partial,+,}results),}}'
+set -g copy-mode-position-format '#[align=right]#{t/p:top_line_time}#{cursor_x cursor_y}#{?#{e|>:#{top_line_time},0}, ,}[#{scroll_position}/#{history_size}]#{?search_timed_out, (timed out),#{?search_count, (#{search_count}#{?search_count_partial,+,} results),}}'
 
 # Style of position indicator in copy mode
 set -g copy-mode-position-style 'bg=#{@thm_accent-color},fg=black'
@@ -183,14 +182,32 @@ set -g window-status-activity-style 'bg=red,fg=black'
 # Style of windows in the status line with a bell alert
 set -g window-status-bell-style 'bg=red,fg=black'
 
+%if '#{==:#{@thm_style},arrows}'
 # Format of the current window in the status line
 set -g window-status-current-format '#[bg=default,fg=#{@thm_accent-color}]#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} #[bg=default,fg=#{@thm_accent-color}]'
 
-# Style of the current window in the status line
-set -g window-status-current-style 'bold'
-
 # Format of windows in the status line, except the current window
 set -g window-status-format '#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=#{@thm_accent-color}] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} #[bg=terminal,fg=brightblack]'
+
+%elif '#{==:#{@thm_style},cubic}'
+# Format of the current window in the status line
+set -g window-status-current-format '#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
+
+# Format of windows in the status line, except the current window
+set -g window-status-format '#[bg=brightblack,fg=#{@thm_accent-color}] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
+%else
+# Use cubic style of my custom options if else
+set -g @thm_style cubic
+
+# Format of the current window in the status line
+set -g window-status-current-format '#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
+
+# Format of windows in the status line, except the current window
+set -g window-status-format '#[bg=brightblack,fg=#{@thm_accent-color}] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
+%endif
+
+# Style of the current window in the status line
+set -g window-status-current-style 'bold'
 
 # Style of the last window in the status line
 set -g window-status-last-style ''

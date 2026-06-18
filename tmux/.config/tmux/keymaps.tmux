@@ -34,7 +34,7 @@ bind-key    -T prefix  d       detach-client
 bind-key    -T prefix  m       select-pane -m
 bind-key    -T prefix  n       display-panes
 bind-key    -T prefix  p       paste-buffer -p
-bind-key    -T prefix  r       source "$XDG_CONFIG_HOME/tmux/tmux.conf"\; display-message 'Config reloaded'\; refresh-client
+bind-key    -T prefix  r       source "$XDG_CONFIG_HOME/tmux/tmux.conf"\; refresh-client
 bind-key    -T prefix  s       choose-tree
 bind-key    -T prefix  t       clock-mode
 bind-key    -T prefix  v       copy-mode

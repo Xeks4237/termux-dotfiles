@@ -138,7 +138,7 @@ set -g pane-status-style 'bg=default,fg=black'
 
 # Type of characters used to draw popup border lines.
 # NOTE: Some of these are only supported on terminals with UTF-8 support
-set -g popup-border-lines heavy
+set -g popup-border-lines none
 
 # Default style of popup borders
 set -g popup-border-style 'bg=default,fg=#{@thm_accent-color}'

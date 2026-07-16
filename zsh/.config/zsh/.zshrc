@@ -32,6 +32,9 @@ autoload -Uz zmv
 # Load zcalc module, builtin calculator in zsh which is more precise than you think XD
 autoload -Uz zcalc
 
+# tetriscurses: Example implementation of tetris using zsh/curses module
+autoload -Uz tetriscurses
+
 # Seperate file with zsh options
 # NOTE: For more about zsh options see 'zshoptions' mandoc page
 source "${ZDOTDIR:-$XDG_CONFIG_HOME/zsh/}/zshrc/options.zsh"

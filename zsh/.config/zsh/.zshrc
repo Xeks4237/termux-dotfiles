@@ -145,4 +145,3 @@ SPROMPT="%F{#B4BEFE}zsh:%f %F{#F9E2AF}correct %f%F{#F38BA8}%R%f%F{#F9E2AF} to %f
 
 # Variable which sets indentation for right side of prompt relative to terminal border
 ZLE_RPROMPT_INDENT=0
-

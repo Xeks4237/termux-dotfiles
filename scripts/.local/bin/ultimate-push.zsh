@@ -16,13 +16,6 @@ print -P '%F{green}Pushing ZshGod...%f'
 git push codeberg main
 
 print ''
-print -P '%F{green}Zflex:%f'
-cd ~/Git/Zflex/
-git status --short
-print -P '%F{green}Pushing Zflex...%f'
-git push codeberg main
-
-print ''
 print -P '%F{green}NV-GOD:%f'
 cd ~/.dotfiles/nvim/.config/nvim/
 git status --short

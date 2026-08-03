@@ -62,7 +62,7 @@ set -g message-command-style 'bg=black,fg=yellow'
 set -g message-line 0
 
 # Style of messages and the command prompt
-set -g message-style 'bg=default,fg=terminal'
+set -g message-style 'bg=black,fg=terminal,fill=black'
 
 # Whether the mouse is recognised and mouse key bindings are set/executed
 # NOTE: Applications inside panes can use the mouse even when 'off'
@@ -135,7 +135,7 @@ set -ga status-left '#{?window_zoomed_flag,#{#[bg=brightblack,fg=yellow]  Zoo
 set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#[default]'
 %endif
 
-# Maximum width of the left side in the status line
+# Maximum length of the left side in the status line
 set -g status-left-length 9999
 
 # Main style of the left side in the status line, like background color
@@ -148,7 +148,7 @@ set -g status-position top
 # NOTE: I use vim-tpipeline plugin for nvim and my right side of status line has only its parts
 set -g status-right '#(cat #{socket_path}-\#{session_id}-vimbridge-R)'
 
-# Maximum width of the right side in the status line
+# Maximum length of the right side in the status line
 set -g status-right-length 9999
 
 # Style of the right side of the status line

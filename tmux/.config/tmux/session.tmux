@@ -56,7 +56,7 @@ set -g lock-after-time 0
 set -g lock-command 'lock -np'
 
 # Style of the command prompt when in command mode, If 'mode-keys' is set  to 'vi'
-set -g message-command-style 'bg=black,fg=yellow'
+set -g message-command-style 'bg=black,fg=yellow,fill=black'
 
 # Position (line) of messages and the command prompt
 set -g message-line 0

@@ -26,10 +26,6 @@ hosts.yml
 # Symlink to the shell made by termux
 shell
 
-# files which end with '.ttf'
-# Needed because termux has 'font.ttf' file to set its font
-*.ttf
-
 # Directory with tmux plugins
 tmux/.config/tmux/plugins/
 

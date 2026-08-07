@@ -1,1 +1,1 @@
-/data/data/com.termux/files/home/.dotfiles/zsh/.config/zsh/.zshrc
+.config/zsh/.zshrc

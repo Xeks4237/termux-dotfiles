@@ -119,19 +119,19 @@ set -g status-keys vi
 # Contents of the left side of the status line
 # NOTE: I use vim-tpipeline plugin for nvim in status line
 %if '#{==:#{@thm_style},arrows}'
-set -g status-left '#{?client_prefix,#{#[bg=terminal,fg=red]#[bg=red,fg=black,bold]  #{session_name} #[bg=terminal,fg=red]},#{#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} #[bg=terminal,fg=brightblack}]}#[default]'
-set -ga status-left '#{?window_zoomed_flag,#{#[bg=default,fg=brightblack]#[bg=brightblack,fg=yellow]  Zoom #[bg=default,fg=brightblack]#{}},}#[default]'
+set -g status-left '#{?client_prefix,#{#[bg=terminal,fg=red]#[bg=red,fg=black]  #{session_name} #[bg=terminal,fg=red]},#{#[bg=terminal,fg=#{@thm_accent-color}]#[bg=#{@thm_accent-color},fg=black]  #{session_name} #[bg=terminal,fg=#{@thm_accent-color}}]}#[default]'
+set -ga status-left '#{?window_zoomed_flag,#{#[bg=default,fg=yellow]#[bg=yellow,fg=black]  Zoom #[bg=default,fg=yellow]#{}},}#[default]'
 set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#[default]'
 
 %elif '#{==:#{@thm_style},cubic}'
-set -g status-left '#{?client_prefix,#{#[bg=red,fg=black,bold]  #{session_name} },#{#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} }}#[default]'
-set -ga status-left '#{?window_zoomed_flag,#{#[bg=brightblack,fg=yellow]  Zoom #{}},}#[default]'
+set -g status-left '#{?client_prefix,#{#[bg=red,fg=black]  #{session_name} },#{#[bg=#{@thm_accent-color},fg=black]  #{session_name} }}#[default] '
+set -ga status-left '#{?window_zoomed_flag,#{#[bg=yellow,fg=black]  Zoom #{}},}#[default]'
 set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#[default]'
 
 %else
 set -g @thm_style cubic
-set -g status-left '#{?client_prefix,#{#[bg=red,fg=black,bold]  #{session_name} },#{#[bg=brightblack,fg=#{@thm_accent-color}]  #{session_name} }}#[default]'
-set -ga status-left '#{?window_zoomed_flag,#{#[bg=brightblack,fg=yellow]  Zoom #{}},}#[default]'
+set -g status-left '#{?client_prefix,#{#[bg=red,fg=black]  #{session_name} },#{#[bg=#{@thm_accent-color},fg=black]  #{session_name} }}#[default] '
+set -ga status-left '#{?window_zoomed_flag,#{#[bg=yellow,fg=black]  Zoom #{}},}#[default]'
 set -ga status-left '#(cat #{socket_path}-\#{session_id}-vimbridge)#[default]'
 %endif
 

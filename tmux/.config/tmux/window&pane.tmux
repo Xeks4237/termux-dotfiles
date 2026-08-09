@@ -104,7 +104,7 @@ set -g pane-active-border-style 'bg=default,fg=#{?pane_in_mod>e,yellow,#{?synchr
 set -g pane-base-index 1
 
 # Format of text in the pane's border lines
-set -g pane-border-format '#{?pane_active,#{#[align=absolute-centre,bg=#{@thm_accent-color},fg=black,bold] Pane #{pane_index} },#{#[align=absolute-centre,bg=black,fg=terminal,bold] Pane #{pane_index}: #{pane_current_command} }}'
+set -g pane-border-format '#{?pane_active,#{#[align=absolute-centre,bg=#{@thm_accent-color},fg=black] Pane #{pane_index} },#{#[align=absolute-centre,bg=black,fg=terminal] Pane #{pane_index}: #{pane_current_command} }}'
 
 # Whether to indicate border of active pane by coloring or displaying arrow markers
 # NOTE: Are tmux devs British? like why 'colour' instead of 'color'?
@@ -187,14 +187,14 @@ set -g window-status-bell-style 'bg=red,fg=black'
 set -g window-status-current-format '#[bg=default,fg=#{@thm_accent-color}]#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} #[bg=default,fg=#{@thm_accent-color}]'
 
 # Format of windows in the status line, except the current window
-set -g window-status-format '#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=#{@thm_accent-color}] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} #[bg=terminal,fg=brightblack]'
+set -g window-status-format '#[bg=terminal,fg=brightblack]#[bg=brightblack,fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} #[bg=terminal,fg=brightblack]'
 
 %elif '#{==:#{@thm_style},cubic}'
 # Format of the current window in the status line
 set -g window-status-current-format '#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
 
 # Format of windows in the status line, except the current window
-set -g window-status-format '#[bg=brightblack,fg=#{@thm_accent-color}] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
+set -g window-status-format '#[bg=brightblack,fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
 %else
 # Use cubic style of my custom options if else
 set -g @thm_style cubic
@@ -203,11 +203,11 @@ set -g @thm_style cubic
 set -g window-status-current-format '#[bg=#{@thm_accent-color},fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
 
 # Format of windows in the status line, except the current window
-set -g window-status-format '#[bg=brightblack,fg=#{@thm_accent-color}] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
+set -g window-status-format '#[bg=brightblack,fg=black] #{window_index}: #{window_name}#{?window_flags, #{window_flags},} '
 %endif
 
 # Style of the current window in the status line
-set -g window-status-current-style 'bold'
+set -g window-status-current-style ''
 
 # Style of the last window in the status line
 set -g window-status-last-style ''

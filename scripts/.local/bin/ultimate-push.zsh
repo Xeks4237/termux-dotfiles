@@ -16,13 +16,6 @@ print -P '%F{green}Pushing ZshGod...%f'
 git push origin main
 
 print ''
-print -P '%F{green}Colornstant:%f'
-cd ~/Git/colornstant/
-git status --short
-print -P '%F{green}Pushing Colornstant...%f'
-git push origin main
-
-print ''
 print -P '%F{green}NV-GOD:%f'
 cd ~/.dotfiles/nvim/.config/nvim/
 git status --short

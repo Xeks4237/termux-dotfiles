@@ -6,9 +6,7 @@
 --italic-text=never
 --decorations=auto
 --paging=never
---theme=Catppuccin\ Mocha
---theme-dark=Catppuccin\ Mocha
---theme-light=Catppuccin\ Latte
+--theme=gruvbox-dark
 --strip-ansi=auto
 --style=changes,numbers
 --set-terminal-title

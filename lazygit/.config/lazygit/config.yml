@@ -1,6 +1,6 @@
 gui:
   authorColors:
-    '*': '#b4befe'
+    "*": magenta
   branchColors: {}
   branchColorPatterns: {}
   customIcons:
@@ -30,30 +30,10 @@ gui:
   shortTimeFormat: 3:04PM
   theme:
     activeBorderColor:
-      - '#89b4fa'
-      - bold
+      - blue
     inactiveBorderColor:
-      - '#a6adc8'
-    searchingActiveBorderColor:
-      - '#f9e2af'
-    optionsTextColor:
-      - '#89b4fa'
-    selectedLineBgColor:
-      - '#313244'
-    inactiveViewSelectedLineBgColor:
-      - '#6c7086'
-    cherryPickedCommitFgColor:
-      - '#89b4fa'
-    cherryPickedCommitBgColor:
-      - '#45475a'
-    markedBaseCommitFgColor:
-      - '#89b4fa'
-    markedBaseCommitBgColor:
-      - '#f9e2af'
-    unstagedChangesColor:
-      - '#f38ba8'
-    defaultFgColor:
-      - '#cdd6f4'
+      - black
+      - bold
   commitLength:
     show: true
   showListFooter: true
@@ -85,9 +65,9 @@ gui:
   filterMode: substring
   spinner:
     frames:
-      - '|'
+      - "|"
       - /
-      - '-'
+      - "-"
       - \
     rate: 50
   statusPanelView: dashboard
@@ -143,7 +123,7 @@ quitOnTopLevelReturn: false
 disableStartupPopups: false
 customCommands: []
 services: {}
-notARepository: prompt
+notARepository: skip
 promptToReturnFromSubprocess: true
 keybinding:
   universal:
@@ -157,12 +137,12 @@ keybinding:
     nextItem: <down>
     prevItem-alt: k
     nextItem-alt: j
-    prevPage: ','
+    prevPage: ","
     nextPage: .
     scrollLeft: H
     scrollRight: L
     gotoTop: <
-    gotoBottom: '>'
+    gotoBottom: ">"
     gotoTop-alt: <home>
     gotoBottom-alt: <end>
     toggleRangeSelect: v
@@ -188,7 +168,7 @@ keybinding:
     moveWordRight: <ctrl+right>
     backspaceWord: <ctrl+backspace>
     forwardDeleteWord: <ctrl+delete>
-    optionMenu: '?'
+    optionMenu: "?"
     select: <space>
     goInto: <enter>
     confirm: <enter>
@@ -206,17 +186,17 @@ keybinding:
     scrollDownMain-alt1: J
     scrollUpMain-alt2: <ctrl+u>
     scrollDownMain-alt2: <ctrl+d>
-    executeShellCommand: ':'
+    executeShellCommand: ":"
     createRebaseOptionsMenu: m
     pushFiles: P
     pullFiles: p
     refresh: R
     createPatchOptionsMenu: <ctrl+p>
-    nextTab: ']'
-    prevTab: '['
+    nextTab: "]"
+    prevTab: "["
     nextScreenMode: +
     prevScreenMode: _
-    cycleDiffRenderers: '|'
+    cycleDiffRenderers: "|"
     undo: z
     redo: Z
     filteringMenu: <ctrl+s>
@@ -225,10 +205,10 @@ keybinding:
     copyToClipboard: <ctrl+o>
     openRecentRepos: <ctrl+r>
     submitEditorText: <enter>
-    extrasMenu: '@'
+    extrasMenu: "@"
     toggleWhitespaceInDiffView: <ctrl+w>
-    increaseContextInDiffView: '}'
-    decreaseContextInDiffView: '{'
+    increaseContextInDiffView: "}"
+    decreaseContextInDiffView: "{"
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <ctrl+t>
@@ -252,11 +232,11 @@ keybinding:
     toggleStagedAll: a
     viewResetOptions: D
     fetch: f
-    toggleTreeView: '`'
+    toggleTreeView: "`"
     openMergeOptions: M
     openStatusFilter: <ctrl+b>
     copyFileInfoToClipboard: "y"
-    collapseAll: '-'
+    collapseAll: "-"
     expandAll: =
   branches:
     createPullRequest: o
@@ -265,7 +245,7 @@ keybinding:
     copyPullRequestURL: <ctrl+y>
     checkoutBranchByName: c
     forceCheckoutBranch: F
-    checkoutPreviousBranch: '-'
+    checkoutPreviousBranch: "-"
     rebaseBranch: r
     renameBranch: R
     mergeIntoCurrentBranch: M
@@ -305,7 +285,7 @@ keybinding:
     openPullRequestInBrowser: G
     viewBisectOptions: b
     startInteractiveRebase: i
-    selectCommitsOfCurrentBranch: '*'
+    selectCommitsOfCurrentBranch: "*"
   amendAttribute:
     resetAuthor: a
     setAuthor: A

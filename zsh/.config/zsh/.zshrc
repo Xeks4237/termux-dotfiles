@@ -141,7 +141,7 @@ HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
 # Variable which sets style for command typo correction menu of zsh
-SPROMPT="%F{#B4BEFE}zsh:%f %F{#F9E2AF}correct %f%F{#F38BA8}%R%f%F{#F9E2AF} to %f%F{#A6E3A1}%r%f%F{#F9E2AF}? [%f%F{#F38BA8}n%f%F{#A6E3A1}y%f%F{#FAB387}a%f%F{#89B4FA}e%f%F{#F9E2AF}]:%f"
+SPROMPT="%F{003}Correct %f%F{001}%R%f%F{003} to %f%F{002}%r%f%F{003}? [%f%F{001}n%f%F{002}y%f%F{001}a%f%F{004}e%f%F{003}]:%f"
 
 # Variable which sets indentation for right side of prompt relative to terminal border
 ZLE_RPROMPT_INDENT=0

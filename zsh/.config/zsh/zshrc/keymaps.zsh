@@ -40,7 +40,7 @@ bindkey -M vicmd '^[[4~' end-of-line
 export TERMUX_WAKE_LOCK_STATE_FILE="$XDG_DATA_HOME/termux/termux_wake_lock_state_file"
 # Function to do logic related to wakelock
 termux_wake_lock_toggle() {
-	local termux_wake_lock_state=$(cat $TERMUX_WAKE_LOCK_STATE_FILE)
+	local termux_wake_lock_state="$(cat $TERMUX_WAKE_LOCK_STATE_FILE)"
 	if [[ $termux_wake_lock_state == 0 ]]; then
 		termux-wake-lock
 		zle -M 'WakeLock Acquired  '
@@ -53,6 +53,7 @@ termux_wake_lock_toggle() {
 }
 # Make zle widget from function
 zle -N termux_wake_lock_toggle
-# Bind this widget to 'Ctrl h'
-bindkey '^h' termux_wake_lock_toggle
+
+# Bind this widget to ctrl h
+bindkey '' termux_wake_lock_toggle
 

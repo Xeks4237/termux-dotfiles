@@ -1,21 +1,6 @@
-#!/usr/bin/env zsh
-# NOTE: Shebang line isn't needed here, But I anyway added it for fun
+# INFO: This file is sourced by every instance of zsh
 
-# Order in which zsh sources its config files: .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
-# This file is sources before everything by every instance of zsh, even by shell scripts
-# Except instance of zsh runned through '/usr/bin/sh' symlink
-# because then zsh runns in POSIX compilant 'Bourne Shell' like mode where it doesn't sources this file
-# INFO: For more about zsh see 'zshall' mandoc page
-
-# NOTE: So you should put here stuff like environment variables which are should be set EVERYWHERE
-
-# [ Environment Variables generally needed ]
-# Path
-export PATH="$PREFIX/bin/:$CARGO_HOME/bin/:$XDG_BIN_HOME"
-
-# Variable which sets Locale/Language of system and tools
-export LANG='en_US.UTF-8'
-
+# [ Environment Variables ]
 # XDG configurations directory
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config/}"
 
@@ -31,17 +16,26 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state/}"
 # XDG cache directory
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache/}"
 
+# XDG runtime directory
+export XDG_RUNTIME_DIR="$TMPDIR"
+
+# Path
+# NOTE: $PREFIX/bin/ should always be at the start of path,
+# $XDG_BIN_HOME should always be and the end of path
+export PATH="$PREFIX/bin/:$CARGO_HOME/bin/:$XDG_BIN_HOME"
+
+# Variable which sets Locale/Language of system and tools
+export LANG='en_US.UTF-8'
+
 # Set default editor which gonna be used by other apps
 export EDITOR="$PREFIX/bin/nvim"
 export VISUAL="$PREFIX/bin/nvim"
 
-# [ Environment Variables for Zsh ]
 # Directory where files for zsh is present
 # NOTE: If this variable is set then zsh gonna look for files like
 # .zshrc, .zprofile and etc in $ZDOTDIR instead of $HOME directory
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/"
 
-# [ Environment Variables for external tools ]
 # Variable which sets directory for gnupg
 export GNUPGHOME="$XDG_DATA_HOME/gnupg/"
 
@@ -55,7 +49,7 @@ export WINEPREFIX="$XDG_DATA_HOME/wine/"
 export CARGO_HOME="$XDG_DATA_HOME/cargo/"
 
 # Variable which sets location for per user go directory
-export GOPATH="$XDG_DATA_HOME/go"
+export GOPATH="$XDG_DATA_HOME/go/"
 
 # Variables which set location for per user npm init module
 export NPM_CONFIG_INIT_MODULE="${XDG_CONFIG_HOME:-$HOME/.config/}/npm/config/npm-init.js"
@@ -69,9 +63,6 @@ export npm_config_cache="$NPM_CONFIG_CACHE"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config/}/npm/npmrc"
 export npm_config_userconfig="$NPM_CONFIG_USERCONFIG"
 
-# Variable used by fzf to define flags/options used by default
+# Variable which sets path to the config file for fzf
 # NOTE: fzf-tab plugin for zsh uses it too if enabled
 export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}/fzf/config"
-
-# Variable which sets location of searxng config file
-export SEARXNG_SETTINGS_PATH="${XDG_CONFIG_HOME:-$HOME/.config/}/searxng/settings.yml"

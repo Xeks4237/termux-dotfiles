@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 # NOTE: Shebang line isn't needed here, But I anyway added it for fun
 
 # NOTE: This file is sourced in '.zshrc'
@@ -61,8 +61,8 @@ zstyle ':fzf-tab:*' popup-smart-tab yes
 zstyle ':fzf-tab:complete:(-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'print ${(P)word}'
 
 # Preview for actual command completions using smart ways
-zstyle ':fzf-tab:complete:-command-:*' fzf-preview '(out=$(tldr --color always "$word") 2>/dev/null && print $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" | bat -pP --theme="Catppuccin Mocha" --color=always --language=Manpage) 2>/dev/null && print $out) || (out=$(which "$word") && print $out) || print "${(P)word}"'
+zstyle ':fzf-tab:complete:-command-:*' fzf-preview '(out=$(tldr --color always "$word") 2>/dev/null && print $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" | bat -pP --color=always --language=Manpage) 2>/dev/null && print $out) || (out=$(which "$word") && print $out) || print "${(P)word}"'
 
 # Custom zstyle for using eza for directories and bat for files in fzf-tab
-zstyle ':fzf-tab:complete:(cd|ls|mv|rm|ln|touch|bat|eza|nvim|vim|cat):*' fzf-preview 'bat --tabs=4 --wrap=character --color=always --decorations=auto --paging=never --theme=Catppuccin\ Mocha --theme-dark=Catppuccin\ Mocha --theme-light=Catppuccin\ Latte --strip-ansi=auto --style=changes $realpath 2>/dev/null || eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name $realpath'
+zstyle ':fzf-tab:complete:(cd|ls|mv|rm|ln|touch|bat|eza|nvim|vim|cat):*' fzf-preview 'bat --tabs=4 --wrap=character --color=always --decorations=auto --paging=never --strip-ansi=auto --style=changes $realpath 2>/dev/null || eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name $realpath'
 

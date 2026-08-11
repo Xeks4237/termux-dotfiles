@@ -26,7 +26,7 @@
 --header-label ''
 --header-label-pos 4:top
 --preview 'bat --tabs=2 --wrap=character --color=always --decorations=never --paging=never --strip-ansi=always --style=changes {} 2>/dev/null || eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name {} 2>/dev/null || print {}'
---preview-window 'right:50%:border-bold'
+--preview-window 'hidden:right:50%:border-bold'
 --preview-border bold
 --preview-label ''
 --preview-label-pos center:top

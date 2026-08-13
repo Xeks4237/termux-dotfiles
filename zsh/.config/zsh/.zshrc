@@ -2,24 +2,24 @@
 
 # [ Environment variables ]
 # Path
-PATH="$PREFIX/bin/:$CARGO_HOME/bin/:$XDG_BIN_HOME"
+typeset -gx PATH="$PREFIX/bin/:$CARGO_HOME/bin/:$XDG_BIN_HOME"
 
 # Variable which sets history file of zsh
-HISTFILE="$ZDOTDIR/.zsh_history"
+typeset -gx HISTFILE="$ZDOTDIR/.zsh_history"
 
 # Variable which sets max length of history and history file
-HISTSIZE=10000
-SAVEHIST=$HISTSIZE
+typeset -gx HISTSIZE=10000
+typeset -gx SAVEHIST=$HISTSIZE
 
-# Customize command typo
-SPROMPT="%F{003}Correct %f%F{001}%R%f%F{003} to %f%F{002}%r%f%F{003}? [%f%F{001}n%f%F{002}y%f%F{001}a%f%F{004}e%f%F{003}]:%f"
+# Customize The prompt used for spelling correction
+typeset -gx SPROMPT="%F{003}Correct %f%F{001}%R%f%F{003} to %f%F{002}%r%f%F{003}? [%f%F{001}n%f%F{002}y%f%F{001}a%f%F{004}e%f%F{003}]:%f"
 
-ZLE_RPROMPT_INDENT=0
+# Variable which sets indentation of prompts right side from window border
+typeset -gx ZLE_RPROMPT_INDENT=0
 
-# NOTE: I hate adding "etc" like sections >:(
 # [ Section for random shi... small pieces of code ]
 # Snippet which bootstraps zinit
-ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+typeset -gx ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 [[ ! -d $ZINIT_HOME ]] && mkdir -p "$(dirname $ZINIT_HOME)"
 [[ ! -d $ZINIT_HOME/.git ]] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "$ZINIT_HOME/zinit.zsh"
@@ -35,13 +35,7 @@ autoload -Uz add-zsh-hook \
 # Initialize completion and prompt system
 compinit; promptinit
 
-# Command to add fzf integration to zsh
-# TODO: Change it to tv later
-eval "$(fzf --zsh)"
-
 # Zinit commands to install zsh plugins
-zinit light 'Aloxaf/fzf-tab'
-zinit light 'Freed-Wu/fzf-tab-source'
 zinit light 'zsh-users/zsh-completions'
 zinit light 'zsh-users/zsh-autosuggestions'
 zinit light 'zdharma-continuum/fast-syntax-highlighting'
@@ -297,24 +291,19 @@ zstyle ':fzf-tab:complete:(cd|ls|mv|rm|ln|touch|bat|eza|nvim|cat):*' fzf-preview
 # Enable vi style keymaps
 # Same thing as overwriting main mode with keymaps of viins mode using
 # this command: bindkey -N main viins
-bindkey -N main viins
-# bindkey -v
+bindkey -v
 
 # Sets Home key to move cursor to the beginning of line in current main mode
-bindkey -M main '^[[1~' beginning-of-line
-# Same thing but for vi normal modes
-bindkey -M vicmd '^[[1~' beginning-of-line
+bindkey '^[[1~' beginning-of-line
 
 # Sets End key to move cursor to the beginning of line in current main mode
-bindkey -M main '^[[4~' end-of-line
-# Same thing but for vi normal mode
-bindkey -M vicmd '^[[4~' end-of-line
+bindkey '^[[4~' end-of-line
 
 # Makes delete to properly delete 1 character after the cursor in viins mode
-bindkey -M viins '^[[3~' delete-char
+bindkey '^[[3~' delete-char
 
 # Makes backspace to work after returning to viins mode from normal mode
-bindkey -M viins '^?' backward-delete-char
+bindkey '^?' backward-delete-char
 
 # [ Aliases ]
 # Alias for ls

@@ -35,6 +35,9 @@ autoload -Uz add-zsh-hook \
 # Initialize completion and prompt system
 compinit; promptinit
 
+# Initialize shell integration of tv
+eval "$(tv init zsh)"
+
 # Zinit commands to install zsh plugins
 zinit light 'zsh-users/zsh-completions'
 zinit light 'zsh-users/zsh-autosuggestions'

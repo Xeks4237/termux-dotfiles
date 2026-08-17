@@ -46,7 +46,7 @@ zplug 'zsh-users/zsh-completions', as:plugin
 zplug 'zsh-users/zsh-autosuggestions', as:plugin
 zplug 'zdharma-continuum/fast-syntax-highlighting', as:plugin, hook-load:'fast-theme --quiet $ZDOTDIR/xeks.ini'
 # My own plugin, btw :3
-zplug 'Xeks4237/ZshGod', as:plugin, hook-load:'prompt zshgod --theme=flat --min-exectime=5'
+zplug 'Xeks4237/ZshGod', as:plugin, at:main, hook-load:'prompt zshgod --theme=flat --min-exectime=5'
 
 # Make sure plugins are installed/up-to-date
 if ! zplug check; then

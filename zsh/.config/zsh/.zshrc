@@ -12,18 +12,15 @@ typeset -gx HISTSIZE=10000
 typeset -gx SAVEHIST=$HISTSIZE
 
 # Customize The prompt used for spelling correction
-typeset -gx SPROMPT="%F{003}Correct %f%F{001}%R%f%F{003} to %f%F{002}%r%f%F{003}? [%f%F{001}n%f%F{002}y%f%F{001}a%f%F{004}e%f%F{003}]:%f"
+typeset -g SPROMPT="%F{003}Correct %f%F{001}%R%f%F{003} to %f%F{002}%r%f%F{003}? [%f%F{001}n%f%F{002}y%f%F{001}a%f%F{004}e%f%F{003}]:%f"
 
 # Variable which sets indentation of prompts right side from window border
-typeset -gx ZLE_RPROMPT_INDENT=0
+typeset -g ZLE_RPROMPT_INDENT=0
+
+# Variable which sets home directory of zplug plugin manager for zsh
+typeset -gx ZPLUG_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zplug/"
 
 # [ Section for random shi... small pieces of code ]
-# Snippet which bootstraps zinit
-typeset -gx ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
-[[ ! -d $ZINIT_HOME ]] && mkdir -p "$(dirname $ZINIT_HOME)"
-[[ ! -d $ZINIT_HOME/.git ]] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "$ZINIT_HOME/zinit.zsh"
-
 # Autoload zsh functions/tools/featues
 autoload -Uz add-zsh-hook \
 	colors \
@@ -38,17 +35,26 @@ compinit; promptinit
 # Initialize shell integration of tv
 eval "$(tv init zsh)"
 
-# Zinit commands to install zsh plugins
-zinit light 'zsh-users/zsh-completions'
-zinit light 'zsh-users/zsh-autosuggestions'
-zinit light 'zdharma-continuum/fast-syntax-highlighting'
-zinit light 'Xeks4237/ZshGod'
+# Snippet which bootstraps zplug if not already present
+[[ ! -d $ZPLUG_HOME ]] && mkdir -p "$(dirname $ZPLUG_HOME)"
+[[ ! -d $ZPLUG_HOME/.git ]] && git clone --depth=1 https://github.com/zplug/zplug.git "$ZPLUG_HOME"
+source "$ZPLUG_HOME/init.zsh"
 
-# Choose my custom fast syntax highlighting config
-fast-theme --quiet $ZDOTDIR/xeks.ini
+# Zplug commands to install zsh plugins with extra settings
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'zsh-users/zsh-completions', as:plugin
+zplug 'zsh-users/zsh-autosuggestions', as:plugin
+zplug 'zdharma-continuum/fast-syntax-highlighting', as:plugin, hook-load:'fast-theme --quiet $ZDOTDIR/xeks.ini'
+# My own plugin, btw :3
+zplug 'Xeks4237/ZshGod', as:plugin, hook-load:'prompt zshgod --theme=flat --min-exectime=5'
 
-# Choose the theme of zsh prompt, sets it to my own plugin btw :]
-prompt zshgod --theme=flat --min-exectime=5
+# Make sure plugins are installed/up-to-date
+if ! zplug check; then
+	zplug install
+fi
+
+# Load zplug plugins
+zplug load
 
 # [ Shell options ]
 # NOTE: Yes I love zsh enough to ACTUALLY read ALL zsh manpages fully
@@ -242,53 +248,6 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 
 # Enables completions menu of zsh and makes it to have selectable entries
 zstyle ':completion:*' menu select
-
-# Make fzf-tab to use tmux popup
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-
-# Extra fzf flags for fzf-tab if needed
-# zstyle ':fzf-tab:*' fzf-flags ''
-
-# How many lines does fzf's prompt occupies
-# NOTE: Set it to 4 if you use '--border' flag for fzf
-zstyle ':fzf-tab:*' fzf-pad 2
-
-# Define minimal height for fzf-tab when using fzf instead of tmux popup
-zstyle ':fzf-tab:*' fzf-min-height 30
-
-# It specifies the key to accept and run a suggestion in one keystroke
-# zstyle ':fzf-tab:*' accept-line alt-enter
-
-# Set key to autocomplete and continue completing
-zstyle ':fzf-tab:*' continuous-trigger '/'
-
-# Set key to use already written output as final completion
-zstyle ':fzf-tab:*' print-query alt-enter
-
-# Specifies keys to switch completions group of fzf-tab
-# zstyle ':fzf-tab:*' switch-group F1 F2
-
-# The strategy for generating query string
-zstyle ':fzf-tab:*' query-string prefix input first
-
-# Makes fzf-tab plugin to use default fzf options variables
-# Some options can break plugin
-zstyle ':fzf-tab:*' use-fzf-default-opts yes
-
-# Define size for fzf-tab's tmux popup
-zstyle ':fzf-tab:*' popup-min-size 60 30
-
-# Enbale smart tab feature of fzf-tab, its enabled by default
-zstyle ':fzf-tab:*' popup-smart-tab yes
-
-# Enable preview for values of environment variables while completing
-zstyle ':fzf-tab:complete:(-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'print ${(P)word}'
-
-# Preview for actual command completions using smart ways
-zstyle ':fzf-tab:complete:-command-:*' fzf-preview '(out=$(tldr --color always "$word") 2>/dev/null && print $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word" | bat -pP --color=always --language=Manpage) 2>/dev/null && print $out) || (out=$(which "$word") && print $out) || print "${(P)word}"'
-
-# Custom zstyle for using eza for directories and bat for files in fzf-tab
-zstyle ':fzf-tab:complete:(cd|ls|mv|rm|ln|touch|bat|eza|nvim|cat):*' fzf-preview 'bat --tabs=4 --wrap=character --color=always --decorations=auto --paging=never --strip-ansi=auto --style=changes $realpath 2>/dev/null || eza --width=1 --across --almost-all --classify=always --color=always --grid --group-directories-first --icons=always --level=1 --sort=Name $realpath'
 
 # [ Keymaps ]
 # Enable vi style keymaps

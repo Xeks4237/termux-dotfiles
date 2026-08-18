@@ -62,7 +62,3 @@ export npm_config_cache="$NPM_CONFIG_CACHE"
 # Variables which set location for per user npmrc file
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config/}/npm/npmrc"
 export npm_config_userconfig="$NPM_CONFIG_USERCONFIG"
-
-# Variable which sets path to the config file for fzf
-# NOTE: fzf-tab plugin for zsh uses it too if enabled
-export FZF_DEFAULT_OPTS_FILE="${XDG_CONFIG_HOME:-$HOME/.config/}/fzf/config"

@@ -27,7 +27,7 @@ git clone --recurse-submodules https://codeberg.org/Xeks4237/termux-dotfiles.git
 Stow everything correctly, expect files for termux itself:
 
 ```sh
-stow --verbose=2 --adopt --dir=$HOME/.dotfiles/ --target=$HOME --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ searxng/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
+stow --verbose=2 --adopt --dir=$HOME/.dotfiles/ --target=$HOME --restow asciinema/ bat/ gh/ git/ htop/ lazygit/ nvim/ pip/ scripts/ stow/ tmux/ tv/ wget/ zsh/
 ```
 
 Commands to symlink dotfiles for termux, because stow don't allows to do it by security reasons:
@@ -41,5 +41,5 @@ cd ~ && ln -s .dotfiles/termux/.termux/ ~/.termux; ln -s ../.dotfiles/termux/.co
 After stowing everthing first time, everything can be restowed with this command, also it is no difference from where you run this command:
 
 ```sh
-stow --restow bat/ csol/ fzf/ gh/ git/ htop/ lazygit/ nano/ nodejs/ nvim/ pip/ scripts/ searxng/ stow/ thunar/ tmux/ vitetris/ wget/ xfce4/ zsh/
+stow --restow asciinema/ bat/ gh/ git/ htop/ lazygit/ nvim/ pip/ scripts/ stow/ tmux/ tv/ wget/ zsh/
 ```

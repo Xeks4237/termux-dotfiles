@@ -14,3 +14,10 @@ cd ~/git/zshgod/
 git status --short
 print -P '%F{green}Pushing zshgod...%f'
 git push origin main
+
+print ''
+print -P '%F{green}Zflex:%f'
+cd ~/git/zflex/
+git status --short
+print -P '%F{green}Pushing zflex...%f'
+git push origin main

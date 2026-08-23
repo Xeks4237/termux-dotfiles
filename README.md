@@ -4,24 +4,16 @@ Noting Special to see here
 
 My dotfiles of my android phone because I love to install custom roms on my phone and it's takes time to copy paste configs for tools to make tests
 
-This repo is hosted on [codeberg](https://codeberg.org/Xeks4237/termux-dotfiles) with mirrors of it being on [gitlab](https://gitlab.com/Xeks4237/termux-dotfiles) and [github](https://github.com/Xeks4237/termux-dotfiles)
-
-Also my NeoVim config is the seperate project cold [NV-GOD](https://codeberg.org/Xeks4237/NV-GOD)
+This repo is hosted on [codeberg](https://codeberg.org/xeks4237/dotfiles) with read and write mirror of it on [github](https://github.com/xeks4237/dotfiles)
 
 # How to add/install dotfiles
 
 ⚠️ WARNING: If you want to try my dotfies please recheck everthing begore doing anything, Commands belove can overwrite existing files
 
-Clone dotfiles without NeoVim config using git:
+Clone dotfiles using git:
 
 ```sh
-git clone https://codeberg.org/Xeks4237/termux-dotfiles.git ~/.dotfiles/
-```
-
-Clone dotfiles with NeoVim config using git:
-
-```sh
-git clone --recurse-submodules https://codeberg.org/Xeks4237/termux-dotfiles.git ~/.dotfiles/
+git clone https://codeberg.org/xeks4237/dotfiles.git ~/.dotfiles/
 ```
 
 Stow everything correctly, expect files for termux itself:

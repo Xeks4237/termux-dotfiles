@@ -1,0 +1,6 @@
+# Lock file of nvim's plugin manager, it is not needed to be tracked
+nvim-pack-lock.json
+
+# .conform files are used by conform plugin in moments when it processes formatting on file(s) 
+# NOTE: Added it here to ensure I don't accidentally stack it when fast working 
+.conform.*

@@ -35,26 +35,23 @@ compinit; promptinit
 # Initialize shell integration of tv
 eval "$(tv init zsh)"
 
-# Snippet which bootstraps zplug if not already present
-[[ ! -d $ZPLUG_HOME ]] && mkdir -p "$(dirname $ZPLUG_HOME)"
-[[ ! -d $ZPLUG_HOME/.git ]] && git clone --depth=1 https://github.com/zplug/zplug.git "$ZPLUG_HOME"
-source "$ZPLUG_HOME/init.zsh"
+# Source plugin manager based on: https://github.com/mattmc3/zsh_unplugged
+source "${ZDOTDIR:-${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/}/plugin-manager.zsh"
 
-# Zplug commands to install zsh plugins with extra settings
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug 'zsh-users/zsh-completions', as:plugin
-zplug 'zsh-users/zsh-autosuggestions', as:plugin
-zplug 'zdharma-continuum/fast-syntax-highlighting', as:plugin, hook-load:'fast-theme --quiet $ZDOTDIR/xeks.ini'
+# Clone plugins
+plugin-clone 'zsh-users/zsh-completions' \
+	'zsh-users/zsh-autosuggestions' \
+	'zdharma-continuum/fast-syntax-highlighting' \
+	'xeks4237/zshgod'
+
+# Run simple zcompile/zrecompile of basic parts of plugins
+plugin-compile
+
+# Source plugins accordingly
+plugin-source 'zsh-completions' 'zsh-autosuggestions'
+plugin-source 'fast-syntax-highlighting' && fast-theme --quiet "${ZDOTDIR:-${XDG_CONFIG_HOME:-$HOME/.config/}/zsh/}/fsh_custom-theme.ini"
 # My own plugin, btw :3
-zplug 'Xeks4237/ZshGod', as:plugin, at:main, hook-load:'prompt zshgod --theme=flat --min-exectime=5'
-
-# Make sure plugins are installed/up-to-date
-if ! zplug check; then
-	zplug install
-fi
-
-# Load zplug plugins
-zplug load
+plugin-source 'zshgod' && prompt zshgod --theme=flat --min-exectime=5
 
 # [ Shell options ]
 # NOTE: Yes I love zsh enough to ACTUALLY read ALL zsh manpages fully

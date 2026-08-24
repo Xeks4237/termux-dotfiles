@@ -26,8 +26,8 @@ hosts.yml
 # Symlink to the shell made by termux
 shell
 
-# Directory with tmux plugins
-tmux/.config/tmux/plugins/
+# "plugins" directories, used by stuff like tmux and zsh in my case
+plugins/
 
 # Command history file of tmux
 command-history
